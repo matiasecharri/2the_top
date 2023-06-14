@@ -29,7 +29,6 @@ const numberFilterForEach = (array) => {
 const allDone = numberFilterForEach(randomNumbers);
 console.log(allDone);
 
-///--------------------------------------------------
 const numberFilterFilter = (array) => {
   const evenNumbers = array.filter((x) => x % 2 === 0);
   const oddNumbers = array.filter((x) => x % 2 !== 0);
@@ -42,8 +41,19 @@ console.log(evenNumbers);
 const oddNumbers = numberFilterFilter(randomNumbers).oddNumbers;
 console.log(oddNumbers);
 
+//Vocal Counter
 
+const vocalCounter = (palabra) => {
+  const vocales = ["a", "e", "i", "o", "u"];
+  let cuentaVocales = 0;
+  for (let i = 0; i < palabra.length; i++) {
+    const caracter = palabra[i].toLowerCase();
+    if(vocales.includes(caracter)){
+        cuentaVocales ++
+    }
+  }
 
+  return cuentaVocales;
+};
 
-
-
+console.log(vocalCounter("holaaaaaaaaaaa"));
