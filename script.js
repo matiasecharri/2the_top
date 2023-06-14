@@ -43,20 +43,12 @@ console.log(oddNumbers);
 
 //Vocal Counter
 
-const vocalCounter = (palabra) => {
-  const vocales = ["a", "e", "i", "o", "u"];
-  let cuentaVocales = 0;
-  for (let i = 0; i < palabra.length; i++) {
-    const caracter = palabra[i].toLowerCase();
-    if(vocales.includes(caracter)){
-        cuentaVocales ++
-    }
-  }
 
-  return cuentaVocales;
-};
+//ARRAY DE VOCALES, PALABRA A CONTAR, LOOP, 
+const vocalCounter = (word) =>{
 
-console.log(vocalCounter("holaaaaaaaaaaa"));
+}
+vocalCounter()
 
 
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
