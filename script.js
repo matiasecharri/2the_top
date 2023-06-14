@@ -57,3 +57,24 @@ const vocalCounter = (palabra) => {
 };
 
 console.log(vocalCounter("holaaaaaaaaaaa"));
+
+
+// Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
+
+// Contar vocales: Escribe una función que reciba una cadena de texto y devuelva el número de vocales que contiene.
+
+// Suma de múltiplos: Escribe una función que reciba un número y calcule la suma de todos los múltiplos de 3 y 5 que sean menores que ese número.
+
+// Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
+
+// Verificar palíndromo: Escribe una función que reciba una cadena de texto y determine si es un palíndromo (se lee igual de izquierda a derecha y de derecha a izquierda).
+
+// Calcular factorial: Escribe una función que reciba un número y calcule su factorial (el producto de todos los números enteros positivos desde 1 hasta ese número).
+
+// Eliminar duplicados: Escribe una función que reciba un array y elimine los elementos duplicados, devolviendo un nuevo array sin duplicados.
+
+// Comprobar número primo: Escribe una función que reciba un número y determine si es un número primo (es divisible únicamente por 1 y por sí mismo).
+
+// Contar palabras: Escribe una función que reciba una cadena de texto y devuelva el número de palabras que contiene.
+
+// Ordenar números: Escribe una función que reciba un array de números y devuelva un nuevo array con los números ordenados de menor a mayor.
