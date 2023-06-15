@@ -43,17 +43,34 @@ console.log(oddNumbers);
 
 //Vocal Counter
 
-
-//ARRAY DE VOCALES, PALABRA A CONTAR, LOOP, 
-const vocalCounter = (word) =>{
-
-}
-vocalCounter()
-
+//ARRAY DE VOCALES, PALABRA A CONTAR, LOOP, CONTADOR DE LETRAS
+const vocalCounter = (word) => {
+  const vocales = ["a", "e", "i", "o", "u"];
+  let letterCounter = 0;
+  for (let i = 0; i < word.length; i++) {
+    const caracter = word[i];
+    if (vocales.includes(caracter.toLowerCase())) {
+      letterCounter++;
+    }
+  }
+  return letterCounter;
+};
+console.log(vocalCounter("Saludos"));
 
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
+//Necesito un array, un recorrido, un array a clasificar
+// const numerosArray = [8, 5, 10, 11, 45654];
 
-// Contar vocales: Escribe una función que reciba una cadena de texto y devuelva el número de vocales que contiene.
+const numerosArray = [8, 5, 10, 11, 45654, 789, 45646, 121, 2456464];
+
+const theBigNumber = (arrayDeNumeros) => {
+  const arrayOrdenado = arrayDeNumeros.sort((a, b) => b - a);
+  let bigNumber = arrayOrdenado[0];
+  return bigNumber;
+};
+console.log("DIVISOR, USTED ESTA AQUI");
+const finalNumber = theBigNumber(numerosArray);
+console.log(finalNumber);
 
 // Suma de múltiplos: Escribe una función que reciba un número y calcule la suma de todos los múltiplos de 3 y 5 que sean menores que ese número.
 
