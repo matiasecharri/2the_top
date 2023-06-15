@@ -98,6 +98,20 @@ console.log(nuevoArray);
 let nuevaCadena = array.join(" ")
 console.log(nuevaCadena)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Verificar palíndromo: Escribe una función que reciba una cadena de texto y determine si es un palíndromo (se lee igual de izquierda a derecha y de derecha a izquierda).
 
 // Calcular factorial: Escribe una función que reciba un número y calcule su factorial (el producto de todos los números enteros positivos desde 1 hasta ese número).
