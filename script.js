@@ -75,43 +75,6 @@ console.log(finalNumber);
 // Suma de múltiplos: Escribe una función que reciba un número y calcule la suma de todos los múltiplos de 3 y 5 que sean menores que ese número.
 
 // Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
-let textoOriginal = "THATS WHAT SHE SAID";
-function reverseString(texto) {
-  const arreglo = texto.split("");
-  console.log(arreglo);
-  const arregloInvertido = arreglo.reverse();
-  console.log(arregloInvertido);
-  const textoInvertido = arregloInvertido.join("");
-  console.log(textoInvertido);
-  return textoInvertido;
-}
-
-const textoReverso = reverseString(textoOriginal);
-const array = ['manzana', 'pera', 'uva', 'Este', 'es', 'un', 'ejemplo'];
-let cadena = array.join(" ");
-console.log(cadena);
-
-let nuevoArray = cadena.split(" ");
-console.log(nuevoArray);
-
-let nuevaCadena = array.join(" ")
-console.log(nuevaCadena)
-
-
-
-
-console.log("------------------------------------------------")
-let michaelQuote = "WHERE ARE THE TURTLES?"
-console.log(michaelQuote)
-console.log("------------------------------------------------")
-let arrayMichael = michaelQuote.split("")
-arrayMichael.reverse()
-console.log(arrayMichael)
-console.log("------------------------------------------------")
-let tortugasAlReves = arrayMichael.join("")
-console.log(tortugasAlReves)
-
-
 
 
 
@@ -124,6 +87,7 @@ console.log(tortugasAlReves)
 // Calcular factorial: Escribe una función que reciba un número y calcule su factorial (el producto de todos los números enteros positivos desde 1 hasta ese número).
 
 // Eliminar duplicados: Escribe una función que reciba un array y elimine los elementos duplicados, devolviendo un nuevo array sin duplicados.
+//new Set
 
 // Comprobar número primo: Escribe una función que reciba un número y determine si es un número primo (es divisible únicamente por 1 y por sí mismo).
 
