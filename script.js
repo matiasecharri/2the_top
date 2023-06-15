@@ -75,6 +75,19 @@ console.log(finalNumber);
 // Suma de múltiplos: Escribe una función que reciba un número y calcule la suma de todos los múltiplos de 3 y 5 que sean menores que ese número.
 
 // Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
+const textoOriginal = "THATS WHAT SHE SAID";
+function reverseString(texto) {
+  const arreglo = texto.split("");
+  console.log(arreglo);
+  const arregloInvertido = arreglo.reverse();
+  console.log(arregloInvertido);
+  const textoInvertido = arregloInvertido.join("");
+  console.log(textoInvertido);
+  return textoInvertido;
+}
+
+const textoReverso = reverseString(textoOriginal);
+
 
 // Verificar palíndromo: Escribe una función que reciba una cadena de texto y determine si es un palíndromo (se lee igual de izquierda a derecha y de derecha a izquierda).
 
