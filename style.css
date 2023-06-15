@@ -1,0 +1,29 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(24, 23, 23);
+  height: 100vh;
+}
+img{
+    margin-left: 4px;
+}
+p {
+  color: rgb(203, 203, 203);
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+p span {
+  color: rgb(255, 226, 3);
+  font-weight: lighter;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 100;
+}
