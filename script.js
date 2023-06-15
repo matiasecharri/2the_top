@@ -101,8 +101,16 @@ console.log(nuevaCadena)
 
 
 
-
-
+console.log("------------------------------------------------")
+let michaelQuote = "WHERE ARE THE TURTLES?"
+console.log(michaelQuote)
+console.log("------------------------------------------------")
+let arrayMichael = michaelQuote.split("")
+arrayMichael.reverse()
+console.log(arrayMichael)
+console.log("------------------------------------------------")
+let tortugasAlReves = arrayMichael.join("")
+console.log(tortugasAlReves)
 
 
 
