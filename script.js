@@ -12,65 +12,31 @@ const randomNumbers = [
   21, 14, 35, 2, 27, 18, 33, 22, 37,
 ];
 
-const numberFilterForEach = (array) => {
-  const numberContainer = {
-    evenNumbers: [],
-    oddNumbers: [],
+const numberClasifier = (array) => {
+  const oddNumbers = [];
+  const evenNumbers = [];
+  const numberPackager = {
+    oddNumbers,
+    evenNumbers,
   };
   array.forEach((x) => {
     if (x % 2 === 0) {
-      numberContainer.evenNumbers.push(x);
-    } else {
-      numberContainer.oddNumbers.push(x);
+      evenNumbers.push(x);
+    }
+    if (x % 2 !== 0) {
+      oddNumbers.push(x);
     }
   });
-  return numberContainer;
+  return numberPackager;
 };
-const allDone = numberFilterForEach(randomNumbers);
-console.log(allDone);
-
-const numberFilterFilter = (array) => {
-  const evenNumbers = array.filter((x) => x % 2 === 0);
-  const oddNumbers = array.filter((x) => x % 2 !== 0);
-
-  return { evenNumbers, oddNumbers };
-};
-
-const evenNumbers = numberFilterFilter(randomNumbers).evenNumbers;
-console.log(evenNumbers);
-const oddNumbers = numberFilterFilter(randomNumbers).oddNumbers;
-console.log(oddNumbers);
+console.log(numberClasifier(randomNumbers))
 
 //Vocal Counter
-
 //ARRAY DE VOCALES, PALABRA A CONTAR, LOOP, CONTADOR DE LETRAS
-const vocalCounter = (word) => {
-  const vocales = ["a", "e", "i", "o", "u"];
-  let letterCounter = 0;
-  for (let i = 0; i < word.length; i++) {
-    const caracter = word[i];
-    if (vocales.includes(caracter.toLowerCase())) {
-      letterCounter++;
-    }
-  }
-  return letterCounter;
-};
-console.log(vocalCounter("supercalifragilisticoespialidoso"));
 
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
 //Necesito un array, un recorrido, un array a clasificar
 // const numerosArray = [8, 5, 10, 11, 45654];
-
-const numerosArray = [8, 5, 10, 11, 45654, 789, 45646, 121, 2456464];
-
-const theBigNumber = (arrayDeNumeros) => {
-  const arrayOrdenado = arrayDeNumeros.sort((a, b) => b - a);
-  let bigNumber = arrayOrdenado[0];
-  return bigNumber;
-};
-console.log("DIVISOR, USTED ESTA AQUI");
-const finalNumber = theBigNumber(numerosArray);
-console.log(finalNumber);
 
 // Suma de múltiplos: Escribe una función que reciba un número y calcule la suma de todos los múltiplos de 3 y 5 que sean menores que ese número.
 
