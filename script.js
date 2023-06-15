@@ -55,7 +55,7 @@ const vocalCounter = (word) => {
   }
   return letterCounter;
 };
-console.log(vocalCounter("Saludos"));
+console.log(vocalCounter("supercalifragilisticoespialidoso"));
 
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
 //Necesito un array, un recorrido, un array a clasificar
@@ -87,7 +87,6 @@ function reverseString(texto) {
 }
 
 const textoReverso = reverseString(textoOriginal);
-
 const array = ['manzana', 'pera', 'uva', 'Este', 'es', 'un', 'ejemplo'];
 let cadena = array.join(" ");
 console.log(cadena);
