@@ -5,8 +5,7 @@ const pluser = (num1, num2) => {
 
 let resultado = pluser(85, 4);
 console.log("👇 This is the plus function");
-console.log(`Your result is ${resultado}.`)
-
+console.log(`Your result is ${resultado}.`);
 
 //EVEN & ODD, USING AN OBJECT TO RETURN 2 DIFFERENT ARRAYS ;)
 const randomNumbers = [
@@ -48,12 +47,18 @@ const vocalCounter = (word) => {
   return counterCount;
 };
 console.log("👇 This is the vocalCounter function");
-console.log(`Your word has: ${vocalCounter("pAAAasdn")} vocals.`)
-
+console.log(`Your word has: ${vocalCounter("pAAAasdn")} vocals.`);
 
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
 //Necesito un array, un recorrido, un array a clasificar
-// const numerosArray = [8, 5, 10, 11, 45654];
+const numerosArray = [8, 5, 10, 11, 45654];
+const bigFinder = (array) => {
+  const theBigOne = array.sort((a, b) => b - a);
+  const finalNumber = theBigOne[0]
+  return finalNumber
+};
+console.log("👇 This is the big number function");
+console.log(`The biggest number is: ${bigFinder(numerosArray)}.`);
 
 // Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
 
@@ -65,8 +70,9 @@ const reverseFlash = (text) => {
   return backToText;
 };
 console.log("👇 This is the string reverse function");
-console.log(`Your word/phrase BUT reversed is: ${reverseFlash(whereAreTheTurtles)}.`)
-
+console.log(
+  `Your word/phrase BUT reversed is: ${reverseFlash(whereAreTheTurtles)}.`
+);
 
 // Verificar palíndromo: Escribe una función que reciba una cadena de texto y determine si es un palíndromo (se lee igual de izquierda a derecha y de derecha a izquierda).
 
