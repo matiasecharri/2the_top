@@ -76,11 +76,14 @@ console.log(finalNumber);
 
 // Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
 
-
-
-
-
-
+let whereAreTheTurtles = "Where are the turtles?";
+const reverseFlash = (text) => {
+  let textToArray = text.split("");
+  let reversing = textToArray.reverse();
+  let backToText = reversing.join("");
+  return backToText;
+};
+console.log(reverseFlash(whereAreTheTurtles));
 
 // Verificar palíndromo: Escribe una función que reciba una cadena de texto y determine si es un palíndromo (se lee igual de izquierda a derecha y de derecha a izquierda).
 
