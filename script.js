@@ -1,4 +1,3 @@
-
 //ADD
 const pluser = (num1, num2) => {
   return num1 + num2;
@@ -55,8 +54,8 @@ console.log(`Your word has: ${vocalCounter("pAAAasdn")} vocals.`);
 const numerosArray = [8, 5, 10, 11, 45654];
 const bigFinder = (array) => {
   const theBigOne = array.sort((a, b) => b - a);
-  const finalNumber = theBigOne[0]
-  return finalNumber
+  const finalNumber = theBigOne[0];
+  return finalNumber;
 };
 console.log("👇 This is the big number function");
 console.log(`The biggest number is: ${bigFinder(numerosArray)}.`);
