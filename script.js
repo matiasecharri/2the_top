@@ -86,3 +86,27 @@ console.log(
 // Contar palabras: Escribe una función que reciba una cadena de texto y devuelva el número de palabras que contiene.
 
 // Ordenar números: Escribe una función que reciba un array de números y devuelva un nuevo array con los números ordenados de menor a mayor.
+
+//Habbo bebe
+
+const habboBebe = (word) => {
+  let palabraTransformada = word.split("");
+  arrayHabbo = palabraTransformada.map((x) => {
+    if (x === "o") {
+      return "u";
+    } else if (x === "l") {
+      return "d";
+    } else {
+      return x;
+    }
+  });
+  let arrayFiltrado = arrayHabbo.filter((x) => {
+    if (x !== "h") {
+      return x;
+    }
+  });
+  let habboBebeWord = arrayFiltrado.join("");
+  return habboBebeWord;
+};
+
+console.log(habboBebe("hola"));
