@@ -88,7 +88,7 @@ console.log(
 // Ordenar números: Escribe una función que reciba un array de números y devuelva un nuevo array con los números ordenados de menor a mayor.
 
 //Habbo bebe
-
+console.log("👇 This is the Habbo translator function");
 const habboBebe = (word) => {
   let palabraTransformada = word.toLowerCase().split("");
   arrayHabbo = palabraTransformada.map((x) => {
