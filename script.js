@@ -109,4 +109,30 @@ const habboBebe = (word) => {
   return habboBebeWord;
 };
 
-alert(`Habrá querido decir: ${habboBebe(prompt())}`);
+// alert(`Habrá querido decir: ${habboBebe(prompt())}`);
+
+const toby = {
+  name: "Toby",
+  lastName: "Flenderson",
+  age: 41,
+  hobbies: ["Being a boring person", "Anti-fun", "Silence"],
+  married: false,
+  contact: {
+    email: "tobydundermifflin@gmail.com",
+    twitter: "@tobyflender",
+    movil: null,
+  },
+  getFired: () => {
+    console.log("You are fired Toby");
+  },
+  identity: function () {
+    console.log(
+      `Hi my name is ${this.name} ${this.lastName} and this is my email :) ${
+        this.contact.email
+      } sometimes people say that Im ${this.hobbies[1].toLowerCase()} but I just enjoy the ${this.hobbies[2].toLowerCase()} :)`
+    );
+  },
+};
+
+toby.identity();
+
