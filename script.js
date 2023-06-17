@@ -90,7 +90,7 @@ console.log(
 //Habbo bebe
 
 const habboBebe = (word) => {
-  let palabraTransformada = word.split("");
+  let palabraTransformada = word.toLowerCase().split("");
   arrayHabbo = palabraTransformada.map((x) => {
     if (x === "o") {
       return "u";
@@ -109,4 +109,4 @@ const habboBebe = (word) => {
   return habboBebeWord;
 };
 
-console.log(habboBebe("hola"));
+alert(`Habrá querido decir: ${habboBebe(prompt())}`);
