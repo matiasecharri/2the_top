@@ -136,3 +136,4 @@ const toby = {
 
 toby.identity();
 
+console.log(Object.keys(toby))
