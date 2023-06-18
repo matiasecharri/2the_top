@@ -140,20 +140,30 @@
 
 //Re apply-of-concepts
 //Operations
-const operated = (num1, num2) => {
-  let plusing = num1 + num2;
-  let resting = num1 - num2;
-  let multiplying = num1 * num2;
-  let dividing = num1 / num2;
-  return (operationPackage = {
+const operationPackage = () => {
+  const plusing = (num1, num2) => {
+    return num1 + num2;
+  };
+  const resting = (num1, num2) => {
+    return num1 - num2;
+  };
+  const dividing = (num1, num2) => {
+    return num1 / num2;
+  };
+  const multiplying = (num1, num2) => {
+    return num1 + num2;
+  };
+
+  return {
     plusing,
     resting,
-    multiplying,
     dividing,
-  });
+    multiplying,
+  };
 };
 
-console.log(operated(10,2))
+const dividir = operationPackage().dividing;
+console.log(dividir(5, 5));
 
 //EVEN & ODD, USING AN OBJECT TO RETURN 2 DIFFERENT ARRAYS ;)
 //Vocal Counter
