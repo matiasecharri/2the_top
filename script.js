@@ -205,3 +205,10 @@ const theBigRupert = (array) => {
 
 console.log(theBigRupert(randomNumber));
 // Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
+
+const invertedVerted = (word) => {
+  const wordToArrayToReveseToStringAgain = word.split("").reverse().join("");
+  return wordToArrayToReveseToStringAgain;
+};
+
+console.log(invertedVerted("HOLA COMO VAS"));
