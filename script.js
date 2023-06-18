@@ -178,9 +178,22 @@ const evenAndOdd = (array) => {
     oddNumbers,
   };
 };
-console.log(evenAndOdd(randomNumber).evenNumbers)
+console.log(evenAndOdd(randomNumber).evenNumbers);
 //Vocal Counter
 //ARRAY DE VOCALES, PALABRA A CONTAR, LOOP, CONTADOR DE LETRAS
+const vocalCounter = (word) => {
+  const vocals = ["a", "e", "i", "o", "u"];
+  let counterCount2 = 0;
+  for (let i = 0; i < word.length; i++) {
+    let character = word[i].toLowerCase();
+    if (vocals.includes(character)) {
+      counterCount2++;
+    }
+  }
+  return counterCount2;
+};
+console.log(vocalCounter("Hola como va todo bien?"));
+
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
 //Necesito un array, un recorrido, un array a clasificar
 // Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
