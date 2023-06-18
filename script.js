@@ -137,3 +137,8 @@ const toby = {
 toby.identity();
 
 console.log(Object.keys(toby))
+
+
+
+
+//Re apply-of-concepts
