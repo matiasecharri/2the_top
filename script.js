@@ -109,7 +109,7 @@ const habboBebe = (word) => {
   return habboBebeWord;
 };
 
-// alert(`Habrá querido decir: ${habboBebe(prompt())}`);
+alert(`Habrá querido decir: ${habboBebe(prompt())}`);
 
 const toby = {
   name: "Toby",
