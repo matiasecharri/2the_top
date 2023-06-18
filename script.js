@@ -166,6 +166,19 @@ const dividir = operationPackage().dividing;
 console.log(dividir(5, 5));
 
 //EVEN & ODD, USING AN OBJECT TO RETURN 2 DIFFERENT ARRAYS ;)
+
+const randomNumber = [
+  47, 12, 83, 56, 29, 65, 91, 37, 74, 6, 42, 18, 87, 63, 51, 5, 92, 33, 78, 10,
+];
+const evenAndOdd = (array) => {
+  const evenNumbers = array.filter((x) => x % 2 === 0);
+  const oddNumbers = array.filter((x) => x % 2 !== 0);
+  return {
+    evenNumbers,
+    oddNumbers,
+  };
+};
+console.log(evenAndOdd(randomNumber).evenNumbers)
 //Vocal Counter
 //ARRAY DE VOCALES, PALABRA A CONTAR, LOOP, CONTADOR DE LETRAS
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
