@@ -196,4 +196,12 @@ console.log(vocalCounter("Hola como va todo bien?"));
 
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
 //Necesito un array, un recorrido, un array a clasificar
+
+const theBigRupert = (array) => {
+  const arrayOrdenado = array.sort((a, b) => b - a);
+  const theBigNumerIs = arrayOrdenado[0];
+  return theBigNumerIs;
+};
+
+console.log(theBigRupert(randomNumber));
 // Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
