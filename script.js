@@ -1,5 +1,5 @@
 //ADD
-const pluser = (num1, num2) => {
+/*const pluser = (num1, num2) => {
   return num1 + num2;
 };
 
@@ -136,4 +136,47 @@ const toby = {
 
 toby.identity();
 
-console.log(Object.keys(toby))
+console.log(Object.keys(toby))*/
+
+//soy judio me diga seguro usas kipa, si no soy judio que me diga vas bien y si soy nazi, que me diga cuidadito colorcito
+
+/*function popita() {
+  let religion = prompt("cual es tu religion?").toLowerCase();
+  if (religion === "judio") {
+    console.log("usas kipa");
+  } else if (religion === "nazi") {
+    console.log("cuidado colorcito");
+  } else if (religion.includes("k")) {
+    console.log("que religion maaaaaaaaaaas rara");
+  } else {
+    console.log("vas bien");
+  }
+}
+
+popita()*/
+
+//Quiero que la función pregunte el nombre de un personaje de the office, no importa si la persona lo escribe en mayúscula o minúscula. Si es michael, quiero que diga "where are the turtles", si es toby, quiero que diga "oh nooo ... noo good pls good nooooo", si es phyllis "angela se acostó con dwight", si es pam o jim, quiero que diga "michael quiere ser el amigo" y cualquier otro caso, "todavia no tenemos a ese personaje, perdón"
+//"Quiero que despues del console.log de where are the tturtles salga otro prompt y que le pregunte al usuario, de que color tiene el pelo michael. Si el usuario responde negro, que salga un console.log "veo que tus ojos funcionan bien" cualquier otra cosa, "me parece que usted es daltónico"
+
+function theOffice() {
+  let personaje = prompt("dime un personaje de la oficina").toLowerCase();
+  if (personaje === "michael") {
+    console.log("WHERE ARE THE TUUUUUUUURTLEEEEEEEEEEEEES");
+    let pelo = prompt("de que color tiene el pelo michael").toLowerCase();
+    if (pelo === "negro") {
+      console.log("veo que tus ojos funcionan bien");
+    } else {
+      console.log("me parece que estas daltónico, amigo");
+    }
+  } else if (personaje === "toby") {
+    console.log("NOOOOOOO GOOOOD ... NOOOO GOOD ... PLEASE ... NOOOOOOO");
+  } else if (personaje === "phyllis") {
+    console.log("ANGELA SE ACOSTÓ CON DWIGHT!");
+  } else if (personaje === "pam" || personaje === "jim") {
+    console.log("michael quiere ser el amigo");
+  } else {
+    console.log("todavia no tenemos a ese personaje, perdón");
+  }
+} 
+
+theOffice();
