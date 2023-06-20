@@ -136,4 +136,24 @@ const toby = {
 
 toby.identity();
 
-console.log(Object.keys(toby))
+console.log(Object.keys(toby));
+
+let edad = 17;
+let eresMayor = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
+console.log(eresMayor);
+
+let dia = 9;
+switch (dia) {
+  case 0:
+    console.log("Domingo");
+    break;
+  case 1:
+    console.log("Lunes");
+    break;
+  case 2:
+    console.log("Martes");
+    break;
+  default:
+    console.log("No tenemos ese día");
+    break;
+}
