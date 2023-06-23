@@ -142,7 +142,7 @@ let edad = 17;
 let eresMayor = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
 console.log(eresMayor);
 
-let dia = 9;
+let dia = 2;
 switch (dia) {
   case 0:
     console.log("Domingo");
@@ -156,4 +156,14 @@ switch (dia) {
   default:
     console.log("No tenemos ese día");
     break;
+}
+
+try {
+  let nombre1 = true;
+  if(typeof nombre1 !== "string"){
+    throw new Error("nombre1 needs to be a string")
+  }
+  console.log(nombre1)
+} catch (error) {
+  console.log(error)
 }
