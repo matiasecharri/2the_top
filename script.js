@@ -159,11 +159,12 @@ switch (dia) {
 }
 
 try {
-  let nombre1 = true;
-  if(typeof nombre1 !== "string"){
-    throw new Error("nombre1 needs to be a string")
+  let nombre1 = prompt();
+  if (!isNaN(nombre1)) {
+    alert("nombre1 needs to be a string");
+    throw new Error("nombre1 needs to be a string");
   }
-  console.log(nombre1)
+  console.log(nombre1);
 } catch (error) {
-  console.log(error)
+  console.log(error);
 }
