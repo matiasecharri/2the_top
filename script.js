@@ -390,7 +390,7 @@ console.log(arrayDePares)
 
 
 
-
+//REST OPERATOR
 const sumadorSerial = (num1, num2, ...num3) => {
 let resultado = num1+num2
 num3.forEach((x)=>{
@@ -400,3 +400,9 @@ return resultado
 }
 console.log(sumadorSerial(1,2,3,5, 4))
 
+//SPREAD OPERATOR
+const listaDeVerduras = ["zapallo", "tomate", "lechuga"]
+const listaDePostres = ["torta", "flan","gelatina"]
+const listaMezclada = [...listaDePostres, ...listaDeVerduras]
+
+console.log(listaMezclada)
