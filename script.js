@@ -88,6 +88,7 @@ console.log(
 // Ordenar números: Escribe una función que reciba un array de números y devuelva un nuevo array con los números ordenados de menor a mayor.
 
 //Habbo bebe
+/*
 console.log("👇 This is the Habbo translator function");
 const habboBebe = (word) => {
   let palabraTransformada = word.toLowerCase().split("");
@@ -142,7 +143,7 @@ let edad = 17;
 let eresMayor = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
 console.log(eresMayor);
 
-let dia = 9;
+let dia = 2;
 switch (dia) {
   case 0:
     console.log("Domingo");
@@ -157,3 +158,236 @@ switch (dia) {
     console.log("No tenemos ese día");
     break;
 }
+
+try {
+  let nombre1 = prompt();
+  if (!isNaN(nombre1)) {
+    alert("nombre1 needs to be a string");
+    throw new Error("nombre1 needs to be a string");
+  }
+  console.log(nombre1);
+} catch (error) {
+  console.log(error);
+} */
+
+const frutitas = [
+  "Manzana",
+  "Plátano",
+  "Naranja",
+  "Uva",
+  "Fresa",
+  "Piña",
+  "Mango",
+  "Sandía",
+  "Pera",
+  "Melón",
+  "Kiwi",
+  "Durazno",
+  "Cereza",
+  "Limón",
+  "Mandarina",
+  "Pomelo",
+  "Ciruela",
+  "Guayaba",
+  "Frambuesa",
+  "Coco",
+  "Papaya",
+  "Granada",
+  "Mora",
+  "Lichi",
+  "Maracuyá",
+  "Melocotón",
+  "Higo",
+  "Morera",
+  "Acerola",
+  "Grosella",
+  "Zarzamora",
+  "Carambola",
+  "Pitahaya",
+  "Guanábana",
+  "Cactus",
+  "Níspero",
+  "Pepino",
+  "Pepino de mar",
+  "Pera espinosa",
+  "Caqui",
+  "Anón",
+  "Chirimoya",
+  "Rambután",
+  "Tamarindo",
+  "Mangostán",
+  "Lulo",
+  "Zapote",
+  "Cereza de Barbados",
+  "Mamey",
+  "Guayaba de Costa Rica",
+  "Arándano",
+  "Frambuesa negra",
+  "Huckleberry",
+  "Grosella negra",
+  "Guinda",
+  "Acerola",
+  "Níspero",
+  "Chabacano",
+  "Nectarina",
+  "Carambola",
+  "Cereza de invierno",
+  "Feijoa",
+  "Uchuva",
+  "Membrillo",
+  "Guava",
+  "Mandarina Clementina",
+  "Pera asiática",
+  "Granadilla",
+  "Pomelo rosa",
+  "Pera de agua",
+  "Mango verde",
+  "Lima",
+  "Grosella espinosa",
+  "Caqui persimón",
+  "Arándano rojo",
+  "Lima kaffir",
+  "Baya de saúco",
+  "Frambuesa dorada",
+  "Grosella dorada",
+  "Melón piel de sapo",
+  "Lima persa",
+  "Mora de Logan",
+  "Grosella blanca",
+  "Chirimoya",
+  "Naranjilla",
+  "Zapote negro",
+  "Melón calameño",
+  "Lima de los cítricos",
+  "Mora de Boysen",
+  "Membrillo chino",
+  "Mamey sapote",
+  "Kiwi dorado",
+  "Tamarillo",
+  "Grosella china",
+  "Ciruela claudia",
+  "Lima de hierba",
+  "Marula",
+  "Mango de azúcar",
+  "Membrillo japonés",
+  "Mora silvestre",
+];
+
+function impresoraDeFrutitas(array1) {
+  const citricos = [];
+  const lasQueMeGustan = [];
+  for (let i = 0; i < array1.length; i++) {
+    if (
+      array1[i].includes("Naranja") ||
+      array1[i].includes("Limón") ||
+      array1[i].includes("Pomelo") ||
+      array1[i].includes("Lima")
+    ) {
+      citricos.push(array1[i]);
+    } else if (
+      array1[i].includes("Marula") ||
+      array1[i].includes("Chirimoya") ||
+      array1[i] === "Mango"
+    ) {
+      lasQueMeGustan.push(array1[i]);
+    }
+  }
+  const misFrutas = {
+    citricos,
+    lasQueMeGustan,
+  };
+  return misFrutas;
+}
+
+//Hacer un array con algunos personajes de the office y que se impriman con un loop un console.log de cada uno que diga
+//el personaje es "Nombre del perssonae" SI TENES BOLAS, hace que cuando salga Toby el mensaje sea estas despedido.
+
+const theOffice = [
+  "michael",
+  "pam",
+  "jim",
+  "dwight",
+  "toby",
+  "angela",
+  "ryan",
+  "kevin",
+  "oscar",
+  "kelly",
+  "meredith",
+];
+function personajesAMostrar(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === "toby") {
+      console.log(`estas despedido ${array[i]}`);
+    } else if (array[i] === "kelly" || array[i] === "ryan") {
+      console.log(`que personaje pesado es ${array[i]}`);
+    } else {
+      console.log(`nombre de personaje: ${array[i]}`);
+    }
+  }
+}
+
+//personajesAMostrar(theOffice);
+
+//Hacer otro array con personajes de la vida real que dibella conozca, que se impriman en el conssole log y diga la persona es y su nombre ademas SI TENES BOLAS que las personas que tengan Vodopivec en su nombre se pusheen a un array de Vodopivecs.
+
+const conocidos = [
+  "gabriel cabrera",
+  "matias angulegui echarri",
+  "tamara vodopivec",
+  "nicolas vodopivec",
+  "rocio vodopivec",
+  "sonia casco",
+  "carlos vodopivec",
+  "nayla vodopivec",
+  "camila vodopivec",
+  "isaias noche",
+  "benjamin shjadksj",
+  "claudio angulegui echarri",
+  "nadia colaprisca",
+  "benjamin maldonado",
+  "vex vodopivec",
+];
+function impresivec(arraivec) {
+  const vodopivecs = [];
+  for (let i = 0; i < arraivec.length; i++) {
+    console.log(`la persona es: ${arraivec[i]}`);
+    if (arraivec[i].includes("vodopivec")) {
+      vodopivecs.push(arraivec[i]);
+    }
+  }
+  return vodopivecs;
+}
+
+const vodos = impresivec(conocidos);
+console.log(vodos);
+
+//Los numeros que dividido 2 dan resto 0 son pares, sino son impares
+
+const arrayDeNumeros = [
+  5, 8, 4, 6, 10, 20, 11, 15, 18, 19, 22, 456, 13, 17, 199,
+];
+
+function impresoraDeNumeros(array) {
+  const numerosPares = [];
+  const numerosImpares = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      numerosPares.push(array[i]);
+    } else {
+      numerosImpares.push(array[i]);
+    }
+  }
+  let paqueteDeNumeros = [numerosImpares, numerosPares]
+  return paqueteDeNumeros
+}
+
+
+
+const arrayDePares = impresoraDeNumeros(arrayDeNumeros)[1 ]
+console.log(arrayDePares)
+
+
+
+
+ 
