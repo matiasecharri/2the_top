@@ -389,3 +389,14 @@ console.log(arrayDePares)
 
 
 
+
+
+const sumadorSerial = (num1, num2, ...num3) => {
+let resultado = num1+num2
+num3.forEach((x)=>{
+  resultado += x
+})
+return resultado
+}
+console.log(sumadorSerial(1,2,3,5, 4))
+
