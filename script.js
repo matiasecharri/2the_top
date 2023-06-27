@@ -430,7 +430,7 @@ function CyberWareConstructor(name, bodypart, price, functionality) {
   this.price = price
   this.functionality = functionality
   //METODOS, FUNCIONES DENTRO DE OBJETOS
-  this.title = function (){
+  this.scream = function (){
     console.log("item_selected: " + this.name)
   }
 }
@@ -440,3 +440,5 @@ const item02 = new CyberWareConstructor("mantis_blades","arms", 16000,"arm_weapo
 
 console.log(item02)
 console.log(item01)
+
+item01.scream()
