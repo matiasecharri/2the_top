@@ -429,16 +429,19 @@ function CyberWareConstructor(name, bodypart, price, functionality) {
   this.bodypart = bodypart
   this.price = price
   this.functionality = functionality
-  //METODOS, FUNCIONES DENTRO DE OBJETOS
-  this.scream = function (){
-    console.log("item_selected: " + this.name)
-  }
+ 
 }
 
-const item01 = new CyberWareConstructor("sandevistan","column",28000,)
+//METODO COMPARTIDO EVITANDO EL DESPERDICIO DE RECURSOS
+CyberWareConstructor.prototype.call = function (){
+  console.log(`item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`)
+} 
+
+const item01 = new CyberWareConstructor("sandevistan","column",28000, "slows_time")
 const item02 = new CyberWareConstructor("mantis_blades","arms", 16000,"arm_weapon");
 
 console.log(item02)
 console.log(item01)
 
-item01.scream()
+item01.call()
+item02.call()
