@@ -378,44 +378,65 @@ function impresoraDeNumeros(array) {
       numerosImpares.push(array[i]);
     }
   }
-  let paqueteDeNumeros = [numerosImpares, numerosPares]
-  return paqueteDeNumeros
+  let paqueteDeNumeros = [numerosImpares, numerosPares];
+  return paqueteDeNumeros;
 }
 
-
-
-const arrayDePares = impresoraDeNumeros(arrayDeNumeros)[1 ]
-console.log(arrayDePares)
-
+const arrayDePares = impresoraDeNumeros(arrayDeNumeros)[1];
+console.log(arrayDePares);
 
 //FUNCION FLECHA//
 
 const saluditos = function () {
-  console.log("oda")
-}
+  console.log("oda");
+};
 saluditos();
 
 const saluditos1 = () => {
-  console.log("oda")
-}
+  console.log("oda");
+};
 saluditos1();
 
+const saluditos2 = (nombre) => console.log(`oda ${nombre}`);
+saluditos2("matias");
 
-const saluditos2 = nombre => console.log(`oda ${nombre}`);
-saluditos2("matias"); 
-
- 
 const obj = {
-  name: 'John',
+  name: "John",
   sayHello: () => {
     console.log(`Hello, ${obj.name}!`); // `this` se refiere al objeto `obj`
-    
+
     const innerArrow = () => {
       console.log(`Hola, ${obj.name}!`); // `this` también se refiere al objeto `obj`
     };
-    
+
     innerArrow();
-  }
+  },
 };
 
 obj.sayHello(); // Salida: Hello, John! \n Hola, John!
+
+//POO
+/* 
+Clases - Modelo a seguir
+Objetos - Instancia de una CLASE-
+  Atributos - Es una caracteristica o propiedad del objeto (son variables dentro de un objeto)
+  Metodos - Son las acciones que un objeto puede realizar (funciones dentro de un objeto)
+*/
+
+function CyberWareConstructor(name, bodypart, price, functionality) {
+  //ATRIBUTOS, VARIABLES DENTRO DE OBJETOS
+  this.name = name
+  this.bodypart = bodypart
+  this.price = price
+  this.functionality = functionality
+  //METODOS, FUNCIONES DENTRO DE OBJETOS
+  this.title = function (){
+    console.log("item_selected: " + this.name)
+  }
+}
+
+const item01 = new CyberWareConstructor("sandevistan","column",28000,)
+const item02 = new CyberWareConstructor("mantis_blades","arms", 16000,"arm_weapon");
+
+console.log(item02)
+console.log(item01)
