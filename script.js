@@ -431,17 +431,23 @@ function CyberWareConstructor(name, bodypart, price, functionality) {
   this.functionality = functionality
  
 }
-
-// FUNCION METODO COMPARTIDO EVITANDO EL DESPERDICIO DE RECURSOS
+// FUNCIONES METODO COMPARTIDO EVITANDO EL DESPERDICIO DE RECURSOS
 CyberWareConstructor.prototype.call = function (){
   console.log(`item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`)
 } 
+CyberWareConstructor.prototype.slots = function (){
+  if(this.bodypart === null){
+    console.log(`Your slot is empty.`)
+  } else {
+    console.log(`You need an empty space in the ${this.bodypart} slot.`)}
+}
 
-const item01 = new CyberWareConstructor("sandevistan","column",28000, "slows_time")
-const item02 = new CyberWareConstructor("mantis_blades","arms", 16000,"arm_weapon");
-
-console.log(item02)
-console.log(item01)
+const item01 = new CyberWareConstructor("sandevistan","column",28000, "upgrade")
+const item02 = new CyberWareConstructor("mantis_blades",null, 16000,"weapon");
 
 item01.call()
 item02.call()
+
+item01.slots()
+item02.slots()
+
