@@ -432,7 +432,7 @@ function CyberWareConstructor(name, bodypart, price, functionality) {
  
 }
 
-//METODO COMPARTIDO EVITANDO EL DESPERDICIO DE RECURSOS
+// FUNCION METODO COMPARTIDO EVITANDO EL DESPERDICIO DE RECURSOS
 CyberWareConstructor.prototype.call = function (){
   console.log(`item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`)
 } 
