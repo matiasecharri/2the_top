@@ -388,6 +388,34 @@ const arrayDePares = impresoraDeNumeros(arrayDeNumeros)[1 ]
 console.log(arrayDePares)
 
 
+//FUNCION FLECHA//
 
+const saluditos = function () {
+  console.log("oda")
+}
+saluditos();
+
+const saluditos1 = () => {
+  console.log("oda")
+}
+saluditos1();
+
+
+const saluditos2 = nombre => console.log(`oda ${nombre}`);
+saluditos2("matias"); 
 
  
+const obj = {
+  name: 'John',
+  sayHello: () => {
+    console.log(`Hello, ${obj.name}!`); // `this` se refiere al objeto `obj`
+    
+    const innerArrow = () => {
+      console.log(`Hola, ${obj.name}!`); // `this` también se refiere al objeto `obj`
+    };
+    
+    innerArrow();
+  }
+};
+
+obj.sayHello(); // Salida: Hello, John! \n Hola, John!
