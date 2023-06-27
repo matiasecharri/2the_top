@@ -445,9 +445,10 @@ CyberWareConstructor.prototype.slots = function (){
 const item01 = new CyberWareConstructor("sandevistan","column",28000, "upgrade")
 const item02 = new CyberWareConstructor("mantis_blades",null, 16000,"weapon");
 
+
 item01.call()
 item02.call()
-
 item01.slots()
 item02.slots()
+
 
