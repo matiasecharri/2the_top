@@ -450,3 +450,8 @@ item02.call()
 item01.slots()
 item02.slots()
 
+const item03 = new CyberWareConstructor()
+CyberWareConstructor.prototype.saludos = function(){
+  console.log("Hola buenas")}
+
+  item01.saludos()
