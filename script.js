@@ -378,44 +378,76 @@ function impresoraDeNumeros(array) {
       numerosImpares.push(array[i]);
     }
   }
-  let paqueteDeNumeros = [numerosImpares, numerosPares]
-  return paqueteDeNumeros
+  let paqueteDeNumeros = [numerosImpares, numerosPares];
+  return paqueteDeNumeros;
 }
 
-
-
-const arrayDePares = impresoraDeNumeros(arrayDeNumeros)[1 ]
-console.log(arrayDePares)
-
+const arrayDePares = impresoraDeNumeros(arrayDeNumeros)[1];
+console.log(arrayDePares);
 
 //FUNCION FLECHA//
 
 const saluditos = function () {
-  console.log("oda")
-}
+  console.log("oda");
+};
 saluditos();
 
 const saluditos1 = () => {
-  console.log("oda")
-}
+  console.log("oda");
+};
 saluditos1();
 
+const saluditos2 = (nombre) => console.log(`oda ${nombre}`);
+saluditos2("matias");
 
-const saluditos2 = nombre => console.log(`oda ${nombre}`);
-saluditos2("matias"); 
-
- 
 const obj = {
-  name: 'John',
+  name: "John",
   sayHello: () => {
     console.log(`Hello, ${obj.name}!`); // `this` se refiere al objeto `obj`
-    
+
     const innerArrow = () => {
       console.log(`Hola, ${obj.name}!`); // `this` también se refiere al objeto `obj`
     };
-    
+
     innerArrow();
-  }
+  },
 };
 
 obj.sayHello(); // Salida: Hello, John! \n Hola, John!
+
+//POO
+/* 
+Clases - Modelo a seguir
+Objetos - Instancia de una CLASE-
+  Atributos - Es una caracteristica o propiedad del objeto (son variables dentro de un objeto)
+  Metodos - Son las acciones que un objeto puede realizar (funciones dentro de un objeto)
+*/
+
+
+
+function CyberWareConstructor (name, bodypart, price, functionality){
+this.name = name
+this.bodypart = bodypart
+this.price = price
+this.functionality = functionality
+}
+
+CyberWareConstructor.prototype.call = function (){console.log(`item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`)}
+CyberWareConstructor.prototype.slots = function (){if (this.bodypart === null){
+  console.log(`Your slot is empty you can install new cyberware.`)
+} else {
+  console.log(`You need an empty space in the ${this.bodypart} slot.`)
+}
+}
+
+const item01 = new CyberWareConstructor ("sandevistan","column",28000, "upgrade")
+const item02 = new CyberWareConstructor("mantis_blades",null, 16000,"weapon");
+
+console.log("Este es el metodo call()")
+item01.call()
+item02.call()
+
+
+console.log("Este es el metodo slots()")
+item01.slots()
+item02.slots()
