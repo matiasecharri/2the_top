@@ -423,31 +423,30 @@ Objetos - Instancia de una CLASE-
   Metodos - Son las acciones que un objeto puede realizar (funciones dentro de un objeto)
 */
 
+function CyberWareConstructor(name, bodypart, price, functionality) {
+  //ATRIBUTOS, VARIABLES DENTRO DE OBJETOS
+  this.name = name
+  this.bodypart = bodypart
+  this.price = price
+  this.functionality = functionality
 
-
-function CyberWareConstructor (name, bodypart, price, functionality){
-this.name = name
-this.bodypart = bodypart
-this.price = price
-this.functionality = functionality
+}
+// FUNCIONES METODO COMPARTIDO EVITANDO EL DESPERDICIO DE RECURSOS
+CyberWareConstructor.prototype.call = function (){
+  console.log(`item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`)
+}
+CyberWareConstructor.prototype.slots = function (){
+  if(this.bodypart === null){
+    console.log(`Your slot is empty.`)
+  } else {
+    console.log(`You need an empty space in the ${this.bodypart} slot.`)}
 }
 
-CyberWareConstructor.prototype.call = function (){console.log(`item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`)}
-CyberWareConstructor.prototype.slots = function (){if (this.bodypart === null){
-  console.log(`Your slot is empty you can install new cyberware.`)
-} else {
-  console.log(`You need an empty space in the ${this.bodypart} slot.`)
-}
-}
-
-const item01 = new CyberWareConstructor ("sandevistan","column",28000, "upgrade")
+const item01 = new CyberWareConstructor("sandevistan","column",28000, "upgrade")
 const item02 = new CyberWareConstructor("mantis_blades",null, 16000,"weapon");
 
-console.log("Este es el metodo call()")
 item01.call()
 item02.call()
-
-
-console.log("Este es el metodo slots()")
 item01.slots()
 item02.slots()
+
