@@ -425,3 +425,29 @@ Objetos - Instancia de una CLASE-
 
 
 
+function CyberWareConstructor (name, bodypart, price, functionality){
+this.name = name
+this.bodypart = bodypart
+this.price = price
+this.functionality = functionality
+}
+
+CyberWareConstructor.prototype.call = function (){console.log(`item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`)}
+CyberWareConstructor.prototype.slots = function (){if (this.bodypart === null){
+  console.log(`Your slot is empty you can install new cyberware.`)
+} else {
+  console.log(`You need an empty space in the ${this.bodypart} slot.`)
+}
+}
+
+const item01 = new CyberWareConstructor ("sandevistan","column",28000, "upgrade")
+const item02 = new CyberWareConstructor("mantis_blades",null, 16000,"weapon");
+
+console.log("Este es el metodo call()")
+item01.call()
+item02.call()
+
+
+console.log("Este es el metodo slots()")
+item01.slots()
+item02.slots()
