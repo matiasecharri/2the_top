@@ -450,8 +450,35 @@ item02.call()
 item01.slots()
 item02.slots()
 
-const item03 = new CyberWareConstructor()
-CyberWareConstructor.prototype.saludos = function(){
-  console.log("Hola buenas")}
+/*CONSTRUCTOR*/
+function AnimalCreator (especie, edad, sonido){
+  this.especie = especie
+  this.edad = edad
+  this.sonido = sonido
+  }
+  /*METODOS PARA EL CONSTRUCTOR*/
+  AnimalCreator.prototype.hablar = function(){console.log(this.sonido)}
+  
+  /*HERENCIA PROTOTIPICA*/
+  function CatCreator (especie, edad, sonido, raza){
+    this.super = AnimalCreator
+    this.super(especie, edad, sonido)
+    this.raza = raza
+  }
+  
+  /*CAT CREATOR ESTA HEREDANDO EL PROTOTIPO DE ANIMAL CREATOR*/
+  CatCreator.prototype = new AnimalCreator()
+  CatCreator.prototype.constructor = CatCreator
+  
+  /*CREACIONES*/
+  const perro = new AnimalCreator ('canino', 2, 'Guauu Guauu')
+  const sphynxCat = new CatCreator ('felino', 4, 'Miaauuu', 'Sphynx')
+  console.log(sphynxCat)
+  sphynxCat.hablar()
+  
 
-  item01.saludos()
+
+
+
+
+  
