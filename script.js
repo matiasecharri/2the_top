@@ -425,60 +425,99 @@ Objetos - Instancia de una CLASE-
 
 function CyberWareConstructor(name, bodypart, price, functionality) {
   //ATRIBUTOS, VARIABLES DENTRO DE OBJETOS
-  this.name = name
-  this.bodypart = bodypart
-  this.price = price
-  this.functionality = functionality
-
+  this.name = name;
+  this.bodypart = bodypart;
+  this.price = price;
+  this.functionality = functionality;
 }
 // FUNCIONES METODO COMPARTIDO EVITANDO EL DESPERDICIO DE RECURSOS
-CyberWareConstructor.prototype.call = function (){
-  console.log(`item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`)
-}
-CyberWareConstructor.prototype.slots = function (){
-  if(this.bodypart === null){
-    console.log(`Your slot is empty.`)
+CyberWareConstructor.prototype.call = function () {
+  console.log(
+    `item_selected: ${this.name} - bodypart: ${this.bodypart} - price: ${this.price} - ${this.functionality}`
+  );
+};
+CyberWareConstructor.prototype.slots = function () {
+  if (this.bodypart === null) {
+    console.log(`Your slot is empty.`);
   } else {
-    console.log(`You need an empty space in the ${this.bodypart} slot.`)}
-}
+    console.log(`You need an empty space in the ${this.bodypart} slot.`);
+  }
+};
 
-const item01 = new CyberWareConstructor("sandevistan","column",28000, "upgrade")
-const item02 = new CyberWareConstructor("mantis_blades",null, 16000,"weapon");
+const item01 = new CyberWareConstructor(
+  "sandevistan",
+  "column",
+  28000,
+  "upgrade"
+);
+const item02 = new CyberWareConstructor("mantis_blades", null, 16000, "weapon");
 
-item01.call()
-item02.call()
-item01.slots()
-item02.slots()
+item01.call();
+item02.call();
+item01.slots();
+item02.slots();
 
 /*CONSTRUCTOR*/
-function AnimalCreator (especie, edad, sonido){
-  this.especie = especie
+function AnimalCreator(especie, edad, sonido) {
+  this.especie = especie;
+  this.edad = edad;
+  this.sonido = sonido;
+}
+/*METODOS PARA EL CONSTRUCTOR*/
+AnimalCreator.prototype.hablar = function () {
+  console.log(this.sonido);
+};
+
+/*HERENCIA PROTOTIPICA*/
+function CatCreator(especie, edad, sonido, raza) {
+  this.super = AnimalCreator;
+  this.super(especie, edad, sonido);
+  this.raza = raza;
+}
+
+/*CAT CREATOR ESTA HEREDANDO EL PROTOTIPO DE ANIMAL CREATOR*/
+CatCreator.prototype = new AnimalCreator();
+CatCreator.prototype.constructor = CatCreator;
+
+/*CREACIONES*/
+const perro = new AnimalCreator("canino", 2, "Guauu Guauu");
+const sphynxCat = new CatCreator("felino", 4, "Miaauuu", "Sphynx");
+console.log(sphynxCat);
+sphynxCat.hablar();
+
+
+
+
+
+//Funcion Constructora
+function HumanCreator(etnia, edad) {
+  this.etnia = etnia;
   this.edad = edad
-  this.sonido = sonido
-  }
-  /*METODOS PARA EL CONSTRUCTOR*/
-  AnimalCreator.prototype.hablar = function(){console.log(this.sonido)}
-  
-  /*HERENCIA PROTOTIPICA*/
-  function CatCreator (especie, edad, sonido, raza){
-    this.super = AnimalCreator
-    this.super(especie, edad, sonido)
-    this.raza = raza
-  }
-  
-  /*CAT CREATOR ESTA HEREDANDO EL PROTOTIPO DE ANIMAL CREATOR*/
-  CatCreator.prototype = new AnimalCreator()
-  CatCreator.prototype.constructor = CatCreator
-  
-  /*CREACIONES*/
-  const perro = new AnimalCreator ('canino', 2, 'Guauu Guauu')
-  const sphynxCat = new CatCreator ('felino', 4, 'Miaauuu', 'Sphynx')
-  console.log(sphynxCat)
-  sphynxCat.hablar()
-  
+}
+//Agregando Metodos al Prototipo
+HumanCreator.prototype.respiracion = function(){
+  console.log("Estoy respirando, soy un humano")
+}
+//Creando un nuevo humano
+const humano1 = new HumanCreator ("Africana", 33)
+console.log(humano1)
+humano1.respiracion()
+//Creando un nuevo Asiatico el cual herederá las propiedades, metodos y el prototipo de HumanCreator
+function AsianCreator(etnia, edad, pais){
+  this.super = HumanCreator
+  this.super(etnia, edad)
+  this.pais = pais
+}
+//Aclaramos que el prototypo de AsianCreator va a ser una nueva instancia de HumanCreator
+AsianCreator.prototype = new HumanCreator()
+//Especificamos que el constructor va a ser AsianCreator porque de lo contrario heredaria el constructor de HumanCreator
+AsianCreator.prototype.constructor = AsianCreator
+AsianCreator.prototype.soyAsiatico = function(){
+  console.log(`Vengo de ${this.pais}`)
+}
 
+const japones1 = new AsianCreator("asiatico", 40, "Japon, Osaka")
+console.log(japones1)
 
-
-
-
-  
+japones1.respiracion()
+japones1.soyAsiatico()
