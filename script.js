@@ -534,7 +534,7 @@ function KoreanCreator(pais, ciudad) {
 }
 
 // Herencia del prototipo de AsianCreator
-KoreanCreator.prototype = Object.create(AsianCreator.prototype);
+KoreanCreator.prototype = new AsianCreator()
 KoreanCreator.prototype.constructor = KoreanCreator;
 
 // Nuevo método específico de KoreanCreator
