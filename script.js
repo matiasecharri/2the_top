@@ -512,6 +512,9 @@ function AsianCreator(etnia, edad, pais){
 AsianCreator.prototype = new HumanCreator()
 //Especificamos que el constructor va a ser AsianCreator porque de lo contrario heredaria el constructor de HumanCreator
 AsianCreator.prototype.constructor = AsianCreator
+
+
+//Agregamos nuevo metodo al prototipo AsianCreator
 AsianCreator.prototype.soyAsiatico = function(){
   console.log(`Vengo de ${this.pais}`)
 }
