@@ -524,3 +524,28 @@ console.log(japones1)
 
 japones1.respiracion()
 japones1.soyAsiatico()
+
+
+// Nueva función constructora basada en AsianCreator
+function KoreanCreator(pais, ciudad) {
+  this.super = AsianCreator;
+  this.super("asiático", 30, pais);
+  this.ciudad = ciudad;
+}
+
+// Herencia del prototipo de AsianCreator
+KoreanCreator.prototype = Object.create(AsianCreator.prototype);
+KoreanCreator.prototype.constructor = KoreanCreator;
+
+// Nuevo método específico de KoreanCreator
+KoreanCreator.prototype.soyCoreano = function() {
+  console.log("Soy coreano de " + this.ciudad);
+}
+
+// Crear una instancia de KoreanCreator
+const coreano1 = new KoreanCreator("Corea del Sur", "Seúl");
+console.log(coreano1);
+
+coreano1.respiracion();    // Método heredado de HumanCreator a través de AsianCreator
+coreano1.soyAsiatico();    // Método heredado de AsianCreator
+coreano1.soyCoreano();     // Método específico de KoreanCreator
