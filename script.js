@@ -669,6 +669,9 @@ class Celula {
   vivir() {
     console.log(`Mi nombre es ${this.nombre} y soy un/a ${this.organismo}`);
   }
+  static info(){
+    console.log(`Este es un metodo estático heredado de célula, como veras no tengo propiedades: ${this.nombre}`)
+  }
 }
 
 const vidaDwight = new Celula("Dwight", "Celula");
@@ -726,6 +729,9 @@ class Cyborg extends Human {
     super(nombre, organismo, accion0, accion1);
     this.accion2 = accion2;
   }
+  realizandoAccion0() {
+    console.log(`Olvide esto luego de haberme convertido en ${this.organismo}`);
+  }
   realizandoAccion2() {
     this.organismo.toLowerCase().includes("cyborg")
       ? console.log(
@@ -743,8 +749,10 @@ const cyborgDwight = new Cyborg(
   "Proteger la ecología"
 );
 
-console.log(cyborgDwight)
-cyborgDwight.vivir()
-cyborgDwight.realizandoAccion0()
-cyborgDwight.realizandoAccion1()
-cyborgDwight.realizandoAccion2()
+console.log(cyborgDwight);
+cyborgDwight.vivir();
+cyborgDwight.realizandoAccion0();
+cyborgDwight.realizandoAccion1();
+cyborgDwight.realizandoAccion2();
+
+Cyborg.info()
