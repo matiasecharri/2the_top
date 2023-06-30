@@ -638,7 +638,7 @@ BecomeMachine.prototype = new BecomeCyborg();
 BecomeMachine.prototype.constructor = BecomeMachine;
 BecomeMachine.prototype.theEnd = function(){
   console.log(
-    `Parece que hasta acá llegó mi evolución, hace tiempo que no necesito ${this.skill} o ${this.skill2}... Termine siendo ${this.specie} y soy capaz de ${this.final}`
+    `Parece que hasta acá llegó mi evolución, hace tiempo que no necesito ${this.skill} o ${this.skill2}... Termine siendo ${this.specie} y soy capaz de ${this.final}, hasta la próxima :)`
   );
   
 }
