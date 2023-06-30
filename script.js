@@ -544,6 +544,7 @@ coreano1.respiracion(); // Método heredado de HumanCreator a través de AsianCr
 coreano1.soyAsiatico(); // Método heredado de AsianCreator
 coreano1.soyCoreano(); // Método específico de KoreanCreator
 
+//CREANDO UNA CELULA
 function LifeGenerator(cells, age) {
   this.cells = cells;
   this.age = age;
@@ -557,6 +558,7 @@ const vida1 = new LifeGenerator("pluricelular", 0);
 console.log(vida1);
 vida1.respirando();
 
+//CREANDO UN PRIMATE
 function EvolveGenerator(cells, age, specie) {
   this.super = LifeGenerator;
   this.super(cells, age);
@@ -574,6 +576,7 @@ console.log(animal1);
 animal1.respirando();
 animal1.action();
 
+//CREANDO UN HUMANO
 function BecomeHuman(cells, age, specie, skill) {
   this.super = EvolveGenerator;
   this.super(cells, age, specie);
@@ -589,7 +592,68 @@ BecomeHuman.prototype.skilling = function () {
 };
 
 const human1 = new BecomeHuman("pluricelular", 40, "humano", "hacer fuego");
-console.log(human1)
-human1.respirando()
-human1.action()
-human1.skilling()
+console.log(human1);
+human1.respirando();
+human1.action();
+human1.skilling();
+
+//CREANDO UN CYBORG
+
+function BecomeCyborg(cells, age, specie, skill, skill2) {
+  this.super = BecomeHuman;
+  this.super(cells, age, specie, skill);
+  this.skill2 = skill2;
+}
+
+BecomeCyborg.prototype = new BecomeHuman();
+BecomeCyborg.prototype.constructor = BecomeCyborg;
+BecomeCyborg.prototype.newskill = function () {
+  console.log(
+    `La evolución no se detuvo aparentemente ahora soy un ${this.specie} y soy capaz de ${this.skill2}`
+  );
+};
+
+const cyborg1 = new BecomeCyborg(
+  "pluricelular",
+  65,
+  "cyborg",
+  "hacer fuego",
+  "ralentizar el tiempo"
+);
+console.log(cyborg1);
+cyborg1.respirando();
+cyborg1.action();
+cyborg1.skilling();
+cyborg1.newskill();
+
+//CREANDO UNA MÁQUINA
+
+function BecomeMachine(cells, age, specie, skill, skill2, final) {
+  this.super = BecomeCyborg;
+  this.super(cells, age, specie, skill, skill2);
+  this.final = final;
+}
+
+BecomeMachine.prototype = new BecomeCyborg();
+BecomeMachine.prototype.constructor = BecomeMachine;
+BecomeMachine.prototype.theEnd = function(){
+  console.log(
+    `Parece que hasta acá llegó mi evolución, hace tiempo que no necesito ${this.skill} o ${this.skill2}... Termine siendo ${this.specie} y soy capaz de ${this.final}`
+  );
+  
+}
+
+const machine1 = new BecomeMachine(
+  "pluricelular",
+  100,
+  "maquina",
+  "hacer fuego",
+  "ralentizar el tiempo",
+  "lo que sea"
+);
+console.log(machine1);
+machine1.respirando();
+machine1.action();
+machine1.skilling();
+machine1.newskill();
+machine1.theEnd()
