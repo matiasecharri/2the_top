@@ -701,15 +701,50 @@ class Human extends Simio {
   }
   realizandoAccion1() {
     console.log(
-      `Sigo siendo ${this.nombre}, pero ahora soy un ${this.organismo} y lo que hago es ${this.accion1.toLowerCase()}.`
+      `Sigo siendo ${this.nombre}, pero ahora soy un ${
+        this.organismo
+      } y lo que hago es ${this.accion1.toLowerCase()}.`
     );
   }
 }
 
-const humanDwight = new Human ("Dwight", "Humano", "Pelar Bananas", "Trabajar en ventas")
-console.log(humanDwight)
-humanDwight.vivir( )
-humanDwight.realizandoAccion0()
-humanDwight.realizandoAccion1()
+const humanDwight = new Human(
+  "Dwight",
+  "Humano",
+  "Pelar Bananas",
+  "Trabajar en ventas"
+);
+console.log(humanDwight);
+humanDwight.vivir();
+humanDwight.realizandoAccion0();
+humanDwight.realizandoAccion1();
 
 ///CREANDO UN CYBORG A PARTIR DEL HUMANO///
+
+class Cyborg extends Human {
+  constructor(nombre, organismo, accion0, accion1, accion2) {
+    super(nombre, organismo, accion0, accion1);
+    this.accion2 = accion2;
+  }
+  realizandoAccion2() {
+    this.organismo.toLowerCase().includes("cyborg")
+      ? console.log(
+          `Mi evolución continua constantemente ahora soy un ${this.organismo.toLowerCase()} y ademas de ${this.accion1.toLowerCase()} también me encargo de ${this.accion2.toLowerCase()}.`
+        )
+      : console.log("Parametros Invalidos");
+  }
+}
+
+const cyborgDwight = new Cyborg(
+  "Dwight",
+  "Cyborg",
+  "Pelar Bananas",
+  "Trabajar en ventas",
+  "Proteger la ecología"
+);
+
+console.log(cyborgDwight)
+cyborgDwight.vivir()
+cyborgDwight.realizandoAccion0()
+cyborgDwight.realizandoAccion1()
+cyborgDwight.realizandoAccion2()
