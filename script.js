@@ -659,16 +659,57 @@ machine1.theEnd();
 
 //////////////////////CLASSES Y HERENCIA DE CLASSES /////////////
 
+///CREANDO LA CELULA///
+
 class Celula {
   constructor(nombre, organismo) {
     this.nombre = nombre;
     this.organismo = organismo;
   }
-  vivir(){
-    console.log(`Mi nombre es ${this.nombre} y soy un/a ${this.organismo}`)
+  vivir() {
+    console.log(`Mi nombre es ${this.nombre} y soy un/a ${this.organismo}`);
   }
 }
 
-const vidaX = new Celula ("Dwight", "Celula")
-console.log(vidaX)
-vidaX.vivir()
+const vidaDwight = new Celula("Dwight", "Celula");
+console.log(vidaDwight);
+vidaDwight.vivir();
+
+///CREANDO UN SIMIO A PARTIR DE LA CELULA///
+
+class Simio extends Celula {
+  constructor(nombre, organismo, accion0) {
+    super(nombre, organismo);
+    this.accion0 = accion0;
+  }
+  realizandoAccion0() {
+    console.log(`Evolucioné ahora puedo ${this.accion0.toLowerCase()}.`);
+  }
+}
+
+const simioDwight = new Simio("Dwight", "Primate", "Pelar Bananas");
+console.log(simioDwight);
+simioDwight.vivir();
+simioDwight.realizandoAccion0();
+
+///CREANDO UN HUMANO A PARTIR DEL SIMIO///
+
+class Human extends Simio {
+  constructor(nombre, organismo, accion0, accion1) {
+    super(nombre, organismo, accion0);
+    this.accion1 = accion1;
+  }
+  realizandoAccion1() {
+    console.log(
+      `Sigo siendo ${this.nombre}, pero ahora soy un ${this.organismo} y lo que hago es ${this.accion1.toLowerCase()}.`
+    );
+  }
+}
+
+const humanDwight = new Human ("Dwight", "Humano", "Pelar Bananas", "Trabajar en ventas")
+console.log(humanDwight)
+humanDwight.vivir( )
+humanDwight.realizandoAccion0()
+humanDwight.realizandoAccion1()
+
+///CREANDO UN CYBORG A PARTIR DEL HUMANO///
