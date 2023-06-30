@@ -485,46 +485,40 @@ const sphynxCat = new CatCreator("felino", 4, "Miaauuu", "Sphynx");
 console.log(sphynxCat);
 sphynxCat.hablar();
 
-
-
-
-
 //Funcion Constructora
 function HumanCreator(etnia, edad) {
   this.etnia = etnia;
-  this.edad = edad
+  this.edad = edad;
 }
 //Agregando Metodos al Prototipo
-HumanCreator.prototype.respiracion = function(){
-  console.log("Estoy respirando, soy un humano")
-}
+HumanCreator.prototype.respiracion = function () {
+  console.log("Estoy respirando, soy un humano");
+};
 //Creando un nuevo humano
-const humano1 = new HumanCreator ("Africana", 33)
-console.log(humano1)
-humano1.respiracion()
+const humano1 = new HumanCreator("Africana", 33);
+console.log(humano1);
+humano1.respiracion();
 //Creando un nuevo Asiatico el cual herederá las propiedades, metodos y el prototipo de HumanCreator
-function AsianCreator(etnia, edad, pais){
-  this.super = HumanCreator
-  this.super(etnia, edad)
-  this.pais = pais
+function AsianCreator(etnia, edad, pais) {
+  this.super = HumanCreator;
+  this.super(etnia, edad);
+  this.pais = pais;
 }
 //Aclaramos que el prototypo de AsianCreator va a ser una nueva instancia de HumanCreator
-AsianCreator.prototype = new HumanCreator()
+AsianCreator.prototype = new HumanCreator();
 //Especificamos que el constructor va a ser AsianCreator porque de lo contrario heredaria el constructor de HumanCreator
-AsianCreator.prototype.constructor = AsianCreator
-
+AsianCreator.prototype.constructor = AsianCreator;
 
 //Agregamos nuevo metodo al prototipo AsianCreator
-AsianCreator.prototype.soyAsiatico = function(){
-  console.log(`Vengo de ${this.pais}`)
-}
+AsianCreator.prototype.soyAsiatico = function () {
+  console.log(`Vengo de ${this.pais}`);
+};
 
-const japones1 = new AsianCreator("asiatico", 40, "Japon, Osaka")
-console.log(japones1)
+const japones1 = new AsianCreator("asiatico", 40, "Japon, Osaka");
+console.log(japones1);
 
-japones1.respiracion()
-japones1.soyAsiatico()
-
+japones1.respiracion();
+japones1.soyAsiatico();
 
 // Nueva función constructora basada en AsianCreator
 function KoreanCreator(pais, ciudad) {
@@ -534,18 +528,68 @@ function KoreanCreator(pais, ciudad) {
 }
 
 // Herencia del prototipo de AsianCreator
-KoreanCreator.prototype = new AsianCreator()
+KoreanCreator.prototype = new AsianCreator();
 KoreanCreator.prototype.constructor = KoreanCreator;
 
 // Nuevo método específico de KoreanCreator
-KoreanCreator.prototype.soyCoreano = function() {
+KoreanCreator.prototype.soyCoreano = function () {
   console.log("Soy coreano de " + this.ciudad);
-}
+};
 
 // Crear una instancia de KoreanCreator
 const coreano1 = new KoreanCreator("Corea del Sur", "Seúl");
 console.log(coreano1);
 
-coreano1.respiracion();    // Método heredado de HumanCreator a través de AsianCreator
-coreano1.soyAsiatico();    // Método heredado de AsianCreator
-coreano1.soyCoreano();     // Método específico de KoreanCreator
+coreano1.respiracion(); // Método heredado de HumanCreator a través de AsianCreator
+coreano1.soyAsiatico(); // Método heredado de AsianCreator
+coreano1.soyCoreano(); // Método específico de KoreanCreator
+
+function LifeGenerator(cells, age) {
+  this.cells = cells;
+  this.age = age;
+}
+
+LifeGenerator.prototype.respirando = function () {
+  console.log(`Soy un organismo ${this.cells}, estoy respirando`);
+};
+
+const vida1 = new LifeGenerator("pluricelular", 0);
+console.log(vida1);
+vida1.respirando();
+
+function EvolveGenerator(cells, age, specie) {
+  this.super = LifeGenerator;
+  this.super(cells, age);
+  this.specie = specie;
+}
+
+EvolveGenerator.prototype = new LifeGenerator();
+EvolveGenerator.prototype.constructor = EvolveGenerator;
+EvolveGenerator.prototype.action = function () {
+  console.log(`Paso tiempo, pude evolucionar, mi especie es ${this.specie}`);
+};
+
+const animal1 = new EvolveGenerator("pluricelular", 7, "primate");
+console.log(animal1);
+animal1.respirando();
+animal1.action();
+
+function BecomeHuman(cells, age, specie, skill) {
+  this.super = EvolveGenerator;
+  this.super(cells, age, specie);
+  this.skill = skill;
+}
+
+BecomeHuman.prototype = new EvolveGenerator();
+BecomeHuman.prototype.constructor = BecomeHuman;
+BecomeHuman.prototype.skilling = function () {
+  console.log(
+    `Mi evolución transcurre muy rápido, ahora que soy ${this.specie} soy capaz de ${this.skill}`
+  );
+};
+
+const human1 = new BecomeHuman("pluricelular", 40, "humano", "hacer fuego");
+console.log(human1)
+human1.respirando()
+human1.action()
+human1.skilling()
