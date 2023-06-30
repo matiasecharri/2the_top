@@ -636,12 +636,11 @@ function BecomeMachine(cells, age, specie, skill, skill2, final) {
 
 BecomeMachine.prototype = new BecomeCyborg();
 BecomeMachine.prototype.constructor = BecomeMachine;
-BecomeMachine.prototype.theEnd = function(){
+BecomeMachine.prototype.theEnd = function () {
   console.log(
     `Parece que hasta acá llegó mi evolución, hace tiempo que no necesito ${this.skill} o ${this.skill2}... Termine siendo ${this.specie} y soy capaz de ${this.final}, hasta la próxima :)`
   );
-  
-}
+};
 
 const machine1 = new BecomeMachine(
   "pluricelular",
@@ -656,4 +655,20 @@ machine1.respirando();
 machine1.action();
 machine1.skilling();
 machine1.newskill();
-machine1.theEnd()
+machine1.theEnd();
+
+//////////////////////CLASSES Y HERENCIA DE CLASSES /////////////
+
+class Celula {
+  constructor(nombre, organismo) {
+    this.nombre = nombre;
+    this.organismo = organismo;
+  }
+  vivir(){
+    console.log(`Mi nombre es ${this.nombre} y soy un/a ${this.organismo}`)
+  }
+}
+
+const vidaX = new Celula ("Dwight", "Celula")
+console.log(vidaX)
+vidaX.vivir()
