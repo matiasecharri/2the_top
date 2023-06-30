@@ -669,9 +669,6 @@ class Celula {
   vivir() {
     console.log(`Mi nombre es ${this.nombre} y soy un/a ${this.organismo}`);
   }
-  static info(){
-    console.log(`Este es un metodo estático heredado de célula, como veras no tengo propiedades: ${this.nombre}`)
-  }
 }
 
 const vidaDwight = new Celula("Dwight", "Celula");
@@ -739,6 +736,9 @@ class Cyborg extends Human {
         )
       : console.log("Parametros Invalidos");
   }
+  static info(){
+    console.log(`Este es un metodo estático, como veras no tengo propiedades: ${this.nombre}`)
+  }
 }
 
 const cyborgDwight = new Cyborg(
@@ -755,4 +755,4 @@ cyborgDwight.realizandoAccion0();
 cyborgDwight.realizandoAccion1();
 cyborgDwight.realizandoAccion2();
 
-Cyborg.info()
+Cyborg.info();
