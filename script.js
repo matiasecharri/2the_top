@@ -992,7 +992,7 @@ class TrexBebe extends Huevo {
   super(especie, tamanio)
   this.hours = hours}
   info(){
-    console.log(`Mi especie es ${this.especie} estuve esperando ${this.getSpawn} para nacer, finalmente naci a las ${this.hours}hs.`)
+    console.warn(`Mi especie es ${this.especie} estuve esperando ${this.getSpawn} para nacer, finalmente naci a las ${this.hours}hs.`)
   }
 }
 
@@ -1000,3 +1000,13 @@ const dinosaurioBebe1 = new TrexBebe("t-rex", "40cm", 15)
 dinosaurioBebe1.setSpawn = "120 dias"
 console.log(dinosaurioBebe1)
 dinosaurioBebe1.info()
+
+//CONSOLE /////////////////////////////
+
+console.clear() // Limpia la console
+console.log(console) // Clasico
+console.warn("Warning console") // Envia un warning
+console.error("Error console") // Enviar un error
+console.log(document) // Nos muestra el HTML
+console.dir(document) // En vez de mostrarnos el HTML nos representa un elemento como si fuese un objeto
+console.group() // Nos permite agrupar console.logs
