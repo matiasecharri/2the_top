@@ -952,3 +952,51 @@ x.side === "good"
 
 console.table(goodOnes)
 console.table(badOnes)
+
+console.log(Math.max(...numerosArray))
+
+const time = new Date
+console.log(time)
+const hours = time.getHours()
+console.log(hours)
+
+if(hours <= 12 || hours <= 6){
+  console.log("Es de dia")
+} else {
+  console.log("Es de noche")
+}
+
+
+
+
+
+class Huevo {
+  constructor(especie, tamanio){
+this.especie = especie
+this.tamanio = tamanio
+  }
+  set setSpawn (timeLeft){
+    this.timeLeft = timeLeft
+  }
+  get getSpawn (){
+    return this.timeLeft
+  }
+}
+
+const huevoDeDinosaurio1 = new Huevo ("t-rex", 30)
+huevoDeDinosaurio1.setSpawn = "10 days"
+console.log(huevoDeDinosaurio1.getSpawn) 
+
+class TrexBebe extends Huevo {
+  constructor(especie, tamanio, hours){
+  super(especie, tamanio)
+  this.hours = hours}
+  info(){
+    console.log(`Mi especie es ${this.especie} estuve esperando ${this.getSpawn} para nacer, finalmente naci a las ${this.hours}hs.`)
+  }
+}
+
+const dinosaurioBebe1 = new TrexBebe("t-rex", "40cm", 15)
+dinosaurioBebe1.setSpawn = "120 dias"
+console.log(dinosaurioBebe1)
+dinosaurioBebe1.info()
