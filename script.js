@@ -1002,13 +1002,15 @@ console.table(JhonnySilverhand3) // Muestra una tabla
 console.table(AdamSmasher3)
 console.groupEnd() // Finalizamos de agrupar
 console.time("Tiempo") // Medimos cuanto tarda nuestro codigo
-const array254 = Array (10000)
+const array254 = Array (100)
 for ( let i = 0; i < array254.length; i++){
   console.log(array254[i] = i)
 }
 console.timeEnd("Tiempo") // Etiqueta de cierre tiene que ser igual
+console.count(/*array254*/)// Sirve para saber cuantas veces se ejecuto algo
 
-
+pruebaAssert = `Se espera que Johnny Silverhand siempre sea parte de Samurai`
+console.assert(JhonnySilverhand3.affiliation === "Arasaka", {pruebaAssert}) //console.assert nos sirve para testear
 
 // console.log(Math.max(...numerosArray))
 
