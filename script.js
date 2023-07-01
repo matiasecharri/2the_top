@@ -990,7 +990,6 @@ dinosaurioBebe1.info()
 
 //CONSOLE /////////////////////////////
 
-console.clear() // Limpia la console
 console.log(console) // Clasico
 console.warn("Warning console") // Envia un warning
 console.error("Error console") // Enviar un error
@@ -1011,17 +1010,27 @@ console.count(/*array254*/)// Sirve para saber cuantas veces se ejecuto algo
 
 pruebaAssert = `Se espera que Johnny Silverhand siempre sea parte de Samurai`
 console.assert(JhonnySilverhand3.affiliation === "Arasaka", {pruebaAssert}) //console.assert nos sirve para testear
+console.clear()
+console.log("ref: 1014")
+
+
+const body = document.getElementById("body1")
+const time = new Date
+console.log(time)
+const hours = time.getHours()
+console.log(hours)
+
+if(hours <= 12 || hours <= 6){
+  console.log("Es de dia")
+  body.classList.add("bgwhite")  
+} else {
+  console.log("Es de noche")
+  body.classList.remove("bgwhite")
+}
+
+
+
+
 
 // console.log(Math.max(...numerosArray))
-
-// const time = new Date
-// console.log(time)
-// const hours = time.getHours()
-// console.log(hours)
-
-// if(hours <= 12 || hours <= 6){
-//   console.log("Es de dia")
-// } else {
-//   console.log("Es de noche")
-// }
 
