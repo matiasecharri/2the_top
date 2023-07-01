@@ -736,8 +736,22 @@ class Cyborg extends Human {
         )
       : console.log("Parametros Invalidos");
   }
-  static info(){
-    console.log(`Este es un metodo estático, como veras no tengo propiedades: ${this.nombre}`)
+  static info() {
+    console.log(
+      `Este es un metodo estático, como veras no tengo propiedades: ${this.nombre}`
+    );
+  }
+  get getEdad() {
+    return this.edad;
+  }
+  get getNombre() {
+    return this.nombre;
+  }
+  set setEdad(edad) {
+    this.edad = edad;
+  }
+  set setNombre(nombre) {
+    this.nombre = nombre;
   }
 }
 
@@ -756,3 +770,141 @@ cyborgDwight.realizandoAccion1();
 cyborgDwight.realizandoAccion2();
 
 Cyborg.info();
+console.log(cyborgDwight);
+cyborgDwight.setEdad = 70;
+cyborgDwight.setNombre = "Dwight Schurte";
+console.log(cyborgDwight.getEdad);
+console.log(cyborgDwight.getNombre);
+
+function obtenerEdad(objeto) {
+  if (objeto.getEdad >= 46 && objeto.getEdad < 70) {
+    console.log("Ha pasado los 46");
+  } else if (objeto.getEdad >= 70) {
+    console.log(
+      "Ha pasado los 70 señor " +
+        objeto.nombre +
+        "Veo que usted es un " +
+        objeto.organismo
+    );
+  }
+}
+
+obtenerEdad(cyborgDwight);
+obtenerEdad(humanDwight);
+
+console.log(cyborgDwight);
+
+class CharacterConstructor {
+  constructor(name, rol) {
+    this.name = name;
+    this.rol = rol;
+  }
+  presentation() {
+    if (this.rol === null) {
+      console.log(`My name is ${this.name}, and Im not sure of who I am.`);
+    } else {
+      console.log(`My name is ${this.name}, and Im a ${this.rol}.`);
+    }
+  }
+  set setAge(age) {
+    this.age = age;
+  }
+  get getAge() {
+    return this.age;
+  }
+}
+
+const JhonnySilverhand = new CharacterConstructor(
+  "Jhonny Silverhand",
+  "Rocker"
+);
+const AdamSmasher = new CharacterConstructor("Adam Smasher", "Soldier");
+const JudyAlvarez = new CharacterConstructor("Judy Alvarez", "Hacker");
+const JackyWelles = new CharacterConstructor("Jacky Wells", "Mercenary");
+const GoroTakemura = new CharacterConstructor("Goro Takemura", null);
+const ViktorVektor = new CharacterConstructor("Viktor Vektor", "Ripperdoc");
+const RogueAmendiares = new CharacterConstructor(
+  "Rogue Amendiares",
+  "Mercenary"
+);
+
+class CharacterEvolve extends CharacterConstructor {
+  constructor(name, rol, affiliation) {
+    super(name, rol);
+    this.affiliation = affiliation;
+  }
+  crew() {
+    if (this.affiliation === null) {
+      console.log(`I don have an affiliation.`);
+    } else {
+      console.log(`Actually... Im a member of ${this.affiliation}`);
+    }
+  }
+}
+
+const JhonnySilverhand2 = new CharacterEvolve(
+  "Jhonny Silverhand",
+  "Rocker",
+  "Samurai"
+);
+const AdamSmasher2 = new CharacterEvolve("Adam Smasher", "Soldier", "Arasaka");
+const JudyAlvarez2 = new CharacterEvolve("Judy Alvarez", "Hacker", "Moxx");
+const JackyWelles2 = new CharacterEvolve(
+  "Jacky Wells",
+  "Mercenary",
+  "Valentinos"
+);
+const GoroTakemura2 = new CharacterEvolve("Goro Takemura", null, "Arasaka");
+const ViktorVektor2 = new CharacterEvolve("Viktor Vektor", "Ripperdoc", null);
+const RogueAmendiares2 = new CharacterEvolve(
+  "Rogue Amendiares",
+  "Mercenary",
+  "Samurai"
+);
+
+
+class CharacterEvolve2 {
+  constructor(name, rol, affiliation, side) {
+    super(name, rol, affiliation);
+    this.side = side;
+  }
+  goodBad(){
+    console.log(`people say that im on the ${this.side} side.`)
+  }
+  set setHairColor (hairColor){
+  this.hairColor = hairColor
+  }
+  get getHairColor (){
+    return this.hairColor
+  }
+}
+
+const JhonnySilverhand3 = new CharacterEvolve2( "Jhonny Silverhand",  "Rocker",  "Samurai","good");
+const AdamSmasher3 = new CharacterEvolve2("Adam Smasher", "Soldier", "Arasaka","bad");
+const JudyAlvarez3 = new CharacterEvolve2("Judy Alvarez", "Hacker", "Moxx","good");
+const JackyWelles3 = new CharacterEvolve2(  "Jacky Wells",  "Mercenary",  "Valentinos","good");
+const GoroTakemura3 = new CharacterEvolve2("Goro Takemura", null, "Arasaka","bad");
+const ViktorVektor3 = new CharacterEvolve2("Viktor Vektor", "Ripperdoc", null,"good");
+const RogueAmendiares3 = new CharacterEvolve2(  "Rogue Amendiares",  "Mercenary",  "Samurai","good");
+
+const cyberpunkCharacters = [
+  JhonnySilverhand3,
+  AdamSmasher3,
+  JudyAlvarez3,
+  JackyWelles3,
+  GoroTakemura3,
+  ViktorVektor3,
+  RogueAmendiares3,
+];
+
+// console.log(cyberpunkCharacters);
+
+cyberpunkCharacters.forEach((x) => {
+  x.presentation();
+  x.crew();
+  x.goodBad()
+  if (x.name.toLowerCase().includes("jhonny")) {
+    x.setAge = 45;
+  }
+  console.log("My age is " + x.age);
+});
