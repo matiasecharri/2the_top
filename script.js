@@ -485,46 +485,40 @@ const sphynxCat = new CatCreator("felino", 4, "Miaauuu", "Sphynx");
 console.log(sphynxCat);
 sphynxCat.hablar();
 
-
-
-
-
 //Funcion Constructora
 function HumanCreator(etnia, edad) {
   this.etnia = etnia;
-  this.edad = edad
+  this.edad = edad;
 }
 //Agregando Metodos al Prototipo
-HumanCreator.prototype.respiracion = function(){
-  console.log("Estoy respirando, soy un humano")
-}
+HumanCreator.prototype.respiracion = function () {
+  console.log("Estoy respirando, soy un humano");
+};
 //Creando un nuevo humano
-const humano1 = new HumanCreator ("Africana", 33)
-console.log(humano1)
-humano1.respiracion()
+const humano1 = new HumanCreator("Africana", 33);
+console.log(humano1);
+humano1.respiracion();
 //Creando un nuevo Asiatico el cual herederá las propiedades, metodos y el prototipo de HumanCreator
-function AsianCreator(etnia, edad, pais){
-  this.super = HumanCreator
-  this.super(etnia, edad)
-  this.pais = pais
+function AsianCreator(etnia, edad, pais) {
+  this.super = HumanCreator;
+  this.super(etnia, edad);
+  this.pais = pais;
 }
 //Aclaramos que el prototypo de AsianCreator va a ser una nueva instancia de HumanCreator
-AsianCreator.prototype = new HumanCreator()
+AsianCreator.prototype = new HumanCreator();
 //Especificamos que el constructor va a ser AsianCreator porque de lo contrario heredaria el constructor de HumanCreator
-AsianCreator.prototype.constructor = AsianCreator
-
+AsianCreator.prototype.constructor = AsianCreator;
 
 //Agregamos nuevo metodo al prototipo AsianCreator
-AsianCreator.prototype.soyAsiatico = function(){
-  console.log(`Vengo de ${this.pais}`)
-}
+AsianCreator.prototype.soyAsiatico = function () {
+  console.log(`Vengo de ${this.pais}`);
+};
 
-const japones1 = new AsianCreator("asiatico", 40, "Japon, Osaka")
-console.log(japones1)
+const japones1 = new AsianCreator("asiatico", 40, "Japon, Osaka");
+console.log(japones1);
 
-japones1.respiracion()
-japones1.soyAsiatico()
-
+japones1.respiracion();
+japones1.soyAsiatico();
 
 // Nueva función constructora basada en AsianCreator
 function KoreanCreator(pais, ciudad) {
@@ -534,18 +528,427 @@ function KoreanCreator(pais, ciudad) {
 }
 
 // Herencia del prototipo de AsianCreator
-KoreanCreator.prototype = new AsianCreator()
+KoreanCreator.prototype = new AsianCreator();
 KoreanCreator.prototype.constructor = KoreanCreator;
 
 // Nuevo método específico de KoreanCreator
-KoreanCreator.prototype.soyCoreano = function() {
+KoreanCreator.prototype.soyCoreano = function () {
   console.log("Soy coreano de " + this.ciudad);
-}
+};
 
 // Crear una instancia de KoreanCreator
 const coreano1 = new KoreanCreator("Corea del Sur", "Seúl");
 console.log(coreano1);
 
-coreano1.respiracion();    // Método heredado de HumanCreator a través de AsianCreator
-coreano1.soyAsiatico();    // Método heredado de AsianCreator
-coreano1.soyCoreano();     // Método específico de KoreanCreator
+coreano1.respiracion(); // Método heredado de HumanCreator a través de AsianCreator
+coreano1.soyAsiatico(); // Método heredado de AsianCreator
+coreano1.soyCoreano(); // Método específico de KoreanCreator
+
+//CREANDO UNA CELULA
+function LifeGenerator(cells, age) {
+  this.cells = cells;
+  this.age = age;
+}
+
+LifeGenerator.prototype.respirando = function () {
+  console.log(`Soy un organismo ${this.cells}, estoy respirando`);
+};
+
+const vida1 = new LifeGenerator("pluricelular", 0);
+console.log(vida1);
+vida1.respirando();
+
+//CREANDO UN PRIMATE
+function EvolveGenerator(cells, age, specie) {
+  this.super = LifeGenerator;
+  this.super(cells, age);
+  this.specie = specie;
+}
+
+EvolveGenerator.prototype = new LifeGenerator();
+EvolveGenerator.prototype.constructor = EvolveGenerator;
+EvolveGenerator.prototype.action = function () {
+  console.log(`Paso tiempo, pude evolucionar, mi especie es ${this.specie}`);
+};
+
+const animal1 = new EvolveGenerator("pluricelular", 7, "primate");
+console.log(animal1);
+animal1.respirando();
+animal1.action();
+
+//CREANDO UN HUMANO
+function BecomeHuman(cells, age, specie, skill) {
+  this.super = EvolveGenerator;
+  this.super(cells, age, specie);
+  this.skill = skill;
+}
+
+BecomeHuman.prototype = new EvolveGenerator();
+BecomeHuman.prototype.constructor = BecomeHuman;
+BecomeHuman.prototype.skilling = function () {
+  console.log(
+    `Mi evolución transcurre muy rápido, ahora que soy ${this.specie} soy capaz de ${this.skill}`
+  );
+};
+
+const human1 = new BecomeHuman("pluricelular", 40, "humano", "hacer fuego");
+console.log(human1);
+human1.respirando();
+human1.action();
+human1.skilling();
+
+//CREANDO UN CYBORG
+
+function BecomeCyborg(cells, age, specie, skill, skill2) {
+  this.super = BecomeHuman;
+  this.super(cells, age, specie, skill);
+  this.skill2 = skill2;
+}
+
+BecomeCyborg.prototype = new BecomeHuman();
+BecomeCyborg.prototype.constructor = BecomeCyborg;
+BecomeCyborg.prototype.newskill = function () {
+  console.log(
+    `La evolución no se detuvo aparentemente ahora soy un ${this.specie} y soy capaz de ${this.skill2}`
+  );
+};
+
+const cyborg1 = new BecomeCyborg(
+  "pluricelular",
+  65,
+  "cyborg",
+  "hacer fuego",
+  "ralentizar el tiempo"
+);
+console.log(cyborg1);
+cyborg1.respirando();
+cyborg1.action();
+cyborg1.skilling();
+cyborg1.newskill();
+
+//CREANDO UNA MÁQUINA
+
+function BecomeMachine(cells, age, specie, skill, skill2, final) {
+  this.super = BecomeCyborg;
+  this.super(cells, age, specie, skill, skill2);
+  this.final = final;
+}
+
+BecomeMachine.prototype = new BecomeCyborg();
+BecomeMachine.prototype.constructor = BecomeMachine;
+BecomeMachine.prototype.theEnd = function () {
+  console.log(
+    `Parece que hasta acá llegó mi evolución, hace tiempo que no necesito ${this.skill} o ${this.skill2}... Termine siendo ${this.specie} y soy capaz de ${this.final}, hasta la próxima :)`
+  );
+};
+
+const machine1 = new BecomeMachine(
+  "pluricelular",
+  100,
+  "maquina",
+  "hacer fuego",
+  "ralentizar el tiempo",
+  "lo que sea"
+);
+console.log(machine1);
+machine1.respirando();
+machine1.action();
+machine1.skilling();
+machine1.newskill();
+machine1.theEnd();
+
+//////////////////////CLASSES Y HERENCIA DE CLASSES /////////////
+
+///CREANDO LA CELULA///
+
+class Celula {
+  constructor(nombre, organismo) {
+    this.nombre = nombre;
+    this.organismo = organismo;
+  }
+  vivir() {
+    console.log(`Mi nombre es ${this.nombre} y soy un/a ${this.organismo}`);
+  }
+}
+
+const vidaDwight = new Celula("Dwight", "Celula");
+console.log(vidaDwight);
+vidaDwight.vivir();
+
+///CREANDO UN SIMIO A PARTIR DE LA CELULA///
+
+class Simio extends Celula {
+  constructor(nombre, organismo, accion0) {
+    super(nombre, organismo);
+    this.accion0 = accion0;
+  }
+  realizandoAccion0() {
+    console.log(`Evolucioné ahora puedo ${this.accion0.toLowerCase()}.`);
+  }
+}
+
+const simioDwight = new Simio("Dwight", "Primate", "Pelar Bananas");
+console.log(simioDwight);
+simioDwight.vivir();
+simioDwight.realizandoAccion0();
+
+///CREANDO UN HUMANO A PARTIR DEL SIMIO///
+
+class Human extends Simio {
+  constructor(nombre, organismo, accion0, accion1) {
+    super(nombre, organismo, accion0);
+    this.accion1 = accion1;
+  }
+  realizandoAccion1() {
+    console.log(
+      `Sigo siendo ${this.nombre}, pero ahora soy un ${
+        this.organismo
+      } y lo que hago es ${this.accion1.toLowerCase()}.`
+    );
+  }
+}
+
+const humanDwight = new Human(
+  "Dwight",
+  "Humano",
+  "Pelar Bananas",
+  "Trabajar en ventas"
+);
+console.log(humanDwight);
+humanDwight.vivir();
+humanDwight.realizandoAccion0();
+humanDwight.realizandoAccion1();
+
+///CREANDO UN CYBORG A PARTIR DEL HUMANO///
+
+class Cyborg extends Human {
+  constructor(nombre, organismo, accion0, accion1, accion2) {
+    super(nombre, organismo, accion0, accion1);
+    this.accion2 = accion2;
+  }
+  realizandoAccion0() {
+    console.log(`Olvide esto luego de haberme convertido en ${this.organismo}`);
+  }
+  realizandoAccion2() {
+    this.organismo.toLowerCase().includes("cyborg")
+      ? console.log(
+          `Mi evolución continua constantemente ahora soy un ${this.organismo.toLowerCase()} y ademas de ${this.accion1.toLowerCase()} también me encargo de ${this.accion2.toLowerCase()}.`
+        )
+      : console.log("Parametros Invalidos");
+  }
+  static info() {
+    console.log(
+      `Este es un metodo estático, como veras no tengo propiedades: ${this.nombre}`
+    );
+  }
+  get getEdad() {
+    return this.edad;
+  }
+  get getNombre() {
+    return this.nombre;
+  }
+  set setEdad(edad) {
+    this.edad = edad;
+  }
+  set setNombre(nombre) {
+    this.nombre = nombre;
+  }
+}
+
+const cyborgDwight = new Cyborg(
+  "Dwight",
+  "Cyborg",
+  "Pelar Bananas",
+  "Trabajar en ventas",
+  "Proteger la ecología"
+);
+
+console.log(cyborgDwight);
+cyborgDwight.vivir();
+cyborgDwight.realizandoAccion0();
+cyborgDwight.realizandoAccion1();
+cyborgDwight.realizandoAccion2();
+
+Cyborg.info();
+console.log(cyborgDwight);
+cyborgDwight.setEdad = 70;
+cyborgDwight.setNombre = "Dwight Schurte";
+console.log(cyborgDwight.getEdad);
+console.log(cyborgDwight.getNombre);
+
+function obtenerEdad(objeto) {
+  if (objeto.getEdad >= 46 && objeto.getEdad < 70) {
+    console.log("Ha pasado los 46");
+  } else if (objeto.getEdad >= 70) {
+    console.log(
+      "Ha pasado los 70 señor " +
+        objeto.nombre +
+        "Veo que usted es un " +
+        objeto.organismo
+    );
+  }
+}
+
+obtenerEdad(cyborgDwight);
+obtenerEdad(humanDwight);
+
+console.log(cyborgDwight);
+
+class CharacterConstructor {
+  constructor(name, rol) {
+    this.name = name;
+    this.rol = rol;
+  }
+  presentation() {
+    if (this.rol === null) {
+      console.log(`My name is ${this.name}, and Im not sure of who I am.`);
+    } else {
+      console.log(`My name is ${this.name}, and Im a ${this.rol}.`);
+    }
+  }
+  set setAge(age) {
+    this.age = age;
+  }
+  get getAge() {
+    return this.age;
+  }
+}
+
+const JhonnySilverhand = new CharacterConstructor(
+  "Jhonny Silverhand",
+  "Rocker"
+);
+const AdamSmasher = new CharacterConstructor("Adam Smasher", "Soldier");
+const JudyAlvarez = new CharacterConstructor("Judy Alvarez", "Hacker");
+const JackyWelles = new CharacterConstructor("Jacky Wells", "Mercenary");
+const GoroTakemura = new CharacterConstructor("Goro Takemura", null);
+const ViktorVektor = new CharacterConstructor("Viktor Vektor", "Ripperdoc");
+const RogueAmendiares = new CharacterConstructor(
+  "Rogue Amendiares",
+  "Mercenary"
+);
+
+class CharacterEvolve extends CharacterConstructor {
+  constructor(name, rol, affiliation) {
+    super(name, rol);
+    this.affiliation = affiliation;
+  }
+  crew() {
+    if (this.affiliation === null) {
+      console.log(`I don have an affiliation.`);
+    } else {
+      console.log(`Actually... Im a member of ${this.affiliation}`);
+    }
+  }
+}
+
+const JhonnySilverhand2 = new CharacterEvolve(
+  "Jhonny Silverhand",
+  "Rocker",
+  "Samurai"
+);
+const AdamSmasher2 = new CharacterEvolve("Adam Smasher", "Soldier", "Arasaka");
+const JudyAlvarez2 = new CharacterEvolve("Judy Alvarez", "Hacker", "Moxx");
+const JackyWelles2 = new CharacterEvolve(
+  "Jacky Wells",
+  "Mercenary",
+  "Valentinos"
+);
+const GoroTakemura2 = new CharacterEvolve("Goro Takemura", null, "Arasaka");
+const ViktorVektor2 = new CharacterEvolve("Viktor Vektor", "Ripperdoc", null);
+const RogueAmendiares2 = new CharacterEvolve(
+  "Rogue Amendiares",
+  "Mercenary",
+  "Samurai"
+);
+
+class CharacterEvolve2 extends CharacterEvolve {
+  constructor(name, rol, affiliation, side) {
+    super(name, rol, affiliation);
+    this.side = side;
+  }
+  goodBad() {
+    console.log(`people say that im on the ${this.side} side.`);
+  }
+  set setHairColor(hairColor) {
+    this.hairColor = hairColor;
+  }
+  get getHairColor() {
+    return this.hairColor;
+  }
+}
+
+const JhonnySilverhand3 = new CharacterEvolve2(
+  "Jhonny Silverhand",
+  "Rocker",
+  "Samurai",
+  "good"
+);
+const AdamSmasher3 = new CharacterEvolve2(
+  "Adam Smasher",
+  "Soldier",
+  "Arasaka",
+  "bad"
+);
+const JudyAlvarez3 = new CharacterEvolve2(
+  "Judy Alvarez",
+  "Hacker",
+  "Moxx",
+  "good"
+);
+const JackyWelles3 = new CharacterEvolve2(
+  "Jacky Wells",
+  "Mercenary",
+  "Valentinos",
+  "good"
+);
+const GoroTakemura3 = new CharacterEvolve2(
+  "Goro Takemura",
+  null,
+  "Arasaka",
+  "bad"
+);
+const ViktorVektor3 = new CharacterEvolve2(
+  "Viktor Vektor",
+  "Ripperdoc",
+  null,
+  "good"
+);
+const RogueAmendiares3 = new CharacterEvolve2(
+  "Rogue Amendiares",
+  "Mercenary",
+  "Samurai",
+  "good"
+);
+
+const cyberpunkCharacters = [
+  JhonnySilverhand3,
+  AdamSmasher3,
+  JudyAlvarez3,
+  JackyWelles3,
+  GoroTakemura3,
+  ViktorVektor3,
+  RogueAmendiares3,
+];
+
+cyberpunkCharacters.forEach((x) => {
+  x.presentation();
+  x.crew();
+  x.goodBad();
+  if (x.name.toLowerCase().includes("jhonny")) {
+    x.setAge = 45;
+  }
+  console.log("My age is " + x.age);
+});
+
+const goodOnes = []
+const badOnes = []
+
+cyberpunkCharacters.filter((x)=>{
+x.side === "good"
+? goodOnes.push(x)
+: badOnes.push(x)
+})
+
+console.table(goodOnes)
+console.table(badOnes)
