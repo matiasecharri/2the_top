@@ -862,30 +862,64 @@ const RogueAmendiares2 = new CharacterEvolve(
   "Samurai"
 );
 
-
-class CharacterEvolve2 {
+class CharacterEvolve2 extends CharacterEvolve {
   constructor(name, rol, affiliation, side) {
     super(name, rol, affiliation);
     this.side = side;
   }
-  goodBad(){
-    console.log(`people say that im on the ${this.side} side.`)
+  goodBad() {
+    console.log(`people say that im on the ${this.side} side.`);
   }
-  set setHairColor (hairColor){
-  this.hairColor = hairColor
+  set setHairColor(hairColor) {
+    this.hairColor = hairColor;
   }
-  get getHairColor (){
-    return this.hairColor
+  get getHairColor() {
+    return this.hairColor;
   }
 }
 
-const JhonnySilverhand3 = new CharacterEvolve2( "Jhonny Silverhand",  "Rocker",  "Samurai","good");
-const AdamSmasher3 = new CharacterEvolve2("Adam Smasher", "Soldier", "Arasaka","bad");
-const JudyAlvarez3 = new CharacterEvolve2("Judy Alvarez", "Hacker", "Moxx","good");
-const JackyWelles3 = new CharacterEvolve2(  "Jacky Wells",  "Mercenary",  "Valentinos","good");
-const GoroTakemura3 = new CharacterEvolve2("Goro Takemura", null, "Arasaka","bad");
-const ViktorVektor3 = new CharacterEvolve2("Viktor Vektor", "Ripperdoc", null,"good");
-const RogueAmendiares3 = new CharacterEvolve2(  "Rogue Amendiares",  "Mercenary",  "Samurai","good");
+const JhonnySilverhand3 = new CharacterEvolve2(
+  "Jhonny Silverhand",
+  "Rocker",
+  "Samurai",
+  "good"
+);
+const AdamSmasher3 = new CharacterEvolve2(
+  "Adam Smasher",
+  "Soldier",
+  "Arasaka",
+  "bad"
+);
+const JudyAlvarez3 = new CharacterEvolve2(
+  "Judy Alvarez",
+  "Hacker",
+  "Moxx",
+  "good"
+);
+const JackyWelles3 = new CharacterEvolve2(
+  "Jacky Wells",
+  "Mercenary",
+  "Valentinos",
+  "good"
+);
+const GoroTakemura3 = new CharacterEvolve2(
+  "Goro Takemura",
+  null,
+  "Arasaka",
+  "bad"
+);
+const ViktorVektor3 = new CharacterEvolve2(
+  "Viktor Vektor",
+  "Ripperdoc",
+  null,
+  "good"
+);
+const RogueAmendiares3 = new CharacterEvolve2(
+  "Rogue Amendiares",
+  "Mercenary",
+  "Samurai",
+  "good"
+);
 
 const cyberpunkCharacters = [
   JhonnySilverhand3,
@@ -897,14 +931,24 @@ const cyberpunkCharacters = [
   RogueAmendiares3,
 ];
 
-// console.log(cyberpunkCharacters);
-
 cyberpunkCharacters.forEach((x) => {
   x.presentation();
   x.crew();
-  x.goodBad()
+  x.goodBad();
   if (x.name.toLowerCase().includes("jhonny")) {
     x.setAge = 45;
   }
   console.log("My age is " + x.age);
 });
+
+const goodOnes = []
+const badOnes = []
+
+cyberpunkCharacters.filter((x)=>{
+x.side === "good"
+? goodOnes.push(x)
+: badOnes.push(x)
+})
+
+console.table(goodOnes)
+console.table(badOnes)
