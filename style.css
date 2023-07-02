@@ -75,7 +75,7 @@ p {
 nav {
   width: 100%;
   position: absolute;
-  top: 0px;
+  top: 10%;
   height: 10vh;
   display: flex;
   justify-content: center;
@@ -89,7 +89,7 @@ nav button {
   width: 30px;
   cursor: pointer;
   border: none;
-  background-color: rgb(0, 215, 79);
+  background-color: rgb(220, 66, 173);
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: ease-in-out;
@@ -129,13 +129,11 @@ main {
 }
 
 .thehiddenone img {
-  width: 300px !important;
+  width: 250px !important;
   height: 500px !important;
   object-fit: cover;
   border-radius: 0px 0px 0px 0px;
- 
-  transition: opacity 0.5s ease-in-out;
-  z-index: 100;
+ margin-top: 10px;
 }
 
 .thehiddenone img:hover {
@@ -151,6 +149,7 @@ main {
 
   font-family: 'Exo 2', sans-serif
 }
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -200,13 +199,17 @@ main {
   
 }
 .thehiddenone{
-  gap:20px;
+  gap:10px;
   justify-content: start;
   
 }
 .thehiddenone img{
- border-radius: 20px;
  box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
  
 }
 
+
+.thehiddenone ul {
+  list-style-type: none;
+  font-size: 12px;
+}
