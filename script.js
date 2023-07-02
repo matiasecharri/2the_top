@@ -1029,7 +1029,50 @@ if(hours <= 12 || hours <= 6){
 }
 
 
+//CONSTRUCTOR "DATE" 
+console.clear()
+console.log("ref: 1033")
 
+let fecha = new Date();
+console.dir(fecha);
+//Método GETDATE -> Se utiliza para obtener el día del mes en formato número.
+console.log("El dia del mes es " + fecha.getDate());
+//Método GETDAY -> Se utiliza para obtener el día de la semana en formato número. 
+//([DOM 0, LUN 1, MART 2, MIER 3, JUEV 4, VIERN, 5, SAB 6])
+console.log("El dia de la semana es " + fecha.getDay());
+//Método GETMONTH -> Se utiliza para obtener el mes en formato número. 
+console.log("El mes es " + fecha.getMonth());
+//Método GETFULLYEAR -> Se utiliza para obtener el año en formato número. 
+console.log("El año es " +fecha.getFullYear());
+//Método GETHOUR -> Se utiliza para obtener la hora en formato número. 
+console.log("La hora en formato numero es: " + fecha.getHours());
+//Método GETMINUTES -> Se utiliza para obtener los minutos en formato número. 
+console.log("Los minutos en forma numero son: " + fecha.getMinutes());
+//Método GETSECONDS -> Se utiliza para obtener los segundos en formato número. 
+console.log("Los segundos en forma numero son: " + fecha.getSeconds());
+//Método GETMILISECONDS -> Se utiliza para obtener los milisegundos en formato número. 
+console.log("Los milisegundos en forma numero son: " +fecha.getMilliseconds());
+//Método TOSTRING -> Se utiliza para mostrar una representación en forma de cadena de texto de un objeto de tipo fecha (Date) en la consola.
+console.log("Cadena de texto date: " +fecha.toString());
+//Método TODATESTRING -> Se utiliza para obtener una representación en forma de cadena de texto de un objeto de tipo fecha (Date) solo que devuelve una cadena de texto que representa la fecha en un formato simplificado y específico.
+console.log("Cadena de texto date simplificada: " +fecha.toDateString());
+//Método TOLOCALESTRING -> Se utiliza para obtener el horario local.
+console.log("El horario local es:  " +fecha.toLocaleString());
+//Método TOLOCALEDATESTRING -> Se utiliza para obtener la fecha.
+console.log("El fecha local es:  "+ fecha.toLocaleDateString());
+//Método TOLOCALETIMESTRING -> Se utiliza para obtener parte de la hora.
+console.log("La parte de la hora es: "+fecha.toLocaleTimeString());
+//MÉTODO GETTIMEZONEOFFSET -> Se utiliza para obtener la diferencia en minutos entre la hora local y la hora GMT en un objeto Date.
+console.log(fecha.getTimezoneOffset());
+//MÉTODO GETUTCHOURS, DATE, ETC 
+console.log(fecha.getUTCHours());
+//MÉTODO NOW -> Se utiliza para obtener el número de milisegundos transcurridos desde el 1 de enero de 1970.
+console.log(Date.now());
+
+let cumpleañosDiana = new Date(2000,10,17);
+let cumpleañosCarlos = new Date(1998,10,14);
+console.log(cumpleañosDiana);
+console.log(cumpleañosCarlos);
 
 
 // console.log(Math.max(...numerosArray))
