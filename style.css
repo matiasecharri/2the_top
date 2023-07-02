@@ -8,12 +8,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: rgb(25, 25, 25);
   height: 100vh;
+  transition: 0.8s;
 }
 
 p {
-  color:  rgb(25, 25, 25);
+  color: rgb(25, 25, 25);
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
   font-size: 10px;
@@ -45,7 +47,6 @@ p {
   0% {
     transform: scale(1) translateY(0);
     font-size: 14px; /* Escala y posición inicial */
-    
   }
   50% {
     transform: scale(1.05) translateY(-10px); /* Escala y posición durante la animación (hacia arriba) */
@@ -58,6 +59,154 @@ p {
   }
 }
 
-.bgwhite{
+.bgwhite {
   background-color: rgb(236, 236, 236);
 }
+.bgrose {
+  background-color:#E6FF00;
+
+  transition: 0.8s;
+}
+
+.buttonBorder {
+  border: 1px solid rgb(46, 45, 46);
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+nav button {
+  background-color: aliceblue;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(0, 215, 79);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+nav button:nth-child(1) {
+  background-color: #E6FF00 !important;
+}
+
+nav button:nth-child(2) {
+  background-color: rgb(44, 200, 247) !important;
+}
+
+nav button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.144);
+}
+
+nav button:not(:hover) {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  width: 100%;
+  display: flex;
+}
+.thehiddenone {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.thehiddenone img {
+  width: 300px !important;
+  height: 500px !important;
+  object-fit: cover;
+  border-radius: 0px 0px 0px 0px;
+ 
+  transition: opacity 0.5s ease-in-out;
+  z-index: 100;
+}
+
+.thehiddenone img:hover {
+  opacity: 0.7;
+}
+
+.thehiddenone h2 {
+  transition-duration: 2.8s;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: 100;
+  color: #2a2a29;
+
+  font-family: 'Exo 2', sans-serif
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.thehiddenone h2 {
+  opacity: 0;
+  animation: fade-in 0.5s ease forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.thehiddenone h2 {
+  opacity: 0;
+  animation: fade-in 0.5s ease forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.thehiddenone img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 0px 0px 0px 0px;
+  animation: fade-in 0.5s ease-in-out;
+  z-index: 100;
+  
+}
+.thehiddenone{
+  gap:20px;
+  justify-content: start;
+  
+}
+.thehiddenone img{
+ border-radius: 20px;
+ box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+ 
+}
+
