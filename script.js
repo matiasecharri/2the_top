@@ -1102,3 +1102,15 @@ console.clear()
 console.log("ref 1101")
 
 //OBJECT MATH
+console.log(Math)
+console.log(Math.PI)
+console.log(Math.abs(-7.8)) //Devuelve el numero orignal (no negativo)
+console.log(Math.ceil(9.1)) // Redondea hacia el CEIL (CIELO)
+console.log(Math.floor(8.9)) // Redondea hacia el FLOOR (PISO)
+console.log(Math.round(10.49)) // Redondea hacia el numero más cercano priorizando arriba
+console.log(Math.sqrt(16)) // Sacamos la raiz cuadrada
+console.log(Math.pow(5,3)) // Sacamos la potencia de un numero, el primer numero es el numero a usar el segundo la potencia que queremos 
+console.log(Math.sign(25))//Indica si el numero es negativo positivo o 0 (-1,0,1)+
+console.log(Math.round(Math.random()*100)) //Nos da numeros random entre 0 y 1, podemos usar un * 100 para que nos de numeros entre 0 y 10 y a su vez un math round para redondear y que no nos quede con comas.
+
+
