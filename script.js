@@ -1098,4 +1098,7 @@ $rosaButton.addEventListener("mouseleave", () => {
   }
 });
 
-// console.log(Math.max(...numerosArray))
+console.clear()
+console.log("ref 1101")
+
+//OBJECT MATH
