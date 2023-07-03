@@ -941,62 +941,238 @@ cyberpunkCharacters.forEach((x) => {
   console.log("My age is " + x.age);
 });
 
-const goodOnes = []
-const badOnes = []
+const goodOnes = [];
+const badOnes = [];
 
-cyberpunkCharacters.filter((x)=>{
-x.side === "good"
-? goodOnes.push(x)
-: badOnes.push(x)
-})
+cyberpunkCharacters.filter((x) => {
+  x.side === "good" ? goodOnes.push(x) : badOnes.push(x);
+});
 
-console.table(goodOnes)
-console.table(badOnes)
-
-console.log(Math.max(...numerosArray))
-
-const time = new Date
-console.log(time)
-const hours = time.getHours()
-console.log(hours)
-
-if(hours <= 12 || hours <= 6){
-  console.log("Es de dia")
-} else {
-  console.log("Es de noche")
-}
-
-
-
-
+console.table(goodOnes);
+console.table(badOnes);
 
 class Huevo {
-  constructor(especie, tamanio){
-this.especie = especie
-this.tamanio = tamanio
+  constructor(especie, tamanio) {
+    this.especie = especie;
+    this.tamanio = tamanio;
   }
-  set setSpawn (timeLeft){
-    this.timeLeft = timeLeft
+  set setSpawn(timeLeft) {
+    this.timeLeft = timeLeft;
   }
-  get getSpawn (){
-    return this.timeLeft
+  get getSpawn() {
+    return this.timeLeft;
   }
 }
 
-const huevoDeDinosaurio1 = new Huevo ("t-rex", 30)
-huevoDeDinosaurio1.setSpawn = "10 days"
-console.log(huevoDeDinosaurio1.getSpawn) 
+const huevoDeDinosaurio1 = new Huevo("t-rex", 30);
+huevoDeDinosaurio1.setSpawn = "10 days";
+console.log(huevoDeDinosaurio1.getSpawn);
 
 class TrexBebe extends Huevo {
-  constructor(especie, tamanio, hours){
-  super(especie, tamanio)
-  this.hours = hours}
-  info(){
-    console.log(`Mi especie es ${this.especie} estuve esperando ${this.getSpawn} para nacer, finalmente naci a las ${this.hours}hs.`)
+  constructor(especie, tamanio, hours) {
+    super(especie, tamanio);
+    this.hours = hours;
+  }
+  info() {
+    console.warn(
+      `Mi especie es ${this.especie} estuve esperando ${this.getSpawn} para nacer, finalmente naci a las ${this.hours}hs.`
+    );
   }
 }
 
-const dinosaurioBebe1 = new TrexBebe("t-rex", "40cm", 15)
-dinosaurioBebe1.setSpawn = "120 dias"
-console.log(dinosaurioBebe1)
-dinosaurioBebe1.info()
+const dinosaurioBebe1 = new TrexBebe("t-rex", "40cm", 15);
+dinosaurioBebe1.setSpawn = "120 dias";
+console.log(dinosaurioBebe1);
+dinosaurioBebe1.info();
+
+//CONSOLE /////////////////////////////
+
+console.log(console); // Clasico
+console.warn("Warning console"); // Envia un warning
+console.error("Error console"); // Enviar un error
+console.log(document); // Nos muestra el HTML
+console.dir(document); // En vez de mostrarnos el HTML nos representa un elemento como si fuese un objeto
+
+console.group("Cyberpunk Characters"); // Nos permite agrupar console.logs
+console.table(JhonnySilverhand3); // Muestra una tabla
+console.table(AdamSmasher3);
+console.groupEnd(); // Finalizamos de agrupar
+console.time("Tiempo"); // Medimos cuanto tarda nuestro codigo
+const array254 = Array(100);
+for (let i = 0; i < array254.length; i++) {
+  console.log((array254[i] = i));
+}
+console.timeEnd("Tiempo"); // Etiqueta de cierre tiene que ser igual
+console.count(/*array254*/); // Sirve para saber cuantas veces se ejecuto algo
+
+pruebaAssert = `Se espera que Johnny Silverhand siempre sea parte de Samurai`;
+console.assert(JhonnySilverhand3.affiliation === "Arasaka", { pruebaAssert }); //console.assert nos sirve para testear
+console.clear();
+console.log("ref: 1014");
+
+JhonnySilverhand3.setAge = 34;
+
+const body = document.getElementById("body1");
+const time = new Date();
+const hours = time.getHours();
+
+if (hours >= 6 && hours < 18) {
+  console.log("Es de día");
+  body.classList.remove("bgdark");
+  body.classList.add("bgwhite");
+} else {
+  console.log("Es de noche");
+  body.classList.remove("bgwhite");
+  body.classList.add("bgdark");
+}
+
+//CONSTRUCTOR "DATE"
+console.clear();
+console.log("ref: 1033");
+
+let fecha = new Date();
+console.dir(fecha);
+//Método GETDATE -> Se utiliza para obtener el día del mes en formato número.
+console.log("El dia del mes es " + fecha.getDate());
+//Método GETDAY -> Se utiliza para obtener el día de la semana en formato número.
+//([DOM 0, LUN 1, MART 2, MIER 3, JUEV 4, VIERN, 5, SAB 6])
+console.log("El dia de la semana es " + fecha.getDay());
+//Método GETMONTH -> Se utiliza para obtener el mes en formato número.
+console.log("El mes es " + fecha.getMonth());
+//Método GETFULLYEAR -> Se utiliza para obtener el año en formato número.
+console.log("El año es " + fecha.getFullYear());
+//Método GETHOUR -> Se utiliza para obtener la hora en formato número.
+console.log("La hora en formato numero es: " + fecha.getHours());
+//Método GETMINUTES -> Se utiliza para obtener los minutos en formato número.
+console.log("Los minutos en forma numero son: " + fecha.getMinutes());
+//Método GETSECONDS -> Se utiliza para obtener los segundos en formato número.
+console.log("Los segundos en forma numero son: " + fecha.getSeconds());
+//Método GETMILISECONDS -> Se utiliza para obtener los milisegundos en formato número.
+console.log("Los milisegundos en forma numero son: " + fecha.getMilliseconds());
+//Método TOSTRING -> Se utiliza para mostrar una representación en forma de cadena de texto de un objeto de tipo fecha (Date) en la consola.
+console.log("Cadena de texto date: " + fecha.toString());
+//Método TODATESTRING -> Se utiliza para obtener una representación en forma de cadena de texto de un objeto de tipo fecha (Date) solo que devuelve una cadena de texto que representa la fecha en un formato simplificado y específico.
+console.log("Cadena de texto date simplificada: " + fecha.toDateString());
+//Método TOLOCALESTRING -> Se utiliza para obtener el horario local.
+console.log("El horario local es:  " + fecha.toLocaleString());
+//Método TOLOCALEDATESTRING -> Se utiliza para obtener la fecha.
+console.log("El fecha local es:  " + fecha.toLocaleDateString());
+//Método TOLOCALETIMESTRING -> Se utiliza para obtener parte de la hora.
+console.log("La parte de la hora es: " + fecha.toLocaleTimeString());
+//MÉTODO GETTIMEZONEOFFSET -> Se utiliza para obtener la diferencia en minutos entre la hora local y la hora GMT en un objeto Date.
+console.log(fecha.getTimezoneOffset());
+//MÉTODO GETUTCHOURS, DATE, ETC
+console.log(fecha.getUTCHours());
+//MÉTODO NOW -> Se utiliza para obtener el número de milisegundos transcurridos desde el 1 de enero de 1970.
+console.log(Date.now());
+
+let cumpleañosDiana = new Date(2000, 10, 17);
+let cumpleañosCarlos = new Date(1998, 10, 14);
+console.log(cumpleañosDiana);
+console.log(cumpleañosCarlos);
+
+let interruptor = false;
+let $rosaButton = document.getElementById("rosie");
+let $main = document.getElementById("main1");
+
+$rosaButton.addEventListener("wheel", () => {
+  if (interruptor === false) {
+    body.classList.add("bgrose");
+    $rosaButton.classList.add("buttonBorder");
+    $main.innerHTML = `<div class="thehiddenone"><h2>${JhonnySilverhand3.name}</h2>
+    <ul>
+    <li>Afilliation: ${JhonnySilverhand3.affiliation} / Age: ${JhonnySilverhand3.getAge} / Profession: ${JhonnySilverhand3.rol} </li>
+    
+  </ul>
+    <img src="https://64.media.tumblr.com/81ef2180ddf8ec862af46b52fa2b7c01/ca6b3b8810139a82-9e/s540x810/6c0d5e64076c359d2c772bac318e1951f90cd78a.jpg" alt="" srcset=""></div>`;
+    interruptor = true;
+  }
+});
+
+$rosaButton.addEventListener("mouseleave", () => {
+  if (interruptor === true) {
+    body.classList.remove("bgrose");
+    $main.innerHTML = "";
+    $rosaButton.classList.remove("buttonBorder");
+    interruptor = false;
+  }
+});
+
+console.clear();
+console.log("ref 1101");
+
+//OBJECT MATH
+console.log(Math);
+console.log(Math.PI);
+console.log(Math.abs(-7.8)); //Devuelve el numero orignal (no negativo)
+console.log(Math.ceil(9.1)); // Redondea hacia el CEIL (CIELO)
+console.log(Math.floor(8.9)); // Redondea hacia el FLOOR (PISO)
+console.log(Math.round(10.49)); // Redondea hacia el numero más cercano priorizando arriba
+console.log(Math.sqrt(16)); // Sacamos la raiz cuadrada
+console.log(Math.pow(5, 3)); // Sacamos la potencia de un numero, el primer numero es el numero a usar el segundo la potencia que queremos
+console.log(Math.sign(25)); //Indica si el numero es negativo positivo o 0 (-1,0,1)+
+console.log(Math.round(Math.random() * 100)); //Nos da numeros random entre 0 y 1, podemos usar un * 100 para que nos de numeros entre 0 y 10 y a su vez un math round para redondear y que no nos quede con comas.
+
+//CORTOCIRCUIT OPERATOR
+
+// || Cuando el valor de la izquierda tienda verdadero tomara el de la izquierda.
+// && Cuando el valor de la izquierda tienda a verdadero tomara el de la derecha.
+
+console.log("Hola" || "Chau");
+console.log(0 || "Chau");
+console.log("//////////////////");
+console.log("Chau" && "Hola");
+console.log(0 && "0 tiende a false asi que lo mostrará");
+
+const saludando123 = (nombre) => {
+  console.log(`Hola ${nombre || "persona misteriosa"}`);
+};
+
+saludando123("Jorgito");
+saludando123(0);
+
+const saludando1234 = (nombre) => {
+  console.log(
+    `Hola ${
+      nombre && "valor de la derecha porque el valor de la izquierda es true"
+    }`
+  );
+};
+
+saludando1234("Jaime");
+saludando1234(0);
+
+// Curiosidad se puede hacer esto:
+const buenosDias = (nombre = "Desconocido") => {
+  console.log(`Buenmos días ${nombre}`);
+};
+
+buenosDias();
+
+console.clear();
+console.log("ref 1152");
+
+const tobyHater = () => {
+  let nameX = prompt("Cual es tu nombre?").toLowerCase();
+  let confirmacion;
+  
+  if (nameX === "toby") {
+    alert("Oh nooo god...pleaseee noooo");
+    window.close();
+  } else {
+    confirmacion = confirm(`Nice to meet you ${nameX}, you are not Toby, that's nice!`);
+    
+    if (confirmacion === false) {
+      alert(`Por que apretas cancelar? ${nameX}`);
+    } else {
+      alert(":)");
+    }
+  }
+  
+  return { nameX, confirmacion };
+};
+
+const result = tobyHater();
+const nameX = result.nameX;
+const confirmacionBoolean = result.confirmacion;
+console.log(result)
