@@ -1154,23 +1154,25 @@ console.log("ref 1152");
 
 const tobyHater = () => {
   let nameX = prompt("Cual es tu nombre?").toLowerCase();
+  let confirmacion;
+  
   if (nameX === "toby") {
     alert("Oh nooo god...pleaseee noooo");
     window.close();
   } else {
-    let confirmacion = confirm( //Guardamos el confirm como boolean
-      `Nice to meet you ${nameX} you are not Toby, thats nice!`
-    );
+    confirmacion = confirm(`Nice to meet you ${nameX}, you are not Toby, that's nice!`);
+    
     if (confirmacion === false) {
       alert(`Por que apretas cancelar? ${nameX}`);
     } else {
       alert(":)");
     }
-    return confirmacion;
   }
-
-  console.log(nameX);
+  
+  return { nameX, confirmacion };
 };
-// tobyHater();//Comentado para que no moleste el prompt
 
-console.log(window);
+const result = tobyHater();
+const nameX = result.nameX;
+const confirmacionBoolean = result.confirmacion;
+console.log(result)
