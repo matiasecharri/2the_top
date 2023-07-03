@@ -1151,3 +1151,15 @@ buenosDias();
 
 console.clear();
 console.log("ref 1152");
+
+console.log(window)
+const tobyHater = () =>{
+  let nameX = prompt("Cual es tu nombre?").toLowerCase()
+  if(nameX === "toby") {
+    alert("Oh nooo god...pleaseee noooo")
+    window.close()
+  } else {
+    alert(`Nice to meet you ${nameX} you are not Toby, thats nice!`)
+  }
+}
+tobyHater()
