@@ -1120,21 +1120,31 @@ console.log(Math.round(Math.random() * 100)); //Nos da numeros random entre 0 y 
 
 console.log("Hola" || "Chau");
 console.log(0 || "Chau");
-console.log("//////////////////")
+console.log("//////////////////");
 console.log("Chau" && "Hola");
 console.log(0 && "0 tiende a false asi que lo mostrará");
 
-const saludando123 = (nombre) =>{
-  console.log(`Hola ${nombre || "persona misteriosa"}`)
-}
+const saludando123 = (nombre) => {
+  console.log(`Hola ${nombre || "persona misteriosa"}`);
+};
 
-saludando123("Jorgito")
-saludando123(0)
+saludando123("Jorgito");
+saludando123(0);
 
-const saludando1234 = (nombre) =>{
-  console.log(`Hola ${nombre && "valor de la derecha porque el valor de la izquierda es true"}`)
-}
+const saludando1234 = (nombre) => {
+  console.log(
+    `Hola ${
+      nombre && "valor de la derecha porque el valor de la izquierda es true"
+    }`
+  );
+};
 
-saludando1234("Jaime")
-saludando1234(0)
+saludando1234("Jaime");
+saludando1234(0);
 
+// Curiosidad se puede hacer esto:
+const buenosDias = (nombre = "Desconocido") => {
+  console.log(`Buenmos días ${nombre}`);
+};
+
+buenosDias();
