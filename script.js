@@ -1010,6 +1010,8 @@ console.assert(JhonnySilverhand3.affiliation === "Arasaka", { pruebaAssert }); /
 console.clear();
 console.log("ref: 1014");
 
+JhonnySilverhand3.setAge = 34
+
 const body = document.getElementById("body1");
 const time = new Date();
 const hours = time.getHours();
@@ -1017,10 +1019,10 @@ const hours = time.getHours();
 if (hours >= 6 && hours < 18) {
   console.log("Es de día");
   body.classList.remove("bgdark");
-  body.classList.add("bglight");
+  body.classList.add("bgwhite");
 } else {
   console.log("Es de noche");
-  body.classList.remove("bglight");
+  body.classList.remove("bgwhite");
   body.classList.add("bgdark");
 }
 
@@ -1079,7 +1081,7 @@ $rosaButton.addEventListener("mouseenter", () => {
     $rosaButton.classList.add("buttonBorder");
     $main.innerHTML = `<div class="thehiddenone"><h2>${JhonnySilverhand3.name}</h2>
     <ul>
-    <li>Afilliation: ${JhonnySilverhand3.affiliation} / Age: ${JhonnySilverhand3.age} / Profession: ${JhonnySilverhand3.rol} </li>
+    <li>Afilliation: ${JhonnySilverhand3.affiliation} / Age: ${JhonnySilverhand3.getAge} / Profession: ${JhonnySilverhand3.rol} </li>
     
   </ul>
     <img src="https://64.media.tumblr.com/81ef2180ddf8ec862af46b52fa2b7c01/ca6b3b8810139a82-9e/s540x810/6c0d5e64076c359d2c772bac318e1951f90cd78a.jpg" alt="" srcset=""></div>`;
