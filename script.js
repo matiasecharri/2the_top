@@ -1075,7 +1075,7 @@ let interruptor = false;
 let $rosaButton = document.getElementById("rosie");
 let $main = document.getElementById("main1");
 
-$rosaButton.addEventListener("mouseenter", () => {
+$rosaButton.addEventListener("wheel", () => {
   if (interruptor === false) {
     body.classList.add("bgrose");
     $rosaButton.classList.add("buttonBorder");
@@ -1152,14 +1152,25 @@ buenosDias();
 console.clear();
 console.log("ref 1152");
 
-console.log(window)
-const tobyHater = () =>{
-  let nameX = prompt("Cual es tu nombre?").toLowerCase()
-  if(nameX === "toby") {
-    alert("Oh nooo god...pleaseee noooo")
-    window.close()
+const tobyHater = () => {
+  let nameX = prompt("Cual es tu nombre?").toLowerCase();
+  if (nameX === "toby") {
+    alert("Oh nooo god...pleaseee noooo");
+    window.close();
   } else {
-    alert(`Nice to meet you ${nameX} you are not Toby, thats nice!`)
+    let confirmacion = confirm( //Guardamos el confirm como boolean
+      `Nice to meet you ${nameX} you are not Toby, thats nice!`
+    );
+    if (confirmacion === false) {
+      alert(`Por que apretas cancelar? ${nameX}`);
+    } else {
+      alert(":)");
+    }
+    return confirmacion;
   }
-}
-tobyHater()
+
+  console.log(nameX);
+};
+// tobyHater();//Comentado para que no moleste el prompt
+
+console.log(window);
