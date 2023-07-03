@@ -1148,3 +1148,6 @@ const buenosDias = (nombre = "Desconocido") => {
 };
 
 buenosDias();
+
+console.clear();
+console.log("ref 1152");
