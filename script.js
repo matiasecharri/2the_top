@@ -1186,7 +1186,8 @@ console.log(regExp1.test(cocho))
 
 
 
-let regeXP = /[A-Z]/
+let regeXP = /[A-Z][a-z][0-9][$]/g
 
 let palabrita = "Atoz"
 console.log(regeXP.test(palabrita))
+
