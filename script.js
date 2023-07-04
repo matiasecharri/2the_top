@@ -1172,7 +1172,14 @@ const tobyHater = () => {
   return { nameX, confirmacion };
 };
 
-const result = tobyHater();
-const nameX = result.nameX;
-const confirmacionBoolean = result.confirmacion;
-console.log(result)
+// // const result = tobyHater();
+// const nameX = result.nameX;
+// const confirmacionBoolean = result.confirmacion;
+// console.log(result)
+
+
+let cocho ="matiasecharri@hotmail.com"
+// let regExp0 = new RegExp8("cocho", "ig")
+let regExp1 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}[com]$/
+
+console.log(regExp1.test(cocho))
