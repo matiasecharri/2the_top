@@ -1183,3 +1183,10 @@ let cocho ="matiasecharri@hotmail.com"
 let regExp1 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}[com]$/
 
 console.log(regExp1.test(cocho))
+
+
+
+let regeXP = /[A-Z]/
+
+let palabrita = "Atoz"
+console.log(regeXP.test(palabrita))
