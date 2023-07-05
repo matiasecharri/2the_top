@@ -1189,12 +1189,13 @@ console.log(regExp1.test(cocho));
 let regeXP = /[A-Z][a-z][0-9][$]/g;
 
 let palabrita = "Atoz";
+
+
 console.log(regeXP.test(palabrita))
 
-
-//IIFE EXAMPLE
-(function (d,w,c) {
-c.log("First IIFE")
-
-
+  //IIFE EXAMPLE, ESTO VA A DAR ERROR, A MENOS QUE EL RESTO DEL CODIGO ESTE ENCAPSULADO.
+/* (function (d, w, c) {
+  c.log("hola");
 })(document, window, console);
+
+(function(){})() */
