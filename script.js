@@ -1155,20 +1155,22 @@ console.log("ref 1152");
 const tobyHater = () => {
   let nameX = prompt("Cual es tu nombre?").toLowerCase();
   let confirmacion;
-  
+
   if (nameX === "toby") {
     alert("Oh nooo god...pleaseee noooo");
     window.close();
   } else {
-    confirmacion = confirm(`Nice to meet you ${nameX}, you are not Toby, that's nice!`);
-    
+    confirmacion = confirm(
+      `Nice to meet you ${nameX}, you are not Toby, that's nice!`
+    );
+
     if (confirmacion === false) {
       alert(`Por que apretas cancelar? ${nameX}`);
     } else {
       alert(":)");
     }
   }
-  
+
   return { nameX, confirmacion };
 };
 
@@ -1177,9 +1179,23 @@ const tobyHater = () => {
 // const confirmacionBoolean = result.confirmacion;
 // console.log(result)
 
-
-let cocho ="matiasecharri@hotmail.com"
+//REGEX EXAMPLE
+let cocho = "matiasecharri@hotmail.com";
 // let regExp0 = new RegExp8("cocho", "ig")
-let regExp1 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}[com]$/
+let regExp1 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}[com]$/;
 
-console.log(regExp1.test(cocho))
+console.log(regExp1.test(cocho));
+
+let regeXP = /[A-Z][a-z][0-9][$]/g;
+
+let palabrita = "Atoz";
+
+
+console.log(regeXP.test(palabrita))
+
+  //IIFE EXAMPLE, ESTO VA A DAR ERROR, A MENOS QUE EL RESTO DEL CODIGO ESTE ENCAPSULADO.
+/* (function (d, w, c) {
+  c.log("hola");
+})(document, window, console);
+
+(function(){})() */
