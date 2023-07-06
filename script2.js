@@ -45,4 +45,4 @@ JudyAlvarezUniverse2.setGenre = "female"
 console.log(JudyAlvarezUniverse1);
 console.log(JudyAlvarezUniverse2);
 JudyAlvarezUniverse2.callingAll()
-
+console.clear()
