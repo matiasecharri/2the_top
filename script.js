@@ -1005,8 +1005,8 @@ for (let i = 0; i < array254.length; i++) {
 console.timeEnd("Tiempo"); // Etiqueta de cierre tiene que ser igual
 console.count(/*array254*/); // Sirve para saber cuantas veces se ejecuto algo
 
-pruebaAssert = `Se espera que Johnny Silverhand siempre sea parte de Samurai`;
-console.assert(JhonnySilverhand3.affiliation === "Arasaka", { pruebaAssert }); //console.assert nos sirve para testear
+let pruebaAssert = `Se espera que Johnny Silverhand siempre sea parte de Samurai`;
+console.assert(JhonnySilverhand3.affiliation === "Samurai", { pruebaAssert }); //console.assert nos sirve para testear
 console.clear();
 console.log("ref: 1014");
 
@@ -1199,3 +1199,12 @@ console.log(regeXP.test(palabrita))
 })(document, window, console);
 
 (function(){})() */
+
+const numericos = [4543, 243, 3, 5, 599, 34, 234];
+const filtrado2 = []
+numericos.filter(x=> {
+  x > 100 ? filtrado2.push(x) : console.log(x)
+})
+console.log(filtrado2)
+
+export {cyberpunkCharacters, CharacterEvolve2}
