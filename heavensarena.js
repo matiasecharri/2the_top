@@ -10,13 +10,11 @@ const stringCounter = (item) => {
   } else if (typeof item === "number" || typeof item === "boolean") {
     let xToString = item.toString();
     console.log(
-      `${xToString}: tiene "${xToString.length}" caracteres era un numero y es ahora un string.`
+      `${xToString}: tiene "${xToString.length}" caracteres era un numero/booleano y es ahora un string.`
     );
   } else if (typeof item === "object") {
     const keySearcher = Object.keys(item);
-    console.log(
-      `Esto era un objeto con "${keySearcher.length}" propiedades.`
-    );
+    console.log(`Esto era un objeto con "${keySearcher.length}" propiedades.`);
   } else {
     console.warn("No ingresaste nada papito o es un tipo de dato no válido.");
   }
@@ -44,16 +42,22 @@ const wordBlade = (word, corte1, corte2) => {
   }
 };
 
-console.log(wordBlade("Oso Feliz Atacandote", 0, 4));
-console.log(wordBlade(213123123213213123, 0, 1));
-console.log(wordBlade(["Piedra gigante", "Interior de la piedra", "Diamante", "Veneno"], 37,45));
+console.log(wordBlade("Oso Feliz Atacandote", 0, 10));
+
+console.log(wordBlade(2131231232132131232321365, 0, 1));
+console.log(
+  wordBlade(
+    ["Piedra gigante", "Interior de la piedra", "Diamante", "Veneno"],
+    37,
+    45
+  )
+);
 
 // 3)
 console.warn(
   "👁️ Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter"
 );
 
-const pato = "Hola como estasss gorda";
 
 const wordSeparator = (word, separator) => {
   if (typeof word === "string") {
@@ -71,11 +75,17 @@ console.warn(
 );
 
 const wordRepeater = (word, repeat) => {
-  if (typeof repeat === "number" && typeof word === "string") {
+  if (repeat === 0) {
+    console.error("Repetir un numero 0 veces no tiene sentido.");
+  } else if (typeof repeat === "number" && typeof word === "string") {
     for (let i = 0; i < repeat; i++) {
       console.log(`Tu palabra ${word} se repitio ${i} vez/veces.`);
     }
-  } else {console.clear() + console.warn(`Debes ingresar una palabra y un número, en ese orden.`)}
+  } else {
+    console.clear() +
+      console.warn(`Debes ingresar una palabra y un número, en ese orden.`);
+  }
 };
 
 wordRepeater("xD", 10);
+
