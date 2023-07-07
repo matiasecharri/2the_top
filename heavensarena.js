@@ -67,7 +67,7 @@ const wordSeparator = (word, separator) => {
     console.warn("Se esperaba una cadena de texto.");
   }
 };
-wordSeparator("Ready for tomorrow", "");
+wordSeparator("Ready for tomorrow", " ");
 
 // 4)
 console.warn(
@@ -87,5 +87,5 @@ const wordRepeater = (word, repeat) => {
   }
 };
 
-wordRepeater("xD", 10);
+wordRepeater("xD", 2);
 
