@@ -105,6 +105,7 @@ reverseMaker("Yo no lo descargo porque ya lo tengo");
 console.warn(
   "👁️ Programa una función para contar el número de veces que se repite una palabra en un texto largo"
 );
+console.log("PENDING...")
 
 // 7)
 console.warn(
@@ -117,10 +118,17 @@ const palindromIdentificator = (item) => {
     let palabraInicial = item;
     let palabraAComparar = item.split("").reverse("").join("");
     palabraInicial.toLowerCase() === palabraAComparar.toLowerCase()
-      ? console.log("La palabra es un palíndromo.")
-      : console.log("La palabra no es un palindromo");
+      ? console.log(`La palabra ${item} es un palíndromo.`)
+      : console.log(`La palabra ${item} no es un palindromo.`);
   }
 };
 palindromIdentificator("Bob")
+palindromIdentificator("Ada")
 
-// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+// 8) 
+console.warn(
+  `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
+);
+console.log("PENDING...")
+
