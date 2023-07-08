@@ -92,15 +92,13 @@ wordRepeater("xD", 2);
 // 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
 
-console.warn(
-  "👁️ 5) Programa una función que invierta las palabras de una cadena de texto, pe");
+// 5)
+console.warn("👁️ Programa una función que invierta las palabras de una cadena de texto, pe");
 
 const reverseMaker = (item) => {
-  if (typeof item !== "string") {
-    console.warn("Ingresa una cadena de texto");
-  } else {
-    console.log(item.split("").reverse().join(""));
-  }
+  typeof item !== "string" 
+  ? console.warn("Ingresa una cadena de texto")
+  : console.log(item.split("").reverse().join(""))
 };
 
 reverseMaker("Yo no lo descargo porque ya lo tengo");
