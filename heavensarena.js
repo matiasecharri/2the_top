@@ -105,7 +105,7 @@ reverseMaker("Yo no lo descargo porque ya lo tengo");
 console.warn(
   "👁️ Programa una función para contar el número de veces que se repite una palabra en un texto largo"
 );
-console.log("PENDING...")
+console.log("PENDING...");
 
 // 7)
 console.warn(
@@ -122,13 +122,21 @@ const palindromIdentificator = (item) => {
       : console.log(`La palabra ${item} no es un palindromo.`);
   }
 };
-palindromIdentificator("Bob")
-palindromIdentificator("Ada")
+palindromIdentificator("Bob");
+palindromIdentificator("Ada");
 
-
-// 8) 
+// 8)
 console.warn(
   `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
 );
-console.log("PENDING...")
+console.log("PENDING...");
+
+const patronDeleter = (caracteres, expresionRegular, reemplazo) => {
+  if(typeof caracteres === "string"  && typeof reemplazo !== "undefined" && typeof expresionRegular !== 'undefined')
+  console.log(caracteres.replace(expresionRegular, reemplazo));
+  else {console.warn("Ingresa una cadena de texto, una expresión regular y tu caracter o caracteres que usaras para reemplazar.")}
+};
+
+patronDeleter("xyz1, xyz2, xyz3, xyz4 y xyz5", /xyz/gi,"");
+
 
