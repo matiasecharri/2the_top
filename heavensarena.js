@@ -169,18 +169,44 @@ patronDeleter(
   "punk"
 );
 
-/*
-10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
-11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+/*18) en lugar del RegExp podemos usar una característica relativamente nueva de JS:
+    return text.replaceAll(pattern, '');*/
 
 //HA3
 // 9)
-console.warn(`👁️ 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.`);
+console.warn(
+  `👁️ 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.`
+);
 const randomizer501600n = () => {
   let rnumber = 0;
   while (rnumber < 501 || rnumber > 600) {
     rnumber = Math.round(Math.random() * 1000);
   }
-  return rnumber
+  return rnumber;
 };
-console.log(randomizer501600n())
+console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
+
+//10)
+console.warn(
+  `👁️ 9) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
+);
+
+const numberCapicua = (numero) => {
+  if (typeof numero !== "number") {
+    console.warn("Ingresa un numero");
+  } else {
+    let numeroModificado = Math.round(
+      numero.toString().split("").reverse().join("")
+    );
+    numero !== numeroModificado 
+    ? console.log (`El numero "${numero}" NO es capicua.`)
+    : console.log (`El numero "${numero}" SI es capicua.`)
+  }
+};
+
+numberCapicua(222);
+numberCapicua(24);
+
+
+/*
+11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
