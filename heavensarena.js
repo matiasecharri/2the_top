@@ -88,6 +88,7 @@ const wordRepeater = (word, repeat) => {
 
 wordRepeater("xD", 2);
 
+//HA2
 // 5)
 console.warn(
   "👁️ Programa una función que invierta las palabras de una cadena de texto, pe"
