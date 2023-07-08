@@ -186,6 +186,13 @@ const randomizer501600n = () => {
 };
 console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
 
+let blueButton = document.getElementById("blui")
+blueButton.addEventListener("click", (x)=>{
+  console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
+
+})
+
+
 //10)
 console.warn(
   `👁️ 9) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
