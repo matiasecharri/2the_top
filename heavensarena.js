@@ -129,8 +129,6 @@ palindromIdentificator("Ada");
 console.warn(
   `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
 );
-console.log("PENDING...");
-
 const patronDeleter = (caracteres, expresionRegular, reemplazo) => {
   if(typeof caracteres === "string"  && typeof reemplazo !== "undefined" && typeof expresionRegular !== 'undefined')
   console.log(caracteres.replace(expresionRegular, reemplazo));
