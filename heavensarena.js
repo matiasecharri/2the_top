@@ -138,5 +138,6 @@ const patronDeleter = (caracteres, expresionRegular, reemplazo) => {
 };
 
 patronDeleter("xyz1, xyz2, xyz3, xyz4 y xyz5", /xyz/gi,"");
+patronDeleter("cyberponkoko1, cyberponkoko2, cyberponkoko3, cyberponkoko4 y cyberponkoko5", /ponkoko/gi,"punk");
 
 
