@@ -153,9 +153,9 @@ const patronDeleter = (caracteres, expresionRegular, reemplazo) => {
     typeof caracteres === "string" &&
     typeof reemplazo !== "undefined" &&
     typeof expresionRegular !== "undefined"
-  )
+  ) {
     console.log(caracteres.replace(expresionRegular, reemplazo));
-  else {
+  } else {
     console.warn(
       "Ingresa una cadena de texto, una expresión regular y tu caracter o caracteres que usaras para reemplazar."
     );
@@ -186,16 +186,14 @@ const randomizer501600n = () => {
 };
 console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
 
-let blueButton = document.getElementById("blui")
-blueButton.addEventListener("click", (x)=>{
+let blueButton = document.getElementById("blui");
+blueButton.addEventListener("click", (x) => {
   console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
-
-})
-
+});
 
 //10)
 console.warn(
-  `👁️ 9) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
+  `👁️ 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
 );
 
 const numberCapicua = (numero) => {
@@ -205,15 +203,17 @@ const numberCapicua = (numero) => {
     let numeroModificado = Math.round(
       numero.toString().split("").reverse().join("")
     );
-    numero !== numeroModificado 
-    ? console.log (`El numero "${numero}" NO es capicua.`)
-    : console.log (`El numero "${numero}" SI es capicua.`)
+    numero !== numeroModificado
+      ? console.log(`El numero "${numero}" NO es capicua.`)
+      : console.log(`El numero "${numero}" SI es capicua.`);
   }
 };
 
 numberCapicua(222);
 numberCapicua(24);
 
-
 /*
 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+// 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
