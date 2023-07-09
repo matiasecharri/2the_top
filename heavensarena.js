@@ -88,6 +88,7 @@ const wordRepeater = (word, repeat) => {
 
 wordRepeater("xD", 2);
 
+//HA2
 // 5)
 console.warn(
   "👁️ Programa una función que invierta las palabras de una cadena de texto, pe"
@@ -105,8 +106,26 @@ reverseMaker("Yo no lo descargo porque ya lo tengo");
 console.warn(
   "👁️ Programa una función para contar el número de veces que se repite una palabra en un texto largo"
 );
-console.log("PENDING...")
-
+const wordRepeatedCount = (texto, palabraRepetida) => {
+  if (typeof texto !== "string" || typeof palabraRepetida !== "string") {
+    console.warn("Debes ingresar un texto y la palabra que quieras consultar.");
+  } else {
+    let arrayMode = texto.toLowerCase().split(" ");
+    let contadorRepeticiones = 0;
+    for (let i = 0; i < arrayMode.length; i++) {
+      if (arrayMode[i] === palabraRepetida.toLowerCase()) {
+        contadorRepeticiones++;
+      }
+    }
+    console.log(
+      `Tu palabra "${palabraRepetida}" se repite: ${contadorRepeticiones} veces en el texto.`
+    );
+  }
+};
+wordRepeatedCount(
+  "Pablito clavo un clavito que clavito clavo pablito",
+  "pablito"
+);
 // 7)
 console.warn(
   "👁️ Programa una función que valide si una palabra o frase dada, es un palíndromo"
@@ -122,13 +141,79 @@ const palindromIdentificator = (item) => {
       : console.log(`La palabra ${item} no es un palindromo.`);
   }
 };
-palindromIdentificator("Bob")
-palindromIdentificator("Ada")
+palindromIdentificator("Bob");
+palindromIdentificator("Ada");
 
-
-// 8) 
+// 8)
 console.warn(
   `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
 );
-console.log("PENDING...")
+const patronDeleter = (caracteres, expresionRegular, reemplazo) => {
+  if (
+    typeof caracteres === "string" &&
+    typeof reemplazo !== "undefined" &&
+    typeof expresionRegular !== "undefined"
+  )
+    console.log(caracteres.replace(expresionRegular, reemplazo));
+  else {
+    console.warn(
+      "Ingresa una cadena de texto, una expresión regular y tu caracter o caracteres que usaras para reemplazar."
+    );
+  }
+};
 
+patronDeleter("xyz1, xyz2, xyz3, xyz4 y xyz5", /xyz/gi, "");
+patronDeleter(
+  "cyberponkoko1, cyberponkoko2, cyberponkoko3, cyberponkoko4 y cyberponkoko5",
+  /ponkoko/gi,
+  "punk"
+);
+
+/*18) en lugar del RegExp podemos usar una característica relativamente nueva de JS:
+    return text.replaceAll(pattern, '');*/
+
+//HA3
+// 9)
+console.warn(
+  `👁️ 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.`
+);
+const randomizer501600n = () => {
+  let rnumber = 0;
+  while (rnumber < 501 || rnumber > 600) {
+    rnumber = Math.round(Math.random() * 1000);
+  }
+  return rnumber;
+};
+console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
+
+let blueButton = document.getElementById("blui")
+blueButton.addEventListener("click", (x)=>{
+  console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
+
+})
+
+
+//10)
+console.warn(
+  `👁️ 9) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
+);
+
+const numberCapicua = (numero) => {
+  if (typeof numero !== "number") {
+    console.warn("Ingresa un numero");
+  } else {
+    let numeroModificado = Math.round(
+      numero.toString().split("").reverse().join("")
+    );
+    numero !== numeroModificado 
+    ? console.log (`El numero "${numero}" NO es capicua.`)
+    : console.log (`El numero "${numero}" SI es capicua.`)
+  }
+};
+
+numberCapicua(222);
+numberCapicua(24);
+
+
+/*
+11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
