@@ -214,6 +214,25 @@ numberCapicua(24);
 
 /*
 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+const factorial = (numero = undefined) => {
+  if (numero === undefined) return console.warn("Ingresa un número.");
+  if (typeof numero !== "number")
+    return console.error(`El valor "${numero}" no es un número.`);
+  if (numero === 0) return console.error("El número no puede ser 0.");
+  if (Math.sign(numero) === -1)
+    return console.error("El número no puede ser negativo");
+  let factorial = 1;
+  for (let i = numero; i > 1; i--) {
+    factorial *= i;
+  }
+  return console.info(`El factorial de ${numero} es ${factorial}`)
+};
+
+factorial();
 // 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
 // 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
 // 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+
+// formula celcius farehneit
+// (0 °C × 9/5) + 32 = 32 °F
+// (20 °C × 9/5) + 32 = 68 °F
