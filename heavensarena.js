@@ -193,7 +193,7 @@ blueButton.addEventListener("click", (x) => {
 
 //10)
 console.warn(
-  `👁️ 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
+  `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
 );
 
 const numberCapicua = (numero) => {
@@ -212,8 +212,11 @@ const numberCapicua = (numero) => {
 numberCapicua(222);
 numberCapicua(24);
 
-/*
-11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+//11
+console.warn(
+  `👁️ Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n)`
+);
+
 const factorial = (numero = undefined) => {
   if (numero === undefined) return console.warn("Ingresa un número.");
   if (typeof numero !== "number")
@@ -225,14 +228,82 @@ const factorial = (numero = undefined) => {
   for (let i = numero; i > 1; i--) {
     factorial *= i;
   }
-  return console.info(`El factorial de ${numero} es ${factorial}`)
+  return console.info(`El factorial de ${numero} es ${factorial}.`);
 };
 
-factorial();
-// 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
-// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
-// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+factorial(4);
 
-// formula celcius farehneit
-// (0 °C × 9/5) + 32 = 32 °F
-// (20 °C × 9/5) + 32 = 68 °F
+//12
+console.warn(
+  `👁️ Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true)`
+);
+
+const primoDetector = (numero = 0) => {
+  if (numero === 0) {
+    console.error("El numero no puede ser 0.");
+  } else if (typeof numero !== "number") {
+    console.warn("Por favor ingresa un número.");
+  } else if (Math.sign(numero) === -1) {
+    console.error(
+      `El numero "${numero}" es negativo, ingresa un número natural.`
+    );
+  } else {
+    let divisible = false;
+    let seDividePor = [];
+    for (let i = 2; i < numero; i++) {
+      if (numero % i === 0) {
+        divisible = true;
+        seDividePor.push(i);
+      }
+    }
+    if (divisible === true) {
+      console.log(
+        `El numero "${numero}" no es primo ya que dividido por ${seDividePor} es su resto es 0.`
+      );
+    } else {
+      console.log(`El numero "${numero}" es primo.`);
+    }
+  }
+};
+
+primoDetector(3);
+
+//13
+console.warn(
+  `👁️ Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.)`
+);
+
+const oddEvenDetector = (numero) => {
+  if (typeof numero !== "number") {
+    console.warn("Ingresa un número.");
+  } else {
+    numero % 2 === 0
+      ? console.log(`El numero "${numero}" es par.`)
+      : console.log(`El numero "${numero}" es impar.`);
+  }
+};
+oddEvenDetector(5);
+oddEvenDetector(2);
+// 14)
+console.warn(
+  `👁️ Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F)`
+);
+
+const celsiusFarehneit = (unidad, grados) => {
+  if (unidad.toUpperCase() !== "F" && unidad.toUpperCase() !== "C") {
+    console.warn(`Debes ingresar una unidad válida "F" o "C"`);
+  } else if (typeof grados !== "number") {
+    console.warn(`Debes ingresar los grados como números!`);
+  } else {
+    if (unidad.toUpperCase() === "F") {
+      const celcius = Math.round((grados - 32) / 1.8);
+      console.log(`Tus ºF${grados} equivalen a ºC${celcius}`);
+    } else if (unidad.toUpperCase() === "C") {
+      const farehneit = Math.round(grados * 1.8 + 32);
+      console.log(`Tus ºC${grados} equivalen a ºF${farehneit}`);
+    }
+  }
+};
+celsiusFarehneit("f", 150);
+
+
