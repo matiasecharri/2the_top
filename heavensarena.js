@@ -246,7 +246,7 @@ const primoDetector = (numero = 0) => {
   } else if (Math.sign(numero) === -1) {
     console.error(
       `El numero "${numero}" es negativo, ingresa un número natural.`
-    );
+    ); // ✅ FIN DE VALIDACIÓN
   } else {
     let divisible = false;
     let seDividePor = [];
@@ -276,6 +276,7 @@ console.warn(
 const oddEvenDetector = (numero) => {
   if (typeof numero !== "number") {
     console.warn("Ingresa un número.");
+    // ✅ FIN DE VALIDACIÓN
   } else {
     numero % 2 === 0
       ? console.log(`El numero "${numero}" es par.`)
@@ -294,6 +295,7 @@ const celsiusFarehneit = (unidad, grados) => {
     console.warn(`Debes ingresar una unidad válida "F" o "C"`);
   } else if (typeof grados !== "number") {
     console.warn(`Debes ingresar los grados como números!`);
+    // ✅ FIN DE VALIDACIÓN
   } else {
     if (unidad.toUpperCase() === "F") {
       const celcius = Math.round((grados - 32) / 1.8);
@@ -306,4 +308,90 @@ const celsiusFarehneit = (unidad, grados) => {
 };
 celsiusFarehneit("f", 150);
 
+// 15)
+console.warn(
+  `👁️ Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.)`
+);
+const binarioADecimal = (numero, formato) => {
+  if (formato.toLowerCase() === "binario") {
+    let arrayNumero = numero.toString().split("");
+    let transformacionBinario = [];
 
+    for (let i = 0; i < arrayNumero.length; i++) {
+      if (arrayNumero[i] === "0" || arrayNumero[i] === "1") {
+        transformacionBinario.push(parseInt(arrayNumero[i]));
+      } else {
+        console.log("Número binario inválido");
+        return;
+      }
+    }
+
+    let suma = 0;
+    let exponente = transformacionBinario.length - 1;
+
+    for (let i = 0; i < transformacionBinario.length; i++) {
+      suma += transformacionBinario[i] * Math.pow(2, exponente);
+      exponente--;
+    }
+
+    console.log(suma);
+  } else if (formato.toLowerCase() === "decimal") {
+    let binario = "";
+    let num = parseInt(numero);
+
+    if (isNaN(num)) {
+      console.log("Número decimal inválido");
+      return;
+    }
+
+    if (num === 0) {
+      binario = "0";
+    } else {
+      while (num > 0) {
+        binario = (num % 2) + binario;
+        num = Math.floor(num / 2);
+      }
+    }
+
+    console.log(binario);
+  } else {
+    console.log("Formato no válido");
+  }
+};
+
+binarioADecimal(11010, "binario"); // Salida: 26
+binarioADecimal(26, "decimal"); // Salida: 11010
+
+// 16)
+console.warn(
+  `👁️ Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800`
+);
+
+const descuento = (numero, descuento) => {
+  try {
+    if (typeof numero !== "number" || typeof descuento !== "number") {
+      console.warn("Debes ingresar números.");
+    } else if (Math.sign(numero) === -1 || Math.sign(descuento) === -1) {
+      console.warn("No se permiten números negativos.");
+    } else {
+      let descontando = (numero * descuento) / 100;
+      let productoConDescuento = numero - descontando;
+      console.log(
+        `Tu producto de $${Math.round(
+          numero
+        )} tendrá un descuento del ${Math.round(
+          descuento
+        )}%. Precio final: $${Math.round(productoConDescuento)} 💸🤑.`
+      );
+    }
+  } catch (error) {
+    console.error("Error inesperado:", error);
+  }
+};
+
+descuento(1000, 20);
+
+// 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+const date = new Date().getDate()
+console.log(date)
