@@ -451,11 +451,72 @@ const calcularAnios = (fecha = undefined) => {
     );
   } else if (Math.sign(aniosHumanos) === 1) {
     console.info(
-      `Han pasado ${Math.abs(aniosHumanos)} años desde el ${fecha.getFullYear()} A.C`
+      `Han pasado ${Math.abs(
+        aniosHumanos
+      )} años desde el ${fecha.getFullYear()} A.C`
     );
   } else if (Math.sign(aniosHumanos) === 0) {
     console.info(`¡Estamos en el mismo año!`);
   }
 };
-
 calcularAnios(new Date(2049, 4, 11));
+
+// 18)
+console.warn(
+  `👁️Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.`
+);
+const letterClasifier = (word = "") => {
+  if (word === "") {
+    console.warn("No ingresaste el texto... 🥴");
+  } else if (typeof word !== "string") {
+    console.error("Se espera que ingreses texto y no otras cosas 🤡");
+  } else {
+    const vocals = ["a", "e", "i", "o", "u"];
+    let vocalCounter = 0;
+    const regex = /^[a-zA-Z]+$/;
+    let consonantCounter = 0;
+    let arrayWord = word.split("");
+    arrayWord.filter((x) => {
+      if (vocals.includes(x)) {
+        vocalCounter++;
+      } else if (regex.test(x)) {
+        consonantCounter++;
+      }
+    });
+    console.info(
+      `"${word}" incluye ${vocalCounter} vocales y ${consonantCounter} consonantes 🤓`
+    );
+  }
+};
+
+letterClasifier("Muy buenas a todos chavales");
+
+// 19)
+console.warn(
+  `👁️Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.`
+);
+const nameValidator = (word = "") => {
+  let switcherX;
+  const nameRegex =
+    /^[A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚÜÑ]{1,29} [A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚÜÑ]{1,20}$/;
+  if (word === "") {
+    console.warn("Parece que te olvidaste la palabra...😵");
+  } else if (typeof word !== "string") {
+    console.error(
+      "Entiendo que quieras probar cosas pero solo se admiten palabras 🤪"
+    );
+  } else {
+    if (nameRegex.test(word)) {
+      console.log(`El nombre "${word}" es válido ✅`);
+      return (switcherX = true);
+    } else {
+      console.log(
+        `El nombre "${word}" es inválido 🤮. Debe contener:  • Iniciales en mayúsculas, • 1 Nombre y 1 Apellido separados, se aceptan tildes. No puede contener: • Caracteres que no sean letras, • Más de 20 caracteres`
+      );
+      return (switcherX = false);
+    }
+  }
+};
+console.log(nameValidator("Arnold Schwarzenegger"));
+
+// 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
