@@ -153,9 +153,9 @@ const patronDeleter = (caracteres, expresionRegular, reemplazo) => {
     typeof caracteres === "string" &&
     typeof reemplazo !== "undefined" &&
     typeof expresionRegular !== "undefined"
-  )
+  ) {
     console.log(caracteres.replace(expresionRegular, reemplazo));
-  else {
+  } else {
     console.warn(
       "Ingresa una cadena de texto, una expresión regular y tu caracter o caracteres que usaras para reemplazar."
     );
@@ -186,16 +186,14 @@ const randomizer501600n = () => {
 };
 console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
 
-let blueButton = document.getElementById("blui")
-blueButton.addEventListener("click", (x)=>{
+let blueButton = document.getElementById("blui");
+blueButton.addEventListener("click", (x) => {
   console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
-
-})
-
+});
 
 //10)
 console.warn(
-  `👁️ 9) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
+  `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
 );
 
 const numberCapicua = (numero) => {
@@ -205,15 +203,195 @@ const numberCapicua = (numero) => {
     let numeroModificado = Math.round(
       numero.toString().split("").reverse().join("")
     );
-    numero !== numeroModificado 
-    ? console.log (`El numero "${numero}" NO es capicua.`)
-    : console.log (`El numero "${numero}" SI es capicua.`)
+    numero !== numeroModificado
+      ? console.log(`El numero "${numero}" NO es capicua.`)
+      : console.log(`El numero "${numero}" SI es capicua.`);
   }
 };
 
 numberCapicua(222);
 numberCapicua(24);
 
+//11
+console.warn(
+  `👁️ Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n)`
+);
 
-/*
-11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+const factorial = (numero = undefined) => {
+  if (numero === undefined) return console.warn("Ingresa un número.");
+  if (typeof numero !== "number")
+    return console.error(`El valor "${numero}" no es un número.`);
+  if (numero === 0) return console.error("El número no puede ser 0.");
+  if (Math.sign(numero) === -1)
+    return console.error("El número no puede ser negativo");
+  let factorial = 1;
+  for (let i = numero; i > 1; i--) {
+    factorial *= i;
+  }
+  return console.info(`El factorial de ${numero} es ${factorial}.`);
+};
+
+factorial(4);
+
+//12
+console.warn(
+  `👁️ Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true)`
+);
+
+const primoDetector = (numero = 0) => {
+  if (numero === 0) {
+    console.error("El numero no puede ser 0.");
+  } else if (typeof numero !== "number") {
+    console.warn("Por favor ingresa un número.");
+  } else if (Math.sign(numero) === -1) {
+    console.error(
+      `El numero "${numero}" es negativo, ingresa un número natural.`
+    ); // ✅ FIN DE VALIDACIÓN
+  } else {
+    let divisible = false;
+    let seDividePor = [];
+    for (let i = 2; i < numero; i++) {
+      if (numero % i === 0) {
+        divisible = true;
+        seDividePor.push(i);
+      }
+    }
+    if (divisible === true) {
+      console.log(
+        `El numero "${numero}" no es primo ya que dividido por ${seDividePor} es su resto es 0.`
+      );
+    } else {
+      console.log(`El numero "${numero}" es primo.`);
+    }
+  }
+};
+
+primoDetector(3);
+
+//13
+console.warn(
+  `👁️ Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.)`
+);
+
+const oddEvenDetector = (numero) => {
+  if (typeof numero !== "number") {
+    console.warn("Ingresa un número.");
+    // ✅ FIN DE VALIDACIÓN
+  } else {
+    numero % 2 === 0
+      ? console.log(`El numero "${numero}" es par.`)
+      : console.log(`El numero "${numero}" es impar.`);
+  }
+};
+oddEvenDetector(5);
+oddEvenDetector(2);
+// 14)
+console.warn(
+  `👁️ Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F)`
+);
+
+const celsiusFarehneit = (unidad, grados) => {
+  if (unidad.toUpperCase() !== "F" && unidad.toUpperCase() !== "C") {
+    console.warn(`Debes ingresar una unidad válida "F" o "C"`);
+  } else if (typeof grados !== "number") {
+    console.warn(`Debes ingresar los grados como números!`);
+    // ✅ FIN DE VALIDACIÓN
+  } else {
+    if (unidad.toUpperCase() === "F") {
+      const celcius = Math.round((grados - 32) / 1.8);
+      console.log(`Tus ºF${grados} equivalen a ºC${celcius}`);
+    } else if (unidad.toUpperCase() === "C") {
+      const farehneit = Math.round(grados * 1.8 + 32);
+      console.log(`Tus ºC${grados} equivalen a ºF${farehneit}`);
+    }
+  }
+};
+celsiusFarehneit("f", 150);
+
+// 15)
+console.warn(
+  `👁️ Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.)`
+);
+const binarioADecimal = (numero, formato) => {
+  if (formato.toLowerCase() === "binario") {
+    let arrayNumero = numero.toString().split("");
+    let transformacionBinario = [];
+
+    for (let i = 0; i < arrayNumero.length; i++) {
+      if (arrayNumero[i] === "0" || arrayNumero[i] === "1") {
+        transformacionBinario.push(parseInt(arrayNumero[i]));
+      } else {
+        console.log("Número binario inválido");
+        return;
+      }
+    }
+
+    let suma = 0;
+    let exponente = transformacionBinario.length - 1;
+
+    for (let i = 0; i < transformacionBinario.length; i++) {
+      suma += transformacionBinario[i] * Math.pow(2, exponente);
+      exponente--;
+    }
+
+    console.log(suma);
+  } else if (formato.toLowerCase() === "decimal") {
+    let binario = "";
+    let num = parseInt(numero);
+
+    if (isNaN(num)) {
+      console.log("Número decimal inválido");
+      return;
+    }
+
+    if (num === 0) {
+      binario = "0";
+    } else {
+      while (num > 0) {
+        binario = (num % 2) + binario;
+        num = Math.floor(num / 2);
+      }
+    }
+
+    console.log(binario);
+  } else {
+    console.log("Formato no válido");
+  }
+};
+
+binarioADecimal(11010, "binario"); // Salida: 26
+binarioADecimal(26, "decimal"); // Salida: 11010
+
+// 16)
+console.warn(
+  `👁️ Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800`
+);
+
+const descuento = (numero, descuento) => {
+  try {
+    if (typeof numero !== "number" || typeof descuento !== "number") {
+      console.warn("Debes ingresar números.");
+    } else if (Math.sign(numero) === -1 || Math.sign(descuento) === -1) {
+      console.warn("No se permiten números negativos.");
+    } else {
+      let descontando = (numero * descuento) / 100;
+      let productoConDescuento = numero - descontando;
+      console.log(
+        `Tu producto de $${Math.round(
+          numero
+        )} tendrá un descuento del ${Math.round(
+          descuento
+        )}%. Precio final: $${Math.round(productoConDescuento)} 💸🤑.`
+      );
+    }
+  } catch (error) {
+    console.error("Error inesperado:", error);
+  }
+};
+
+descuento(1000, 20);
+
+// 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+const date = new Date().getDate()
+console.log(date)
