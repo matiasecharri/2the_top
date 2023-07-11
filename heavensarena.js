@@ -391,7 +391,71 @@ const descuento = (numero, descuento) => {
 
 descuento(1000, 20);
 
-// 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+// 17)
+console.warn(
+  `👁️ Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).`
+);
+// //MY VERSION (ONLY YEARS)
+// const cuantoPaso = (fecha) => {
+//   if (typeof fecha !== "number") {
+//     console.warn(
+//       "Por favor ingresa el año que quieres comparar con el año actual."
+//     );
+//   } else {
+//     const currentYear = new Date().getFullYear();
+//     const añosPasados = currentYear - fecha;
+//     if (
+//       Math.sign(fecha) === 1 &&
+//       fecha <= currentYear &&
+//       fecha !== currentYear
+//     ) {
+//       console.info(
+//         `Desde ${fecha} hasta el año actual (${currentYear}) pasaron: ${añosPasados} años.`
+//       );
+//     } else if (fecha > currentYear) {
+//       const futureYear = fecha - currentYear;
+//       console.info(
+//         `Tomando de referencia ${currentYear} para el año ${fecha} faltan ${futureYear} años.`
+//       );
+//     } else if (currentYear === fecha) {
+//       console.info(
+//         `Estamos en ${currentYear} y lo estas comparando con ${fecha}, ¡Es el mismo año!.`
+//       );
+//     } else {
+//       console.info(
+//         `Desde el año ${fecha} A.C hasta el año actual (${currentYear}) pasaron: ${añosPasados} años.`
+//       );
+//     }
+//   }
+// };
 
-const date = new Date().getDate()
-console.log(date)
+// cuantoPaso(-2000);
+// cuantoPaso(2077);
+
+// MIRCHA VERSION
+
+const calcularAnios = (fecha = undefined) => {
+  if (fecha === undefined) {
+    return console.warn("No ingresaste la fecha.");
+  } else if (!(fecha instanceof Date)) {
+    return console.error("No es una fecha válida.");
+  }
+
+  let hoyMenosFecha = new Date().getTime() - fecha.getTime(); //Milisegundos dia usuario - Milisegundos dia actual
+  let aniosEnMs = 1000 * 60 * 60 * 24 * 365;
+  let aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMs); //Dividimos el reusltado de la fecha actual - la fecha que ingresso el usuario por 1000 * 60 * 60 * 24 * 365; de esta forma lo pasamos a años
+
+  if (Math.sign(aniosHumanos) === -1) {
+    console.info(
+      `Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`
+    );
+  } else if (Math.sign(aniosHumanos) === 1) {
+    console.info(
+      `Han pasado ${Math.abs(aniosHumanos)} años desde el ${fecha.getFullYear()} A.C`
+    );
+  } else if (Math.sign(aniosHumanos) === 0) {
+    console.info(`¡Estamos en el mismo año!`);
+  }
+};
+
+calcularAnios(new Date(2049, 4, 11));
