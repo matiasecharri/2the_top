@@ -477,7 +477,7 @@ const letterClasifier = (word = "") => {
     let consonantCounter = 0;
     let arrayWord = word.split("");
     arrayWord.filter((x) => {
-      if (vocals.includes(x)) {
+      if (vocals.includes(x.toLowerCase())) {
         vocalCounter++;
       } else if (regex.test(x)) {
         consonantCounter++;
@@ -489,7 +489,7 @@ const letterClasifier = (word = "") => {
   }
 };
 
-letterClasifier("Muy buenas a todos chavales");
+letterClasifier("MUY BUENAS a todos chavales");
 
 // 19)
 console.warn(
