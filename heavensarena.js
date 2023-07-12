@@ -447,13 +447,13 @@ const calcularAnios = (fecha = undefined) => {
 
   if (Math.sign(aniosHumanos) === -1) {
     console.info(
-      `Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`
+      `Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}.`
     );
   } else if (Math.sign(aniosHumanos) === 1) {
     console.info(
       `Han pasado ${Math.abs(
         aniosHumanos
-      )} años desde el ${fecha.getFullYear()} A.C`
+      )} años desde el ${fecha.getFullYear()} A.C.`
     );
   } else if (Math.sign(aniosHumanos) === 0) {
     console.info(`¡Estamos en el mismo año!`);
@@ -496,7 +496,7 @@ console.warn(
   `👁️Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.`
 );
 const nameValidator = (word = "") => {
-  let switcherX;
+  let switcherX = false;
   const nameRegex =
     /^[A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚÜÑ]{1,29} [A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚÜÑ]{1,20}$/;
   if (word === "") {
@@ -520,3 +520,40 @@ const nameValidator = (word = "") => {
 console.log(nameValidator("Arnold Schwarzenegger"));
 
 // 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+class Coffe {
+  constructor(densidad, grano) {
+    this.densidad = densidad;
+    this.grano = grano;
+  }
+  caracteristicas() {
+    console.log(
+      `Este café tiene una densidad de ${this.densidad} y su grano es ${this.grano}.`
+    );
+  }
+}
+
+
+//Quick class herence
+// const cafesito = new Coffe(2, "Peruano");
+// console.log(cafesito);
+// cafesito.caracteristicas();
+
+// class Expresso extends Coffe {
+//   constructor(densidad, grano, temperatura) {
+//     super(densidad, grano);
+//     this.temperatura = temperatura;
+//   }
+//   set setTiempo(tiempo) {
+//     this.tiempo = tiempo;
+//   }
+//   get getTiempo() {
+//     return this.tiempo;
+//   }
+// }
+
+// const expresso = new Expresso(4, "Boliviano", "40°")
+// expresso.setTiempo = "8hs"
+// console.log(expresso.getTiempo)
+// expresso.caracteristicas()
+// console.log(expresso)
