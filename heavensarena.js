@@ -585,20 +585,32 @@ console.log(minAndMax(numerosTest));
 console.warn(
   `👁️Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.`
 );
-const evenOddReturner = (array) => {
-  if (typeof array !== "object") {
-    console.warn("Se esperaba un array!");
-  } else if (typeof array[0] !== "number") {
-    console.warn("El array solo puede contener números");
-  } else {
-    const odds = [];
-    const evens = [];
-    array.filter((x) => {
-      x % 2 === 0 ? evens.push(x) : odds.push(x);
-    });
-    return { evens, odds };
+const numerosTest2 = [-10, 0, 1, 2, 5, 8, 100, 40, 9, 12];
+
+const evenOddReturner = (array = undefined) => {
+  if (array === undefined) {
+    return console.warn("No ingreaste nada!");
   }
+  if (!(array instanceof Array)) {
+    return console.error("El valor que ingresaste no es un Array.");
+  }
+  if (array.length === 0) {
+    return console.error("El array esta vacio");
+  }
+  for (let x of array) {
+    if (typeof x !== "number") {
+      return console.error(
+        `Te dijimos que el array solo podía tener números y contiene: "${x}".`
+      );
+    }
+  }
+  const odds = [];
+  const evens = [];
+  array.filter((x) => {
+    x % 2 === 0 ? evens.push(x) : odds.push(x);
+  });
+  return { evens, odds };
 };
 
-console.log(evenOddReturner(numerosTest).evens);
-console.log(evenOddReturner(numerosTest).odds);
+console.log(evenOddReturner(numerosTest2).evens);
+console.log(evenOddReturner(numerosTest2).odds);
