@@ -175,7 +175,7 @@ patronDeleter(
 //HA3
 // 9)
 console.warn(
-  `👁️ 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.`
+  `👁️ Programa una función que obtenga un numero aleatorio entre 501 y 600.`
 );
 const randomizer501600n = () => {
   let rnumber = 0;
@@ -519,41 +519,86 @@ const nameValidator = (word = "") => {
 };
 console.log(nameValidator("Arnold Schwarzenegger"));
 
-// 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+// 20)
+console.warn(
+  `👁️Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.`
+);
 
-class Coffe {
-  constructor(densidad, grano) {
-    this.densidad = densidad;
-    this.grano = grano;
+const emailValidator = (email = "") => {
+  if (email === "") {
+    console.warn("Olvidaste ingresar tu email! 🤓");
+  } else if (typeof email !== "string") {
+    console.error("Se espera que el email sea una cadena de texto 😧");
+  } else {
+    const regexMail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    regexMail.test(email)
+      ? console.info(`Tu email ${email} es válido! ✅`)
+      : console.info(
+          `Gracias por tu interés. Parece que la dirección de correo electrónico que proporcionaste no cumple con los requisitos necesarios. Asegúrate de ingresar una dirección de correo electrónico válida siguiendo el formato usuario@dominio.com 💡 `
+        );
   }
-  caracteristicas() {
-    console.log(
-      `Este café tiene una densidad de ${this.densidad} y su grano es ${this.grano}.`
-    );
+};
+emailValidator("matiasecharri@hotmail.com");
+
+// 21)
+console.warn(
+  `👁️Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].`
+);
+
+const numerosTest = [-10, 0, 1, 2, 5, 8, 100, 40, 9, 12];
+
+const squareCreator = (array = "", potencia) => {
+  if (array === "") {
+    console.warn("Olvidaste ingresar un array! 🤓");
+  } else if (typeof array !== "object" || typeof potencia !== "number") {
+    console.warn("Se espera un array y un número!");
+  } else {
+    const elevados = [];
+    array.map((x) => {
+      elevados.push(Math.pow(x, potencia));
+    });
+    return elevados;
   }
-}
+};
+const numerosElevadosComoGustes = squareCreator(numerosTest, 2);
+console.log(numerosElevadosComoGustes);
+console.log(Math.min(...numerosTest));
 
+// 22)
+console.warn(
+  `👁️Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].`
+);
+const minAndMax = (array) => {
+  if (array === "") {
+    console.warn("Olvidaste ingresar un array! 🤓");
+  } else if (typeof array !== "object") {
+    console.warn("Se espera un array!");
+  } else {
+    let minNumber = Math.min(...array);
+    let maxNumber = Math.max(...array);
+    return [minNumber, maxNumber];
+  }
+};
+console.log(minAndMax(numerosTest));
 
-//Quick class herence
-// const cafesito = new Coffe(2, "Peruano");
-// console.log(cafesito);
-// cafesito.caracteristicas();
+// 23)
+console.warn(
+  `👁️Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.`
+);
+const evenOddReturner = (array) => {
+  if (typeof array !== "object") {
+    console.warn("Se esperaba un array!");
+  } else if (typeof array[0] !== "number") {
+    console.warn("El array solo puede contener números");
+  } else {
+    const odds = [];
+    const evens = [];
+    array.filter((x) => {
+      x % 2 === 0 ? evens.push(x) : odds.push(x);
+    });
+    return { evens, odds };
+  }
+};
 
-// class Expresso extends Coffe {
-//   constructor(densidad, grano, temperatura) {
-//     super(densidad, grano);
-//     this.temperatura = temperatura;
-//   }
-//   set setTiempo(tiempo) {
-//     this.tiempo = tiempo;
-//   }
-//   get getTiempo() {
-//     return this.tiempo;
-//   }
-// }
-
-// const expresso = new Expresso(4, "Boliviano", "40°")
-// expresso.setTiempo = "8hs"
-// console.log(expresso.getTiempo)
-// expresso.caracteristicas()
-// console.log(expresso)
+console.log(evenOddReturner(numerosTest).evens);
+console.log(evenOddReturner(numerosTest).odds);

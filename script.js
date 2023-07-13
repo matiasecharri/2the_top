@@ -1206,5 +1206,40 @@ numericos.filter(x=> {
   x > 100 ? filtrado2.push(x) : console.log(x)
 })
 console.log(filtrado2)
+//Quick class herence
+class Coffe {
+  constructor(densidad, grano) {
+    this.densidad = densidad;
+    this.grano = grano;
+  }
+  caracteristicas() {
+    console.log(
+      `Este café tiene una densidad de ${this.densidad} y su grano es ${this.grano}.`
+    );
+  }
+}
+
+const cafesito = new Coffe(2, "Peruano");
+console.log(cafesito);
+cafesito.caracteristicas();
+
+class Expresso extends Coffe {
+  constructor(densidad, grano, temperatura) {
+    super(densidad, grano);
+    this.temperatura = temperatura;
+  }
+  set setTiempo(tiempo) {
+    this.tiempo = tiempo;
+  }
+  get getTiempo() {
+    return this.tiempo;
+  }
+}
+
+const expresso = new Expresso(4, "Boliviano", "40°")
+expresso.setTiempo = "8hs"
+console.log(expresso.getTiempo)
+expresso.caracteristicas()
+console.log(expresso)
 
 export {cyberpunkCharacters, CharacterEvolve2}
