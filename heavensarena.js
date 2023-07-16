@@ -175,7 +175,7 @@ patronDeleter(
 //HA3
 // 9)
 console.warn(
-  `👁️ 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.`
+  `👁️ Programa una función que obtenga un numero aleatorio entre 501 y 600.`
 );
 const randomizer501600n = () => {
   let rnumber = 0;
@@ -391,7 +391,226 @@ const descuento = (numero, descuento) => {
 
 descuento(1000, 20);
 
-// 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+// 17)
+console.warn(
+  `👁️ Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).`
+);
+// //MY VERSION (ONLY YEARS)
+// const cuantoPaso = (fecha) => {
+//   if (typeof fecha !== "number") {
+//     console.warn(
+//       "Por favor ingresa el año que quieres comparar con el año actual."
+//     );
+//   } else {
+//     const currentYear = new Date().getFullYear();
+//     const añosPasados = currentYear - fecha;
+//     if (
+//       Math.sign(fecha) === 1 &&
+//       fecha <= currentYear &&
+//       fecha !== currentYear
+//     ) {
+//       console.info(
+//         `Desde ${fecha} hasta el año actual (${currentYear}) pasaron: ${añosPasados} años.`
+//       );
+//     } else if (fecha > currentYear) {
+//       const futureYear = fecha - currentYear;
+//       console.info(
+//         `Tomando de referencia ${currentYear} para el año ${fecha} faltan ${futureYear} años.`
+//       );
+//     } else if (currentYear === fecha) {
+//       console.info(
+//         `Estamos en ${currentYear} y lo estas comparando con ${fecha}, ¡Es el mismo año!.`
+//       );
+//     } else {
+//       console.info(
+//         `Desde el año ${fecha} A.C hasta el año actual (${currentYear}) pasaron: ${añosPasados} años.`
+//       );
+//     }
+//   }
+// };
 
-const date = new Date().getDate()
-console.log(date)
+// cuantoPaso(-2000);
+// cuantoPaso(2077);
+
+// MIRCHA VERSION
+
+const calcularAnios = (fecha = undefined) => {
+  if (fecha === undefined) {
+    return console.warn("No ingresaste la fecha.");
+  } else if (!(fecha instanceof Date)) {
+    return console.error("No es una fecha válida.");
+  }
+
+  let hoyMenosFecha = new Date().getTime() - fecha.getTime(); //Milisegundos dia usuario - Milisegundos dia actual
+  let aniosEnMs = 1000 * 60 * 60 * 24 * 365;
+  let aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMs); //Dividimos el reusltado de la fecha actual - la fecha que ingresso el usuario por 1000 * 60 * 60 * 24 * 365; de esta forma lo pasamos a años
+
+  if (Math.sign(aniosHumanos) === -1) {
+    console.info(
+      `Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}.`
+    );
+  } else if (Math.sign(aniosHumanos) === 1) {
+    console.info(
+      `Han pasado ${Math.abs(
+        aniosHumanos
+      )} años desde el ${fecha.getFullYear()} A.C.`
+    );
+  } else if (Math.sign(aniosHumanos) === 0) {
+    console.info(`¡Estamos en el mismo año!`);
+  }
+};
+calcularAnios(new Date(2049, 4, 11));
+
+// 18)
+console.warn(
+  `👁️Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.`
+);
+const letterClasifier = (word = "") => {
+  if (word === "") {
+    console.warn("No ingresaste el texto... 🥴");
+  } else if (typeof word !== "string") {
+    console.error("Se espera que ingreses texto y no otras cosas 🤡");
+  } else {
+    const vocals = ["a", "e", "i", "o", "u"];
+    let vocalCounter = 0;
+    const regex = /^[a-zA-Z]+$/;
+    let consonantCounter = 0;
+    let arrayWord = word.split("");
+    arrayWord.filter((x) => {
+      if (vocals.includes(x.toLowerCase())) {
+        vocalCounter++;
+      } else if (regex.test(x)) {
+        consonantCounter++;
+      }
+    });
+    console.info(
+      `"${word}" incluye ${vocalCounter} vocales y ${consonantCounter} consonantes 🤓`
+    );
+  }
+};
+
+letterClasifier("MUY BUENAS a todos chavales");
+
+// 19)
+console.warn(
+  `👁️Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.`
+);
+const nameValidator = (word = "") => {
+  let switcherX = false;
+  const nameRegex =
+    /^[A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚÜÑ]{1,29} [A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚÜÑ]{1,20}$/;
+  if (word === "") {
+    console.warn("Parece que te olvidaste la palabra...😵");
+  } else if (typeof word !== "string") {
+    console.error(
+      "Entiendo que quieras probar cosas pero solo se admiten palabras 🤪"
+    );
+  } else {
+    if (nameRegex.test(word)) {
+      console.log(`El nombre "${word}" es válido ✅`);
+      return (switcherX = true);
+    } else {
+      console.log(
+        `El nombre "${word}" es inválido 🤮. Debe contener:  • Iniciales en mayúsculas, • 1 Nombre y 1 Apellido separados, se aceptan tildes. No puede contener: • Caracteres que no sean letras, • Más de 20 caracteres`
+      );
+      return (switcherX = false);
+    }
+  }
+};
+console.log(nameValidator("Arnold Schwarzenegger"));
+
+// 20)
+console.warn(
+  `👁️Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.`
+);
+
+const emailValidator = (email = "") => {
+  if (email === "") {
+    console.warn("Olvidaste ingresar tu email! 🤓");
+  } else if (typeof email !== "string") {
+    console.error("Se espera que el email sea una cadena de texto 😧");
+  } else {
+    const regexMail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    regexMail.test(email)
+      ? console.info(`Tu email ${email} es válido! ✅`)
+      : console.info(
+          `Gracias por tu interés. Parece que la dirección de correo electrónico que proporcionaste no cumple con los requisitos necesarios. Asegúrate de ingresar una dirección de correo electrónico válida siguiendo el formato usuario@dominio.com 💡 `
+        );
+  }
+};
+emailValidator("matiasecharri@hotmail.com");
+
+// 21)
+console.warn(
+  `👁️Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].`
+);
+
+const numerosTest = [-10, 0, 1, 2, 5, 8, 100, 40, 9, 12];
+
+const squareCreator = (array = "", potencia) => {
+  if (array === "") {
+    console.warn("Olvidaste ingresar un array! 🤓");
+  } else if (typeof array !== "object" || typeof potencia !== "number") {
+    console.warn("Se espera un array y un número!");
+  } else {
+    const elevados = [];
+    array.map((x) => {
+      elevados.push(Math.pow(x, potencia));
+    });
+    return elevados;
+  }
+};
+const numerosElevadosComoGustes = squareCreator(numerosTest, 2);
+console.log(numerosElevadosComoGustes);
+console.log(Math.min(...numerosTest));
+
+// 22)
+console.warn(
+  `👁️Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].`
+);
+const minAndMax = (array) => {
+  if (array === "") {
+    console.warn("Olvidaste ingresar un array! 🤓");
+  } else if (typeof array !== "object") {
+    console.warn("Se espera un array!");
+  } else {
+    let minNumber = Math.min(...array);
+    let maxNumber = Math.max(...array);
+    return [minNumber, maxNumber];
+  }
+};
+console.log(minAndMax(numerosTest));
+
+// 23)
+console.warn(
+  `👁️Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.`
+);
+const numerosTest2 = [-10, 0, 1, 2, 5, 8, 100, 40, 9, 12];
+
+const evenOddReturner = (array = undefined) => {
+  if (array === undefined) {
+    return console.warn("No ingreaste nada!");
+  }
+  if (!(array instanceof Array)) {
+    return console.error("El valor que ingresaste no es un Array.");
+  }
+  if (array.length === 0) {
+    return console.error("El array esta vacio");
+  }
+  for (let x of array) {
+    if (typeof x !== "number") {
+      return console.error(
+        `Te dijimos que el array solo podía tener números y contiene: "${x}".`
+      );
+    }
+  }
+  const odds = [];
+  const evens = [];
+  array.filter((x) => {
+    x % 2 === 0 ? evens.push(x) : odds.push(x);
+  });
+  return { evens, odds };
+};
+
+console.log(evenOddReturner(numerosTest2).evens);
+console.log(evenOddReturner(numerosTest2).odds);
