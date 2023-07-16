@@ -617,8 +617,36 @@ const evenOddReturner = (array = undefined) => {
 console.log(evenOddReturner(numerosTest2).evens);
 console.log(evenOddReturner(numerosTest2).odds);
 //HA8
+//24
+console.warn(
+  `👁️Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5]`
+);
 
-// 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+const arrayDePrueba = [1, 5, 8, 2, 101, 53];
+
+const ordenandoNumeros = (array = undefined) => {
+  if (array === undefined) {
+     console.warn("No ingresaste nada 🤡");
+     return
+  }
+  if (!(array instanceof Array)) {
+    return console.warn("El item ingresado solo puede ser un array 🤓");
+  }
+  if (array.some((x) => typeof x !== "number")) {
+    return console.error("El array contiene elementos que no son números.");
+  }
+ 
+  const nuevaInstancia = [...array];
+  const nuevaInstancia2 = [...array];
+  const arrayMayorMenor = nuevaInstancia.sort((a, b) => b - a);
+  const arrayMenorMayor = nuevaInstancia2.sort((a, b) => a - b);
+
+  return { arrayMayorMenor, arrayMenorMayor };
+};
+
+console.log(ordenandoNumeros(arrayDePrueba).arrayMayorMenor);
+console.log(ordenandoNumeros(arrayDePrueba).arrayMenorMayor);
+
 // 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
 // 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
 
