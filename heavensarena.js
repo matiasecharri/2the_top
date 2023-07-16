@@ -233,6 +233,7 @@ const factorial = (numero = undefined) => {
 
 factorial(4);
 
+//HA4
 //12
 console.warn(
   `👁️ Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true)`
@@ -307,7 +308,7 @@ const celsiusFarehneit = (unidad, grados) => {
   }
 };
 celsiusFarehneit("f", 150);
-
+//HA5
 // 15)
 console.warn(
   `👁️ Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.)`
@@ -460,7 +461,7 @@ const calcularAnios = (fecha = undefined) => {
   }
 };
 calcularAnios(new Date(2049, 4, 11));
-
+//HA6
 // 18)
 console.warn(
   `👁️Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.`
@@ -539,6 +540,7 @@ const emailValidator = (email = "") => {
   }
 };
 emailValidator("matiasecharri@hotmail.com");
+//HA7
 
 // 21)
 console.warn(
@@ -614,3 +616,64 @@ const evenOddReturner = (array = undefined) => {
 
 console.log(evenOddReturner(numerosTest2).evens);
 console.log(evenOddReturner(numerosTest2).odds);
+//HA8
+
+// 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+// 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+// 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+
+//HA9
+//HA10
+
+console.clear();
+
+console.warn(
+  `👁️ Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F)`
+);
+
+const conversor = (numeros, unidad) => {
+  if (typeof numeros !== "number" || typeof unidad !== "string") {
+    console.warn("Ingresá los grados y su unidad, por favor");
+  } else if (unidad.toLowerCase() !== "c" && unidad.toLowerCase() !== "f") {
+    console.error("Las unidades solo pueden ser °C o °F");
+  } else {
+    if (unidad.toLowerCase() === "c") {
+      let resultado1 = Math.round((numeros * 9) / 5 + 32);
+      console.log(`Tus °${numeros} C son °${resultado1} F.`);
+    } else if (unidad.toLowerCase() === "f") {
+      let resultado2 = Math.round(((numeros - 32) * 5) / 9);
+      console.log(`Tus °${numeros} F son °${resultado2} C.`);
+    }
+  }
+};
+
+conversor(20, "c");
+conversor(50, "f");
+
+console.warn(
+  `👁️ Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800`
+);
+
+const descuentito = (descuento, numero) => {
+  if (typeof descuento !== "number" || typeof numero !== "number") {
+    console.warn("Ingresá el precio y su respectivo descuento");
+  } else if (Math.sign(descuento) === -1 || Math.sign(numero) === -1) {
+    console.error("Solo se aceptan numeros naturales");
+  } else {
+    let descontar = (numero * descuento) / 100;
+    let resultadoDescuento = Math.round(numero - descontar);
+    console.log(
+      `Tu descuento es del ${Math.round(
+        descuento
+      )}% y el precio final es de: $${resultadoDescuento}`
+    );
+  }
+};
+
+descuentito(23, 1000.543);
+descuentito(40, 1000);
+
+console.warn(
+  `👁️ Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).`
+);
+
