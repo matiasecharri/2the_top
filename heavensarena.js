@@ -622,20 +622,22 @@ console.warn(
   `👁️Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5]`
 );
 
-const arrayDePrueba = [1, 5, 8, 2, 101, 53];
+const arrayDePrueba = [1, 5, 8, 2, 101, 53,];
 
 const ordenandoNumeros = (array = undefined) => {
   if (array === undefined) {
-     console.warn("No ingresaste nada 🤡");
-     return
+    console.warn("No ingresaste nada 🤡");
+    return;
   }
   if (!(array instanceof Array)) {
-    return console.warn("El item ingresado solo puede ser un array 🤓");
+    console.warn("El item ingresado NO es un array, por favor ingresa un array 🤓");
+    return;
   }
   if (array.some((x) => typeof x !== "number")) {
-    return console.error("El array contiene elementos que no son números.");
+    console.error("El array contiene elementos que no son números");
+    return;
   }
- 
+
   const nuevaInstancia = [...array];
   const nuevaInstancia2 = [...array];
   const arrayMayorMenor = nuevaInstancia.sort((a, b) => b - a);
