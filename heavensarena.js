@@ -233,6 +233,7 @@ const factorial = (numero = undefined) => {
 
 factorial(4);
 
+//HA4
 //12
 console.warn(
   `👁️ Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true)`
@@ -307,7 +308,7 @@ const celsiusFarehneit = (unidad, grados) => {
   }
 };
 celsiusFarehneit("f", 150);
-
+//HA5
 // 15)
 console.warn(
   `👁️ Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.)`
@@ -460,7 +461,7 @@ const calcularAnios = (fecha = undefined) => {
   }
 };
 calcularAnios(new Date(2049, 4, 11));
-
+//HA6
 // 18)
 console.warn(
   `👁️Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.`
@@ -539,6 +540,7 @@ const emailValidator = (email = "") => {
   }
 };
 emailValidator("matiasecharri@hotmail.com");
+//HA7
 
 // 21)
 console.warn(
@@ -614,3 +616,86 @@ const evenOddReturner = (array = undefined) => {
 
 console.log(evenOddReturner(numerosTest2).evens);
 console.log(evenOddReturner(numerosTest2).odds);
+//HA8
+//24
+console.warn(
+  `👁️Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5]`
+);
+
+const arrayDePrueba = [1, 5, 8, 2, 101, 53];
+
+const ordenandoNumeros = (array = undefined) => {
+  if (array === undefined) {
+    console.warn("No ingresaste nada 🤡");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.warn(
+      "El item ingresado NO es un array, por favor ingresa un array 🤓"
+    );
+    return;
+  }
+  if (array.some((x) => typeof x !== "number")) {
+    console.error("El array contiene elementos que no son números");
+    return;
+  }
+
+  const nuevaInstancia = [...array];
+  const nuevaInstancia2 = [...array];
+  const arrayMayorMenor = nuevaInstancia.sort((a, b) => b - a);
+  const arrayMenorMayor = nuevaInstancia2.sort((a, b) => a - b);
+
+  return { arrayMayorMenor, arrayMenorMayor };
+};
+
+console.log(ordenandoNumeros(arrayDePrueba).arrayMayorMenor);
+console.log(ordenandoNumeros(arrayDePrueba).arrayMenorMayor);
+
+// 25)
+console.warn(
+  `👁️Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].`
+);
+const arrayXd = ["hola", "hola", 2, 3, 2, 8, "buenas", "buenas"];
+const unicItems = (array = null) => {
+  if (array === null) {
+    console.warn("No ingresaste nada! 🤯");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.warn(
+      "El item ingresado NO es un array, por favor ingresa un array 🤓"
+    );
+    return;
+  }
+  const arraySeteado = new Set([...array]);
+  return arraySeteado;
+};
+console.log(unicItems(arrayXd));
+// 26)
+console.warn(
+  `👁️Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.`
+);
+
+const calificaciones = [10, 8, 7, 8, 9, 9, 10, 10];
+const reductorOfAll = (array = null) => {
+  if (array === null) {
+    console.warn("No ingresaste nada! 🤭");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Se espera que ingreses un array de números! 🫠");
+    return;
+  }
+  if (array.some((x) => typeof x !== "number")) {
+    console.error("Tu array contiene elementos que NO son números 😵");
+    return;
+  }
+
+  const sumaDeTodo = array.reduce((accumulator, x) => {
+    return accumulator + x;
+  }, 0);
+  const resultadoRedondeadoA1Decimal = (sumaDeTodo / array.length).toFixed(1);
+  return resultadoRedondeadoA1Decimal;
+};
+
+console.log(reductorOfAll(calificaciones));
