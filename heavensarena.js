@@ -676,7 +676,7 @@ console.warn(
   `👁️Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.`
 );
 
-const calificaciones = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 8.4545];
+const calificaciones = [10, 8, 7, 8, 9, 9, 10, 10];
 const reductorOfAll = (array = null) => {
   if (array === null) {
     console.warn("No ingresaste nada! 🤭");
