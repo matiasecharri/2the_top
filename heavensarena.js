@@ -655,7 +655,7 @@ console.log(ordenandoNumeros(arrayDePrueba).arrayMenorMayor);
 console.warn(
   `👁️Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].`
 );
-const arrayXd = ["hola", "hola", 2, 3, 2, 8];
+const arrayXd = ["hola", "hola", 2, 3, 2, 8, "buenas", "buenas"];
 const unicItems = (array = null) => {
   if (array === null) {
     console.warn("No ingresaste nada! 🤯");
@@ -671,7 +671,31 @@ const unicItems = (array = null) => {
   return arraySeteado;
 };
 console.log(unicItems(arrayXd));
-// 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+// 26)
+console.warn(
+  `👁️Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.`
+);
 
-//HA9
-//HA10
+const calificaciones = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 8.4545];
+const reductorOfAll = (array = null) => {
+  if (array === null) {
+    console.warn("No ingresaste nada! 🤭");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Se espera que ingreses un array de números! 🫠");
+    return;
+  }
+  if (array.some((x) => typeof x !== "number")) {
+    console.error("Tu array contiene elementos que NO son números 😵");
+    return;
+  }
+
+  const sumaDeTodo = array.reduce((accumulator, x) => {
+    return accumulator + x;
+  }, 0);
+  const resultadoRedondeadoA1Decimal = (sumaDeTodo / array.length).toFixed(1);
+  return resultadoRedondeadoA1Decimal;
+};
+
+console.log(reductorOfAll(calificaciones));
