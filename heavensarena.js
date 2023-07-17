@@ -622,7 +622,7 @@ console.warn(
   `👁️Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5]`
 );
 
-const arrayDePrueba = [1, 5, 8, 2, 101, 53,];
+const arrayDePrueba = [1, 5, 8, 2, 101, 53];
 
 const ordenandoNumeros = (array = undefined) => {
   if (array === undefined) {
@@ -630,7 +630,9 @@ const ordenandoNumeros = (array = undefined) => {
     return;
   }
   if (!(array instanceof Array)) {
-    console.warn("El item ingresado NO es un array, por favor ingresa un array 🤓");
+    console.warn(
+      "El item ingresado NO es un array, por favor ingresa un array 🤓"
+    );
     return;
   }
   if (array.some((x) => typeof x !== "number")) {
@@ -649,7 +651,26 @@ const ordenandoNumeros = (array = undefined) => {
 console.log(ordenandoNumeros(arrayDePrueba).arrayMayorMenor);
 console.log(ordenandoNumeros(arrayDePrueba).arrayMenorMayor);
 
-// 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+// 25)
+console.warn(
+  `👁️Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].`
+);
+const arrayXd = ["hola", "hola", 2, 3, 2, 8];
+const unicItems = (array = null) => {
+  if (array === null) {
+    console.warn("No ingresaste nada! 🤯");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.warn(
+      "El item ingresado NO es un array, por favor ingresa un array 🤓"
+    );
+    return;
+  }
+  const arraySeteado = new Set([...array]);
+  return arraySeteado;
+};
+console.log(unicItems(arrayXd));
 // 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
 
 //HA9
