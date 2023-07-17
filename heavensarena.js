@@ -724,13 +724,31 @@ console.log(reductorOfAll(calificaciones));
 // * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
 class Movie {
-  constructor(id, title, director, year, country, genre, rate){
-    this.id = id
-    this.title = title
-    this.director = director
-    this.year = year
-    this.country = country
-    this.genre = genre
-    this.rate = rate
+  constructor(id = undefined, title = undefined, director = undefined, year = undefined, country = undefined, genre = undefined, rate = undefined) {
+    const regexID = /^[A-Za-z]{2}\d{7}$/;
+
+    if (typeof id === 'undefined' || typeof title === 'undefined' || typeof director === 'undefined' || typeof year === 'undefined' || typeof country === 'undefined' || typeof genre === 'undefined' || typeof rate === 'undefined') {
+      console.error("All parameters are required.");
+      return undefined;
+    }
+
+    if (!regexID.test(id)) {
+      console.error("Invalid ID. Expected format: ^[A-Za-z]{2}\\d{7}$");
+      return undefined;
+    }
+
+    this.id = id;
+    this.title = title;
+    this.director = director;
+    this.year = year;
+    this.country = country;
+    this.genre = genre;
+    this.rate = rate;
   }
 }
+
+const titanic = new Movie("ab1234567", "Titanic", "James Cameron", 1994, "United States", "Drama", 4.5);
+
+console.log(titanic)
+
+ 
