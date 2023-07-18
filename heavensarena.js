@@ -703,12 +703,12 @@ console.log(reductorOfAll(calificaciones));
 // 27) Programa una clase llamada Pelicula.
 
 // La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
-//   - Todos los datos del objeto son obligatorios.
+//   - Todos los datos del objeto son obligatorios.//DONE🤓
 //   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
-//      7 restantes números.
-//   - Valida que el título no rebase los 100 caracteres.
-//   - Valida que el director no rebase los 50 caracteres.
-//   - Valida que el año de estreno sea un número entero de 4 dígitos.
+//      7 restantes números.//DONE🤓
+//   - Valida que el título no rebase los 100 caracteres.//DONE🤓
+//   - Valida que el director no rebase los 50 caracteres.//DONE🤓
+//   - Valida que el año de estreno sea un número entero de 4 dígitos. 
 //   - Valida que el país o paises sea introducidos en forma de arreglo.
 //   - Valida que los géneros sean introducidos en forma de arreglo.
 //   - Valida que los géneros introducidos esten dentro de los géneros
@@ -724,17 +724,42 @@ console.log(reductorOfAll(calificaciones));
 // * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
 class Movie {
-  constructor(id = undefined, title = undefined, director = undefined, year = undefined, country = undefined, genre = undefined, rate = undefined) {
+  constructor(
+    id = undefined,
+    title = undefined,
+    director = undefined,
+    year = undefined,
+    country = undefined,
+    genre = undefined,
+    rate = undefined
+  ) {
     const regexID = /^[A-Za-z]{2}\d{7}$/;
 
-    if (typeof id === 'undefined' || typeof title === 'undefined' || typeof director === 'undefined' || typeof year === 'undefined' || typeof country === 'undefined' || typeof genre === 'undefined' || typeof rate === 'undefined') {
-      console.error("All parameters are required.");
-      return undefined;
+    if (
+      typeof id === "undefined" ||
+      typeof title === "undefined" ||
+      typeof director === "undefined" ||
+      typeof year === "undefined" ||
+      typeof country === "undefined" ||
+      typeof genre === "undefined" ||
+      typeof rate === "undefined"
+    ) {
+      console.error("ERROR: All parameters are required.");
+      return;
     }
 
     if (!regexID.test(id)) {
-      console.error("Invalid ID. Expected format: ^[A-Za-z]{2}\\d{7}$");
-      return undefined;
+      console.error("ERROR: Invalid ID. Expected format: ^[A-Za-z]{2}\\d{7}$");
+      return;
+    }
+    if (title.length > 70) {
+      console.error("ERROR: Title needs to be 100 characteres or lower.");
+      return;
+    }
+
+    if (director.length > 50) {
+      console.error("ERROR: Directors name need to be 50 characteres or lower.");
+      return;
     }
 
     this.id = id;
@@ -747,8 +772,14 @@ class Movie {
   }
 }
 
-const titanic = new Movie("ab1234567", "Titanic", "James Cameron", 1994, "United States", "Drama", 4.5);
+const titanic = new Movie(
+  "AB1234567",
+  "Titanic",
+  "James Cameron",
+  1994,
+  "United States",
+  "Drama",
+  4.5
+);
 
-console.log(titanic)
-
- 
+console.log(titanic);
