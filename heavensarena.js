@@ -708,11 +708,11 @@ console.log(reductorOfAll(calificaciones));
 //      7 restantes números.//DONE🤓
 //   - Valida que el título no rebase los 100 caracteres.//DONE🤓
 //   - Valida que el director no rebase los 50 caracteres.//DONE🤓
-//   - Valida que el año de estreno sea un número entero de 4 dígitos. 
-//   - Valida que el país o paises sea introducidos en forma de arreglo.
-//   - Valida que los géneros sean introducidos en forma de arreglo.
+//   - Valida que el año de estreno sea un número entero de 4 dígitos. //DONE🤓
+//   - Valida que el país o paises sea introducidos en forma de arreglo. //DONE🤓
+//   - Valida que los géneros sean introducidos en forma de arreglo. //DONE🤓
 //   - Valida que los géneros introducidos esten dentro de los géneros
-//      aceptados*.
+//      aceptados*. //DONE🤓
 //   - Crea un método estático que devuelva los géneros aceptados*.
 //   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser
 //     decimal de una posición.
@@ -734,6 +734,37 @@ class Movie {
     rate = undefined
   ) {
     const regexID = /^[A-Za-z]{2}\d{7}$/;
+    const regexYear = /^\d{4}$/;
+    const aceptedGenres = [
+      "Action",
+      "Adult",
+      "Adventure",
+      "Animation",
+      "Biography",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Film Noir",
+      "Game-Show",
+      "History",
+      "Horror",
+      "Musical",
+      "Music",
+      "Mystery",
+      "News",
+      "Reality-TV",
+      "Romance",
+      "Sci-Fi",
+      "Short",
+      "Sport",
+      "Talk-Show",
+      "Thriller",
+      "War",
+      "Western",
+    ];
 
     if (
       typeof id === "undefined" ||
@@ -758,9 +789,49 @@ class Movie {
     }
 
     if (director.length > 50) {
-      console.error("ERROR: Directors name need to be 50 characteres or lower.");
+      console.error(
+        "ERROR: Directors name need to be 50 characteres or lower."
+      );
       return;
     }
+    if (!regexYear.test(year)) {
+      console.error("ERROR: Invalid date.");
+      return;
+    }
+
+    if (year < 1895 || typeof year !== "number") {
+      console.error(
+        "ERROR: Year of the movie needs to be expressed with numbers and needs to be 1895 or superior."
+      );
+      return;
+    }
+
+    if (!(country instanceof Array)) {
+      console.error("ERROR: Country/Countries have to be inside an array.");
+      return;
+    }
+
+    if (country.some((x) => typeof x !== "string")) {
+      console.error("ERROR: All Countries have to be strings.");
+      return;
+    }
+
+    if (!(genre instanceof Array)) {
+      console.error("ERROR: Genres have to be inside an array.");
+      return;
+    }
+
+    if (genre.some((x) => typeof x !== "string")) {
+      console.error("ERROR: All Genres have to be strings.");
+      return;
+    }
+
+    genre.filter((x) => {
+      if (!aceptedGenres.includes(x)) {
+        console.error("ERROR: Invalid movie genres or genre needs mayus in the first letter.");
+      }
+      return;
+    });
 
     this.id = id;
     this.title = title;
@@ -777,8 +848,8 @@ const titanic = new Movie(
   "Titanic",
   "James Cameron",
   1994,
-  "United States",
-  "Drama",
+  ["United States", "Argentina"],
+  ["Drama"],
   4.5
 );
 
