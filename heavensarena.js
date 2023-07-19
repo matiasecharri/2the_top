@@ -700,8 +700,8 @@ const reductorOfAll = (array = null) => {
 
 console.log(reductorOfAll(calificaciones));
 
-// 27) Programa una clase llamada Pelicula.
-
+// 27)
+console.warn(`👁️Programa una clase llamada Pelicula.`);
 // La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
 //   - Todos los datos del objeto son obligatorios.//DONE🤓
 //   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
@@ -713,10 +713,10 @@ console.log(reductorOfAll(calificaciones));
 //   - Valida que los géneros sean introducidos en forma de arreglo. //DONE🤓
 //   - Valida que los géneros introducidos esten dentro de los géneros
 //      aceptados*. //DONE🤓
-//   - Crea un método estático que devuelva los géneros aceptados*.
+//   - Crea un método estático que devuelva los géneros aceptados*. ///DONE🤓
 //   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser
 //     decimal de una posición.
-//   - Crea un método que devuelva toda la ficha técnica de la película.
+//   - Crea un método que devuelva toda la ficha técnica de la película.  //DONE🤓
 //   - Apartir de un arreglo con la información de 3 películas genera 3
 //     instancias de la clase de forma automatizada e imprime la ficha técnica
 //     de cada película.
@@ -828,7 +828,9 @@ class Movie {
 
     genre.filter((x) => {
       if (!aceptedGenres.includes(x)) {
-        console.error("ERROR: Invalid movie genres or genre needs mayus in the first letter.");
+        console.error(
+          "ERROR: Invalid movie genres or genre needs mayus in the first letter."
+        );
       }
       return;
     });
@@ -840,6 +842,43 @@ class Movie {
     this.country = country;
     this.genre = genre;
     this.rate = rate;
+  }
+  static genresInfo() {
+    console.log(
+      "Action",
+      "Adult",
+      "Adventure",
+      "Animation",
+      "Biography",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Film Noir",
+      "Game-Show",
+      "History",
+      "Horror",
+      "Musical",
+      "Music",
+      "Mystery",
+      "News",
+      "Reality-TV",
+      "Romance",
+      "Sci-Fi",
+      "Short",
+      "Sport",
+      "Talk-Show",
+      "Thriller",
+      "War",
+      "Western"
+    );
+  }
+  allMovieInfo() {
+    console.table(
+      `ID: ${this.id} Title: ${this.title} Director: ${this.director} Year: ${this.year} Country:${this.country} Genre: ${this.genre} Califation: ${this.rate}`
+    );
   }
 }
 
@@ -853,4 +892,5 @@ const titanic = new Movie(
   4.5
 );
 
-console.log(titanic);
+titanic.allMovieInfo();
+Movie.genresInfo();
