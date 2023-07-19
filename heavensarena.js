@@ -715,10 +715,10 @@ console.warn(`👁️Programa una clase llamada Pelicula.`);
 //      aceptados*. //DONE🤓
 //   - Crea un método estático que devuelva los géneros aceptados*. ///DONE🤓
 //   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser
-//     decimal de una posición.
+//     decimal de una posición.///DONE🤓
 //   - Crea un método que devuelva toda la ficha técnica de la película.  //DONE🤓
 //   - Apartir de un arreglo con la información de 3 películas genera 3
-//     instancias de la clase de forma automatizada e imprime la ficha técnica
+//     instancias de la clase de forma automatizada e imprime la ficha técnica👁️
 //     de cada película.
 
 // * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
@@ -735,6 +735,7 @@ class Movie {
   ) {
     const regexID = /^[A-Za-z]{2}\d{7}$/;
     const regexYear = /^\d{4}$/;
+    const regexRating = /^(10(\.0)?|[0-9](\.[0-9])?)$/;
     const aceptedGenres = [
       "Action",
       "Adult",
@@ -783,14 +784,20 @@ class Movie {
       console.error("ERROR: Invalid ID. Expected format: ^[A-Za-z]{2}\\d{7}$");
       return;
     }
-    if (title.length > 70) {
-      console.error("ERROR: Title needs to be 100 characteres or lower.");
+    if (title.length > 70 || title.length < 2 || typeof title !== "string") {
+      console.error(
+        "ERROR: Title needs to be 2/100 characteres or lower STRING."
+      );
       return;
     }
 
-    if (director.length > 50) {
+    if (
+      director.length > 50 ||
+      director.length < 2 ||
+      typeof director !== "string"
+    ) {
       console.error(
-        "ERROR: Directors name need to be 50 characteres or lower."
+        "ERROR: Directors name need to be 2/50 characteres or lower STRING."
       );
       return;
     }
@@ -835,6 +842,13 @@ class Movie {
       return;
     });
 
+    if (regexRating.test(rate) === false || typeof rate !== "number") {
+      console.error(
+        "Rating needs to be a NUMBER in a scale of 0-10, can only have 1 decimal."
+      );
+      return;
+    }
+
     this.id = id;
     this.title = title;
     this.director = director;
@@ -845,6 +859,7 @@ class Movie {
   }
   static genresInfo() {
     console.log(
+      "💡ALLOWED GENRES:",
       "Action",
       "Adult",
       "Adventure",
@@ -877,7 +892,7 @@ class Movie {
   }
   allMovieInfo() {
     console.table(
-      `ID: ${this.id} Title: ${this.title} Director: ${this.director} Year: ${this.year} Country:${this.country} Genre: ${this.genre} Califation: ${this.rate}`
+      `ID: ${this.id} // Title: ${this.title} // Director: ${this.director} // Year: ${this.year} // Country: ${this.country} // Genre: ${this.genre} // Califation: ${this.rate}`
     );
   }
 }
@@ -889,8 +904,44 @@ const titanic = new Movie(
   1994,
   ["United States", "Argentina"],
   ["Drama"],
-  4.5
+  9.6
 );
 
 titanic.allMovieInfo();
 Movie.genresInfo();
+
+const movieData = [
+  {
+    id: "AB1234567",
+    title: "Titanic",
+    director: "James Cameron",
+    year: 1997,
+    country: ["United States"],
+    genre: ["Drama", "Romance"],
+    rate: 7.8,
+  },
+  {
+    id: "CD9876543",
+    title: "Inception",
+    director: "Christopher Nolan",
+    year: 2010,
+    country: ["United States", "United Kingdom"],
+    genre: ["Action", "Adventure", "Sci-Fi"],
+    rate: 8.8,
+  },
+  {
+    id: "EF5432167",
+    title: "The Shawshank Redemption",
+    director: "Frank Darabont",
+    year: 1994,
+    country: ["United States"],
+    genre: ["Drama"],
+    rate: 9.3,
+  },
+];
+
+movieData.forEach((x) => {
+  const { id, title, director, year, country, genre, rate } = x;
+  const movieInstance = new Movie(id, title, director, year, country, genre, rate);
+  movieInstance.allMovieInfo()
+});
