@@ -940,15 +940,19 @@ const movieData = [
   },
 ];
 
-const finalMovies = [];
-movieData.forEach((x) => {
-  const { id, title, director, year, country, genre, rate } = x;
-  const film = new Movie(id, title, director, year, country, genre, rate);
-  finalMovies.push(film);
-});
+const movieArray = []
 
-console.log(finalMovies)
+movieData.forEach((x)=>{
+  const {id, title, director, year, country, genre, rate} = x
+  const newMovies = new Movie (id, title, director, year, country, genre, rate)
+  movieArray.push(newMovies)
+})
 
-const [titsanic, inception, shawsa] = finalMovies
+const [totanic, incepshon, shaunsha] = movieArray
 
-console.log(shawsa)
+console.log(totanic)
+console.log(incepshon)
+console.log(shaunsha)
+
+totanic.allMovieInfo()
+//ENDHA10
