@@ -940,8 +940,15 @@ const movieData = [
   },
 ];
 
+const finalMovies = [];
 movieData.forEach((x) => {
   const { id, title, director, year, country, genre, rate } = x;
-  const movieInstance = new Movie(id, title, director, year, country, genre, rate);
-  movieInstance.allMovieInfo()
+  const film = new Movie(id, title, director, year, country, genre, rate);
+  finalMovies.push(film);
 });
+
+console.log(finalMovies)
+
+const [titsanic, inception, shawsa] = finalMovies
+
+console.log(shawsa)
