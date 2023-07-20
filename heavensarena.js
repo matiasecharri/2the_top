@@ -700,41 +700,153 @@ const reductorOfAll = (array = null) => {
 
 console.log(reductorOfAll(calificaciones));
 
-// 27) Programa una clase llamada Pelicula.
-
+// 27)
+console.warn(`👁️Programa una clase llamada Pelicula.`);
 // La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
-//   - Todos los datos del objeto son obligatorios.
+//   - Todos los datos del objeto son obligatorios.//DONE🤓
 //   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
-//      7 restantes números.
-//   - Valida que el título no rebase los 100 caracteres.
-//   - Valida que el director no rebase los 50 caracteres.
-//   - Valida que el año de estreno sea un número entero de 4 dígitos.
-//   - Valida que el país o paises sea introducidos en forma de arreglo.
-//   - Valida que los géneros sean introducidos en forma de arreglo.
+//      7 restantes números.//DONE🤓
+//   - Valida que el título no rebase los 100 caracteres.//DONE🤓
+//   - Valida que el director no rebase los 50 caracteres.//DONE🤓
+//   - Valida que el año de estreno sea un número entero de 4 dígitos. //DONE🤓
+//   - Valida que el país o paises sea introducidos en forma de arreglo. //DONE🤓
+//   - Valida que los géneros sean introducidos en forma de arreglo. //DONE🤓
 //   - Valida que los géneros introducidos esten dentro de los géneros
-//      aceptados*.
-//   - Crea un método estático que devuelva los géneros aceptados*.
+//      aceptados*. //DONE🤓
+//   - Crea un método estático que devuelva los géneros aceptados*. ///DONE🤓
 //   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser
-//     decimal de una posición.
-//   - Crea un método que devuelva toda la ficha técnica de la película.
+//     decimal de una posición.///DONE🤓
+//   - Crea un método que devuelva toda la ficha técnica de la película.  //DONE🤓
 //   - Apartir de un arreglo con la información de 3 películas genera 3
-//     instancias de la clase de forma automatizada e imprime la ficha técnica
+//     instancias de la clase de forma automatizada e imprime la ficha técnica👁️
 //     de cada película.
 
 // * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
 class Movie {
-  constructor(id = undefined, title = undefined, director = undefined, year = undefined, country = undefined, genre = undefined, rate = undefined) {
+  constructor(
+    id = undefined,
+    title = undefined,
+    director = undefined,
+    year = undefined,
+    country = undefined,
+    genre = undefined,
+    rate = undefined
+  ) {
     const regexID = /^[A-Za-z]{2}\d{7}$/;
+    const regexYear = /^\d{4}$/;
+    const regexRating = /^(10(\.0)?|[0-9](\.[0-9])?)$/;
+    const aceptedGenres = [
+      "Action",
+      "Adult",
+      "Adventure",
+      "Animation",
+      "Biography",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Film Noir",
+      "Game-Show",
+      "History",
+      "Horror",
+      "Musical",
+      "Music",
+      "Mystery",
+      "News",
+      "Reality-TV",
+      "Romance",
+      "Sci-Fi",
+      "Short",
+      "Sport",
+      "Talk-Show",
+      "Thriller",
+      "War",
+      "Western",
+    ];
 
-    if (typeof id === 'undefined' || typeof title === 'undefined' || typeof director === 'undefined' || typeof year === 'undefined' || typeof country === 'undefined' || typeof genre === 'undefined' || typeof rate === 'undefined') {
-      console.error("All parameters are required.");
-      return undefined;
+    if (
+      typeof id === "undefined" ||
+      typeof title === "undefined" ||
+      typeof director === "undefined" ||
+      typeof year === "undefined" ||
+      typeof country === "undefined" ||
+      typeof genre === "undefined" ||
+      typeof rate === "undefined"
+    ) {
+      console.error("ERROR: All parameters are required.");
+      return;
     }
 
     if (!regexID.test(id)) {
-      console.error("Invalid ID. Expected format: ^[A-Za-z]{2}\\d{7}$");
-      return undefined;
+      console.error("ERROR: Invalid ID. Expected format: ^[A-Za-z]{2}\\d{7}$");
+      return;
+    }
+    if (title.length > 70 || title.length < 2 || typeof title !== "string") {
+      console.error(
+        "ERROR: Title needs to be 2/100 characteres or lower STRING."
+      );
+      return;
+    }
+
+    if (
+      director.length > 50 ||
+      director.length < 2 ||
+      typeof director !== "string"
+    ) {
+      console.error(
+        "ERROR: Directors name need to be 2/50 characteres or lower STRING."
+      );
+      return;
+    }
+    if (!regexYear.test(year)) {
+      console.error("ERROR: Invalid date.");
+      return;
+    }
+
+    if (year < 1895 || typeof year !== "number") {
+      console.error(
+        "ERROR: Year of the movie needs to be expressed with numbers and needs to be 1895 or superior."
+      );
+      return;
+    }
+
+    if (!(country instanceof Array)) {
+      console.error("ERROR: Country/Countries have to be inside an array.");
+      return;
+    }
+
+    if (country.some((x) => typeof x !== "string")) {
+      console.error("ERROR: All Countries have to be strings.");
+      return;
+    }
+
+    if (!(genre instanceof Array)) {
+      console.error("ERROR: Genres have to be inside an array.");
+      return;
+    }
+
+    if (genre.some((x) => typeof x !== "string")) {
+      console.error("ERROR: All Genres have to be strings.");
+      return;
+    }
+
+    genre.filter((x) => {
+      if (!aceptedGenres.includes(x)) {
+        console.error(
+          "ERROR: Invalid movie genres or genre needs mayus in the first letter."
+        );
+      }
+      return;
+    });
+
+    if (regexRating.test(rate) === false || typeof rate !== "number") {
+      console.error(
+        "Rating needs to be a NUMBER in a scale of 0-10, can only have 1 decimal."
+      );
+      return;
     }
 
     this.id = id;
@@ -745,10 +857,98 @@ class Movie {
     this.genre = genre;
     this.rate = rate;
   }
+  static genresInfo() {
+    console.log(
+      "💡ALLOWED GENRES:",
+      "Action",
+      "Adult",
+      "Adventure",
+      "Animation",
+      "Biography",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Film Noir",
+      "Game-Show",
+      "History",
+      "Horror",
+      "Musical",
+      "Music",
+      "Mystery",
+      "News",
+      "Reality-TV",
+      "Romance",
+      "Sci-Fi",
+      "Short",
+      "Sport",
+      "Talk-Show",
+      "Thriller",
+      "War",
+      "Western"
+    );
+  }
+  allMovieInfo() {
+    console.table(
+      `ID: ${this.id} // Title: ${this.title} // Director: ${this.director} // Year: ${this.year} // Country: ${this.country} // Genre: ${this.genre} // Califation: ${this.rate}`
+    );
+  }
 }
 
-const titanic = new Movie("ab1234567", "Titanic", "James Cameron", 1994, "United States", "Drama", 4.5);
+const titanic = new Movie(
+  "AB1234567",
+  "Titanic",
+  "James Cameron",
+  1994,
+  ["United States", "Argentina"],
+  ["Drama"],
+  9.6
+);
 
-console.log(titanic)
+titanic.allMovieInfo();
+Movie.genresInfo();
 
- 
+const movieData = [
+  {
+    id: "AB1234567",
+    title: "Titanic",
+    director: "James Cameron",
+    year: 1997,
+    country: ["United States"],
+    genre: ["Drama", "Romance"],
+    rate: 7.8,
+  },
+  {
+    id: "CD9876543",
+    title: "Inception",
+    director: "Christopher Nolan",
+    year: 2010,
+    country: ["United States", "United Kingdom"],
+    genre: ["Action", "Adventure", "Sci-Fi"],
+    rate: 8.8,
+  },
+  {
+    id: "EF5432167",
+    title: "The Shawshank Redemption",
+    director: "Frank Darabont",
+    year: 1994,
+    country: ["United States"],
+    genre: ["Drama"],
+    rate: 9.3,
+  },
+];
+
+const finalMovies = [];
+movieData.forEach((x) => {
+  const { id, title, director, year, country, genre, rate } = x;
+  const film = new Movie(id, title, director, year, country, genre, rate);
+  finalMovies.push(film);
+});
+
+console.log(finalMovies)
+
+const [titsanic, inception, shawsa] = finalMovies
+
+console.log(shawsa)
