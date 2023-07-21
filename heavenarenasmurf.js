@@ -21,7 +21,7 @@ const characterNumber = (chain = "") => {
 };
 
 characterNumber("Hello good morning!");
-
+//----------------------------------------------------------------------------------------------------------
 console.warn(
   "👁️ Programa una función que te devuelva el texto recortado según el número de caracteres indicados"
 );
@@ -48,10 +48,29 @@ const katanaText = (word = "", firstCut = "", secondCut = "") => {
   console.log(`New text chain: ${word.slice(firstCut, secondCut)} ✅`);
 };
 katanaText("An angry big bear is here", 9, 17);
+//----------------------------------------------------------------------------------------------------------
+console.warn(
+  "👁️ Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter"
+);
 
-// console.warn(
-//     "👁️ Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter"
-//   );
+const stringToArray = (string = "", caracter = undefined) => {
+  if (string === "") {
+    console.warn("You forget to introduce a string!");
+    return;
+  }
+  if (typeof string !== "string") {
+    console.error("String needs to be a text chain");
+    return;
+  }
+  if (caracter === undefined) {
+    console.warn("Please separator a separator!");
+    return;
+  }
+  console.log(string.split(caracter));
+};
+stringToArray("Hello!, how you doing? I hope fine!", "h");
+
+//----------------------------------------------------------------------------------------------------------
 
 // console.warn(
 //     "👁️Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo."
