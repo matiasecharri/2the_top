@@ -1,16 +1,53 @@
 console.clear();
-console.log("HEAVEN ARENA SMURF 🤖"); 
+console.log("HEAVEN ARENA SMURF 🤖");
 
+//------------------------------------------1️⃣ to 1️⃣0️⃣------------------------------------------//
 
+console.warn(
+  "👁️ Programa una función que cuente el número de caracteres de una cadena de texto."
+);
 
+const characterNumber = (chain = "") => {
+  if (chain === "") {
+    console.warn("You forget to introduce a string!");
+    return;
+  }
+  if (typeof chain !== "string") {
+    console.error("ERROR: Only strings allowed.");
+    return;
+  }
 
-// console.warn(
-//   "👁️ Programa una función que cuente el número de caracteres de una cadena de texto."
-// );
+  console.log(`The string chain: ${chain} has "${chain.length}" characters ✅`);
+};
 
-// console.warn(
-//     "👁️ Programa una función que te devuelva el texto recortado según el número de caracteres indicados"
-//   );
+characterNumber("Hello good morning!");
+
+console.warn(
+  "👁️ Programa una función que te devuelva el texto recortado según el número de caracteres indicados"
+);
+
+const katanaText = (word = "", firstCut = "", secondCut = "") => {
+  if (word === "") {
+    console.warn("You forget to introduce a string!");
+    return;
+  }
+  if (typeof word !== "string") {
+    console.error("Expected a string in word.");
+    return;
+  }
+  if (firstCut === "" || secondCut === "") {
+    console.warn(
+      "You forget to introduce a number at the start and the end of the cut!"
+    );
+    return;
+  }
+  if (typeof firstCut !== "number" || typeof secondCut !== "number") {
+    console.error("Expected a number in firstCut/secondCut");
+    return;
+  }
+  console.log(`New text chain: ${word.slice(firstCut, secondCut)} ✅`);
+};
+katanaText("An angry big bear is here", 9, 17);
 
 // console.warn(
 //     "👁️ Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter"
@@ -43,3 +80,5 @@ console.log("HEAVEN ARENA SMURF 🤖");
 // console.warn(
 //     `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
 //   );
+
+//------------------------------------------1️⃣ to 1️⃣0️⃣------------------------------------------//
