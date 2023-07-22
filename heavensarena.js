@@ -718,7 +718,7 @@ console.warn(`👁️Programa una clase llamada Pelicula.`);
 //     decimal de una posición.///DONE🤓
 //   - Crea un método que devuelva toda la ficha técnica de la película.  //DONE🤓
 //   - Apartir de un arreglo con la información de 3 películas genera 3
-//     instancias de la clase de forma automatizada e imprime la ficha técnica👁️
+//     instancias de la clase de forma automatizada e imprime la ficha técnica🤓
 //     de cada película.
 
 // * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
