@@ -72,13 +72,51 @@ stringToArray("Hello!, how you doing? I hope fine!", "h");
 
 //----------------------------------------------------------------------------------------------------------
 
-// console.warn(
-//     "👁️Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo."
-//   );
+console.warn(
+  "👁️Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo."
+);
 
-// console.warn(
-//     "👁️ Programa una función que invierta las palabras de una cadena de texto, pe"
-//   );
+const wordRepeater = (word = "", repeater = "") => {
+  if (word === "") {
+    console.warn("You forget to introduce a word!");
+    return;
+  }
+  if (typeof word !== "string") {
+    console.error("String needs to be a text chain.");
+    return;
+  }
+  if (repeater === "") {
+    console.warn("You forget to introduce the number of repeats!");
+    return;
+  }
+  if (typeof repeater !== "number") {
+    console.error("Repeater needs to be a number.");
+    return;
+  }
+  for (let i = 1; i <= repeater; i++) {
+    i < 2
+      ? console.log(`${word}, has shooted ${i} bullet.`)
+      : console.log(`${word}, has shooted ${i} bullets.`);
+  }
+};
+wordRepeater("Michael Scarn", 3);
+
+console.warn(
+  "👁️ Programa una función que invierta las palabras de una cadena de texto, pe"
+);
+
+const wordInverter = (word = "") => {
+  if (word === "") {
+    console.warn("You forget to introduce a word!");
+    return;
+  }
+  if (typeof word !== "string") {
+    console.error("String needs to be a text chain.");
+    return;
+  }
+  console.log(word.split("").reverse().join(""));
+};
+wordInverter("WHERE ARE THE TURTLES?");
 
 // console.warn(
 //     "👁️ Programa una función para contar el número de veces que se repite una palabra en un texto largo"
