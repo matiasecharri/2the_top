@@ -100,6 +100,7 @@ const wordRepeater = (word = "", repeater = "") => {
   }
 };
 wordRepeater("Michael Scarn", 3);
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   "👁️ Programa una función que invierta las palabras de una cadena de texto, pe"
@@ -111,20 +112,67 @@ const wordInverter = (word = "") => {
     return;
   }
   if (typeof word !== "string") {
-    console.error("String needs to be a text chain.");
+    console.error("Word needs to be a text chain.");
     return;
   }
   console.log(word.split("").reverse().join(""));
 };
 wordInverter("WHERE ARE THE TURTLES?");
+//----------------------------------------------------------------------------------------------------------
 
-// console.warn(
-//     "👁️ Programa una función para contar el número de veces que se repite una palabra en un texto largo"
-//   );
+console.warn(
+  "👁️ Programa una función para contar el número de veces que se repite una palabra en un texto largo"
+);
 
-// console.warn(
-//     "👁️ Programa una función que valide si una palabra o frase dada, es un palíndromo"
-//   );
+const repeatedWordCount = (text = "", word = "") => {
+  if (word === "" || text === "") {
+    console.warn("You forget to introduce a text or a word to search!");
+    return;
+  }
+  if (typeof word !== "string" || typeof text !== "string") {
+    console.error("Both, text and word, needs to be a text chain.");
+    return;
+  }
+  let textToArray = text.split(" ");
+  let counter = 1;
+  textToArray.filter((x) => {
+    if (x.toLowerCase() === word.toLowerCase()) {
+      counter++;
+    }
+    return counter;
+  });
+
+  counter >= 1
+    ? 
+    console.log(`The word "${word}" is repeated "${counter}" times.`)
+    : 
+    console.log(`The word "${word}" is not repeated.`);
+};
+repeatedWordCount(
+  "HELLO hello hello! how are you friend? im saying hello",
+  "hello"
+);
+//----------------------------------------------------------------------------------------------------------
+
+console.warn(
+  "👁️ Programa una función que valide si una palabra o frase dada, es un palíndromo"
+);
+
+const wordPalindromeValidator = (word = "") => {
+  if (word === "") {
+    console.warn("You forget to introduce a word!");
+    return;
+  }
+  if (typeof word !== "string") {
+    console.error("Word needs to be a text chain.");
+    return;
+  }
+  let reversedWord = word.split("").reverse().join("");
+  reversedWord.toLowerCase() === word.toLowerCase()
+    ? console.log(`${word} is a palindrome!`)
+    : console.log(`${word} is NOT a palindrome!`);
+};
+wordPalindromeValidator("Bob");
 
 // console.warn(
 //     `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
