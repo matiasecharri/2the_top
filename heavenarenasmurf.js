@@ -143,10 +143,8 @@ const repeatedWordCount = (text = "", word = "") => {
   });
 
   counter >= 1
-    ? 
-    console.log(`The word "${word}" is repeated "${counter}" times.`)
-    : 
-    console.log(`The word "${word}" is not repeated.`);
+    ? console.log(`The word "${word}" is repeated "${counter}" times.`)
+    : console.log(`The word "${word}" is not repeated.`);
 };
 repeatedWordCount(
   "HELLO hello hello! how are you friend? im saying hello",
@@ -178,9 +176,11 @@ wordPalindromeValidator("Bob");
 //     `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
 //   );
 
+
 // console.warn(
 //     `👁️ Programa una función que obtenga un numero aleatorio entre 501 y 600.`
 //   );
+
 
 // console.warn(
 //     `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
