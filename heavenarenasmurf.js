@@ -253,40 +253,88 @@ console.warn(
 );
 
 const esPrimo = (numero = 0) => {
-if(numero === 0){
-  console.warn("Numero no puede ser 0.")
-  return
-}
-if(typeof numero !== "number"){
-  console.error("Numero tiene que ser de tipo number.")
-  return
-}
-if(Math.sign(numero) === -1){
-  console.error("Numero no puede ser negativo.")
-  return
-}
+  if (numero === 0) {
+    console.warn("Numero no puede ser 0.");
+    return;
+  }
+  if (typeof numero !== "number") {
+    console.error("Numero tiene que ser de tipo number.");
+    return;
+  }
+  if (Math.sign(numero) === -1) {
+    console.error("Numero no puede ser negativo.");
+    return;
+  }
 
   for (let i = 2; i < numero; i++) {
     let esDivisible = false;
     if (numero % i === 0) {
       esDivisible = true;
-      console.log(`"${numero}" no es primo.`)
+      console.log(`"${numero}" no es primo.`);
       return;
     } else {
-      console.log(`"${numero}" es primo.`)
+      console.log(`"${numero}" es primo.`);
       return;
     }
   }
 };
 esPrimo(3);
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️ Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.)`
 );
 
+const evenOdd = (number = "") => {
+  if (number === "") {
+    console.warn("Please enter a number.");
+    return;
+  }
+  if (typeof number !== "number") {
+    console.error("Only numbers allowed.");
+    return;
+  }
+  number % 2 === 0
+    ? console.log(`The number ${number} is even.`)
+    : console.log(`The number ${number} is odd.`);
+};
+evenOdd(10);
+//----------------------------------------------------------------------------------------------------------
+
+
 console.warn(
   `👁️ Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F)`
 );
+
+const gradeConverter = (grades = "", scale = "") => {
+  if (grades === "" || scale === "") {
+    console.warn("Please enter grades and scale.");
+    return;
+  }
+  if (typeof grades !== "number") {
+    console.error("Grades need to be a number.");
+    return;
+  }
+  if (typeof scale !== "string") {
+    console.error("Scale need to be a string.");
+    return;
+  }
+
+  if (scale.toLowerCase() !== "c" && scale.toLowerCase() !== "f") {
+    console.warn("Enter C for Celsius and F for Farenheit.");
+    return;
+  }
+  if (scale.toLowerCase() === "c") {
+    const conversion1 = (grades * 1.8 + 32).toFixed(1);
+    console.log(`${grades}C is equal to ${conversion1}F.`);
+  } else if (scale.toLowerCase() === "f") {
+    const conversion2 = ((grades - 32) / 1.8).toFixed(1);
+    console.log(`${grades}F is equal to ${conversion2}C.`);
+  }
+};
+gradeConverter(8.6, "C");
+//----------------------------------------------------------------------------------------------------------
+
 
 console.warn(
   `👁️ Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800`
