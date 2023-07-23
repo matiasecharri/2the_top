@@ -279,6 +279,7 @@ const esPrimo = (numero = 0) => {
   }
 };
 esPrimo(3);
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️ Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.)`
@@ -298,10 +299,42 @@ const evenOdd = (number = "") => {
     : console.log(`The number ${number} is odd.`);
 };
 evenOdd(10);
+//----------------------------------------------------------------------------------------------------------
+
 
 console.warn(
   `👁️ Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F)`
 );
+
+const gradeConverter = (grades = "", scale = "") => {
+  if (grades === "" || scale === "") {
+    console.warn("Please enter grades and scale.");
+    return;
+  }
+  if (typeof grades !== "number") {
+    console.error("Grades need to be a number.");
+    return;
+  }
+  if (typeof scale !== "string") {
+    console.error("Scale need to be a string.");
+    return;
+  }
+
+  if (scale.toLowerCase() !== "c" && scale.toLowerCase() !== "f") {
+    console.warn("Enter C for Celsius and F for Farenheit.");
+    return;
+  }
+  if (scale.toLowerCase() === "c") {
+    const conversion1 = (grades * 1.8 + 32).toFixed(1);
+    console.log(`${grades}C is equal to ${conversion1}F.`);
+  } else if (scale.toLowerCase() === "f") {
+    const conversion2 = ((grades - 32) / 1.8).toFixed(1);
+    console.log(`${grades}F is equal to ${conversion2}C.`);
+  }
+};
+gradeConverter(8.6, "C");
+//----------------------------------------------------------------------------------------------------------
+
 
 console.warn(
   `👁️ Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800`
