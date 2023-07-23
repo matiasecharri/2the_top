@@ -172,9 +172,28 @@ const wordPalindromeValidator = (word = "") => {
 };
 wordPalindromeValidator("Bob");
 
-// console.warn(
-//     `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
-//   );
+console.warn(
+  `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
+);
+
+const easyPatronDeleter = (
+  text = "",
+  deletePatron = "",
+  replace = undefined
+) => {
+  if (text === "" || deletePatron === "" || replace === undefined) {
+    console.warn("Al fields are needed.");
+    return;
+  }
+  if (typeof text !== "string" || typeof replace !== "string") {
+    console.error("text and replace needs to be a string");
+    return;
+  }
+
+  const newText = text.replace(deletePatron, replace);
+  console.log(newText);
+};
+easyPatronDeleter("xyzHow xyzyou xyzdoing?", /xyz/g, "");
 
 console.warn(
   `👁️ Programa una función que obtenga un numero aleatorio entre 501 y 600.`
@@ -196,8 +215,9 @@ const randomNumberGen = (number = "") => {
 };
 randomNumberGen(23213);
 
-// console.warn(
-//     `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
-//   );
+
+console.warn(
+    `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
+  );
 
 //------------------------------------------1️⃣ to 1️⃣0️⃣------------------------------------------//
