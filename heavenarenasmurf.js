@@ -134,15 +134,15 @@ const repeatedWordCount = (text = "", word = "") => {
     return;
   }
   let textToArray = text.split(" ");
-  let counter = 1;
-  textToArray.filter((x) => {
+  let counter = 0;
+  textToArray.forEach((x) => {
     if (x.toLowerCase() === word.toLowerCase()) {
       counter++;
     }
     return counter;
   });
 
-  counter >= 1
+  counter > 0
     ? console.log(`The word "${word}" is repeated "${counter}" times.`)
     : console.log(`The word "${word}" is not repeated.`);
 };
@@ -171,6 +171,7 @@ const wordPalindromeValidator = (word = "") => {
     : console.log(`${word} is NOT a palindrome!`);
 };
 wordPalindromeValidator("Bob");
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
@@ -199,6 +200,8 @@ console.warn(
   `👁️ Programa una función que obtenga un numero aleatorio entre 501 y 600.`
 );
 
+//----------------------------------------------------------------------------------------------------------
+
 const randomNumberGen = (number = "") => {
   if (number === "") {
     console.warn("Enter a number to randomize!");
@@ -214,6 +217,7 @@ const randomNumberGen = (number = "") => {
   console.log(`New random: 🎉${number}`);
 };
 randomNumberGen(23213);
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
@@ -240,3 +244,65 @@ const palindromicNumber = (number = "") => {
 palindromicNumber(252);
 
 //------------------------------------------1️⃣ to 1️⃣0️⃣------------------------------------------//
+
+//------------------------------------------1️⃣1️⃣ to 2️⃣1️⃣------------------------------------------//
+
+console.warn(
+  `👁️ Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true)`
+);
+console.warn(
+  `👁️ Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.)`
+);
+
+console.warn(
+  `👁️ Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F)`
+);
+
+console.warn(
+  `👁️ Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800`
+);
+
+console.warn(
+  `👁️ Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).`
+);
+
+console.warn(
+  `👁️Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.`
+);
+
+console.warn(
+  `👁️Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.`
+);
+
+console.warn(
+  `👁️Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.`
+);
+
+console.warn(
+  `👁️Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].`
+);
+
+console.warn(
+  `👁️Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].`
+);
+
+console.warn(
+  `👁️Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.`
+);
+
+//------------------------------------------1️⃣1️⃣ to 2️⃣1️⃣------------------------------------------//
+
+//------------------------------------------2️⃣2️⃣ to 2️⃣4️⃣------------------------------------------//
+
+console.warn(
+  `👁️Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5]`
+);
+
+console.warn(
+  `👁️Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].`
+);
+
+console.warn(
+  `👁️Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.`
+);
+//------------------------------------------2️⃣2️⃣ to 2️⃣4️⃣------------------------------------------//
