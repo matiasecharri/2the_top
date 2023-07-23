@@ -176,11 +176,25 @@ wordPalindromeValidator("Bob");
 //     `👁️ Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5`
 //   );
 
+console.warn(
+  `👁️ Programa una función que obtenga un numero aleatorio entre 501 y 600.`
+);
 
-// console.warn(
-//     `👁️ Programa una función que obtenga un numero aleatorio entre 501 y 600.`
-//   );
-
+const randomNumberGen = (number = "") => {
+  if (number === "") {
+    console.warn("Enter a number to randomize!");
+    return;
+  }
+  if (typeof number !== "number") {
+    console.error("😲 Whoops ERROR: Only numbers allowed.");
+    return;
+  }
+  while (number < 500 || number > 600) {
+    number = Math.round(Math.random() * 1000);
+  }
+  console.log(`New random: 🎉${number}`);
+};
+randomNumberGen(23213);
 
 // console.warn(
 //     `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
