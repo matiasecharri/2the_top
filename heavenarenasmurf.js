@@ -248,8 +248,38 @@ palindromicNumber(252);
 //------------------------------------------1️⃣1️⃣ to 2️⃣1️⃣------------------------------------------//
 
 console.warn(
-  `👁️ Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true)`
+  `👁️ Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7)
+   devolverá true)`
 );
+
+const esPrimo = (numero = 0) => {
+if(numero === 0){
+  console.warn("Numero no puede ser 0.")
+  return
+}
+if(typeof numero !== "number"){
+  console.error("Numero tiene que ser de tipo number.")
+  return
+}
+if(Math.sign(numero) === -1){
+  console.error("Numero no puede ser negativo.")
+  return
+}
+
+  for (let i = 2; i < numero; i++) {
+    let esDivisible = false;
+    if (numero % i === 0) {
+      esDivisible = true;
+      console.log(`"${numero}" no es primo.`)
+      return;
+    } else {
+      console.log(`"${numero}" es primo.`)
+      return;
+    }
+  }
+};
+esPrimo(3);
+
 console.warn(
   `👁️ Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.)`
 );
