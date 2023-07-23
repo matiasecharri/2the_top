@@ -193,7 +193,7 @@ const easyPatronDeleter = (
   const newText = text.replace(deletePatron, replace);
   console.log(newText);
 };
-easyPatronDeleter("xyzHow xyzyou xyzdoing?", /xyz/g, "");
+easyPatronDeleter("xyzHow xyzyou xyzdoing?", /xyz/gi, "");
 
 console.warn(
   `👁️ Programa una función que obtenga un numero aleatorio entre 501 y 600.`
