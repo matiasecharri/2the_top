@@ -232,9 +232,7 @@ const palindromicNumber = (number = "") => {
     console.error("Only natural numbers are allowed.");
     return;
   }
-  const reversedNumber = Math.round(
-    number.toString().split("").reverse().join("")
-  );
+  const reversedNumber = Number(number.toString().split("").reverse().join(""));
   reversedNumber === number
     ? console.log(`The number "${number}" is a palindromic number!`)
     : console.log(`The number "${number}" is NOT a palindromic number!`);
