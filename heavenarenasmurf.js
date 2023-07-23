@@ -215,9 +215,30 @@ const randomNumberGen = (number = "") => {
 };
 randomNumberGen(23213);
 
-
 console.warn(
-    `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
+  `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
+);
+
+const palindromicNumber = (number = "") => {
+  if (number === "") {
+    console.warn("Please enter a number!");
+    return;
+  }
+  if (typeof number !== "number") {
+    console.error("Number NEEDS to be Number data type.");
+    return;
+  }
+  if (Math.sign(number) === -1) {
+    console.error("Only natural numbers are allowed.");
+    return;
+  }
+  const reversedNumber = Math.round(
+    number.toString().split("").reverse().join("")
   );
+  reversedNumber === number
+    ? console.log(`The number "${number}" is a palindromic number!`)
+    : console.log(`The number "${number}" is NOT a palindromic number!`);
+};
+palindromicNumber(252);
 
 //------------------------------------------1️⃣ to 1️⃣0️⃣------------------------------------------//
