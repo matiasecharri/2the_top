@@ -253,27 +253,27 @@ console.warn(
 );
 
 const esPrimo = (numero = 0) => {
-if(numero === 0){
-  console.warn("Numero no puede ser 0.")
-  return
-}
-if(typeof numero !== "number"){
-  console.error("Numero tiene que ser de tipo number.")
-  return
-}
-if(Math.sign(numero) === -1){
-  console.error("Numero no puede ser negativo.")
-  return
-}
+  if (numero === 0) {
+    console.warn("Numero no puede ser 0.");
+    return;
+  }
+  if (typeof numero !== "number") {
+    console.error("Numero tiene que ser de tipo number.");
+    return;
+  }
+  if (Math.sign(numero) === -1) {
+    console.error("Numero no puede ser negativo.");
+    return;
+  }
 
   for (let i = 2; i < numero; i++) {
     let esDivisible = false;
     if (numero % i === 0) {
       esDivisible = true;
-      console.log(`"${numero}" no es primo.`)
+      console.log(`"${numero}" no es primo.`);
       return;
     } else {
-      console.log(`"${numero}" es primo.`)
+      console.log(`"${numero}" es primo.`);
       return;
     }
   }
@@ -283,6 +283,21 @@ esPrimo(3);
 console.warn(
   `👁️ Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.)`
 );
+
+const evenOdd = (number = "") => {
+  if (number === "") {
+    console.warn("Please enter a number.");
+    return;
+  }
+  if (typeof number !== "number") {
+    console.error("Only numbers allowed.");
+    return;
+  }
+  number % 2 === 0
+    ? console.log(`The number ${number} is even.`)
+    : console.log(`The number ${number} is odd.`);
+};
+evenOdd(10);
 
 console.warn(
   `👁️ Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F)`
