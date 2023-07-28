@@ -443,12 +443,30 @@ const nameValidator = (name = "") => {
         `The name ${name} is NOT valid!, valid format example: "Matias Echarri"`
       );
 };
+nameValidator("George Clooney");
 //----------------------------------------------------------------------------------------------------------
 
-nameValidator("George Clooney");
 console.warn(
   `👁️Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.`
 );
+
+const mailValidator = (mail = "") => {
+  if (mail === "") {
+    console.warn("Rejected empty mail.");
+    return;
+  }
+  if (typeof mail !== "string") {
+    console.error("Rejected not a string.");
+    return;
+  }
+  const mailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  mailRegex.test(mail)
+    ? console.info(`The mail ${mail} is valid! ✅`)
+    : console.error(
+        `The mail ${mail} is NOT valid!, valid format example: "matiasecharri@hotmail.com"`
+      );
+};
+mailValidator("Papadopulus33@gmail.com");
 //----------------------------------------------------------------------------------------------------------
 
 console.warn(
