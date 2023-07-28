@@ -363,11 +363,63 @@ discountCalculator(200, 20);
 console.warn(
   `👁️ Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).`
 );
+
+const dateEstimator = (date = "") => {
+  if (date === "") {
+    console.warn("Please enter a date.");
+    return;
+  }
+  if (!(date instanceof Date)) {
+    console.error("Only Date format allowed.");
+    return;
+  }
+
+  let yearGap = new Date().getTime() - date.getTime();
+  let milisecondYears = 1000 * 60 * 60 * 24 * 365;
+  let humanYears = Math.round(yearGap / milisecondYears);
+
+  if (Math.sign(humanYears) === -1) {
+    console.log(
+      `${Math.abs(humanYears)} years left until we reach ${date.getFullYear()}.`
+    );
+    return;
+  } else if (Math.sign(humanYears) === 1) {
+    console.log(`${humanYears} years have passed since ${date.getFullYear()}.`);
+    return;
+  } else if (Math.sign(humanYears) === 0) {
+    console.log(`${date.getFullYear()} is the present year!`);
+  }
+};
+dateEstimator(new Date(2077, 4, 11));
 //----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.`
-); //----------------------------------------------------------------------------------------------------------
+);
+const letterCounter = (text = "") => {
+  if (text === "") {
+    console.warn("Rejected empty text");
+    return;
+  }
+  if (typeof text !== "string") {
+    console.error("Rejected not a string.");
+  }
+  const regexVocal = /[aeiouAEIOU]/;
+  const regexConsonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
+  let vocalCounter = 0;
+  let consonantCounter = 0;
+  text.split("").filter((x) => {
+    if (regexVocal.test(x) === true) {
+      vocalCounter++;
+    } else if (regexConsonant.test(x) === true) {
+      consonantCounter++;
+    }
+  });
+  console.log(`Your text has: ${vocalCounter} vocals, and ${consonantCounter} consonants.`)
+};
+letterCounter("HolaaaaAX%$$$$$$");
+
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.`
