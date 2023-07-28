@@ -398,11 +398,12 @@ console.warn(
 );
 const letterCounter = (text = "") => {
   if (text === "") {
-    console.warn("Rejected empty text");
+    console.warn("Rejected empty text.");
     return;
   }
   if (typeof text !== "string") {
     console.error("Rejected not a string.");
+    return;
   }
   const regexVocal = /[aeiouAEIOU]/;
   const regexConsonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
@@ -415,7 +416,9 @@ const letterCounter = (text = "") => {
       consonantCounter++;
     }
   });
-  console.log(`Your text has: ${vocalCounter} vocals, and ${consonantCounter} consonants.`)
+  console.log(
+    `Your text has: ${vocalCounter} vocals, and ${consonantCounter} consonants.`
+  );
 };
 letterCounter("HolaaaaAX%$$$$$$");
 
@@ -423,8 +426,26 @@ letterCounter("HolaaaaAX%$$$$$$");
 
 console.warn(
   `👁️Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.`
-); //----------------------------------------------------------------------------------------------------------
+);
+const nameValidator = (name = "") => {
+  if (name === "") {
+    console.warn("Rejected empty name.");
+    return;
+  }
+  if (typeof name !== "string") {
+    console.error("Rejected not a string.");
+    return;
+  }
+  const nameRegex = /^[A-ZÁÉÍÓÚa-záéíóú]{1,15} [A-ZÁÉÍÓÚa-záéíóú]{1,15}$/;
+  nameRegex.test(name)
+    ? console.info(`The name ${name} is valid! ✅`)
+    : console.error(
+        `The name ${name} is NOT valid!, valid format example: "Matias Echarri"`
+      );
+};
+//----------------------------------------------------------------------------------------------------------
 
+nameValidator("George Clooney");
 console.warn(
   `👁️Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.`
 );
