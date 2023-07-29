@@ -629,4 +629,30 @@ deletingDuplicated(array2);
 console.warn(
   `👁️Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.`
 );
+
+const arrayReducer = (array = "") => {
+  if (array === "") {
+    console.warn("Array cant be empty.");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Needs to be an array.");
+    return;
+  }
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+
+  const everyValues = array.reduce((accumulator, x) => {
+    return accumulator + x;
+  }, 0);
+
+  const finalPromedy = (everyValues / array.length).toFixed(1);
+  return finalPromedy;
+};
+console.log(arrayReducer(array2));
+
 //------------------------------------------2️⃣2️⃣ to 2️⃣4️⃣------------------------------------------//
