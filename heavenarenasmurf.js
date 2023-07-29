@@ -363,33 +363,206 @@ discountCalculator(200, 20);
 console.warn(
   `👁️ Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).`
 );
+
+const dateEstimator = (date = "") => {
+  if (date === "") {
+    console.warn("Please enter a date.");
+    return;
+  }
+  if (!(date instanceof Date)) {
+    console.error("Only Date format allowed.");
+    return;
+  }
+
+  let yearGap = new Date().getTime() - date.getTime();
+  let milisecondYears = 1000 * 60 * 60 * 24 * 365;
+  let humanYears = Math.round(yearGap / milisecondYears);
+
+  if (Math.sign(humanYears) === -1) {
+    console.log(
+      `${Math.abs(humanYears)} years left until we reach ${date.getFullYear()}.`
+    );
+    return;
+  } else if (Math.sign(humanYears) === 1) {
+    console.log(`${humanYears} years have passed since ${date.getFullYear()}.`);
+    return;
+  } else if (Math.sign(humanYears) === 0) {
+    console.log(`${date.getFullYear()} is the present year!`);
+  }
+};
+dateEstimator(new Date(2077, 4, 11));
 //----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.`
-); //----------------------------------------------------------------------------------------------------------
+);
+const letterCounter = (text = "") => {
+  if (text === "") {
+    console.warn("Rejected empty text.");
+    return;
+  }
+  if (typeof text !== "string") {
+    console.error("Rejected not a string.");
+    return;
+  }
+  const regexVocal = /[aeiouAEIOU]/;
+  const regexConsonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
+  let vocalCounter = 0;
+  let consonantCounter = 0;
+  text.split("").filter((x) => {
+    if (regexVocal.test(x) === true) {
+      vocalCounter++;
+    } else if (regexConsonant.test(x) === true) {
+      consonantCounter++;
+    }
+  });
+  console.log(
+    `Your text has: ${vocalCounter} vocals, and ${consonantCounter} consonants.`
+  );
+};
+letterCounter("HolaaaaAX%$$$$$$");
+
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.`
-); //----------------------------------------------------------------------------------------------------------
+);
+const nameValidator = (name = "") => {
+  if (name === "") {
+    console.warn("Rejected empty name.");
+    return;
+  }
+  if (typeof name !== "string") {
+    console.error("Rejected not a string.");
+    return;
+  }
+  const nameRegex = /^[A-ZÁÉÍÓÚa-záéíóú]{1,15} [A-ZÁÉÍÓÚa-záéíóú]{1,15}$/;
+  nameRegex.test(name)
+    ? console.info(`The name ${name} is valid! ✅`)
+    : console.error(
+        `The name ${name} is NOT valid!, valid format example: "Matias Echarri"`
+      );
+};
+nameValidator("George Clooney");
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.`
 );
+
+const mailValidator = (mail = "") => {
+  if (mail === "") {
+    console.warn("Rejected empty mail.");
+    return;
+  }
+  if (typeof mail !== "string") {
+    console.error("Rejected not a string.");
+    return;
+  }
+  const mailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  mailRegex.test(mail)
+    ? console.info(`The mail ${mail} is valid! ✅`)
+    : console.error(
+        `The mail ${mail} is NOT valid!, valid format example: "matiasecharri@hotmail.com"`
+      );
+};
+mailValidator("Papadopulus33@gmail.com");
 //----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].`
-); //----------------------------------------------------------------------------------------------------------
+);
+
+const numberArray = [2, 4, 5, 10];
+const numberElevator = (array = "", pow = "") => {
+  if (array === "" || pow === "") {
+    console.warn("Array and Pow cant be empty.");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Array needs to be an instance of Array.");
+    return;
+  }
+
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+
+  if (typeof pow !== "number") {
+    console.error("Pow needs to be a number.");
+    return;
+  }
+  const elevatedNumbers = [];
+  array.map((x) => {
+    elevatedNumbers.push(Math.pow(x, pow));
+  });
+  return elevatedNumbers;
+};
+console.log(numberElevator(numberArray, 2));
+
+//----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].`
 );
+
+const higherAndLower = (array = "") => {
+  if (array === "") {
+    console.warn("Array cant be empty.");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Needs to be an array.");
+    return;
+  }
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+  const higherNumber = Math.max(...array);
+  const lowerNumber = Math.min(...array);
+  console.log(higherNumber);
+  console.log(lowerNumber);
+};
+higherAndLower(numberArray, 2);
 //----------------------------------------------------------------------------------------------------------
 
 console.warn(
   `👁️Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.`
 );
+const array2 = [200, 2, 2, 4, 13, 15, 15];
+const evenAndOdd = (array = "") => {
+  if (array === "") {
+    console.warn("Array cant be empty.");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Needs to be an array.");
+    return;
+  }
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+
+  const evens = [];
+  const odds = [];
+
+  array.filter((x) => {
+    x % 2 === 0 ? evens.push(x) : odds.push(x);
+  });
+  return { evens, odds };
+};
+
+console.log(evenAndOdd(numberElevator(numberArray, 2)).evens);
+console.log(evenAndOdd(numberElevator(numberArray, 5)).odds);
 
 //------------------------------------------1️⃣1️⃣ to 2️⃣1️⃣------------------------------------------//
 
@@ -399,11 +572,87 @@ console.warn(
   `👁️Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5]`
 );
 
+const arrayOrdenator = (array = "") => {
+  if (array === "") {
+    console.warn("Array cant be empty.");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Needs to be an array.");
+    return;
+  }
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+  const arrayAsc = [...array];
+  const arrayDesc = [...array];
+
+  arrayAsc.sort((a, b) => a - b);
+  arrayDesc.sort((a, b) => b - a);
+
+  return {
+    arrayAsc,
+    arrayDesc,
+  };
+};
+console.log(arrayOrdenator(array2).arrayAsc);
+console.log(arrayOrdenator(array2).arrayDesc);
+
 console.warn(
   `👁️Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].`
 );
 
+const deletingDuplicated = (array = "") => {
+  if (array === "") {
+    console.warn("Array cant be empty.");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Needs to be an array.");
+    return;
+  }
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+
+  const noDuplicated = new Set([...array]);
+  console.log(noDuplicated);
+};
+deletingDuplicated(array2);
+
 console.warn(
   `👁️Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.`
 );
+
+const arrayReducer = (array = "") => {
+  if (array === "") {
+    console.warn("Array cant be empty.");
+    return;
+  }
+  if (!(array instanceof Array)) {
+    console.error("Needs to be an array.");
+    return;
+  }
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+
+  const everyValues = array.reduce((accumulator, x) => {
+    return accumulator + x;
+  }, 0);
+
+  const finalPromedy = (everyValues / array.length).toFixed(1);
+  return finalPromedy;
+};
+console.log(arrayReducer(array2));
+
 //------------------------------------------2️⃣2️⃣ to 2️⃣4️⃣------------------------------------------//
