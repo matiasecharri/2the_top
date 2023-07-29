@@ -483,6 +483,14 @@ const numberElevator = (array = "", pow = "") => {
     console.error("Array needs to be an instance of Array.");
     return;
   }
+
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+
   if (typeof pow !== "number") {
     console.error("Pow needs to be a number.");
     return;
@@ -501,11 +509,21 @@ console.warn(
   `👁️Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].`
 );
 
-const higherAndLower = (array) => {
+const higherAndLower = (array = "") => {
+  if (array === "") {
+    console.warn("Array and Pow cant be empty.");
+    return;
+  }
   if (!(array instanceof Array)) {
     console.error("Needs to be an array.");
-    return
+    return;
   }
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
   const higherNumber = Math.max(...array);
   const lowerNumber = Math.min(...array);
   console.log(higherNumber);
@@ -517,6 +535,30 @@ higherAndLower(numberElevator(numberArray, 2));
 console.warn(
   `👁️Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.`
 );
+const array2 = [2, 4, 13, 15];
+const evenAndOdd = (array) => {
+  if (!(array instanceof Array)) {
+    console.error("Needs to be an array.");
+    return;
+  }
+  array.some((x) => {
+    if (typeof x !== "number") {
+      console.error("Some elements inside the array are not numbers.");
+      return;
+    }
+  });
+
+  const evens = [];
+  const odds = [];
+
+  array.filter((x) => {
+    x % 2 === 0 ? evens.push(x) : odds.push(x);
+  });
+  return { evens, odds };
+};
+
+console.log(evenAndOdd(numberElevator(numberArray, 2)).evens);
+console.log(evenAndOdd(numberElevator(numberArray, 5)).odds);
 
 //------------------------------------------1️⃣1️⃣ to 2️⃣1️⃣------------------------------------------//
 
