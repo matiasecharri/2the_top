@@ -473,7 +473,7 @@ console.warn(
   `👁️Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].`
 );
 
-const numberArray = [1, 4, 5, 10];
+const numberArray = [2, 4, 5, 10];
 const numberElevator = (array = "", pow = "") => {
   if (array === "" || pow === "") {
     console.warn("Array and Pow cant be empty.");
@@ -500,6 +500,18 @@ console.log(numberElevator(numberArray, 2));
 console.warn(
   `👁️Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].`
 );
+
+const higherAndLower = (array) => {
+  if (!(array instanceof Array)) {
+    console.error("Needs to be an array.");
+    return
+  }
+  const higherNumber = Math.max(...array);
+  const lowerNumber = Math.min(...array);
+  console.log(higherNumber);
+  console.log(lowerNumber);
+};
+higherAndLower(numberElevator(numberArray, 2));
 //----------------------------------------------------------------------------------------------------------
 
 console.warn(
