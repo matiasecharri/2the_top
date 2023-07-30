@@ -834,15 +834,61 @@ class MovieGenerator {
   }
 }
 
-const inception = new MovieGenerator(
-  "IN1234567",
-  "Inception",
-  "Christopher Nolan",
-  2010,
-  ["Japan", "Canada", "Etc"],
-  ["Action", "Drama"],
-  8.8
-);
-console.log(inception);
 MovieGenerator.check();
-inception.fullMovieInfo();
+
+const movieArray = [
+  {
+    id: "IN1234567",
+    title: "Inception",
+    director: "Christopher Nolan",
+    year: 2010,
+    country: ["Japan", "Canada", "Etc"],
+    genres: ["Action", "Drama"],
+    rank: 8.8,
+  },
+  {
+    id: "BT1234567",
+    title: "Batman Begins",
+    director: "Christopher Nolan",
+    year: 2005,
+    country: ["United States"],
+    genres: ["Action", "Drama"],
+    rank: 8.2,
+  },
+  {
+    id: "BT1234567",
+    title: "Batman Dark Knight Rises",
+    director: "Christopher Nolan",
+    year: 2008,
+    country: ["United States"],
+    genres: ["Action", "Drama"],
+    rank: 9,
+  },
+];
+
+const ConstructedMovies = [];
+movieArray.forEach((x) => {
+  const { id, title, director, year, country, genres, rank } = x;
+  const createdByConstructor = new MovieGenerator(
+    id,
+    title,
+    director,
+    year,
+    country,
+    genres,
+    rank
+  );
+  ConstructedMovies.push(createdByConstructor);
+});
+
+ConstructedMovies.forEach((x) => {
+  x.fullMovieInfo();
+});
+
+const [inceptionX, batman1, batman2] = ConstructedMovies;
+console.log(inceptionX);
+
+const sortedByRank = ConstructedMovies.sort((a, b) => {
+  return b.rank - a.rank;
+});
+console.log(sortedByRank);
