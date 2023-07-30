@@ -656,3 +656,235 @@ const arrayReducer = (array = "") => {
 console.log(arrayReducer(array2));
 
 //------------------------------------------2️⃣2️⃣ to 2️⃣4️⃣------------------------------------------//
+// La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+//   - Todos los datos del objeto son obligatorios. // DONE 😲
+//   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
+//      7 restantes números. / DONE 😲
+//   - Valida que el título no rebase los 100 caracteres. / DONE 😲
+//   - Valida que el director no rebase los 50 caracteres. / DONE 😲
+//   - Valida que el año de estreno sea un número entero de 4 dígitos. / DONE 😲
+//   - Valida que el país o paises sea introducidos en forma de arreglo. / DONE 😲
+//   - Valida que los géneros sean introducidos en forma de arreglo. / DONE 😲
+//   - Valida que los géneros introducidos esten dentro de los géneros
+//      aceptados*. / DONE 😲
+//   - Crea un método estático que devuelva los géneros aceptados*. / DONE 😲
+//   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser
+//     decimal de una posición./ / DONE 😲
+//   - Crea un método que devuelva toda la ficha técnica de la película. / DONE 😲
+//   - Apartir de un arreglo con la información de 3 películas genera 3
+//     instancias de la clase de forma automatizada e imprime la ficha técnica
+//     de cada película.
+
+// * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+
+class MovieGenerator {
+  constructor(
+    id = "",
+    title = "",
+    director = "",
+    year = "",
+    country = "",
+    genres = "",
+    rank = ""
+  ) {
+    const aceptedGenres = [
+      "Action",
+      "Adult",
+      "Adventure",
+      "Animation",
+      "Biography",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Film Noir",
+      "Game-Show",
+      "History",
+      "Horror",
+      "Musical",
+      "Music",
+      "Mystery",
+      "News",
+      "Reality-TV",
+      "Romance",
+      "Sci-Fi",
+      "Short",
+      "Sport",
+      "Talk-Show",
+      "Thriller",
+      "War",
+      "Western",
+    ];
+    const regexID = /^[A-Za-z]{2}\d{7}$/;
+    const regexYear = /^\d{4}$/;
+    const regexRating = /^(10(\.0)?|[0-9](\.[0-9])?)$/;
+
+    if (
+      id === "" ||
+      title === "" ||
+      director === "" ||
+      year === "" ||
+      country === "" ||
+      genres === "" ||
+      rank === ""
+    ) {
+      console.warn("All parameters are required.");
+      return;
+    }
+    if (regexID.test(id) === false) {
+      console.error("Wrong ID format, 2 letters and 7 numbers are required.");
+      return;
+    }
+    if (title.length > 100 || title.length <= 3) {
+      console.error("Title needs to be 3 character to 100.");
+      return;
+    }
+    if (director.length > 50 || director.length <= 4) {
+      console.error("Title needs to be 4 character to 100.");
+      return;
+    }
+
+    if (regexYear.test(year) === false) {
+      console.error("Year length needs to be 4 and cant be negative.");
+      return;
+    }
+
+    if (!(country instanceof Array)) {
+      console.error("Country/Countries need to be an Array.");
+      return;
+    }
+
+    if (!(genres instanceof Array)) {
+      console.error("Genre/Genres need to be an Array.");
+      return;
+    }
+
+    let acepted;
+    genres.filter((x) => {
+      if (!aceptedGenres.includes(x)) {
+        acepted = false;
+      }
+      return acepted;
+    });
+    if (acepted === false) {
+      console.error(
+        `Some genres are not allowed, check allowed genres with the static method: "check", MovieGenerator.check(). `
+      );
+      return;
+    }
+
+    if (regexRating.test(rank) === false) {
+      console.error(
+        "Ranking needs to be a number between 1/10, can have 1 decimal."
+      );
+      return;
+    }
+
+    this.id = id;
+    this.title = title;
+    this.director = director;
+    this.year = year;
+    this.country = country;
+    this.genres = genres;
+    this.rank = rank;
+  }
+  static check() {
+    console.info(
+      "Action",
+      "Adult",
+      "Adventure",
+      "Animation",
+      "Biography",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Film Noir",
+      "Game-Show",
+      "History",
+      "Horror",
+      "Musical",
+      "Music",
+      "Mystery",
+      "News",
+      "Reality-TV",
+      "Romance",
+      "Sci-Fi",
+      "Short",
+      "Sport",
+      "Talk-Show",
+      "Thriller",
+      "War",
+      "Western"
+    );
+  }
+  fullMovieInfo() {
+    console.table(`
+     ID: ${this.id},
+     TITLE: ${this.title},
+     DIRECTOR: ${this.director},
+     YEAR: ${this.year},
+     COUNTRY: ${this.country},
+     GENRE: ${this.genres},
+     RANKING: ${this.rank}`);
+  }
+}
+
+MovieGenerator.check();
+
+const movieArray = [
+  {
+    id: "IN1234567",
+    title: "Inception",
+    director: "Christopher Nolan",
+    year: 2010,
+    country: ["Japan", "Canada", "Etc"],
+    genres: ["Action", "Drama"],
+    rank: 8.8,
+  },
+  {
+    id: "BT1234567",
+    title: "Batman Begins",
+    director: "Christopher Nolan",
+    year: 2005,
+    country: ["United States"],
+    genres: ["Action", "Drama"],
+    rank: 8.2,
+  },
+  {
+    id: "BT1234567",
+    title: "Batman Dark Knight Rises",
+    director: "Christopher Nolan",
+    year: 2008,
+    country: ["United States"],
+    genres: ["Action", "Drama"],
+    rank: 9,
+  },
+];
+
+const constructedMovies = [];
+movieArray.forEach((x) => {
+  const { id, title, director, year, country, genres, rank } = x;
+  const moviesWithConstructor = new MovieGenerator(
+    id,
+    title,
+    director,
+    year,
+    country,
+    genres,
+    rank
+  );
+  constructedMovies.push(moviesWithConstructor);
+});
+
+const [inceptionX, batman1, batman2] = constructedMovies;
+console.log(inceptionX);
+
+const sortedByRank = constructedMovies.sort((a, b) => {
+  return b.rank - a.rank;
+});
+console.log(sortedByRank);
