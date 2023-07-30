@@ -1,4 +1,4 @@
-import { cyberpunkCharacters, CharacterEvolve2 } from "/script.js";
+import { cyberpunkCharacters, CharacterEvolve2 } from "/TheoryAndPractice/script.js";
 
 let JudyAlvarezUniverse1;
 
