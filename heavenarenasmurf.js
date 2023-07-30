@@ -866,10 +866,10 @@ const movieArray = [
   },
 ];
 
-const ConstructedMovies = [];
+const constructedMovies = [];
 movieArray.forEach((x) => {
   const { id, title, director, year, country, genres, rank } = x;
-  const createdByConstructor = new MovieGenerator(
+  const moviesWithConstructor = new MovieGenerator(
     id,
     title,
     director,
@@ -878,17 +878,13 @@ movieArray.forEach((x) => {
     genres,
     rank
   );
-  ConstructedMovies.push(createdByConstructor);
+  constructedMovies.push(moviesWithConstructor);
 });
 
-ConstructedMovies.forEach((x) => {
-  x.fullMovieInfo();
-});
-
-const [inceptionX, batman1, batman2] = ConstructedMovies;
+const [inceptionX, batman1, batman2] = constructedMovies;
 console.log(inceptionX);
 
-const sortedByRank = ConstructedMovies.sort((a, b) => {
+const sortedByRank = constructedMovies.sort((a, b) => {
   return b.rank - a.rank;
 });
 console.log(sortedByRank);
