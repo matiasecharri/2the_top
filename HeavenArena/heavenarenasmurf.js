@@ -867,9 +867,10 @@ const movieArray = [
 ];
 
 const constructedMovies = [];
+
 movieArray.forEach((x) => {
   const { id, title, director, year, country, genres, rank } = x;
-  const moviesWithConstructor = new MovieGenerator(
+  const movieWithConstructor = new MovieGenerator(
     id,
     title,
     director,
@@ -878,13 +879,22 @@ movieArray.forEach((x) => {
     genres,
     rank
   );
-  constructedMovies.push(moviesWithConstructor);
+  constructedMovies.push(movieWithConstructor);
 });
 
-const [inceptionX, batman1, batman2] = constructedMovies;
-console.log(inceptionX);
+console.log(constructedMovies);
 
-const sortedByRank = constructedMovies.sort((a, b) => {
+constructedMovies.forEach((x) => {
+  x.fullMovieInfo();
+});
+
+const [inceptionXd, batman1xD, batman2Xd] = constructedMovies;
+inceptionXd.fullMovieInfo();
+
+console.log("DIVISOR --------------------------------🤑");
+
+const peliculasOrdenadas = constructedMovies.sort((a, b) => {
   return b.rank - a.rank;
 });
-console.log(sortedByRank);
+
+//VER LAS RESOLUCIONES DE MIRCHE
