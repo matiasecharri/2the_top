@@ -27,15 +27,43 @@ console.clear();
 
 //-----------------------------CALLBACKS------------------------------//
 
-function calcularDoble(numero, callback) {
-  const resultado = numero * 2;
-  callback(resultado); // Llamando al callback con el resultado como argumento
+function playPause(callback, callback2) {
+  let estaReproduciendo = true;
+  callback(estaReproduciendo);
+  callback2(estaReproduciendo);
+}
+
+function imprimiendoValor(boolean) {
+  console.log(boolean);
+}
+
+function message(boolean) {
+  if (boolean === true) {
+    console.log("Enjoy the music!");
+  } else {
+    console.log("Is paused :/");
+  }
+}
+
+playPause(imprimiendoValor, message);
+
+
+function calcularDoble(numero, callback, callback2) {
+  callback(numero * 2); // Llamando al callback con el resultado como argumento
+  callback2(numero * 2);
 }
 
 // Definición del callback
-function imprimirResultado(resultado) {
-  console.log('El resultado es:', resultado);
+function imprimirResultado(numeroRecibido) {
+  console.log("El resultado es:", numeroRecibido);
+}
+
+//Otro Callback
+function clasificarResultado(resultado) {
+  if (resultado > 4) {
+    console.log("El resultado es mayor que 4 porque es " + resultado);
+  }
 }
 
 // Llamando a la función calcularDoble con el callback imprimirResultado
-calcularDoble(5, imprimirResultado); // Salida: El resultado es: 10
+calcularDoble(5, imprimirResultado, clasificarResultado); // Salida: El resultado es: 10
