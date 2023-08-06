@@ -27,34 +27,15 @@ console.clear();
 
 //-----------------------------CALLBACKS------------------------------//
 
-function cuadradoCallback(value, callback) {
-  setTimeout((x) => {
-    callback(value, value * value);
-  }, 0 || Math.random() * 1000);
+function calcularDoble(numero, callback) {
+  const resultado = numero * 2;
+  callback(resultado); // Llamando al callback con el resultado como argumento
 }
 
-cuadradoCallback(0, (value, result) => {
-  console.log("First Call Back");
-  console.log(value);
-  console.log(result);
-  cuadradoCallback(1, (value, result) => {
-    console.log("Second Call Back");
-    console.log(value);
-    console.log(result);
-  });
-  cuadradoCallback(3, (value, result) => {
-    console.log("Third Call Back");
-    console.log(value);
-    console.log(result);
-  });
-  cuadradoCallback(4, (value, result) => {
-    console.log("Fourth Call Back");
-    console.log(value);
-    console.log(result);
-  });
-  cuadradoCallback(5, (value, result) => {
-    console.log("Fifth Call Back");
-    console.log(value);
-    console.log(result);
-  });
-});
+// Definición del callback
+function imprimirResultado(resultado) {
+  console.log('El resultado es:', resultado);
+}
+
+// Llamando a la función calcularDoble con el callback imprimirResultado
+calcularDoble(5, imprimirResultado); // Salida: El resultado es: 10
