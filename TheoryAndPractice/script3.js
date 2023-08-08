@@ -148,8 +148,8 @@ console.log(id === id2); //Retorna FALSE porque si bien ambos son 1 son SYMBOLS.
 
 //-----------------------------------------------------------------------------//
 
-const NOMBRE = Symbol();
-const SALUDAR = Symbol();
+const NOMBRE = Symbol("Name");
+const SALUDAR = Symbol("Saludo");
 const persona = {
   [NOMBRE]: "IrvingSymbol", //Se lo llama entre [] para referirse a el
   edad: 999,
