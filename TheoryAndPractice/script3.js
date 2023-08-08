@@ -142,7 +142,7 @@ asyncDeclared();
 //-----------------------------SYMBOLS -----------------------------//
 //Suele usarse como propiedades únicas dentro de los objetos PROPIEDADES PRIVADAS.
 let id = Symbol(1);
-let id2 = Symbol(1);
+let id2 = Symbol(2);
 console.log("😲SYMBOLS HERE");
 console.log(id === id2); //Retorna FALSE porque si bien ambos son 1 son SYMBOLS.
 
@@ -166,7 +166,7 @@ persona[SALUDAR] = function () {
 persona[SALUDAR]();
 
 console.log("---------------------------------");
-console.log(Object.getOwnPropertySymbols(persona)); //Busca los SYMBOLS dentro del objeto ya que no salen al iterarse con un BUCLE NORMAL.
+Object.getOwnPropertySymbols(persona); //Busca los SYMBOLS dentro del objeto ya que no salen al iterarse con un BUCLE NORMAL.
 
 //-----------------------------SETS -----------------------------//
 //Esta estructura de datos puede ser muy interesante para almacenar cosas unica, por ejemplo correos electronicos.
@@ -188,16 +188,47 @@ SET_NAMES.add("Angela"); //Podemos agregar nuevos elementos gracias .add
 SET_NAMES.add("Angela"); //Por más que agreguemos 2 veces el mismo elemento NO ADMITE duplicados.
 SET_NAMES.add("Daryl");
 SET_NAMES.delete("Toby"); //Borra un elemento especifico, bastante interesante
-console.log(SET_NAMES.has("Toby")) //True o false en base a 
+console.log(SET_NAMES.has("Toby")); //True o false en base a
 console.log(SET_NAMES);
 console.log(SET_NAMES.size); //En vez de .length podemos usar size para saber la longitud
 
 // SET_NAMES.clear(); //Vacía el SET totalmente
 
-console.log("🕯️ El array que hicimos con array from")
-const SET_TO_ARRAY = Array.from(SET_NAMES).sort()
-console.log(SET_TO_ARRAY)
-console.log("🕯️ El array que hicimos con spread operator")
+console.log("🕯️ El array que hicimos con array from");
+const SET_TO_ARRAY = Array.from(SET_NAMES).sort();
+console.log(SET_TO_ARRAY);
+console.log("🕯️ El array que hicimos con spread operator");
 const SORTED_ARRAY = [...SET_NAMES].sort(); //Volvemos a transformarlo en un ARRAY.
 console.log(SORTED_ARRAY);
-console.log("✅ Mismo resultado en los dos, prefier el Spread operator")
+console.log("✅ Mismo resultado en los dos, prefier el Spread operator");
+
+// MAPS ----------------------------------------------------//
+//Se usan para guardar elementos relacionados, son iterables
+let soyElMapa = new Map();
+soyElMapa.set({}, "Maps are WEIRD"); // Pueden tener KEYS que sean objetos, nulls, etc.
+soyElMapa.set("pais", "Argentina"); //Es para agregar valores
+soyElMapa.set("poblacion", 40000000);
+soyElMapa.set("provincia", "La Pampa");
+console.log(soyElMapa.size); //Tamaño
+console.log(soyElMapa.has("pais")); //Devuelve un boolean dependiendo si tiene o no el valor
+console.log(soyElMapa.get("pais")); //Muestra el valor de la propiedad
+soyElMapa.set("poblacion", 55000000);
+soyElMapa.delete("provincia"); //Borra
+console.log(soyElMapa);
+//Son ITERABLES
+for (let [key, value] of soyElMapa) {
+  console.log(`Key: ${key}, Value: ${value}`);
+}
+
+//Otra forma de iniciarlos
+const soyElMapa2 = new Map([
+  ["nombre", "steven map"],
+  ["edad", 200],
+  [null, "partida 5000 con hillbilly"],
+]);
+
+//Destructuración para guardar keys y values en diferentes arrays.
+const llavesMapa2 = [...soyElMapa2.keys()]
+const valuesMapa2 = [...soyElMapa2.values()]
+console.log(llavesMapa2)
+console.log(valuesMapa2)
