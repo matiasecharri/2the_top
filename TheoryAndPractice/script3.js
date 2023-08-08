@@ -1,6 +1,6 @@
 console.clear();
 
-//-------------------------------SETTIMEOUT, SETINTERVAL------------------//
+//-----------------------------✅SETTIMEOUT, SETINTERVAL------------------//
 // let temp1 = setTimeout(() => {
 //   console.log(
 //     "In six seconds the interval is going to be stopped by setTimeout."
@@ -25,7 +25,7 @@ console.clear();
 //   }, 6000);
 // }, 16000);
 
-//-----------------------------CALLBACKS------------------------------//
+//----------------------------✅CALLBACKS------------------------------//
 
 function playPause(callback, callback2) {
   let estaReproduciendo = true;
@@ -67,7 +67,7 @@ function clasificarResultado(resultado) {
 // Llamando a la función calcularDoble con el callback imprimirResultado
 calcularDoble(5, imprimirResultado, clasificarResultado); // Salida: El resultado es: 10
 
-//-----------------------------PROMISES------------------------------//
+//----------------------------✅PROMISES------------------------------//
 
 //RESOLVE is the POSITIVE return - REJECT is the NEGATIVE return.
 function squarePromise(value) {
@@ -119,7 +119,7 @@ squarePromise(4)
   })
   .catch((err) => console.log(err)); //Aca manejamos el error del principio en caso de que la promesa sea REJECTED.
 
-//-----------------------------ASYNC AWAIT------------------------------//
+//---------------------------✅ASYNC AWAIT------------------------------//
 // //Aca tenemos un tema y es que squarePromise() al tener el setTimeOut es asincrono y en cambio el console.log que hacemos es
 // sincrono, entoces puede ocurrir que para cuando hacemos el console log no tengamos listo el valor, es por eso que usamos AWAIT
 //De esta forma evitamos usar then then then
@@ -139,7 +139,7 @@ const asyncDeclared = async () => {
 };
 
 asyncDeclared();
-//-----------------------------SYMBOLS -----------------------------//
+//----------------------------✅SYMBOLS -----------------------------//
 //Suele usarse como propiedades únicas dentro de los objetos PROPIEDADES PRIVADAS.
 let id = Symbol(1);
 let id2 = Symbol(2);
@@ -168,7 +168,7 @@ persona[SALUDAR]();
 console.log("---------------------------------");
 Object.getOwnPropertySymbols(persona); //Busca los SYMBOLS dentro del objeto ya que no salen al iterarse con un BUCLE NORMAL.
 
-//-----------------------------SETS -----------------------------//
+//----------------------------✅SETS -----------------------------//
 //Esta estructura de datos puede ser muy interesante para almacenar cosas unica, por ejemplo correos electronicos.
 
 const ARRAY_NAMES = [
@@ -202,7 +202,7 @@ const SORTED_ARRAY = [...SET_NAMES].sort(); //Volvemos a transformarlo en un ARR
 console.log(SORTED_ARRAY);
 console.log("✅ Mismo resultado en los dos, prefier el Spread operator");
 
-// MAPS ----------------------------------------------------//
+// ✅MAPS ----------------------------------------------------//
 //Se usan para guardar elementos relacionados, son iterables
 let soyElMapa = new Map();
 soyElMapa.set({}, "Maps are WEIRD"); // Pueden tener KEYS que sean objetos, nulls, etc.
@@ -232,3 +232,16 @@ const llavesMapa2 = [...soyElMapa2.keys()]
 const valuesMapa2 = [...soyElMapa2.values()]
 console.log(llavesMapa2)
 console.log(valuesMapa2)
+
+
+
+
+
+
+
+
+
+
+
+
+
