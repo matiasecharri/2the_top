@@ -131,7 +131,8 @@ while (!next.done) {
 
 // ✅GENERATORS ----------------------------------------------------//
 // Convierten el codigo de una funcion en un iterable.
-function* iterableF() { //Se coloca un * para marcar que es iterable.
+function* iterableF() {
+  //Se coloca un * para marcar que es iterable.
   yield "Hola"; //Yield marca cada bloque a iterar
   console.log("Hola buenas buenas");
   yield "Again";
@@ -145,7 +146,77 @@ for (let y of iteratorX) {
   console.log(y);
 }
 
-const arrDeLoIterado = [...iterableF()]  //Guardamos cada yield en un array.
-console.log(arrDeLoIterado)
+const arrDeLoIterado = [...iterableF()]; //Guardamos cada yield en un array.
+console.log(arrDeLoIterado);
 
 // ✅PROXIES ----------------------------------------------------//
+// const PERSONA = {
+//     nombre: "",
+//     edad: 0,
+//     apellido: "", //Objeto MODELO
+//   };
+
+//   const MANEJADOR = {
+//     set(obj, prop, value) {
+//       if (Object.keys(obj).includes(prop)) { //Manejo de validaciones
+//         obj[prop] = value;
+//       } else {
+//         console.error(`La propiedad ${prop} no existe.`);
+//       }
+//     },
+//   };
+
+//   const DIANA = new Proxy(PERSONA, MANEJADOR); //Nueva instancia, muy parecido
+//   DIANA.nombre = "Diana";
+//   DIANA.edad = 23;
+//   DIANA.apellido = "Vodo";
+
+//   console.log(DIANA);
+
+// ✅COMPUTE/DYNAMIC PROPERTIES IN OBJECTS -----------------------------------//
+
+let aleatorio = Math.round(Math.random() * 100 + 5);
+const OBJ_USUARIOS = {
+  propiedad: "value", //Propiedad clasica
+  [`id_${aleatorio}`]: "random value", //Propiedad dinamica
+};
+console.log(OBJ_USUARIOS);
+
+const ARRAY_USUARIOS = ["Michael", "Dwight", "Jim", "Pam"];
+ARRAY_USUARIOS.forEach((x, i) => (OBJ_USUARIOS[`id_${i}`] = x));
+//Los corchetes indican que una propiedad se define
+//de forma dinámica.
+console.log(OBJ_USUARIOS);
+
+// ✅THIS-----------------------------------//
+function imprimir() {
+  console.log(this.nombre);
+}
+
+const obj = {
+  nombre: "Contexto Objeto",
+  imprimir,
+};
+
+obj.imprimir();
+
+const obj2 = {
+  nombre: "Contexto Objeto",
+  imprimir2: () => {
+    console.log(this.nombre);
+  },
+};
+
+// obj2.imprimir2()
+//Esto no funciona porque la arrow function se saltea
+//el contexto, ya que se salta el scope
+
+function Persona (nombre){
+  this.nombre = nombre
+  return () => console.log(this.nombre)
+}
+//En este caso si funciona la funcion flecha, porque al no tener scope propio toma el de
+//su funcion contenedora "Persona", en cambio si usaramos una función
+//clásica tendriamos problemas, porque crearía su propio scope donde NO recibe
+let edgar = new Persona ("Edgar XVI")
+edgar()
