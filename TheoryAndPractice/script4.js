@@ -131,7 +131,8 @@ while (!next.done) {
 
 // ✅GENERATORS ----------------------------------------------------//
 // Convierten el codigo de una funcion en un iterable.
-function* iterableF() { //Se coloca un * para marcar que es iterable.
+function* iterableF() {
+  //Se coloca un * para marcar que es iterable.
   yield "Hola"; //Yield marca cada bloque a iterar
   console.log("Hola buenas buenas");
   yield "Again";
@@ -145,5 +146,31 @@ for (let y of iteratorX) {
   console.log(y);
 }
 
-const arrDeLoIterado = [...iterableF()]  //Guardamos cada yield en un array.
-console.log(arrDeLoIterado)
+const arrDeLoIterado = [...iterableF()]; //Guardamos cada yield en un array.
+console.log(arrDeLoIterado);
+
+// ✅PROXIES ----------------------------------------------------//
+const PERSONA = {
+    nombre: "",
+    edad: 0,
+    apellido: "", //Objeto MODELO
+  };
+  
+  const MANEJADOR = {
+    set(obj, prop, value) {
+      if (Object.keys(obj).includes(prop)) { //Manejo de validaciones 
+        obj[prop] = value;
+      } else {
+        console.error(`La propiedad ${prop} no existe.`);
+      }
+    },
+  };
+  
+  const DIANA = new Proxy(PERSONA, MANEJADOR); //Nueva instancia, muy parecido
+  DIANA.nombre = "Diana";
+  DIANA.edad = 23;
+  DIANA.apellido = "Vodo";
+  DIANA.twitter = "@DIANAV";
+  
+  console.log(DIANA);
+  
