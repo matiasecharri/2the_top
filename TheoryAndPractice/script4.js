@@ -147,3 +147,5 @@ for (let y of iteratorX) {
 
 const arrDeLoIterado = [...iterableF()]  //Guardamos cada yield en un array.
 console.log(arrDeLoIterado)
+
+// ✅PROXIES ----------------------------------------------------//
