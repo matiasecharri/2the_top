@@ -1,36 +1,49 @@
-// ✅THIS-----------------------------------//
+// ✅THIS----------------------------------------------------//
 
-console.log(this)
+this.nombre =
+  "🌍Global Context, en este caso estamos en el this Global, es decir en el de window.";
+console.log(this); //Sin contexto window es el contexto.
+console.log(this === window);
 function imprimir() {
+  console.log(this.nombre);
+}
+imprimir();
+
+const obj = {
+  nombre:
+    "🤖Object Context: en este caso this se encuentra dentro de un objeto, es por eso que hace referencia a ese contexto.",
+  imprimir,
+};
+
+obj.imprimir();
+
+const obj3 = {
+  nombre: "Object Context 3",
+  imprimir: () => {
     console.log(this.nombre);
-  }
-  
-  const obj = {
-    nombre: "Contexto Objeto",
-    imprimir,
+  },
+};
+
+obj3.imprimir();
+//La arrow function no crea un scope propio, por eso es que salta directamente a al contexto en el que fue creado el objeto, en este caso obj3 fue creado en global.
+
+function Persona(nombre) {
+  this.nombre = nombre;
+  return function () {
+    console.log(this.nombre);
   };
-  
-  obj.imprimir();
-  
-  const obj2 = {
-    nombre: "Contexto Objeto",
-    imprimir2: () => {
-      console.log(this.nombre);
-    },
+}
+//Lo que pasa aca es que la function esta creando un nuevo scope, ya que no es arrow, y como internamente no tiene la propiedad nombre busca el this global.
+let jimHalpert = new Persona("🤖Object Context: Jim Halpert");
+jimHalpert();
+
+//-----------------------------//
+function Persona2(nombre) {
+  this.nombre = nombre;
+  return () => {
+    console.log(this.nombre);
   };
-  
-  // obj2.imprimir2()
-  //Esto no funciona porque la arrow function se saltea
-  //el contexto, ya que se salta el scope
-  
-  function Persona (nombre){
-    this.nombre = nombre
-    return () => console.log(this.nombre)
-  }
-  //En este caso si funciona la funcion flecha, porque al no tener scope propio toma el de
-  //su funcion contenedora "Persona", en cambio si usaramos una función
-  //clásica tendriamos problemas, porque crearía su propio scope donde NO recibe
-  let edgar = new Persona ("Edgar XVI")
-  edgar()
-  
-  // ✅call, apply, bind-----------------------------------//
+}
+//Entonces lo solucionamos con una arrow function la cual no va a crear un nuevo scope y directamente va a recibir el this de su entorno.
+let jimHalpertArrow = new Persona2("🤖Object Context: Jim Halpert Arrow");
+jimHalpertArrow();
