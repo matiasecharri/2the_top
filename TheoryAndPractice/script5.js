@@ -4,6 +4,7 @@ this.nombre =
   "🌍Global Context, en este caso estamos en el this Global, es decir en el de window.";
 console.log(this); //Sin contexto window es el contexto.
 console.log(this === window);
+
 function imprimir() {
   console.log(this.nombre);
 }

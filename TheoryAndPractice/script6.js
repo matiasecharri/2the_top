@@ -54,9 +54,9 @@ console.log("[1,2,3, {}, true, 19]");
 console.log(JSON.parse("[1,2,3, {}, true, 19]"));
 console.log(JSON.parse("null"));
 //✅JSON.stringify() hace lo contrario, transforma un OBJECT o algo  hecho en JS en texto plano.
-const fruits = ["mango", "banana", "coco"]
-console.log(JSON.stringify(fruits))
-console.log("<----------SEPARADOR")
+const fruits = ["mango", "banana", "coco"];
+console.log(JSON.stringify(fruits));
+console.log("<----------SEPARADOR");
 //🦜Ejemplo: Transformamos un objeto con STRINGIFY y luego lo recuperamos con PARSE.
 
 const jsonPerson = {
@@ -71,3 +71,4 @@ console.log(stringifiedPerson);
 
 let parsedPerson = JSON.parse(stringifiedPerson);
 console.log(parsedPerson);
+
