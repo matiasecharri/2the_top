@@ -2,7 +2,7 @@
 const textReader = (text) => {
   speechSynthesis.speak(new SpeechSynthesisUtterance(text));
 };
-textReader("seived");
+textReader("document saved");
 
 console.log(document);
 console.log(document.head);
@@ -163,10 +163,10 @@ const looper = () => {
 };
 
 $button.addEventListener("click", () => {
-  $body.innerHTML = `<button id="buttonStart2">are you sure?</button>`;
+  $body.innerHTML = `<button id="buttonStart2">the only way to stop the process is closing the window</button>`;
   const $button2 = document.getElementById("buttonStart2");
   $button2.addEventListener("click", () => {
-    $body.innerHTML = `<button id="buttonStart3" class="bh">last chance</button>`;
+    $body.innerHTML = `<button id="buttonStart3" class="bh">start test</button>`;
     const $button3 = document.getElementById("buttonStart3");
     $button3.addEventListener("click", () => {
       textReader("INICIALIZANDO.");
