@@ -1,0 +1,102 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1d1a2f;
+  overflow: hidden;
+}
+
+.domDiv {
+  height: 100%;
+  display: flex;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 10px;
+  min-width: 100px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background-color: #965fd4;
+  font-family: "Times New Roman", Times, serif;
+  width: 80px;
+}
+
+.domDiv2 {
+  height: 100%;
+  display: flex;
+  margin: 10px;
+  background-color: #8bd450;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  font-family: "Times New Roman", Times, serif;
+  min-width: 40px;
+}
+
+.domDivAlt {
+  height: 100%;
+  display: flex;
+  margin: 10px;
+  background-color: #f19019;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  font-family: "Times New Roman", Times, serif;
+  min-width: 40px;
+}
+
+.domDiv h2 {
+  color: #1d1a2f;
+}
+.domDiv2 h2 {
+  color: #1d1a2f;
+}
+
+button {
+  cursor: pointer;
+  font-family: "Sawarabi Mincho", serif;
+  font-size: 18px;
+  padding: 15px;
+  border: none;
+  background-color: unset;
+  color: #8bd450;
+}
+
+.bh:hover {
+  transition: ease-in-out 0.5s;
+  color: rgb(228, 24, 24);
+  -webkit-transition: ease-in-out 0.5s;
+  -moz-transition: ease-in-out 0.5s;
+  -ms-transition: ease-in-out 0.5s;
+  -o-transition: ease-in-out 0.5s;
+}
+
+.xd {
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 50px;
+
+  background: rgba(8, 18, 159, 0);
+  backdrop-filter: blur(0.1px);
+  -webkit-backdrop-filter: blur(0.1px);
+}
+
+.xd p {
+  font-size: 80vh;
+  color:#bc263d78;
+  font-weight: 100;
+  font-family: "Sawarabi Mincho", serif;
+}

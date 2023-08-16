@@ -155,37 +155,35 @@ console.log(arrDeLoIterado);
 //     edad: 0,
 //     apellido: "", //Objeto MODELO
 //   };
-  
+
 //   const MANEJADOR = {
 //     set(obj, prop, value) {
-//       if (Object.keys(obj).includes(prop)) { //Manejo de validaciones 
+//       if (Object.keys(obj).includes(prop)) { //Manejo de validaciones
 //         obj[prop] = value;
 //       } else {
 //         console.error(`La propiedad ${prop} no existe.`);
 //       }
 //     },
 //   };
-  
+
 //   const DIANA = new Proxy(PERSONA, MANEJADOR); //Nueva instancia, muy parecido
 //   DIANA.nombre = "Diana";
 //   DIANA.edad = 23;
 //   DIANA.apellido = "Vodo";
-  
+
 //   console.log(DIANA);
 
-  // ✅COMPUTE PROPERTIES IN OBJECTS -----------------------------------//
+// ✅COMPUTE/DYNAMIC PROPERTIES IN OBJECTS -----------------------------------//
 
-let aleatorio = Math.round(Math.random() * 100 + 5)
+let aleatorio = Math.round(Math.random() * 100 + 5);
 const OBJ_USUARIOS = {
-    propiedad: "value", //Propiedad clasica
-    [`id_${aleatorio}`]:"random value" //Propiedad dinamica
-  }  
-console.log(OBJ_USUARIOS)
+  propiedad: "value", //Propiedad clasica
+  [`id_${aleatorio}`]: "random value", //Propiedad dinamica
+};
+console.log(OBJ_USUARIOS);
 
-  const ARRAY_USUARIOS = ["Michael", "Dwight", "Jim", "Pam"]
-  ARRAY_USUARIOS.forEach((x, i)=>OBJ_USUARIOS[`id_${i}`] = x)
-  //Los corchetes indican que una propiedad se define
-  //de forma dinámica.
-  console.log(OBJ_USUARIOS)
-
-  
+const ARRAY_USUARIOS = ["Michael", "Dwight", "Jim", "Pam"];
+ARRAY_USUARIOS.forEach((x, i) => (OBJ_USUARIOS[`id_${i}`] = x));
+//Los corchetes indican que una propiedad se define
+//de forma dinámica.
+console.log(OBJ_USUARIOS);
