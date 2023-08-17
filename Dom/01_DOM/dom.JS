@@ -2,7 +2,7 @@
 const textReader = (text) => {
   speechSynthesis.speak(new SpeechSynthesisUtterance(text));
 };
-textReader("document saved");
+// textReader("document saved");
 
 console.log(document);
 console.log(document.head);
@@ -20,8 +20,30 @@ setTimeout(() => {
   console.log(document.getSelection().toString());
 }, 3000);
 
+
+// ⚡62. DOM 2 - getElementById, querySelector, querySelectorAll
 const $button = document.getElementById("buttonStart");
 const $body = document.getElementById("body");
+const $img = document.querySelector("img")
+const $anchors = document.querySelectorAll("a")
+const $imgsWithClass = document.querySelectorAll(".imageClass")
+
+console.log($button)
+console.log($body)
+console.log($img)
+console.log($anchors)
+console.log($imgsWithClass)
+
+
+
+
+
+
+
+
+
+/*
+
 
 //----------------🌆TEST MACHINE--------------//
 
@@ -176,3 +198,4 @@ $button.addEventListener("click", () => {
 });
 
 //----------------🌆TEST MACHINE--------------//
+*/
