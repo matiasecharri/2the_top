@@ -7,7 +7,7 @@
 :root {
   --font1: "Sawarabi Mincho", serif;
   --color1: #1d1a2f;
-
+  --color2: #8bd450;
 }
 
 main {
@@ -15,7 +15,53 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: var(--color1)
+  background-color: var(--color1);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(43, 42, 41, 0);
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(226, 222, 223, 0);
+}
+
+.wrapper {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 330px;
+  overflow-y: scroll;
+  padding: 40px;
+  scroll-behavior: smooth;
+  border: 1px solid rgba(255, 255, 255, 0.202);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+a {
+  padding: 10px;
+  background-color: var(--color1);
+  border: 1px solid rgba(255, 255, 255, 0.202);
   font-family: var(--font1);
-  overflow: hidden;
+  color: var(--color2); 
+  text-decoration: none;
+  list-style-type: none;
+  border-radius: 10px;
+  font-size: 60px;
+  margin-bottom: 14px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+a:hover {
+  color: rgb(255, 153, 0);
 }
