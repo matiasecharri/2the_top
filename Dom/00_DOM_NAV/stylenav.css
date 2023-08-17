@@ -1,0 +1,21 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --font1: "Sawarabi Mincho", serif;
+  --color1: #1d1a2f;
+
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--color1)
+  font-family: var(--font1);
+  overflow: hidden;
+}
