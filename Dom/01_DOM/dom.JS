@@ -2,7 +2,7 @@
 const textReader = (text) => {
   speechSynthesis.speak(new SpeechSynthesisUtterance(text));
 };
-// textReader("document saved");
+textReader("avanzas");
 
 console.log(document);
 console.log(document.head);
@@ -20,19 +20,46 @@ setTimeout(() => {
   console.log(document.getSelection().toString());
 }, 3000);
 
-
 // ⚡62. DOM 2 - getElementById, querySelector, querySelectorAll
 const $button = document.getElementById("buttonStart");
 const $body = document.getElementById("body");
-const $img = document.querySelector("img")
-const $anchors = document.querySelectorAll("a")
-const $imgsWithClass = document.querySelectorAll(".imageClass")
+const $img = document.querySelector("img");
+const $anchors = document.querySelectorAll("a");
+const $imgsWithClass = document.querySelectorAll(".imageClass");
 
-console.log($button)
-console.log($body)
-console.log($img)
-console.log($anchors)
-console.log($imgsWithClass)
+console.log($button);
+console.log($body);
+console.log($img);
+console.log($anchors);
+console.log($imgsWithClass);
+
+// ⚡63. DOM 3 - Attributes - Data-Attributes
+
+//🔍Obtener atributos del documento HTML, Lenguaje:
+console.log(document.documentElement.getAttribute("lang"));
+//🔍Get attribute es bastante optimo porque es especifico.
+console.log(document.querySelector(".link-dom").getAttribute("href"));
+
+//✏️Modificar una propiedad del HTML:
+document.documentElement.lang = "es";
+console.log(document.documentElement.getAttribute("lang"));
+//Tambien se puede con SET
+document.documentElement.setAttribute("lang", "es-ESP");
+console.log(document.documentElement.getAttribute("lang"));
+
+//✏️ Setear atributos en elementos especificos.
+const $linkDom = document.querySelector(".link-dom");
+$linkDom.setAttribute("target", "blank");
+$linkDom.setAttribute("rel", "noopener");
+$linkDom.setAttribute("href", "http://127.0.0.1:5500/00NoJS/divs.html");
+//Preguntar si existe un atributo.
+console.log($linkDom.hasAttribute("target"))
+//Remover atributo.
+$linkDom.removeAttribute("target")
+console.log($linkDom.hasAttribute("target"))
+//Tambien sirve para data attributes, es lo mismo.
+$linkDom.setAttribute("data-description", "document object model? Dominic Dom")
+console.log($linkDom.getAttribute("data-description"))
 
 
 
@@ -42,7 +69,10 @@ console.log($imgsWithClass)
 
 
 
-/*
+
+
+
+
 
 
 //----------------🌆TEST MACHINE--------------//
@@ -198,4 +228,3 @@ $button.addEventListener("click", () => {
 });
 
 //----------------🌆TEST MACHINE--------------//
-*/
