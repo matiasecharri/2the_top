@@ -18,9 +18,9 @@ main {
   background-color: var(--color1);
   flex-direction: column;
 }
-h1{
+h1 {
   font-family: var(--font1);
-  margin-bottom: 0.5rem ;
+  margin-bottom: 0.8rem;
   color: rgba(255, 255, 255, 0.202);
   font-size: 1rem;
   font-weight: 100;
@@ -38,7 +38,6 @@ h1{
 }
 
 .wrapper {
-  padding-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -52,13 +51,14 @@ h1{
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  margin: unset auto;
 }
 a {
   padding: 10px;
   background-color: var(--color1);
   border: 1px solid rgba(255, 255, 255, 0.202);
   font-family: var(--font1);
-  color: var(--color2); 
+  color: var(--color2);
   text-decoration: none;
   list-style-type: none;
   border-radius: 10px;
@@ -72,4 +72,16 @@ a {
 
 a:hover {
   color: rgb(255, 153, 0);
+}
+
+@media (width < 760px) {
+  a {
+    font-size: 2.5rem;
+  }
+}
+
+@media (width < 400px) {
+  a {
+    font-size: 1.8rem;
+  }
 }

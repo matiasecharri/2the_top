@@ -1,5 +1,5 @@
 //⚡61. DOM 1
-document.title = "navigator/pg_machine_test"
+document.title = "navigator/pg_machine_test";
 const textReader = (text) => {
   speechSynthesis.speak(new SpeechSynthesisUtterance(text));
 };
@@ -105,17 +105,6 @@ $bodyX.style.setProperty("background-color", violetColor);
 $linkDom.style.setProperty("border-bottom", `1px solid ${greenLimeColor}`);
 
 //----------------------------------------------------------------------------------------------------------//
-
-
-// ⚡65. DOM 4 - CSS Classes
-
-
-
-
-
-
-
-
 
 //----------------🌆TEST MACHINE--------------//
 
