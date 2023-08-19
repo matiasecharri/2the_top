@@ -3,7 +3,8 @@ document.title = "navigator/pg_machine_test";
 const textReader = (text) => {
   speechSynthesis.speak(new SpeechSynthesisUtterance(text));
 };
-textReader("avanzas");
+export { textReader } 
+
 
 console.log(document);
 console.log(document.head);
@@ -267,3 +268,4 @@ $button.addEventListener("click", () => {
 });
 
 //----------------🌆TEST MACHINE--------------//
+
