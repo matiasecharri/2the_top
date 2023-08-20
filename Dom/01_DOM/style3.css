@@ -4,12 +4,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font1: "Sawarabi Mincho", serif;
+  --color1: #1d1a2f;
+  --color2: #8bd450;
+  --color3: #965fd4;
+  --color4: #1d1a2f;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1d1a2f;
   overflow: hidden;
 }
 
@@ -23,7 +30,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 10px;
-  background-color: #965fd4;
+  background-color: var(--color3);
   font-family: "Times New Roman", Times, serif;
   width: 80px;
 }
@@ -52,6 +59,10 @@ body {
   width: 40px;
   font-family: "Times New Roman", Times, serif;
   min-width: 40px;
+}
+
+.classDanger {
+  background-color: #d3290f;
 }
 
 .domDiv h2 {
@@ -96,7 +107,7 @@ button {
 
 .xd p {
   font-size: 80vh;
-  color:#bc263d78;
+  color: #bc263d78;
   font-weight: 100;
   font-family: "Sawarabi Mincho", serif;
 }
