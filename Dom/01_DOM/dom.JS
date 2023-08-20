@@ -1,10 +1,10 @@
 //⚡61. DOM 1
 document.title = "navigator/pg_machine_test";
 const textReader = (text) => {
-  speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-EN";
+  speechSynthesis.speak(utterance);
 };
-export { textReader } 
-
 
 console.log(document);
 console.log(document.head);
@@ -260,7 +260,7 @@ $button.addEventListener("click", () => {
     $body.appendChild($linkDom);
     const $button3 = document.getElementById("buttonStart3");
     $button3.addEventListener("click", () => {
-      textReader("INICIALIZANDO.");
+      textReader("INITIALIZING TEST, BE PATIENT.");
       looper();
       $body.appendChild($linkDom);
     });

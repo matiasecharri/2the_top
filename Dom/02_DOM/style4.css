@@ -52,6 +52,11 @@ main {
   align-items: center;
   gap: 15px;
   flex-direction: column;
+  transition: 0.8s ease-in-out;
+  -webkit-transition: 0.8s ease-in-out;
+  -moz-transition: 0.8s ease-in-out;
+  -ms-transition: 0.8s ease-in-out;
+  -o-transition: 0.8s ease-in-out;
 }
 
 main .card {
@@ -73,12 +78,13 @@ main .card {
   align-items: center;
 }
 
-main .card H2{
+main .card H2 {
   font-family: var(--font1);
   font-weight: 100;
   color: rgba(242, 242, 242, 0.17);
   letter-spacing: 0.3rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 /* //EFFECT CLASSSES// */
@@ -108,8 +114,15 @@ main .card H2{
   -ms-transition: 0.8s ease-in-out;
   -o-transition: 0.8s ease-in-out;
 }
-/* //EFFECT CLASSSES// */
 
+.rotator {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+}
+/* //EFFECT CLASSSES// */
 
 @media (width < 1300px) {
   main {
@@ -121,4 +134,19 @@ main .card H2{
 }
 
 @media (width < 400px) {
+  main .card h2 {
+    font-size: 0.5rem;
+  }
+  main {
+    padding: 10px;
+  }
+}
+
+@media (width <= 320px) {
+  main .card h2 {
+    font-size: 6px;
+  }
+  main {
+    margin-top: unset;
+  }
 }
