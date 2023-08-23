@@ -18,7 +18,7 @@ console.log(imagenes);
 console.log(document.forms);
 console.log(document.styleSheets);
 console.log(document.scripts);
-setTimeout(() => {
+setTimeout(() => {     
   console.log(document.getSelection().toString());
 }, 3000);
 
