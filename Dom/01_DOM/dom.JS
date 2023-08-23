@@ -18,7 +18,7 @@ console.log(imagenes);
 console.log(document.forms);
 console.log(document.styleSheets);
 console.log(document.scripts);
-setTimeout(() => {
+setTimeout(() => {     
   console.log(document.getSelection().toString());
 }, 3000);
 
@@ -81,7 +81,7 @@ console.log($linkDom.getAttribute("data-description"));
 $linkDom.style.setProperty("text-decoration", "none"),
   $linkDom.style.setProperty("color", "white"),
   $linkDom.style.setProperty("position", "absolute"),
-  $linkDom.style.setProperty("top", "50px"),
+  $linkDom.style.setProperty("top", "3.5%"),
   $linkDom.style.setProperty("left", "50px"),
   $linkDom.style.setProperty("font-family", "monospace"),
   $linkDom.style.setProperty("opacity", "0.75"),
