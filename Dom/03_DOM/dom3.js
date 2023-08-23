@@ -15,4 +15,21 @@ $domP.textContent = text; //Useful just for PLAIN TEXT, example: WHATSAPP ✅
 // $domP.outerHTML = text; //Useful for HTML format code. Replaces only DOM content ✅ //No obtiene los estilos de arriba
 $domP.innerHTML = text; //Useful for HTML format code. Replaces HTML from DOM ✅
 
-// ⚡66. DOM 6 - Traversing
+//----------------------------------------------------------------------------------------------------------------------------------
+
+// ⚡66. DOM 6 - Traversing, se enfoca a los elementos HTML y seleccionarlos, no confundir firstElementChild con firstChild, ya que firstElementChild hace referencia al elemento HTML (tags) y firstChild a los NODOS.
+const $mainP = document.querySelector(".main");
+console.log($mainP.children); //Accedemos a todos los hijos
+console.log($mainP.children[1]); //Accedemos a un hijo especifico
+console.log($mainP.firstElementChild); //Accedemos a su primer hijo
+console.log($mainP.lastElementChild); //Accedemos a su primer hijo
+console.log($mainP.parentElement); //Accedemos a su elemento padre
+console.log($mainP.previousElementSibling); //Accedemos a hermano anterior
+console.log($mainP.nextElementSibling); //Accedemos a hermano siguiente
+console.log($mainP.children[0].closest("p")); //Método para buscar al elemento más cercano al que queramos referirnos.
+
+
+
+
+
+

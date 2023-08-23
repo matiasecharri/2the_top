@@ -101,3 +101,7 @@ main p {
     padding: 5px 2px;
   }
 }
+
+.doNoDisturb{
+  position: absolute;
+}
