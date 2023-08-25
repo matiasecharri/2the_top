@@ -18,15 +18,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
   background-color: var(--color4);
 }
 
-::selection {
-  background-color: rgba(255, 0, 0, 0);
-  width: 100px;
-  color: yellow;
+/* Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: red; /* Cambia el color del thumb (la parte móvil de la scrollbar) */
+  border-radius: 6px;
+}
+
+* {
+  scrollbar-color: red #f1f1f1;
+  scroll-behavior: smooth;
 }
 
 .link-dom {
@@ -44,26 +57,17 @@ body {
 }
 
 main {
-  min-height: fit-content;
-  width: 1224px;
-  display: flex;
+  width: 50%;
+  max-width: 1280px;
+  margin: 0 auto;
   border: 1px solid var(--color3);
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 15px;
-  letter-spacing: 0.5px;
-  flex-direction: column;
+  justify-content: center;
   transition: 0.8s ease-in-out;
-  -webkit-transition: 0.8s ease-in-out;
-  -moz-transition: 0.8s ease-in-out;
-  -ms-transition: 0.8s ease-in-out;
-  -o-transition: 0.8s ease-in-out;
+  min-height: 80vh;
+  padding: 40px 10px;
 }
 
 main p {
@@ -105,8 +109,4 @@ main p {
     font-size: 0.63rem;
     padding: 5px 2px;
   }
-}
-
-.doNoDisturb {
-  position: absolute;
 }

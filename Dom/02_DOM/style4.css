@@ -20,7 +20,11 @@ body {
   overflow: hidden;
   background-color: var(--color4);
 }
-
+::selection {
+  background-color: rgba(255, 0, 0, 0);
+  width: 100px;
+  color: yellow;
+}
 .link-dom {
   text-decoration: none;
   color: white;
