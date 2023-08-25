@@ -37,6 +37,8 @@ const stylingIgnore = () => {
   $figCaption.style.setProperty("font-family", font2);
 };
 
+//----------------------------------CREATEELEMENT + INNERHTML-----------------/
+
 //✅Forma MUY LENTA pero correcta, creando nodos y luego haciendolos aparecer. 🤔createEleement + appendChild
 //1️⃣ CREAMOS LOS NODOS
 const $figure = document.createElement("figure");
@@ -54,6 +56,9 @@ $figCaption.appendChild($figCapText);
 $mainDeposit.appendChild($figure);
 stylingIgnore();
 
+//------------------------------------------INNER HTML Y BACKTICKS -----------/
+
+
 //❌Forma NOOO! muy correcta por vulnerabilidades y lentitud. 🤔INNERHTML
 const $figure2 = document.createElement("figure");
 $figure2.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqbB74z2GX8K9rd5wE6rmDZONS2SWcXiznAbcRUxM&s" alt="Foca">`;
@@ -62,6 +67,8 @@ $mainDeposit.appendChild($figure2);
 //Tambien podemos obtener elementos dentro de lo que insertamos y modificarlos:
 const $imgSrc = $figure2.querySelector("img");
 $imgSrc.style.setProperty("width", "35px");
+
+//--------------------------------------------------------FRAGMENT-------------/
 
 //✅Forma EFECTIVA 🤔document.CreateDocumentFragment()
 
