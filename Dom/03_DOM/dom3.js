@@ -17,7 +17,7 @@ $domP.innerHTML = text; //Useful for HTML format code. Replaces HTML from DOM �
 
 //----------------------------------------------------------------------------------------------------------------------------------
 
-// ⚡66. DOM 6 - Traversing, se enfoca a los elementos HTML y seleccionarlos, no confundir firstElementChild con firstChild, ya que firstElementChild hace referencia al elemento HTML (tags) y firstChild a los NODOS.
+// ⚡67. DOM 6 - Traversing, se enfoca a los elementos HTML y seleccionarlos, no confundir firstElementChild con firstChild, ya que firstElementChild hace referencia al elemento HTML (tags) y firstChild a los NODOS.
 const $mainP = document.querySelector(".main");
 console.log($mainP.children); //Accedemos a todos los hijos
 console.log($mainP.children[1]); //Accedemos a un hijo especifico
@@ -30,7 +30,7 @@ console.log($mainP.children[0].closest("p")); //Método para buscar al elemento 
 
 //----------------------------------------------------------------------------------------------------------------------------------
 
-// ⚡67. DOM 7 - Creating ELEMENTS and FRAGMENTS. //FORMAS DE CREAR ELEMENTOS
+// ⚡68 DOM 7 - Creating ELEMENTS and FRAGMENTS. //FORMAS DE CREAR ELEMENTOS
 const stylingIgnore = () => {
   $figCaption.style.setProperty("margin-top", "20px");
   $figCaption.style.setProperty("color", "#a5a4ac");
