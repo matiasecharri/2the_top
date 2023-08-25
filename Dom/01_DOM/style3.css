@@ -61,6 +61,12 @@ body {
   min-width: 40px;
 }
 
+::selection {
+  background-color: rgba(255, 0, 0, 0);
+  width: 100px;
+  color: rgb(255, 234, 0)
+}
+
 .classDanger {
   background-color: #d3290f;
 }

@@ -23,6 +23,12 @@ body {
   background-color: var(--color4);
 }
 
+::selection {
+  background-color: rgba(255, 0, 0, 0);
+  width: 100px;
+  color: yellow;
+}
+
 .link-dom {
   text-decoration: none;
   color: white;
@@ -86,7 +92,6 @@ main p {
     font-size: 0.9rem;
     padding: 10px 5px;
   }
-  
 }
 
 @media (width <= 390px) {
@@ -102,6 +107,6 @@ main p {
   }
 }
 
-.doNoDisturb{
+.doNoDisturb {
   position: absolute;
 }
