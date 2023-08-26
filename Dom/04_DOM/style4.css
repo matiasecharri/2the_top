@@ -42,7 +42,7 @@ body {
 }
 
 .back {
-  background-color: #1d0f2dc9;
+  background-color: #1d0f2dbf;
 }
 
 /* Webkit (Chrome, Safari, Opera) */
@@ -87,7 +87,6 @@ main {
   max-width: 1280px;
   margin: 0 auto;
   z-index: 2;
-
   border: 1px solid var(--color3);
   display: flex;
   flex-wrap: wrap;
@@ -119,12 +118,12 @@ main {
 .cardX p::selection {
   background-color: rgba(255, 0, 0, 0);
   width: 100px;
-  color: rgb(159, 159, 27);
+  color: rgb(205, 205, 29);
 }
 .cardX p {
   font-size: 14px;
   font-family: var(--font2);
-  color: rgb(26, 154, 130);
+  color: rgb(29, 173, 147);
 }
 
 /* Webkit (Chrome, Safari, Opera) */
@@ -137,11 +136,9 @@ main {
 }
 
 .textContainer::-webkit-scrollbar-thumb {
-  background: rgb(
-    53,
-    46,
-    46
-  ); /* Cambia el color del thumb (la parte móvil de la scrollbar) */
+  background: rgb(53, 46, 46);
+  height: 150px !important;
+
   border-radius: 6px;
 }
 
