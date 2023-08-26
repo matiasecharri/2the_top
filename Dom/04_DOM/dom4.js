@@ -5,4 +5,4 @@ const $opacityProv = document.querySelector(".opacityProvider");
 
 setInterval(() => {
   $opacityProv.classList.toggle("back");
-}, 8000); 
+}, 6000); 
