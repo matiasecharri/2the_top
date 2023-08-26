@@ -118,12 +118,13 @@ main {
 .cardX p::selection {
   background-color: rgba(255, 0, 0, 0);
   width: 100px;
-  color: rgb(205, 205, 29);
+  color: rgb(185, 185, 26);
 }
 .cardX p {
   font-size: 14px;
   font-family: var(--font2);
-  color: rgb(29, 173, 147);
+  color: rgb(24, 137, 116)
+
 }
 
 /* Webkit (Chrome, Safari, Opera) */
