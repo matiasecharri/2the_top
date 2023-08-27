@@ -4,7 +4,7 @@
 console.warn(
   "👁️ Programa una función que cuente el número de caracteres de una cadena de texto."
 );
-const stringCounter = (item) => {
+const stringCounter = item => {
   if (typeof item === "string") {
     console.log(`${item} tiene "${item.length}" caracteres.`);
   } else if (typeof item === "number" || typeof item === "boolean") {
@@ -94,7 +94,7 @@ console.warn(
   "👁️ Programa una función que invierta las palabras de una cadena de texto, pe"
 );
 
-const reverseMaker = (item) => {
+const reverseMaker = item => {
   typeof item !== "string"
     ? console.warn("Ingresa una cadena de texto")
     : console.log(item.split("").reverse().join(""));
@@ -130,7 +130,7 @@ wordRepeatedCount(
 console.warn(
   "👁️ Programa una función que valide si una palabra o frase dada, es un palíndromo"
 );
-const palindromIdentificator = (item) => {
+const palindromIdentificator = item => {
   if (typeof item !== "string") {
     console.warn("Por favor ingresa una palabra.");
   } else {
@@ -187,7 +187,7 @@ const randomizer501600n = () => {
 console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
 
 let blueButton = document.getElementById("blui");
-blueButton.addEventListener("click", (x) => {
+blueButton.addEventListener("click", x => {
   console.log(`🎲 Nuevo numero aleatorio: ${randomizer501600n()}✨`);
 });
 
@@ -196,7 +196,7 @@ console.warn(
   `👁️ Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true`
 );
 
-const numberCapicua = (numero) => {
+const numberCapicua = numero => {
   if (typeof numero !== "number") {
     console.warn("Ingresa un numero");
   } else {
@@ -274,7 +274,7 @@ console.warn(
   `👁️ Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.)`
 );
 
-const oddEvenDetector = (numero) => {
+const oddEvenDetector = numero => {
   if (typeof numero !== "number") {
     console.warn("Ingresa un número.");
     // ✅ FIN DE VALIDACIÓN
@@ -477,7 +477,7 @@ const letterClasifier = (word = "") => {
     const regex = /^[a-zA-Z]+$/;
     let consonantCounter = 0;
     let arrayWord = word.split("");
-    arrayWord.filter((x) => {
+    arrayWord.filter(x => {
       if (vocals.includes(x.toLowerCase())) {
         vocalCounter++;
       } else if (regex.test(x)) {
@@ -556,7 +556,7 @@ const squareCreator = (array = "", potencia) => {
     console.warn("Se espera un array y un número!");
   } else {
     const elevados = [];
-    array.map((x) => {
+    array.map(x => {
       elevados.push(Math.pow(x, potencia));
     });
     return elevados;
@@ -570,7 +570,7 @@ console.log(Math.min(...numerosTest));
 console.warn(
   `👁️Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].`
 );
-const minAndMax = (array) => {
+const minAndMax = array => {
   if (array === "") {
     console.warn("Olvidaste ingresar un array! 🤓");
   } else if (typeof array !== "object") {
@@ -608,7 +608,7 @@ const evenOddReturner = (array = undefined) => {
   }
   const odds = [];
   const evens = [];
-  array.filter((x) => {
+  array.filter(x => {
     x % 2 === 0 ? evens.push(x) : odds.push(x);
   });
   return { evens, odds };
@@ -635,7 +635,7 @@ const ordenandoNumeros = (array = undefined) => {
     );
     return;
   }
-  if (array.some((x) => typeof x !== "number")) {
+  if (array.some(x => typeof x !== "number")) {
     console.error("El array contiene elementos que no son números");
     return;
   }
@@ -686,7 +686,7 @@ const reductorOfAll = (array = null) => {
     console.error("Se espera que ingreses un array de números! 🫠");
     return;
   }
-  if (array.some((x) => typeof x !== "number")) {
+  if (array.some(x => typeof x !== "number")) {
     console.error("Tu array contiene elementos que NO son números 😵");
     return;
   }
@@ -818,7 +818,7 @@ class Movie {
       return;
     }
 
-    if (country.some((x) => typeof x !== "string")) {
+    if (country.some(x => typeof x !== "string")) {
       console.error("ERROR: All Countries have to be strings.");
       return;
     }
@@ -828,12 +828,12 @@ class Movie {
       return;
     }
 
-    if (genre.some((x) => typeof x !== "string")) {
+    if (genre.some(x => typeof x !== "string")) {
       console.error("ERROR: All Genres have to be strings.");
       return;
     }
 
-    genre.filter((x) => {
+    genre.filter(x => {
       if (!aceptedGenres.includes(x)) {
         console.error(
           "ERROR: Invalid movie genres or genre needs mayus in the first letter."
@@ -940,19 +940,19 @@ const movieData = [
   },
 ];
 
-const movieArray = []
+const movieArray = [];
 
-movieData.forEach((x)=>{
-  const {id, title, director, year, country, genre, rate} = x
-  const newMovies = new Movie (id, title, director, year, country, genre, rate)
-  movieArray.push(newMovies)
-})
+movieData.forEach(x => {
+  const { id, title, director, year, country, genre, rate } = x;
+  const newMovies = new Movie(id, title, director, year, country, genre, rate);
+  movieArray.push(newMovies);
+});
 
-const [totanic, incepshon, shaunsha] = movieArray
+const [totanic, incepshon, shaunsha] = movieArray;
 
-console.log(totanic)
-console.log(incepshon)
-console.log(shaunsha)
+console.log(totanic);
+console.log(incepshon);
+console.log(shaunsha);
 
-totanic.allMovieInfo()
+totanic.allMovieInfo();
 //ENDHA10
