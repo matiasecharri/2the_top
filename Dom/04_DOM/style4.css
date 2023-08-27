@@ -104,7 +104,7 @@ main {
   align-content: center;
   transition: 0.8s ease-in-out;
   overflow-y: scroll;
-  gap: 20px; 
+  gap: 20px;
   padding-top: 30px !important;
   padding-bottom: 30px !important;
   margin-top: 20px !important;
@@ -238,7 +238,7 @@ main {
   background-color: rgba(255, 0, 0, 0);
 }
 
-.mainContainer::-webkit-scrollbar{
+.mainContainer::-webkit-scrollbar {
   height: 0px !important;
   width: 0px !important;
   color: rgba(255, 0, 0, 0);
