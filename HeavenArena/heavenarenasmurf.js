@@ -135,7 +135,7 @@ const repeatedWordCount = (text = "", word = "") => {
   }
   let textToArray = text.split(" ");
   let counter = 0;
-  textToArray.forEach((x) => {
+  textToArray.forEach(x => {
     if (x.toLowerCase() === word.toLowerCase()) {
       counter++;
     }
@@ -409,7 +409,7 @@ const letterCounter = (text = "") => {
   const regexConsonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
   let vocalCounter = 0;
   let consonantCounter = 0;
-  text.split("").filter((x) => {
+  text.split("").filter(x => {
     if (regexVocal.test(x) === true) {
       vocalCounter++;
     } else if (regexConsonant.test(x) === true) {
@@ -484,7 +484,7 @@ const numberElevator = (array = "", pow = "") => {
     return;
   }
 
-  array.some((x) => {
+  array.some(x => {
     if (typeof x !== "number") {
       console.error("Some elements inside the array are not numbers.");
       return;
@@ -496,7 +496,7 @@ const numberElevator = (array = "", pow = "") => {
     return;
   }
   const elevatedNumbers = [];
-  array.map((x) => {
+  array.map(x => {
     elevatedNumbers.push(Math.pow(x, pow));
   });
   return elevatedNumbers;
@@ -518,7 +518,7 @@ const higherAndLower = (array = "") => {
     console.error("Needs to be an array.");
     return;
   }
-  array.some((x) => {
+  array.some(x => {
     if (typeof x !== "number") {
       console.error("Some elements inside the array are not numbers.");
       return;
@@ -545,7 +545,7 @@ const evenAndOdd = (array = "") => {
     console.error("Needs to be an array.");
     return;
   }
-  array.some((x) => {
+  array.some(x => {
     if (typeof x !== "number") {
       console.error("Some elements inside the array are not numbers.");
       return;
@@ -555,7 +555,7 @@ const evenAndOdd = (array = "") => {
   const evens = [];
   const odds = [];
 
-  array.filter((x) => {
+  array.filter(x => {
     x % 2 === 0 ? evens.push(x) : odds.push(x);
   });
   return { evens, odds };
@@ -581,7 +581,7 @@ const arrayOrdenator = (array = "") => {
     console.error("Needs to be an array.");
     return;
   }
-  array.some((x) => {
+  array.some(x => {
     if (typeof x !== "number") {
       console.error("Some elements inside the array are not numbers.");
       return;
@@ -614,7 +614,7 @@ const deletingDuplicated = (array = "") => {
     console.error("Needs to be an array.");
     return;
   }
-  array.some((x) => {
+  array.some(x => {
     if (typeof x !== "number") {
       console.error("Some elements inside the array are not numbers.");
       return;
@@ -639,7 +639,7 @@ const arrayReducer = (array = "") => {
     console.error("Needs to be an array.");
     return;
   }
-  array.some((x) => {
+  array.some(x => {
     if (typeof x !== "number") {
       console.error("Some elements inside the array are not numbers.");
       return;
@@ -762,7 +762,7 @@ class MovieGenerator {
     }
 
     let acepted;
-    genres.filter((x) => {
+    genres.filter(x => {
       if (!aceptedGenres.includes(x)) {
         acepted = false;
       }
@@ -868,7 +868,7 @@ const movieArray = [
 
 const constructedMovies = [];
 
-movieArray.forEach((x) => {
+movieArray.forEach(x => {
   const { id, title, director, year, country, genres, rank } = x;
   const movieWithConstructor = new MovieGenerator(
     id,
@@ -884,7 +884,7 @@ movieArray.forEach((x) => {
 
 console.log(constructedMovies);
 
-constructedMovies.forEach((x) => {
+constructedMovies.forEach(x => {
   x.fullMovieInfo();
 });
 
