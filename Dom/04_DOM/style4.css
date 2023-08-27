@@ -83,8 +83,7 @@ body {
 }
 
 main {
-  width: 50%;
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
   z-index: 2;
   border: 1px solid var(--color3);
@@ -92,10 +91,15 @@ main {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  align-content: center;
   transition: 0.8s ease-in-out;
   min-height: 80vh;
   gap: 20px;
   padding: 40px 10px;
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
 }
 
 .cardX {
@@ -108,6 +112,15 @@ main {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+
+.highlight{
+  color:rgba(229, 121, 121, 0.907);
+}
+.highlight::selection{
+  color:rgb(205, 205, 29); 
+}
+
 
 .textContainer {
   width: 100%;
@@ -177,4 +190,21 @@ main {
     font-size: 0.63rem;
     padding: 5px 2px;
   }
+}
+
+.error1 {
+  font-family: monospace;
+  color: rgba(229, 121, 121, 0.907);
+}
+.error2 {
+  font-family: monospace;
+  color: rgb(207, 181, 181);
+}
+
+.error1::selection {
+  user-select: none;
+}
+
+.error2::selection {
+  user-select: none;
 }
