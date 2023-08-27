@@ -40,3 +40,41 @@ $main.appendChild($fragment);
 if ($main.lastElementChild.querySelector("div p")) {
   $main.removeChild($main.lastElementChild);
 }
+
+// ⚡70-71. DOM 10 - Modifying elements
+
+//----------POSSIBLE INSERTIONS:
+//inserAdjacentElement(position, el)
+//inserAdjacentHTML(position, el)
+//inserAdjacentText(position, el)
+
+//----------POSSIBLE POSITIONS:
+//beforebegin (hermano anterior)
+//afterbegin (primer hijo)
+//beforeend (ultimo hijo)
+//afterend (hermano siguiente)
+
+$main.querySelector(".cardX:nth-of-type(1)").insertAdjacentHTML(
+  "beforebegin",
+  `<div class="cardX2">
+  <div class="textContainer">
+    <p></p>
+  </div>
+</div>`
+);
+$main.querySelector(".cardX").insertAdjacentHTML(
+  "afterend",
+  `<div class="cardX2">
+  <div class="textContainer">
+    <p></p>
+  </div>
+</div>`
+);
+$main.insertAdjacentHTML(
+  "beforeend",
+  `<div class="cardX2">
+  <div class="textContainer">
+    <p></p>
+  </div>
+</div>`
+);

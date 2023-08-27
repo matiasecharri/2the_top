@@ -55,6 +55,7 @@ h1 {
 }
 a {
   padding: 10px;
+  letter-spacing: -0.1rem;
   background-color: var(--color1);
   border: 1px solid rgba(255, 255, 255, 0.202);
   font-family: var(--font1);
