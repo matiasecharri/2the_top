@@ -159,8 +159,7 @@ main {
 .cardX p {
   font-size: 14px;
   font-family: var(--font2);
-  color: rgb(24, 137, 116)
-
+  color: rgb(24, 137, 116);
 }
 
 /* Webkit (Chrome, Safari, Opera) */

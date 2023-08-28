@@ -1,6 +1,6 @@
 //⚡61. DOM 1
 document.title = "navigator/pg_machine_test";
-const textReader = (text) => {
+const textReader = text => {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "en-EN";
   speechSynthesis.speak(utterance);
@@ -18,7 +18,7 @@ console.log(imagenes);
 console.log(document.forms);
 console.log(document.styleSheets);
 console.log(document.scripts);
-setTimeout(() => {     
+setTimeout(() => {
   console.log(document.getSelection().toString());
 }, 3000);
 
@@ -85,7 +85,8 @@ $linkDom.style.setProperty("text-decoration", "none"),
   $linkDom.style.setProperty("left", "50px"),
   $linkDom.style.setProperty("font-family", "monospace"),
   $linkDom.style.setProperty("opacity", "0.75"),
-  $linkDom.style.setProperty("font-size", "18px"),
+  $linkDom.style.setProperty("font-size", "14px"),
+  $linkDom.style.setProperty("letter-spacing", "2px"),
   $linkDom.style.setProperty("width", "100%"),
   $linkDom.style.setProperty("z-index", "999"),
   //-----------Acceder a los estilos del elemento custom:
@@ -101,7 +102,7 @@ let violetColor = getComputedStyle($html).getPropertyValue("--color4");
 let greenLimeColor = getComputedStyle($html).getPropertyValue("--color2");
 let font1 = getComputedStyle($html).getPropertyValue("--font1");
 
-$linkDom.style.setProperty("font-family", font1);
+$linkDom.style.setProperty("font-family", "monospace");
 $bodyX.style.setProperty("background-color", violetColor);
 $linkDom.style.setProperty("border-bottom", `1px solid ${greenLimeColor}`);
 
@@ -268,4 +269,3 @@ $button.addEventListener("click", () => {
 });
 
 //----------------🌆TEST MACHINE--------------//
-

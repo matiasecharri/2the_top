@@ -25,15 +25,19 @@ body {
   width: 100px;
   color: yellow;
 }
+
 .link-dom {
   text-decoration: none;
-  color: white;
+  color: rgb(255, 255, 255);
   position: absolute;
   top: 3.5%;
   left: 50px;
   font-family: var(--font1);
   opacity: 0.75;
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 100;
+  font-family: monospace;
   width: 100%;
   z-index: 999;
   border-bottom: 1px solid #965fd443;
