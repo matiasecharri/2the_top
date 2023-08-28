@@ -24,16 +24,16 @@ body {
   background-image: url(/Dom/05_DOM/dddepth-044.jpg);
   background-size: cover;
   background-position: 0;
-  backdrop-filter: blur(8px) saturate(100%);
-  -webkit-backdrop-filter: blur(8px) saturate(100%);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .opacityProvider {
-  width: 100%;
+  width: 200%;
   height: 100%;
   position: absolute;
   transition: 1.5s ease-in-out;
-  background-color: #1d0f2db9;
+  background-color: #1d0f2ddc;
   z-index: 0;
   -webkit-transition: 1.5s ease-in-out;
   -moz-transition: 1.5s ease-in-out;
@@ -85,13 +85,51 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.342);
 }
 
+#texter {
+  padding: 15px 25px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: none;
+  font-size: 0.7rem;
+  font-family: monospace;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  color: #8bd450;
+  background-color: #1d1a2f6e;
+  border: 1px solid #0000002f;
+  width: 300px;
+  overflow-x: scroll;
+}
+
+#texter::-webkit-scrollbar {
+  height: 1px !important;
+}
+
+#texter::-webkit-scrollbar-track {
+  background: #2b29292f;
+  width: 100px !important;
+}
+
+#texter::-webkit-scrollbar-thumb {
+  background: rgb(
+    53,
+    46,
+    46
+  ); /* Cambia el color del thumb (la parte móvil de la scrollbar) */
+  border-radius: 6px;
+  width: 100px !important;
+}
+
 .mainContainer {
   z-index: 1;
   width: 1000px;
   transition: 0.5s ease-in-out;
   height: 75vh;
   overflow-y: scroll;
-  border: 1px solid #8bd45041;
+  border: 1px solid #8bd45043;
   -webkit-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
   -ms-transition: 0.5s ease-in-out;
@@ -133,7 +171,7 @@ main {
   letter-spacing: 1.5px;
   color: #8bd450;
   background-color: #1d1a2f6e;
-  border: 1px solid rgba(23, 31, 23, 0.73);
+  border: 1px solid #0000002f;
   cursor: pointer;
 }
 
@@ -165,7 +203,7 @@ main {
   letter-spacing: 1.5px;
   color: #8bd450;
   background-color: #1d1a2f6e;
-  border: 1px solid rgba(23, 31, 23, 0.73);
+  border: 1px solid #0000002f;
   cursor: pointer;
 }
 
@@ -190,6 +228,30 @@ main {
 #input1:focus {
   border: 1px solid rgba(23, 31, 23, 0.73);
   outline: none; /* Elimina el contorno predeterminado */
+}
+
+.error3 {
+  font-family: monospace;
+  color: rgba(229, 121, 121, 0.907);
+  font-size: 0.7rem;
+}
+.error4 {
+  font-family: monospace;
+  color: rgb(207, 181, 181);
+  font-size: 0.7rem;
+}
+
+.error3::selection {
+  user-select: none;
+  font-size: 0.7rem;
+}
+
+.error4::selection {
+  user-select: none;
+  font-size: 0.7rem;
+}
+.coloredMessage {
+  color: rgba(255, 255, 255, 0.641);
 }
 
 @media (width < 1300px) {
