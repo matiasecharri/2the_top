@@ -27,7 +27,7 @@ const allBlock = () => {
   };
 
   const sendButtonInteraction = () => {
-    $input.addEventListener("keyup", e => {
+    $input.addEventListener("keydown", e => {
       searchBarValue = e.target.value;
     });
     if ($input.value === "") {
