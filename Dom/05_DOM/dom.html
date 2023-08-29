@@ -13,14 +13,37 @@
 
 <body id="body">
   <div class="opacityProvider"></div>
-  <a href="/Dom/00_DOM_NAV/navigator.html" data-description="document object model" class="link-dom">back</a>
+  <a href="/Dom/00_DOM_NAV/navigator.html" data-description="document object model" class="link-dom">BACK</a>
   <div class="mainContainer">
     <main id="main" class="main">
-      <button id="button1">Button</button>
-      <input type="text" id="input1">
+      <button id="button1">SEND</button>
+      <input type="text" id="input1" placeholder="MESSAGE_BOX">
+      <div id="texter">
+        USER_SAYS:
+      </div>
+      <input type="checkbox" id="checkboxInput">
+      <label for="checkboxInput" class="toggleSwitch" id="muted">
+
+        <div class="speaker"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 75 75">
+            <path d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z"
+              style="stroke:#2dbeaf;;stroke-width:5;stroke-linejoin:round;fill:#2dbeaf;;"></path>
+            <path d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6"
+              style="fill:none;stroke:#2dbeaf;;stroke-width:5;stroke-linecap:round"></path>
+          </svg></div>
+
+        <div class="mute-speaker"><svg version="1.0" viewBox="0 0 75 75" stroke="#e57979" stroke-width="5">
+            <path d="m39,14-17,15H6V48H22l17,15z" fill="#e57979" stroke-linejoin="round"></path>
+            <path d="m49,26 20,24m0-24-20,24" fill="#e57979" stroke-linecap="round"></path>
+          </svg></div>
+
+      </label>
+
+
+
+
+
     </main>
   </div>
-
   <script type="module" src="/Dom/05_DOM/dom5.js"></script>
 </body>
 

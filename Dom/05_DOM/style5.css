@@ -21,19 +21,19 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: var(--color4);
-  background-image: url(/Dom/04_DOM/dddepth-050.jpg);
+  background-image: url(/Dom/05_DOM/dddepth-044.jpg);
   background-size: cover;
   background-position: 0;
-  backdrop-filter: blur(8px) saturate(180%);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .opacityProvider {
-  width: 100%;
+  width: 200%;
   height: 100%;
   position: absolute;
   transition: 1.5s ease-in-out;
-  background-color: #1d0f2d9d;
+  background-color: #1d0f2ddc;
   z-index: 0;
   -webkit-transition: 1.5s ease-in-out;
   -moz-transition: 1.5s ease-in-out;
@@ -70,16 +70,57 @@ body {
 
 .link-dom {
   text-decoration: none;
-  color: white;
+  color: rgb(255, 255, 255);
   position: absolute;
   top: 3.5%;
   left: 50px;
   font-family: var(--font1);
   opacity: 0.75;
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 100;
+  font-family: monospace;
   width: 100%;
   z-index: 999;
-  border-bottom: 1px solid var(--color2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.342);
+}
+
+#texter {
+  padding: 15px 25px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: none;
+  font-size: 0.7rem;
+  font-family: monospace;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  color: #8bd450;
+  background-color: #1d1a2f6e;
+  border: 1px solid #0000002f;
+  width: 300px;
+  overflow-x: scroll;
+}
+
+#texter::-webkit-scrollbar {
+  height: 1px !important;
+}
+
+#texter::-webkit-scrollbar-track {
+  background: #2b29292f;
+  width: 100px !important;
+}
+
+#texter::-webkit-scrollbar-thumb {
+  background: rgb(
+    53,
+    46,
+    46
+  ); /* Cambia el color del thumb (la parte móvil de la scrollbar) */
+  border-radius: 6px;
+  width: 100px !important;
 }
 
 .mainContainer {
@@ -88,11 +129,16 @@ body {
   transition: 0.5s ease-in-out;
   height: 75vh;
   overflow-y: scroll;
-  border: 1px solid var(--color3);
+  border: 1px solid #8bd45043;
   -webkit-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
   -ms-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 main {
   margin: 0 auto;
@@ -109,6 +155,109 @@ main {
   padding-bottom: 30px !important;
   margin-top: 20px !important;
   margin-bottom: 20px !important;
+}
+
+#button1 {
+  padding: 15px 25px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: none;
+  font-size: 0.7rem;
+  font-family: monospace;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  color: #8bd450;
+  background-color: #1d1a2f6e;
+  border: 1px solid #0000002f;
+  cursor: pointer;
+}
+
+#button1:hover {
+  transition: ease-in 0.3s;
+  color: #2dbeaf;
+  -webkit-transition: ease-in 0.3s;
+  -moz-transition: ease-in 0.3s;
+  -ms-transition: ease-in 0.3s;
+  -o-transition: ease-in 0.3s;
+  transform: translateY(-3.5px);
+  -webkit-transform: translateY(-3.5px);
+  -moz-transform: translateY(-3.5px);
+  -ms-transform: translateY(-3.5px);
+  -o-transform: translateY(-3.5px);
+}
+
+#input1 {
+  padding: 15px 25px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: none;
+  font-size: 0.7rem;
+  font-family: monospace;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  color: #8bd450;
+  background-color: #1d1a2f6e;
+  border: 1px solid #0000002f;
+  cursor: pointer;
+}
+
+#input1:hover {
+  transition: ease-in 0.3s;
+  color: #2dbeaf;
+  -webkit-transition: ease-in 0.3s;
+  -moz-transition: ease-in 0.3s;
+  -ms-transition: ease-in 0.3s;
+  -o-transition: ease-in 0.3s;
+  transform: translateY(-3.5px);
+  -webkit-transform: translateY(-3.5px);
+  -moz-transform: translateY(-3.5px);
+  -ms-transform: translateY(-3.5px);
+  -o-transform: translateY(-3.5px);
+}
+
+#input1::selection {
+  color: #adb42e;
+}
+#texter::selection {
+  background-color: unset;
+}
+#texter span::selection {
+  color: #adb42e;
+}
+
+#input1:focus {
+  border: 1px solid rgba(23, 31, 23, 0.73);
+  outline: none; /* Elimina el contorno predeterminado */
+}
+
+.error3 {
+  font-family: monospace;
+  color: rgba(229, 121, 121, 0.907);
+  font-size: 0.7rem;
+}
+.error4 {
+  font-family: monospace;
+  color: rgb(207, 181, 181);
+  font-size: 0.7rem;
+}
+
+.error3::selection {
+  user-select: none;
+  font-size: 0.7rem;
+}
+
+.error4::selection {
+  user-select: none;
+  font-size: 0.7rem;
+}
+.coloredMessage {
+  color: rgba(255, 255, 255, 0.641);
 }
 
 @media (width < 1300px) {
@@ -176,4 +325,81 @@ main {
   width: 0px !important;
   color: rgba(255, 0, 0, 0);
   background-color: rgba(255, 0, 0, 0);
+}
+
+/* The switch - the box around the speaker*/
+.toggleSwitch {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  background-color: #1d1a2f6e;
+  border: 1px solid #0000002f;
+  overflow: hidden;
+}
+
+/* Hide default HTML checkbox */
+#checkboxInput {
+  display: none;
+}
+
+.bell {
+  width: 18px;
+}
+
+.bell path {
+  fill: white;
+}
+
+.speaker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition-duration: 0.3s;
+}
+
+.speaker svg {
+  width: 18px;
+}
+
+.mute-speaker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 3;
+  transition-duration: 0.3s;
+}
+
+.mute-speaker svg {
+  width: 18px;
+}
+
+#checkboxInput:checked + .toggleSwitch .speaker {
+  opacity: 0;
+  transition-duration: 0.3s;
+}
+
+#checkboxInput:checked + .toggleSwitch .mute-speaker {
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+#checkboxInput:active + .toggleSwitch {
+  transform: scale(0.7);
+}
+
+#checkboxInput:hover + .toggleSwitch {
+  background-color: rgba(61, 61, 61, 0.186);
 }
