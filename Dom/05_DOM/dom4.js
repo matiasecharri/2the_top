@@ -2,10 +2,10 @@
 const userMessages = [];
 
 const allBlock = () => {
-  const $button = document.getElementById("button1");
-  const $buttonMute = document.getElementById("muted");
-  const $input = document.getElementById("input1");
-  const $textContent = document.getElementById("texter");
+  const $button = document.getElementById("button1"); //SEND BUTTON
+  const $buttonMute = document.getElementById("muted"); //MUTE BUTTON
+  const $input = document.getElementById("input1"); //MESSAGE BOX
+  const $textContent = document.getElementById("texter"); //TEXT
 
   $button.addEventListener("click", e => {
     console.log(e);
@@ -30,8 +30,9 @@ const allBlock = () => {
   };
 
   const sendButtonInteraction = () => {
-    $input.addEventListener("keydown", e => {
+    $input.addEventListener("keyup", e => {
       searchBarValue = e.target.value;
+      console.log(searchBarValue);
     });
 
     $button.addEventListener("click", () => {
