@@ -62,7 +62,7 @@ const allBlock = () => {
   sendButtonInteraction();
 
   const inputInteraction = () => {
-    $input.addEventListener("keydown", e => {
+    $input.addEventListener("keyup", e => {
       if (e.key !== "Enter" || $input.value === "") {
         return;
       }
@@ -80,10 +80,11 @@ const allBlock = () => {
         }
         return x;
       });
-      playAudioMessage("/Dom/05_DOM/message.mp3");
       let finalMessage = transformedArray.join("");
       $textContent.innerHTML = `USER_SAYS: <span class="coloredMessage">${finalMessage.toUpperCase()}</span>`;
       $input.value = "";
+      playAudioMessage("/Dom/05_DOM/message.mp3");
+
       userMessages.push(finalMessage);
     });
   };
