@@ -1,9 +1,12 @@
 // ⚡72. DOM 12 Events
+const userMessages = [];
+
 const allBlock = () => {
   const $button = document.getElementById("button1");
   const $buttonMute = document.getElementById("muted");
   const $input = document.getElementById("input1");
   const $textContent = document.getElementById("texter");
+
   $button.addEventListener("click", e => {
     console.log(e);
     console.log(e.type);
@@ -30,11 +33,12 @@ const allBlock = () => {
     $input.addEventListener("keydown", e => {
       searchBarValue = e.target.value;
     });
-    if ($input.value === "") {
-      return;
-    }
-    console.log(searchBarValue);
+
     $button.addEventListener("click", () => {
+      if ($input.value === "") {
+        return;
+      }
+
       if (searchBarValue.length > 21) {
         playAudioMessage("/Dom/05_DOM/error_message.mp3");
         $textContent.innerHTML = `<span class="error4">ERR0R:</span><span class="error3"> Message too long.</span>`;
@@ -47,10 +51,12 @@ const allBlock = () => {
         }
         return x;
       });
+
       playAudioMessage("/Dom/05_DOM/message.mp3");
       let finalMessage = transformedArray.join("");
       $textContent.innerHTML = `USER_SAYS: <span class="coloredMessage">${finalMessage.toUpperCase()}</span>`;
       $input.value = "";
+      userMessages.push(finalMessage);
     });
   };
   sendButtonInteraction();
@@ -78,8 +84,16 @@ const allBlock = () => {
       let finalMessage = transformedArray.join("");
       $textContent.innerHTML = `USER_SAYS: <span class="coloredMessage">${finalMessage.toUpperCase()}</span>`;
       $input.value = "";
+      userMessages.push(finalMessage);
     });
   };
   inputInteraction();
 };
+
+setTimeout(x => {
+  userMessages.forEach(x => {
+    console.log(x);
+  });
+}, 10000);
+
 export { allBlock };
