@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
   background-color: var(--color4);
   background-image: url(/Dom/05_DOM/dddepth-044.jpg);
@@ -151,7 +151,7 @@ br::selection {
 
 .mainContainer {
   z-index: 1;
-  width: 800px;
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,9 +184,11 @@ main {
   padding-bottom: 30px !important;
   margin-top: 20px !important;
   margin-bottom: 20px !important;
+  flex-direction: column;
 }
 
-#button1 {
+#buttonDuck,
+#buttonRemover {
   padding: 15px 25px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -202,9 +204,11 @@ main {
   background-color: #1d1a2f6e;
   border: 1px solid #0000002f;
   cursor: pointer;
+  width: 100%;
 }
 
-#button1:hover {
+#buttonDuck:hover,
+#buttonRemover:hover {
   transition: ease-in 0.3s;
   color: #2dbeaf;
   -webkit-transition: ease-in 0.3s;
@@ -216,53 +220,6 @@ main {
   -moz-transform: translateY(-3.5px);
   -ms-transform: translateY(-3.5px);
   -o-transform: translateY(-3.5px);
-}
-
-#input1 {
-  padding: 15px 25px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border: none;
-  font-size: 0.7rem;
-  font-family: monospace;
-  font-weight: 100;
-  letter-spacing: 1.5px;
-  color: #8bd450;
-  background-color: #1d1a2f6e;
-  border: 1px solid #0000002f;
-  cursor: pointer;
-}
-
-#input1:hover {
-  transition: ease-in 0.3s;
-  color: #2dbeaf;
-  -webkit-transition: ease-in 0.3s;
-  -moz-transition: ease-in 0.3s;
-  -ms-transition: ease-in 0.3s;
-  -o-transition: ease-in 0.3s;
-  transform: translateY(-3.5px);
-  -webkit-transform: translateY(-3.5px);
-  -moz-transform: translateY(-3.5px);
-  -ms-transform: translateY(-3.5px);
-  -o-transform: translateY(-3.5px);
-}
-
-#input1::selection {
-  color: #adb42e;
-}
-#texter::selection {
-  background-color: unset;
-}
-#texter span::selection {
-  color: #adb42e;
-}
-
-#input1:focus {
-  border: 1px solid rgba(23, 31, 23, 0.73);
-  outline: none; /* Elimina el contorno predeterminado */
 }
 
 .error3 {
@@ -435,4 +392,61 @@ main {
 
 #checkboxInput:hover + .toggleSwitch {
   background-color: rgba(61, 61, 61, 0.186);
+}
+
+.swal-modal {
+  padding: 15px 25px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: none;
+  font-size: 0.7rem;
+  font-family: monospace;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  background-color: #00000000;
+  border-radius: 16px;
+  font-family: monospace;
+  height: 100%;
+  width: 100%;
+}
+
+.swal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swal-text {
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  font-size: 0.7rem;
+  color: #2dbeaf !important;
+}
+.swal-text {
+  user-select: none;
+}
+
+.swal-overlay {
+  background-color: rgba(0, 0, 0, 0.494);
+}
+
+.swal-button {
+  font-family: monospace;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  font-size: 0.7rem;
+  color: #8bd450;
+  background-color: #1d1a2f6e;
+  border: 1px solid #0000002f;
+}
+.swal-button:hover {
+  transition: ease-in 0.3s;
+  background-color: #1d1a2f6e !important;
+  -webkit-transition: ease-in 0.3s;
+  -moz-transition: ease-in 0.3s;
+  -ms-transition: ease-in 0.3s;
+  -o-transition: ease-in 0.3s;
+  color: #2dbeaf;
 }
