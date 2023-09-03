@@ -11,8 +11,9 @@ const flujoEventos = function (e) {
     console.log("3️⃣");
   }
   console.log(
-    `Hola, te saluda ${e.target.className}, el click lo originó ${e.target.className}`
+    `Hola, te saluda ${this.className}, el click lo originó ${e.target.className}`
   );
+  e.stopPropagation(); //Evita que se propague el evento
 };
 
 //Agregando el parametro opcional "TRUE", damos vuelta la burbuja, y entonces pasa expandirse del mas externo al mas interno, se llama fase de captura.
@@ -28,25 +29,34 @@ const flujoEventos = function (e) {
 //   });
 // });
 
-// $linkEventos.addEventListener("click", e => {
-//   alert("Nippon Bitus was Avoided");
-//   e.preventDefault(); //Evita la accion por defecto que tenga un elemento, en este caso evita el HREF.
-//   e.stopPropagation();
-// });
-
-// $divsEventos.forEach(div => {
-//   div.addEventListener("click", flujoEventos);
-// });
-
-// ⚡76. DOM 16 Event Delegation.
-
-document.addEventListener("click", e => {
-  if (e.target.matches("#eventos-flujo a")) {
-    alert(`event from Document! ${e.target}`);
-    e.preventDefault();
-    return;
-  }
-  if (e.target.matches("#eventos-flujo div")) {
-    flujoEventos(e);
-  }
+$linkEventos.addEventListener("click", e => {
+  alert("Nippon Bitus was Avoided");
+  e.preventDefault(); //Evita la accion por defecto que tenga un elemento, en este caso evita el HREF.
+  e.stopPropagation();
 });
+
+// ⚡75. DOM 14 Propagation, Prevent.
+
+$divsEventos.forEach(div => {
+  //Fase de burbuja:
+  //   div.addEventListener("click", flujoEventos);
+  //Fase de captura:
+  //   div.addEventListener("click", flujoEventos, true);
+  //Tambien podemos enviar un objeto como tercer parmetro, lo cual nos da más opciones:
+  div.addEventListener("click", flujoEventos, {
+    capture: false,
+    once: false,
+  });
+});
+
+// ⚡76. DOM 14 EVENT FLOW AND BUBBLES
+// document.addEventListener("click", e => {
+//   if (e.target.matches("#eventos-flujo a")) {
+//     alert(`event from Document! ${e.target}`);
+//     e.preventDefault();
+//     return;
+//   }
+//   if (e.target.matches("#eventos-flujo div")) {
+//     flujoEventos(e);
+//   }
+// });
