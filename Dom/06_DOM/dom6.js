@@ -24,13 +24,14 @@ const duckButtonCode = () => {
   });
 };
 duckButtonCode();
-//--------------REMOVE BUTTON---------------------------//
+//--------------REMOVE EVENTS---------------------------//
 
 const $buttonRemover = document.getElementById("buttonRemover");
-const layerLoad = () => {
-  swal(`LAYER LOADED, DELETE?`);
+
+const removeClickButton = x => {
+  $buttonRemover.classList.add("disabled");
+  swal(`DISABLED: {${x.type}}`);
+  $buttonRemover.removeEventListener("dblclick", removeClickButton);
 };
 
-$buttonRemover.addEventListener("click", x => {
-  layerLoad();
-});
+$buttonRemover.addEventListener("dblclick", removeClickButton);
