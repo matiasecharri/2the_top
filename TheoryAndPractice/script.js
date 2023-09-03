@@ -13,14 +13,14 @@ const randomNumbers = [
   21, 14, 35, 2, 27, 18, 33, 22, 37,
 ];
 
-const numberClasifier = (array) => {
+const numberClasifier = array => {
   const oddNumbers = [];
   const evenNumbers = [];
   const numberPackager = {
     oddNumbers,
     evenNumbers,
   };
-  array.filter((x) => {
+  array.filter(x => {
     if (x % 2 === 0) {
       evenNumbers.push(x);
     }
@@ -35,7 +35,7 @@ console.log(numberClasifier(randomNumbers));
 
 //Vocal Counter
 //ARRAY DE VOCALES, PALABRA A CONTAR, LOOP, CONTADOR DE LETRAS
-const vocalCounter = (word) => {
+const vocalCounter = word => {
   const vocals = ["a", "e", "i", "o", "u"];
   let counterCount = 0;
   for (let i = 0; i < word.length; i++) {
@@ -52,7 +52,7 @@ console.log(`Your word has: ${vocalCounter("pAAAasdn")} vocals.`);
 // Encuentra el número más grande: Escribe una función que reciba un array de números y devuelva el número más grande.
 //Necesito un array, un recorrido, un array a clasificar
 const numerosArray = [8, 5, 10, 11, 45654];
-const bigFinder = (array) => {
+const bigFinder = array => {
   const theBigOne = array.sort((a, b) => b - a);
   const finalNumber = theBigOne[0];
   return finalNumber;
@@ -63,7 +63,7 @@ console.log(`The biggest number is: ${bigFinder(numerosArray)}.`);
 // Invertir una cadena: Escribe una función que reciba una cadena de texto y devuelva una nueva cadena con los caracteres invertidos.
 
 let whereAreTheTurtles = "Where are the turtles?";
-const reverseFlash = (text) => {
+const reverseFlash = text => {
   let textToArray = text.split("");
   let reversing = textToArray.reverse();
   let backToText = reversing.join("");
@@ -397,7 +397,7 @@ const saluditos1 = () => {
 };
 saluditos1();
 
-const saluditos2 = (nombre) => console.log(`oda ${nombre}`);
+const saluditos2 = nombre => console.log(`oda ${nombre}`);
 saluditos2("matias");
 
 const obj = {
@@ -931,7 +931,7 @@ const cyberpunkCharacters = [
   RogueAmendiares3,
 ];
 
-cyberpunkCharacters.forEach((x) => {
+cyberpunkCharacters.forEach(x => {
   x.presentation();
   x.crew();
   x.goodBad();
@@ -944,7 +944,7 @@ cyberpunkCharacters.forEach((x) => {
 const goodOnes = [];
 const badOnes = [];
 
-cyberpunkCharacters.filter((x) => {
+cyberpunkCharacters.filter(x => {
   x.side === "good" ? goodOnes.push(x) : badOnes.push(x);
 });
 
@@ -1124,14 +1124,14 @@ console.log("//////////////////");
 console.log("Chau" && "Hola");
 console.log(0 && "0 tiende a false asi que lo mostrará");
 
-const saludando123 = (nombre) => {
+const saludando123 = nombre => {
   console.log(`Hola ${nombre || "persona misteriosa"}`);
 };
 
 saludando123("Jorgito");
 saludando123(0);
 
-const saludando1234 = (nombre) => {
+const saludando1234 = nombre => {
   console.log(
     `Hola ${
       nombre && "valor de la derecha porque el valor de la izquierda es true"
@@ -1190,10 +1190,9 @@ let regeXP = /[A-Z][a-z][0-9][$]/g;
 
 let palabrita = "Atoz";
 
+console.log(regeXP.test(palabrita));
 
-console.log(regeXP.test(palabrita))
-
-  //IIFE EXAMPLE, ESTO VA A DAR ERROR, A MENOS QUE EL RESTO DEL CODIGO ESTE ENCAPSULADO.
+//IIFE EXAMPLE, ESTO VA A DAR ERROR, A MENOS QUE EL RESTO DEL CODIGO ESTE ENCAPSULADO.
 /* (function (d, w, c) {
   c.log("hola");
 })(document, window, console);
@@ -1201,11 +1200,11 @@ console.log(regeXP.test(palabrita))
 (function(){})() */
 
 const numericos = [4543, 243, 3, 5, 599, 34, 234];
-const filtrado2 = []
-numericos.filter(x=> {
-  x > 100 ? filtrado2.push(x) : console.log(x)
-})
-console.log(filtrado2)
+const filtrado2 = [];
+numericos.filter(x => {
+  x > 100 ? filtrado2.push(x) : console.log(x);
+});
+console.log(filtrado2);
 //Quick class herence
 class Coffe {
   constructor(densidad, grano) {
@@ -1236,10 +1235,10 @@ class Expresso extends Coffe {
   }
 }
 
-const expresso = new Expresso(4, "Boliviano", "40°")
-expresso.setTiempo = "8hs"
-console.log(expresso.getTiempo)
-expresso.caracteristicas()
-console.log(expresso)
+const expresso = new Expresso(4, "Boliviano", "40°");
+expresso.setTiempo = "8hs";
+console.log(expresso.getTiempo);
+expresso.caracteristicas();
+console.log(expresso);
 
-export {cyberpunkCharacters, CharacterEvolve2}
+export { cyberpunkCharacters, CharacterEvolve2 };
