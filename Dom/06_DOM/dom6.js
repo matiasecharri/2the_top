@@ -37,5 +37,5 @@ $buttonRemover.addEventListener("dblclick", removeClickButton);
 // ⚡74. DOM 14 EVENT FLOW AND BUBBLES
 const $linkButton = document.getElementById("eventFlow");
 $linkButton.addEventListener("click", () => {
-  window.location.href = "/Dom/06_DOM/event-flow";
+  window.location.href = "/Dom/06_DOM/event-flow.html";
 });
