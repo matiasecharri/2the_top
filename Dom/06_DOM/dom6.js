@@ -1,5 +1,3 @@
-// ⚡73. DOM 13 Events Parameters and Remove Events
-
 //--------------DUCK BUTTON---------------------------//
 const duckButtonCode = () => {
   const $buttonConsole = document.getElementById("buttonDuck");
@@ -24,8 +22,8 @@ const duckButtonCode = () => {
   });
 };
 duckButtonCode();
+// ⚡73. DOM 13 Events Parameters and Remove Events
 //--------------REMOVE EVENTS---------------------------//
-
 const $buttonRemover = document.getElementById("buttonRemover");
 
 const removeClickButton = x => {
@@ -35,3 +33,9 @@ const removeClickButton = x => {
 };
 
 $buttonRemover.addEventListener("dblclick", removeClickButton);
+
+// ⚡74. DOM 14 EVENT FLOW AND BUBBLES
+const $linkButton = document.getElementById("eventFlow");
+$linkButton.addEventListener("click", () => {
+  window.location.href = "/Dom/06_DOM/event-flow";
+});
