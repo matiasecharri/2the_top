@@ -34,7 +34,7 @@ body {
   position: absolute;
   transition: 1.5s ease-in-out;
   background-color: #1d0f2ddc;
-  z-index: 0;
+  z-index: -1;
   -webkit-transition: 1.5s ease-in-out;
   -moz-transition: 1.5s ease-in-out;
   -ms-transition: 1.5s ease-in-out;
@@ -156,7 +156,7 @@ br::selection {
   justify-content: center;
   align-items: center;
   transition: 0.5s ease-in-out;
-  height: 20vh;
+  height: 30vh;
   overflow-y: scroll;
   border: 1px solid #8bd45043;
   -webkit-transition: 0.5s ease-in-out;
@@ -188,7 +188,8 @@ main {
 }
 
 #buttonDuck,
-#buttonRemover {
+#buttonRemover,
+#eventFlow {
   padding: 15px 25px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -208,7 +209,8 @@ main {
 }
 
 #buttonDuck:hover,
-#buttonRemover:hover {
+#buttonRemover:hover,
+#eventFlow:hover {
   transition: ease-in 0.3s;
   color: #2dbeaf;
   -webkit-transition: ease-in 0.3s;
