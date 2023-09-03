@@ -27,6 +27,7 @@ body {
   background-size: cover;
   background-position: 0;
   backdrop-filter: blur(28px) saturate(140%);
+  background-repeat: no-repeat;
   -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 

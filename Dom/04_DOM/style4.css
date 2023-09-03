@@ -22,6 +22,7 @@ body {
   overflow-x: hidden;
   background-color: var(--color4);
   background-image: url(/Dom/04_DOM/dddepth-050.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: 0;
   backdrop-filter: blur(8px) saturate(180%);
