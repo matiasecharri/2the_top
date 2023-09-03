@@ -1,0 +1,26 @@
+// ⚡74. DOM 14 EVENT FLOW AND BUBBLES
+//Hay dos maneras en como se va propagando un evento, por defecto la propagacion se da desde el elemento mas interno al mas externo, a esto se llama fase de buburja, en el siguiente ejemplo el evento se propaga desde 3 hasta 1.
+const $divsEventos = document.querySelectorAll("#eventos-flujo div");
+console.log($divsEventos);
+
+const flujoEventos = function (e) {
+  if (e.target.className === "tres") {
+    console.log("3️⃣");
+  }
+  console.log(
+    `Hola, te saluda ${this.className}, el click lo originó ${e.target.className}`
+  );
+};
+
+//Agregando el parametro opcional "TRUE", damos vuelta la burbuja, y entonces pasa expandirse del mas externo al mas interno, se llama fase de captura.
+$divsEventos.forEach(div => {
+  //Fase de burbuja:
+  //   div.addEventListener("click", flujoEventos);
+  //Fase de captura:
+  //   div.addEventListener("click", flujoEventos, true);
+  //Tambien podemos enviar un objeto como tercer parmetro, lo cual nos da más opciones:
+  div.addEventListener("click", flujoEventos, {
+    capture: true,
+    once: true,
+  });
+});
