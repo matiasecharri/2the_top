@@ -40,7 +40,7 @@ const flujoEventos = function (e) {
 
 // ⚡76. DOM 16 Event Delegation.
 
-document.addEventListener("click", e => {
+document.addEventListener("click", (e) => {
   if (e.target.matches("#eventos-flujo a")) {
     alert(`event from Document! ${e.target}`);
     e.preventDefault();
@@ -50,3 +50,29 @@ document.addEventListener("click", e => {
     flujoEventos(e);
   }
 });
+
+// ⚡77. BOM 17 Properties, events, resize, DOMContentLoad
+
+window.addEventListener("resize", (e) => {
+  console.clear()
+  console.log("----------RESIZED---------")
+  console.log(window.innerHeight);
+  console.log(window.innerWidth);
+  console.log(window.outerHeight);
+  console.log(window.outerWidth);
+});
+
+window.addEventListener("scroll", (e) =>{
+  console.clear()
+  console.log("----------SCROLL---------")
+  console.log(window.scrollX)
+  console.log(window.scrollY)
+})
+
+window.addEventListener("DOMContentLoaded", (e) =>{
+  console.clear()
+  console.log("----------SCREEN---------")
+  console.log(window.screenX)
+  console.log(window.screenY)
+})
+

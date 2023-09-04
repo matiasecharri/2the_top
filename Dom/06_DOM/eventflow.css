@@ -109,7 +109,7 @@ br::selection {
   align-content: center;
   transition: 0.8s ease-in-out;
   gap: 20px;
-  height: 80vh;
+  height: 180vh;
   background-color: rgba(126, 23, 75, 0);
   width: 1080px;
   z-index: 999;
@@ -120,6 +120,7 @@ br::selection {
   -o-border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.324);
   padding: 20px 20px;
+
 }
 
 .uno {

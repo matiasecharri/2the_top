@@ -7,7 +7,7 @@ const allBlock = () => {
   const $input = document.getElementById("input1"); //MESSAGE BOX
   const $textContent = document.getElementById("texter"); //TEXT
 
-  $button.addEventListener("click", e => {
+  $button.addEventListener("click", (e) => {
     console.log(e);
     console.log(e.type);
     console.log(e.target);
@@ -16,11 +16,11 @@ const allBlock = () => {
   let searchBarValue = "";
   let isMuted = false;
 
-  $buttonMute.addEventListener("click", x => {
+  $buttonMute.addEventListener("click", (x) => {
     isMuted === false ? (isMuted = true) : (isMuted = false);
   });
 
-  const playAudioMessage = file => {
+  const playAudioMessage = (file) => {
     let messageSound = new Audio(file);
     if (isMuted === false) {
       messageSound.play();
@@ -30,7 +30,7 @@ const allBlock = () => {
   };
 
   const sendButtonInteraction = () => {
-    $input.addEventListener("keyup", e => {
+    $input.addEventListener("keyup", (e) => {
       searchBarValue = e.target.value;
     });
 
@@ -45,7 +45,7 @@ const allBlock = () => {
         $input.value = "";
         return;
       }
-      let transformedArray = searchBarValue.split("").map(x => {
+      let transformedArray = searchBarValue.split("").map((x) => {
         if (x.toUpperCase() === "O") {
           return "0";
         }
@@ -62,7 +62,7 @@ const allBlock = () => {
   sendButtonInteraction();
 
   const inputInteraction = () => {
-    $input.addEventListener("keyup", e => {
+    $input.addEventListener("keyup", (e) => {
       if (e.key !== "Enter" || $input.value === "") {
         return;
       }
@@ -74,7 +74,7 @@ const allBlock = () => {
         return;
       }
 
-      let transformedArray = searchBarValue.split("").map(x => {
+      let transformedArray = searchBarValue.split("").map((x) => {
         if (x.toUpperCase() === "O") {
           return "0";
         }
@@ -91,8 +91,8 @@ const allBlock = () => {
   inputInteraction();
 };
 
-setTimeout(x => {
-  userMessages.forEach(x => {
+setTimeout((x) => {
+  userMessages.forEach((x) => {
     console.log(x);
   });
 }, 10000);
