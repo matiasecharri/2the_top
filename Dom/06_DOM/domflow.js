@@ -76,3 +76,20 @@ window.addEventListener("DOMContentLoaded", (e) =>{
   console.log(window.screenY)
 })
 
+// ⚡78. BOM 18 Methods
+const $openWinButton = document.getElementById("openW")
+const $closeWinButton = document.getElementById("closeW")
+const $printWinButton = document.getElementById("printW")
+
+let ventana
+$openWinButton.addEventListener("click", (x)=>{
+ ventana = window.open("/")
+})
+
+$closeWinButton.addEventListener("click", (x)=>{
+ventana.close()
+})
+
+$printWinButton.addEventListener("click", (x)=>{
+  window.print()
+})
