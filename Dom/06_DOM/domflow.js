@@ -54,7 +54,6 @@ document.addEventListener("click", (e) => {
 // ⚡77. BOM 17 Properties, events, resize, DOMContentLoad
 
 window.addEventListener("resize", (e) => {
-  console.clear()
   console.log("----------RESIZED---------")
   console.log(window.innerHeight);
   console.log(window.innerWidth);
@@ -63,14 +62,12 @@ window.addEventListener("resize", (e) => {
 });
 
 window.addEventListener("scroll", (e) =>{
-  console.clear()
   console.log("----------SCROLL---------")
   console.log(window.scrollX)
   console.log(window.scrollY)
 })
 
 window.addEventListener("DOMContentLoaded", (e) =>{
-  console.clear()
   console.log("----------SCREEN---------")
   console.log(window.screenX)
   console.log(window.screenY)
@@ -93,3 +90,41 @@ ventana.close()
 $printWinButton.addEventListener("click", (x)=>{
   window.print()
 })
+// ⚡79. BOM 19 Objects: URL, History, Navigator.    
+console.log("****LOCATION**RELACIONADO AL LINK*****")
+console.log(location) //Objeto location
+console.log(location.origin) //Nos dice la direccion el origen
+console.log(location.protocol) // Protocolo http
+console.log(location.host) // Host
+console.log(location.hostname) // Nombre del host
+console.log(location.port) //puerto
+console.log(location.href) //link completo
+console.log(location.hash) //Detecta el valor de la url luego de un hash #
+console.log(location.search) //Detecta valores por URL luego de ?param, ?nombre=jon&apellido=bolton
+console.log(location.pathname) //Path
+//location.reload() Recarga la ventana
+console.log("****HISTORY**RELACIONADO AL HISTORIAL****")
+console.log(window.history) //Cuantas paginas podemos retroceder
+console.log(window.history.length) //Length de cuantas paginas vimos
+//console.log(window.history.back(2)) //Ir paginas atras
+//console.log(window.history.forward(3)) // Ir paginas adelante
+//console.log(window.history.go(-1)) // Lo mismo que los de arriba pero todo en uno
+console.log("**NAVIGATOR** RELACIONADO AL USUARIO, UBICACION DISPOSITIVO")
+console.log(navigator)
+console.log(navigator.userAgent)
+console.log(navigator.connection)
+console.log(navigator.geolocation)
+console.log(navigator.mediaDevices)
+console.log(navigator.geolocation)
+console.log(navigator.onLine)
+console.log(navigator.serviceWorker)
+console.log(navigator.storage)
+console.log(navigator.usb)
+
+
+
+
+
+
+
+
