@@ -1,0 +1,11 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --font1: "Sawarabi Mincho", serif;
+  --color1: #1d1a2f;
+  --color2: #8bd450;
+}
