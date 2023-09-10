@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "DS-DIGIB";
+  src: url(/Dom/07_DOM_T/01-Menu/DS-DIGIB.TTF);
+}
+
+.container1 {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.clockTemplate {
+  padding: 15px 25px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: none;
+  font-size: 1.5rem;
+  font-family: "DS-DIGIB";
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  color: #8bd450;
+  background-color: #1d1a2f6e;
+  border: 1px solid #0000002f;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notStarted {
+  color: rgba(244, 174, 68, 0.482);
+  font-size: 1rem;
+}
+
+#stopClockButton,
+#startClockButton,
+#startAlarmButton,
+#stopAlarmButton {
+  padding: 15px 25px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: none;
+  font-size: 0.7rem;
+  font-family: monospace;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  color: #8bd450;
+  background-color: #1d1a2f6e;
+  border: 1px solid #0000002f;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disabled {
+  color: grey !important;
+  transform: unset !important;
+  -webkit-transform: unset !important;
+  -moz-transform: unset !important;
+  -ms-transform: unset !important;
+  -o-transform: unset !important;
+  cursor: unset !important;
+}
