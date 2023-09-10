@@ -1,4 +1,8 @@
 export default function clock(clockTemplate) {
+  if (!(clockTemplate instanceof HTMLElement)) {
+    console.error("🧧Clocktemplate needs to be an HTMLElement");
+    return;
+  }
   const $container = clockTemplate;
   const $stopButton = document.getElementById("stopClockButton");
   const $startButton = document.getElementById("startClockButton");

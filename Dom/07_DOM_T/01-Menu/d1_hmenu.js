@@ -2,7 +2,7 @@ let state;
 const $checkbox = document.getElementById("checkbox");
 export default function hamburguerMenu(button, menu) {
   if (!(button instanceof HTMLElement) || !(menu instanceof HTMLElement)) {
-    console.error("button and menu needs to be a HTML element");
+    console.error("🧧 Button and menu needs to be a HTML element");
     return;
   }
 
