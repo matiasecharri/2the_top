@@ -81,3 +81,14 @@
   -o-transform: unset !important;
   cursor: unset !important;
 }
+
+
+.contClock{
+  background-color: #0000000f;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+
