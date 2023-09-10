@@ -13,33 +13,40 @@
 </head>
 
 <body>
+  <!-- //Hamburguer -->
+  <div class="hamburguerHolder">
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="toggle" id="hamburguerIcon">
+      <div class="bars" id="bar1"></div>
+      <div class="bars" id="bar2"></div>
+      <div class="bars" id="bar3"></div>
+  </div>
+  </label>
+  <!-- //SliderMenu -->
+  <div class="sliderMenu" id="sliderMenu">
+    <div class="wrapper">
+      <a href="/Dom/01_DOM/dom.html">MACHINE TESTER</a>
+      <a href="/Dom/02_DOM/dom.html">CONTROL PANEL</a>
+      <a href="/Dom/03_DOM/dom.html">TEXT TEST</a>
+      <a href="/Dom/04_DOM/dom.html">TEMP + FRAG</a>
+      <a href="/Dom/05_DOM/dom.html">EVENTS</a>
+      <a href="/Dom/06_DOM/dom.html">EVENTS-02</a>
+      <a href="/00NoJS/divs.html">DIVS</a>
+
+    </div>
+  </div>
   <header class="headerHM">
     <div class="backdropProvider"></div>
-    <h1>HAMBURGUER MENU</h1>
-    <!-- //Hamburguer -->
-    <div class="hamburguerHolder">
-      <input type="checkbox" id="checkbox">
-      <label for="checkbox" class="toggle" id="hamburguerIcon">
-        <div class="bars" id="bar1"></div>
-        <div class="bars" id="bar2"></div>
-        <div class="bars" id="bar3"></div>
-    </div>
-    </label>
-    <!-- //SliderMenu -->
-    <div class="sliderMenu" id="sliderMenu">
-      <div class="wrapper">
-        <a href="/Dom/01_DOM/dom.html">MACHINE TESTER</a>
-        <a href="/Dom/02_DOM/dom.html">CONTROL PANEL</a>
-        <a href="/Dom/03_DOM/dom.html">TEXT TEST</a>
-        <a href="/Dom/04_DOM/dom.html">TEMP + FRAG</a>
-        <a href="/Dom/05_DOM/dom.html">EVENTS</a>
-        <a href="/Dom/06_DOM/dom.html">EVENTS-02</a>
-        <a href="/00NoJS/divs.html">DIVS</a>
+    <section class="container1">
+      <div class="clockTemplate"></div>
+      <button id="startClockButton">START CLOCK</button>
+      <button id="stopClockButton">STOP CLOCK</button>
 
-      </div>
-    </div>
+    </section>
+
   </header>
   <script type="module" src="/Dom/07_DOM_T/01-Menu/app.js"></script>
+
 </body>
 
 </html>

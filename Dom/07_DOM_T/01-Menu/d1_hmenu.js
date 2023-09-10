@@ -5,13 +5,14 @@ export default function hamburguerMenu(button, menu) {
     console.error("button and menu needs to be a HTML element");
     return;
   }
-  window.addEventListener("beforeunload", () => {
-    $checkbox.checked = false;
-  });
 
   button.addEventListener("click", () => {
     menu.classList.toggle("sliderMenuActive");
     menu.className.match("sliderMenuActive") ? (state = true) : (state = false);
+  });
+
+  window.addEventListener("beforeunload", () => {
+    $checkbox.checked = false;
   });
 }
 
