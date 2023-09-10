@@ -20,10 +20,12 @@ export default function clock(clockTemplate) {
       alarmSound.pause();
     } else {
       alarmSound = new Audio(file);
-      alarmSound.play();
+      alarmSound.loop = true; // Establece el bucle en true
+      alarmSound.play(); // Luego reproduce el sonido
       isAlarmPlaying = true;
     }
   };
+  
 
   const $container = clockTemplate;
   const $startButton = document.getElementById("startClockButton");

@@ -7,3 +7,4 @@ const $containerClock = document.querySelector(".clockTemplate");
 
 hamburguerMenu($hamburguerIcon, $menu);
 clock($containerClock);
+

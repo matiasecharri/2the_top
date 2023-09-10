@@ -28,12 +28,13 @@
   color: #8bd450;
   background-color: #1d1a2f6e;
   border: 1px solid #0000002f;
-  cursor: pointer;
   width: 200px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
+
 }
 
 .notStarted {
@@ -41,6 +42,10 @@
   font-size: 1rem;
 }
 
+.clockTemplate::selection{
+  user-select: none;
+  
+} 
 #stopClockButton,
 #startClockButton,
 #startAlarmButton,
