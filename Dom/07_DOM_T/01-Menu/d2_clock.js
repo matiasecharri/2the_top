@@ -1,5 +1,5 @@
-export default function clock() {
-  const $container = document.querySelector(".clockTemplate");
+export default function clock(clockTemplate) {
+  const $container = clockTemplate;
   const $stopButton = document.getElementById("stopClockButton");
   const $startButton = document.getElementById("startClockButton");
   let isTheClockRunning = false;
