@@ -1,10 +1,8 @@
-export default function clock(clockTemplate) {
+export function digitalClock(clockTemplate) {
   if (!(clockTemplate instanceof HTMLElement)) {
     console.error("🧧Clocktemplate needs to be an HTMLElement");
     return;
   }
-  let isAlarmPlaying = false;
-  let alarmSound;
 
   const playAudioMessage = file => {
     let messageSound = new Audio(file);
@@ -15,25 +13,11 @@ export default function clock(clockTemplate) {
     }
   };
 
-  const playAlarmSound = file => {
-    if (alarmSound && !alarmSound.paused) {
-      alarmSound.pause();
-    } else {
-      alarmSound = new Audio(file);
-      alarmSound.loop = true; // Establece el bucle en true
-      alarmSound.play(); // Luego reproduce el sonido
-      isAlarmPlaying = true;
-    }
-  };
-  
-
   const $container = clockTemplate;
   const $startButton = document.getElementById("startClockButton");
   const $stopButton = document.getElementById("stopClockButton");
-  const $startAlarmButton = document.getElementById("startAlarmButton");
-  const $stopAlarmButton = document.getElementById("stopAlarmButton");
+
   $stopButton.classList.add("disabled");
-  $stopAlarmButton.classList.add("disabled");
 
   let isTheClockRunning = false;
   let clockStart;
@@ -72,6 +56,28 @@ export default function clock(clockTemplate) {
     $stopButton.removeEventListener("click", clockNotWorking);
   };
 
+  $startButton.addEventListener("click", clockWorking);
+}
+
+export function digitalAlarm() {
+  let isAlarmPlaying = false;
+  let alarmSound;
+
+  const playAlarmSound = file => {
+    if (alarmSound && !alarmSound.paused) {
+      alarmSound.pause();
+    } else {
+      alarmSound = new Audio(file);
+      alarmSound.loop = true;
+      alarmSound.play();
+      isAlarmPlaying = true;
+    }
+  };
+
+  const $startAlarmButton = document.getElementById("startAlarmButton");
+  const $stopAlarmButton = document.getElementById("stopAlarmButton");
+  $stopAlarmButton.classList.add("disabled");
+
   const alarmWorking = () => {
     playAlarmSound("/Dom/07_DOM_T/01-Menu/johnny_silverhand.mp3");
     $startAlarmButton.removeEventListener("click", alarmWorking);
@@ -89,5 +95,4 @@ export default function clock(clockTemplate) {
   };
 
   $startAlarmButton.addEventListener("click", alarmWorking);
-  $startButton.addEventListener("click", clockWorking);
 }
