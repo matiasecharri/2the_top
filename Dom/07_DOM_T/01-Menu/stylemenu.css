@@ -90,8 +90,8 @@
 }
 
 .sliderMenu {
-  background-color: #4f6a852e;
-  background-image: linear-gradient(2deg, #6a123e46 0%, #1e2a2d00 100%);
+  background-color: #00000000;
+  background-image: linear-gradient(2deg, #2c15210c 0%, #0d0f0f00 100%);
   width: 350px;
   height: 100vh;
   position: fixed;
