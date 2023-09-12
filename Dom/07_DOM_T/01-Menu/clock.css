@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "DS-DIGIB";
-  src: url(/Dom/07_DOM_T/01-Menu/DS-DIGIB.TTF);
-}
-
 .container1 {
   height: 100vh;
   width: 100%;
@@ -34,7 +29,6 @@
   justify-content: center;
   align-items: center;
   user-select: none;
-
 }
 
 .notStarted {
@@ -42,10 +36,9 @@
   font-size: 1rem;
 }
 
-.clockTemplate::selection{
+.clockTemplate::selection {
   user-select: none;
-  
-} 
+}
 #stopClockButton,
 #startClockButton,
 #startAlarmButton,
@@ -82,13 +75,12 @@
   cursor: unset !important;
 }
 
-
-.contClock{
+.contClock {
   background-color: #0000000f;
   padding: 30px;
   border-radius: 20px;
-  display: flex; flex-direction: column;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
   border: 1px solid rgba(0, 0, 0, 0.274);
 }
-

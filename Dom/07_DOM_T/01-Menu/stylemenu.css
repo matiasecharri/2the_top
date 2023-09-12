@@ -1,11 +1,21 @@
 @import url("/Dom/07_DOM_T/01-Menu/hamburguer.css");
 @import url("/Dom/07_DOM_T/01-Menu/clock.css");
+@import url("/Dom/07_DOM_T/01-Menu/cryptoWrapper.css");
 
 :root {
   --font1: "Sawarabi Mincho", serif;
   --font2: monospace;
   --color1: #1d1a2f;
   --color2: #8bd450;
+}
+@font-face {
+  font-family: "DS-DIGIB";
+  src: url(/Dom/07_DOM_T/01-Menu/DS-DIGIB.TTF);
+}
+
+@font-face {
+  font-family: "DS-DIGI";
+  src: url(/Dom/07_DOM_T/01-Menu/DS-DIGI.TTF);
 }
 
 * {
@@ -156,4 +166,11 @@
   -moz-transition: ease 0.3s;
   -ms-transition: ease 0.3s;
   -o-transition: ease 0.3s;
+}
+
+.livecoinwatch-widget-5 {
+  position: absolute;
+  left: 50;
+  top: 50;
+  width: 100% !important;
 }
