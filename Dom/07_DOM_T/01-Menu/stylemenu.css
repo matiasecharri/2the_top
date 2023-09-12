@@ -24,6 +24,9 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+body{
+  background-color: #171817;
+}
 *::selection {
   background-color: rgba(17, 7, 27, 0.185);
   color: var(--color2);
@@ -174,3 +177,4 @@
   top: 50;
   width: 100% !important;
 }
+
