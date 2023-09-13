@@ -25,10 +25,10 @@ export default function apiCrypto() {
     if (targetReached === true) {
       return;
     }
-    if (stockObject.p >= 26000) {
+    if (stockObject.p > 26000) {
       targetReached = true;
       setTimeout(() => {
-        playAudioMessage("/Dom/07_DOM_T/01-Menu/target_sound_arcade.mp3");
+        playAudioMessage("/Dom/07_DOM_T/01-Menu/eurodollar_transfer.mp3");
       }, 1000);
       return;
     }

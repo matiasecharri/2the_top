@@ -10,3 +10,4 @@ hamburguerMenu($hamburguerIcon, $menu);
 digitalClock($containerClock);
 digitalAlarm();
 apiCrypto();
+//Agregar que el usuario pueda establecer el target
