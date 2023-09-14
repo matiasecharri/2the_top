@@ -25,7 +25,7 @@ export default function apiCrypto() {
     if (targetReached === true) {
       return;
     }
-    if (stockObject.p > 26000) {
+    if (stockObject.p > 26350 || stockObject.p < 26000) {
       targetReached = true;
       setTimeout(() => {
         playAudioMessage("/Dom/07_DOM_T/01-Menu/eurodollar_transfer.mp3");
