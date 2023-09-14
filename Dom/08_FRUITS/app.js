@@ -1,17 +1,10 @@
 // CASO1:
-
 // Searchbar ON
-
 // CASO2:
-
 // 1+ Checkbox ON
-
 // CASO3:
-
 // Searchbar ON + 1+CHECKBOX ON
-
 // CASO4:
-
 // All OFF
 
 const arrayFruits = [
@@ -120,4 +113,5 @@ const printer = (array, container, nombre, imagen) => {
 </div>`;
   });
 };
+
 printer(arrayFruits, $containerCards, "name", "image");
