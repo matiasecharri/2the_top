@@ -167,19 +167,20 @@ main {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   transition: ease-in-out 0.4s;
+  cursor: pointer;
 }
 
 .cardFruits img:hover {
-  transition: ease-in-out 0.4s;
-  transform: scale(105%);
-  -webkit-transform: scale(105%);
-  -moz-transform: scale(105%);
-  -ms-transform: scale(105%);
-  -o-transform: scale(105%);
-  -webkit-transition: ease-in-out 0.4s;
-  -moz-transition: ease-in-out 0.4s;
-  -ms-transition: ease-in-out 0.4s;
-  -o-transition: ease-in-out 0.4s;
+  transition: ease-in-out 0.3s;
+  transform: scale(105%) translateY(5px) rotate(-2deg);
+  -webkit-transform: scale(105%) translateY(5px) rotate(-2deg);
+  -moz-transform: scale(105%) translateY(5px) rotate(-2deg);
+  -ms-transform: scale(105%) translateY(5px) rotate(-2deg);
+  -o-transform: scale(105%) translateY(5px) rotate(-2deg);
+  -webkit-transition: ease-in-out 0.3s;
+  -moz-transition: ease-in-out 0.3s;
+  -ms-transition: ease-in-out 0.3s;
+  -o-transition: ease-in-out 0.3s;
 }
 
 .filter {
@@ -219,4 +220,31 @@ main {
   color: #ada9ad;
   letter-spacing: 5px;
   font-size: 0.6rem;
+}
+
+#modal {
+  position: absolute;
+  top: auto;
+  left: auto;
+  height: 100vh;
+  width: 100%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.208);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+}
+
+#modal img {
+  width: 70%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  cursor: pointer;
 }

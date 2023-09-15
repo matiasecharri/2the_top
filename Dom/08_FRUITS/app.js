@@ -115,3 +115,21 @@ const printer = (array, container, nombre, imagen) => {
 };
 
 printer(arrayFruits, $containerCards, "name", "image");
+
+// ... Tu código anterior ...
+
+const imagesCards = document.querySelectorAll("#containerCards img");
+const $main = document.querySelector("main");
+
+imagesCards.forEach(img => {
+  img.addEventListener("click", event => {
+    const clickedImage = event.target;
+    const modal = document.createElement("div");
+    modal.id = "modal";
+    modal.innerHTML = `<img src="${clickedImage.src}" alt="${clickedImage.alt}">`;
+    $main.appendChild(modal);
+    modal.addEventListener("click", x => {
+      $main.removeChild(modal);
+    });
+  });
+});
