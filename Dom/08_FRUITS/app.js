@@ -48,16 +48,33 @@ const searching = array => {
 
 const imageModal = () => {
   const imagesCards = document.querySelectorAll("#containerCards img");
+
   imagesCards.forEach(img => {
     img.addEventListener("click", event => {
       const clickedImage = event.target;
-      const modal = document.createElement("div");
-      modal.id = "modal";
-      modal.innerHTML = `<img src="${clickedImage.src}" alt="${clickedImage.alt}">`;
-      $main.appendChild(modal);
-      modal.addEventListener("click", x => {
-        $main.removeChild(modal);
-      });
+      const fruitName = clickedImage.alt;
+
+      // Buscamos la descripción y origen de la fruta en arrayFruits
+      const fruitData = arrayFruits.find(x => x.name === fruitName);
+
+      if (fruitData) {
+        const modal = document.createElement("div");
+        modal.id = "modal";
+
+        modal.innerHTML = `
+          <img src="${clickedImage.src}" alt="${clickedImage.alt}">
+          <div class="modalDiv">
+          <p class="modalP"><span>Origin:</span> ${fruitData.origin}</p>
+          <p class="modalP"><span>Description:</span> ${fruitData.description}</p>
+          </div>
+        `;
+
+        $main.appendChild(modal);
+
+        modal.addEventListener("click", x => {
+          $main.removeChild(modal);
+        });
+      }
     });
   });
 };
@@ -70,7 +87,7 @@ const createUnrepeatedList = (array, property) => {
   const arrayNoDuplicated = [...noDuplicated];
   return arrayNoDuplicated;
 };
-const colorList = createUnrepeatedList(arrayFruits, "color");
+const colorList = createUnrepeatedList(arrayFruits, "type");
 
 const printer2 = (array, container) => {
   array.forEach(element => {
@@ -80,6 +97,7 @@ const printer2 = (array, container) => {
 </label>`;
   });
 };
+console.log(colorList);
 printer(arrayFruits, $containerCards, "name", "image");
 printer2(colorList, $userPanel);
 searching(arrayFruits);
