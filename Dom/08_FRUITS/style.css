@@ -1,21 +1,7 @@
-@import url("/Dom/07_DOM_T/01-Menu/hamburguer.css");
-@import url("/Dom/07_DOM_T/01-Menu/clock.css");
-@import url("/Dom/07_DOM_T/01-Menu/cryptoWrapper.css");
-
 :root {
   --font1: "Sawarabi Mincho", serif;
   --font2: monospace;
-  --color1: #1d1a2f;
-  --color2: #8bd450;
-}
-@font-face {
-  font-family: "DS-DIGIB";
-  src: url(/Dom/07_DOM_T/01-Menu/DS-DIGIB.TTF);
-}
-
-@font-face {
-  font-family: "DS-DIGI";
-  src: url(/Dom/07_DOM_T/01-Menu/DS-DIGI.TTF);
+  --UIOrange: #ffa500;
 }
 
 * {
@@ -26,6 +12,7 @@
 }
 body {
   background-color: #171817;
+  overflow-x: hidden;
 }
 *::selection {
   background-color: rgba(32, 33, 32, 0.272);
@@ -54,8 +41,8 @@ h1 {
   top: 3%;
 }
 h1 span {
-  font-weight: 400;
-  color: #ffa500;
+  font-weight: 500;
+  color: var(--UIOrange);
 }
 
 .headerHM {
@@ -122,7 +109,7 @@ main {
   -ms-border-radius: 25px;
   -o-border-radius: 25px;
   border: none;
-  background-color: #dcd9ee10;
+  background-color: #dcd9ee00;
   cursor: pointer;
   outline: none;
   /*Eliminaelbordealseleccionar*/
@@ -133,10 +120,11 @@ main {
   letter-spacing: 5px;
   font-weight: 100;
   font-size: 0.8rem;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.349);
 }
 
 #searchBar::selection {
-  background-color: transparent; /* Asegúrate de que la selección no tenga fondo */
+  background-color: transparent; /* Asegúrat e de que la selección no tenga fondo */
 }
 
 #containerCards {
@@ -327,12 +315,13 @@ main {
   left: 0;
   height: 20px;
   width: 20px;
-  background-color: #efefe546;
+  background-color: #efefe500;
   border-radius: 360px;
   -webkit-border-radius: 360px;
   -moz-border-radius: 360px;
   -ms-border-radius: 360px;
   -o-border-radius: 360px;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.25);
 }
 
 .custom-checkbox {
@@ -346,7 +335,7 @@ main {
 
 /* Cambia el color del marcador cuando la casilla está marcada */
 .custom-checkbox input:checked + .checkmark {
-  background-color: #efefe546; /* Color cuando está marcado */
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.595);
 }
 
 /* Estilo del marcador de verificación (el símbolo de marca de verificación) */
@@ -367,7 +356,7 @@ main {
   top: 5px;
   width: 4px;
   height: 8px;
-  border: solid #ffa500;
+  border: solid rgb(117, 193, 163);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
