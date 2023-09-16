@@ -250,7 +250,12 @@ main {
 }
 
 
-@media (width < 670px) {
+@media (width > 670px) {
+  .phonesNotSupported{
+    display: none;
+  }}
+
+@media (width <= 670px) {
   .phonesNotSupported{
     position: absolute;
     background-color: #12151d;
