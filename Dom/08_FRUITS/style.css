@@ -28,8 +28,7 @@ body {
   background-color: #171817;
 }
 *::selection {
-  background-color: rgba(17, 7, 27, 0.185);
-  color: red;
+  background-color: rgba(32, 33, 32, 0.272);
 }
 
 ::-webkit-scrollbar {
@@ -43,6 +42,20 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgba(31, 32, 31, 0);
   border-radius: 6px;
+}
+h1 {
+  color: rgb(200, 196, 191);
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 100;
+  position: absolute;
+  top: 3%;
+}
+h1 span {
+  font-weight: 400;
+  color: #ffa500;
 }
 
 .headerHM {
@@ -88,14 +101,19 @@ main {
   justify-content: flex-start;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.688);
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
   padding: 20px;
+  gap: 25px;
 }
 
+#userPanelX {
+  display: flex;
+  gap: 20px;
+}
 #searchBar {
   padding: 15px;
   border-radius: 25px;
@@ -208,18 +226,19 @@ main {
   width: 180px;
   top: -8%;
   text-align: center;
-  color: #ada9ad;
+  color: rgba(200, 196, 191, 0.775);
   letter-spacing: 5px;
   font-size: 0.5rem;
 }
 
 .traditionalClass {
-  font-family: var(--font1);
   width: 180px;
   text-align: center;
   color: #ada9ad;
   letter-spacing: 5px;
   font-size: 0.6rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 #modal {
@@ -249,16 +268,16 @@ main {
   cursor: pointer;
 }
 
-
 @media (width > 670px) {
-  .phonesNotSupported{
+  .phonesNotSupported {
     display: none;
-  }}
+  }
+}
 
 @media (width <= 670px) {
-  .phonesNotSupported{
+  .phonesNotSupported {
     position: absolute;
-    background-color: #12151d;
+    background-color: #1f2022;
     height: 100vh;
     width: 100vw;
     z-index: 999;
@@ -266,14 +285,89 @@ main {
     justify-content: center;
     align-items: center;
   }
-
-  main{display: none;}
+  main,
+  h1 {
+    display: none;
+  }
 
   .phonesNotSupported h2 {
-    color: rgb(255, 251, 245);
+    color: rgb(200, 196, 191);
     text-align: center;
     font-size: 1.5rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 900;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-weight: 100;
   }
+  .phonesNotSupported span {
+    font-weight: 400;
   }
+}
+
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px; /* Espacio para el icono o marcador */
+
+  margin-right: 10px; /* Espaciado entre las casillas de verificación */
+  cursor: pointer;
+}
+
+/* Estilo para ocultar la casilla de verificación nativa */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Estilo para el icono/marcador personalizado */
+.checkmark {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #efefe546;
+  border-radius: 360px;
+  -webkit-border-radius: 360px;
+  -moz-border-radius: 360px;
+  -ms-border-radius: 360px;
+  -o-border-radius: 360px;
+}
+
+.custom-checkbox {
+  font-family: var(--font1);
+  font-size: 0.6rem;
+  color: rgba(200, 196, 191, 0.931);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+
+/* Cambia el color del marcador cuando la casilla está marcada */
+.custom-checkbox input:checked + .checkmark {
+  background-color: #efefe546; /* Color cuando está marcado */
+}
+
+/* Estilo del marcador de verificación (el símbolo de marca de verificación) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Muestra el símbolo de marca de verificación cuando la casilla está marcada */
+.custom-checkbox input:checked + .checkmark:after {
+  display: block;
+}
+
+/* Estilo del símbolo de marca de verificación (puede personalizarlo a su gusto) */
+.custom-checkbox .checkmark:after {
+  left: 7.35px;
+  top: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid #ffa500;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
