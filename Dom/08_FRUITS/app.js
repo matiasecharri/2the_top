@@ -120,7 +120,7 @@ $checkboxes.forEach(checkbox => {
           return pushedCategories.includes(x.type);
         });
         console.log(pushedCategories);
-
+        $searchBar.value = "";
         $containerCards.innerHTML = "";
         printer(tropicalArray, $containerCards, "name", "image");
         searching(tropicalArray);
