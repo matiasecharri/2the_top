@@ -11,6 +11,7 @@ const $main = document.querySelector("main");
 const $containerCards = document.getElementById("containerCards");
 const $searchBar = document.getElementById("searchBar");
 const $userPanel = document.getElementById("userPanelX");
+
 const arrayFruits = arrayFruitsX;
 let userText = "";
 
@@ -56,11 +57,9 @@ const imageModal = () => {
 
       // Buscamos la descripción y origen de la fruta en arrayFruits
       const fruitData = arrayFruits.find(x => x.name === fruitName);
-
       if (fruitData) {
         const modal = document.createElement("div");
         modal.id = "modal";
-
         modal.innerHTML = `
           <img src="${clickedImage.src}" alt="${clickedImage.alt}">
           <div class="modalDiv">
@@ -80,14 +79,14 @@ const imageModal = () => {
 };
 
 const createUnrepeatedList = (array, property) => {
-  const colors = array.map(x => {
+  const types = array.map(x => {
     return x[property];
   });
-  const noDuplicated = new Set(...[colors]);
+  const noDuplicated = new Set(...[types]);
   const arrayNoDuplicated = [...noDuplicated];
   return arrayNoDuplicated;
 };
-const colorList = createUnrepeatedList(arrayFruits, "type");
+const types = createUnrepeatedList(arrayFruits, "type");
 
 const printer2 = (array, container) => {
   array.forEach(element => {
@@ -97,8 +96,40 @@ const printer2 = (array, container) => {
 </label>`;
   });
 };
-console.log(colorList);
+
 printer(arrayFruits, $containerCards, "name", "image");
-printer2(colorList, $userPanel);
+printer2(types, $userPanel);
 searching(arrayFruits);
 imageModal();
+
+const $checkboxes = document.querySelectorAll(".custom-checkbox");
+let pushedCategories = [];
+
+$checkboxes.forEach(checkbox => {
+  checkbox.addEventListener("change", event => {
+    if (!event.target.checked) {
+      $containerCards.innerHTML = "";
+      pushedCategories = [];
+      searching(arrayFruits);
+      imageModal();
+    }
+    if (event.target.checked) {
+      pushedCategories.push(event.target.id);
+      if (pushedCategories.includes(event.target.id)) {
+        let tropicalArray = arrayFruits.filter(x => {
+          return pushedCategories.includes(x.type);
+        });
+        console.log(pushedCategories);
+
+        $containerCards.innerHTML = "";
+        printer(tropicalArray, $containerCards, "name", "image");
+        searching(tropicalArray);
+        imageModal();
+      }
+    } else {
+      printer(arrayFruits, $containerCards, "name", "image");
+      searching(arrayFruits);
+      imageModal();
+    }
+  });
+});
