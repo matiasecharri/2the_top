@@ -1,11 +1,3 @@
-// CASO1:
-// Searchbar ON
-// CASO2:
-// 1+ Checkbox ON
-// CASO3:
-// Searchbar ON + 1+CHECKBOX ON
-// CASO4:
-// All OFF
 import { arrayFruitsX } from "/Dom/08_FRUITS/arrays.js";
 const $main = document.querySelector("main");
 const $containerCards = document.getElementById("containerCards");
@@ -33,7 +25,7 @@ const searching = array => {
       return element.name.toLowerCase().includes(userText);
     });
     filteredArray.length === 0
-      ? ($containerCards.innerHTML = `<span class="traditionalClass">SORRY WE DON'T HAVE THAT FRUIT</span>`)
+      ? ($containerCards.innerHTML = `<span class="traditionalClass">SORRY WE DON'T HAVE ${userText.toUpperCase()}</span>`)
       : printer(filteredArray, $containerCards, "name", "image");
     imageModal();
 
@@ -91,7 +83,7 @@ const types = createUnrepeatedList(arrayFruits, "type");
 const printer2 = (array, container) => {
   array.forEach(element => {
     container.innerHTML += `<label class="custom-checkbox" for="${element}">${element}
-    <input type="checkbox" id="${element}" name="color" value="${element}">
+    <input type="checkbox" id="${element}" name="${element}" value="${element}">
     <span class="checkmark"></span>
 </label>`;
   });
@@ -99,37 +91,35 @@ const printer2 = (array, container) => {
 
 printer(arrayFruits, $containerCards, "name", "image");
 printer2(types, $userPanel);
-searching(arrayFruits);
 imageModal();
 
 const $checkboxes = document.querySelectorAll(".custom-checkbox");
-let pushedCategories = [];
+const unrepeatedCategories = new Set();
 
 $checkboxes.forEach(checkbox => {
   checkbox.addEventListener("change", event => {
-    if (!event.target.checked) {
+    let activeCheckbox = event.target.value;
+    console.log(unrepeatedCategories);
+    event.target.checked
+      ? unrepeatedCategories.add(activeCheckbox)
+      : unrepeatedCategories.delete(activeCheckbox);
+
+    const arrayOfActiveCheckbox = [...unrepeatedCategories];
+    const filterByCheck = arrayFruits.filter(x => {
       $containerCards.innerHTML = "";
-      pushedCategories = [];
-      searching(arrayFruits);
+      return arrayOfActiveCheckbox.includes(x.type);
+    });
+    if (filterByCheck.length !== 0) {
+      printer(filterByCheck, $containerCards, "name", "image");
+      searching(filterByCheck);
       imageModal();
-    }
-    if (event.target.checked) {
-      pushedCategories.push(event.target.id);
-      if (pushedCategories.includes(event.target.id)) {
-        let tropicalArray = arrayFruits.filter(x => {
-          return pushedCategories.includes(x.type);
-        });
-        console.log(pushedCategories);
-        $searchBar.value = "";
-        $containerCards.innerHTML = "";
-        printer(tropicalArray, $containerCards, "name", "image");
-        searching(tropicalArray);
-        imageModal();
-      }
     } else {
-      printer(arrayFruits, $containerCards, "name", "image");
+      $searchBar.value = "";
       searching(arrayFruits);
+      printer(arrayFruits, $containerCards, "name", "image");
       imageModal();
     }
   });
 });
+
+searching(arrayFruits);
