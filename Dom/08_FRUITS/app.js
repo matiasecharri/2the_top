@@ -106,15 +106,16 @@ $checkboxes.forEach(checkbox => {
 
     const arrayOfActiveCheckbox = [...unrepeatedCategories];
     const filterByCheck = arrayFruits.filter(x => {
-      $containerCards.innerHTML = "";
       return arrayOfActiveCheckbox.includes(x.type);
     });
     if (filterByCheck.length !== 0) {
+      $containerCards.innerHTML = "";
       printer(filterByCheck, $containerCards, "name", "image");
       searching(filterByCheck);
       imageModal();
     } else {
       $searchBar.value = "";
+      $containerCards.innerHTML = "";
       searching(arrayFruits);
       printer(arrayFruits, $containerCards, "name", "image");
       imageModal();
