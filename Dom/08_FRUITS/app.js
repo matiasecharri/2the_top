@@ -1,3 +1,4 @@
+///-------------------------INNERHTML VERSION LOW RENDER SPEED-----------------------///
 // import { arrayFruitsX } from "/Dom/08_FRUITS/arrays.js";
 // const $main = document.querySelector("main");
 // const $containerCards = document.getElementById("containerCards");
@@ -130,7 +131,7 @@
 // });
 
 // searching(arrayFruits);
-///-------------------------FRAGMENT VERSION-----------------------///
+///-------------------------FRAGMENT VERSION RENDER SPEED INCREASED-----------------------///
 import { arrayFruitsX } from "/Dom/08_FRUITS/arrays.js";
 
 const $main = document.querySelector("main");
