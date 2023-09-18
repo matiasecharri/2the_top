@@ -89,7 +89,9 @@ const printer2 = (array, container) => {
   });
 };
 
+printer(arrayFruits, $containerCards, "name", "image");
 printer2(types, $userPanel);
+imageModal();
 
 const $checkboxes = document.querySelectorAll(".custom-checkbox");
 const unrepeatedCategories = new Set();
@@ -121,6 +123,4 @@ $checkboxes.forEach(checkbox => {
   });
 });
 
-printer(arrayFruits, $containerCards, "name", "image");
 searching(arrayFruits);
-imageModal();
