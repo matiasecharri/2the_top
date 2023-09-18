@@ -132,6 +132,7 @@
 
 // searching(arrayFruits);
 ///-------------------------FRAGMENT VERSION RENDER SPEED INCREASED-----------------------///
+//COMENTAR EL CODIGO, PENSAR EN AGREGAR TRANSICIONES, SEGURAMENTE ES ALGO COMO BEFORELOADING Y METER UN DIV
 import { arrayFruitsX } from "/Dom/08_FRUITS/arrays.js";
 
 const $main = document.querySelector("main");
@@ -275,7 +276,6 @@ $checkboxes.forEach(checkbox => {
       printer(filterByCheck, $containerCards, "name", "image");
       searching(filterByCheck);
       imageModal();
-      isSomethingChecked = true;
     } else {
       $searchBar.value = "";
       $containerCards.innerHTML = "";
