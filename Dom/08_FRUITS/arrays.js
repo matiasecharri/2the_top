@@ -34,7 +34,7 @@ const arrayFruitsX = [
   {
     name: "banana",
     type: "Tropical",
-    image: "/Dom/08_FRUITS/assets/banana.webp",
+    image: "/Dom/08_FRUITS/assets/bananav3.webp",
     origin: "Southeast Asia",
     description:
       "Bananas are tropical fruits that grow in clusters. They are a source of potassium and energy.",
