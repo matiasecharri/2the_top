@@ -38,7 +38,9 @@ h1 {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 100;
   position: absolute;
-  top: 3%;
+  top: -60%;
+  left: 0%;
+  right: 0%;
 }
 h1 span {
   font-weight: 500;
@@ -95,6 +97,7 @@ main {
   -o-border-radius: 15px;
   padding: 20px;
   gap: 40px;
+  position: relative;
 }
 
 #userPanelX {
