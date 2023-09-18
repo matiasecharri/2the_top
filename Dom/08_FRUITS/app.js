@@ -3,6 +3,7 @@
 // const $containerCards = document.getElementById("containerCards");
 // const $searchBar = document.getElementById("searchBar");
 // const $userPanel = document.getElementById("userPanelX");
+// let isSomethingChecked = false;
 
 // const arrayFruits = arrayFruitsX;
 // let userText = "";
@@ -111,13 +112,20 @@
 //       printer(filterByCheck, $containerCards, "name", "image");
 //       searching(filterByCheck);
 //       imageModal();
+//       isSomethingChecked = true;
 //     } else {
 //       $searchBar.value = "";
 //       $containerCards.innerHTML = "";
 //       searching(arrayFruits);
 //       printer(arrayFruits, $containerCards, "name", "image");
 //       imageModal();
+//       isSomethingChecked = false;
 //     }
+//     $searchBar.addEventListener("input", x => {
+//       if (isSomethingChecked === true) {
+//         printer(filterByCheck, $containerCards, "name", "image");
+//       }
+//     });
 //   });
 // });
 
@@ -132,6 +140,7 @@ const $userPanel = document.getElementById("userPanelX");
 
 const arrayFruits = arrayFruitsX;
 let userText = "";
+let isSomethingChecked = false;
 
 const printer = (array, container, nombre, imagen) => {
   const fragment = document.createDocumentFragment();
@@ -265,13 +274,20 @@ $checkboxes.forEach(checkbox => {
       printer(filterByCheck, $containerCards, "name", "image");
       searching(filterByCheck);
       imageModal();
+      isSomethingChecked = true;
     } else {
       $searchBar.value = "";
       $containerCards.innerHTML = "";
       searching(arrayFruits);
       printer(arrayFruits, $containerCards, "name", "image");
       imageModal();
+      isSomethingChecked = false;
     }
+    $searchBar.addEventListener("input", x => {
+      if (isSomethingChecked === true) {
+        printer(filterByCheck, $containerCards, "name", "image");
+      }
+    });
   });
 });
 
