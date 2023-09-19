@@ -426,7 +426,7 @@ main {
   }
 }
 
-@media (width > 360px) {
+@media (width > 359px) {
   .phonesNotSupported {
     display: none;
   }
@@ -455,6 +455,32 @@ main {
     justify-content: center;
     align-items: center;
     gap: 22px;
+  }
+
+  #modal {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .modalDiv {
+    padding: unset;
+    margin: unset;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+  }
+  #modal img,
+  p {
+    width: 350px;
+    margin-left: unset;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border: unset;
   }
 }
 
@@ -541,7 +567,8 @@ main {
     width: 100%;
   }
   h1 {
-    top: -30%;
+    top: -24%;
+    font-size: 1.2rem;
   }
 
   .led-blue {
@@ -551,7 +578,71 @@ main {
   }
 }
 
+@media (width <= 420px) {
+  .userPanel {
+    width: 340px;
+    flex-direction: column;
+    gap: 22px;
+  }
+  #searchBar {
+    width: 100%;
+  }
+  #containerCards {
+    width: 340px;
+    gap: 30px;
+  }
+
+  #userPanelX {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+  }
+  .custom-checkbox {
+    font-size: 0.45rem;
+    width: 38px;
+  }
+
+  .cardFruits {
+    height: 150px;
+    width: 100%;
+  }
+  h1 {
+    top: -24%;
+    font-size: 1.2rem;
+  }
+
+  .led-blue {
+    position: absolute;
+    right: 9px;
+    top: 12%;
+  }
+
+  #modal img,
+  p {
+    width: 320px;
+    margin-left: unset;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border: unset;
+  }
+
+  #modal p {
+    font-size: 0.9rem;
+  }
+}
 @media (width <= 360px) {
+  h1 {
+    top: -22%;
+    font-size: 1.1rem;
+  }
+}
+
+@media (width <= 359px) {
   .phonesNotSupported {
     position: absolute;
     background-color: #1f2022;
