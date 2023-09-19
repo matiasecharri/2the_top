@@ -139,6 +139,7 @@ const $main = document.querySelector("main");
 const $containerCards = document.getElementById("containerCards");
 const $searchBar = document.getElementById("searchBar");
 const $userPanel = document.getElementById("userPanelX");
+const $led = document.getElementById("ledLight");
 
 const arrayFruits = arrayFruitsX;
 let userText = "";
@@ -170,6 +171,11 @@ const printer = (array, container, nombre, imagen) => {
   container.appendChild(fragment);
 };
 
+const uiSounds = file => {
+  let uiSound = new Audio(file);
+  uiSound.play();
+};
+
 const searching = array => {
   $searchBar.addEventListener("keyup", event => {
     $containerCards.innerHTML = "";
@@ -177,12 +183,22 @@ const searching = array => {
     const filteredArray = array.filter(element => {
       return element.name.toLowerCase().includes(userText);
     });
-    filteredArray.length === 0
-      ? ($containerCards.innerHTML = `<span class="traditionalClass">SORRY WE DON'T HAVE THAT!</span>`)
-      : printer(filteredArray, $containerCards, "name", "image");
-    imageModal();
+
+    if (filteredArray.length !== 0) {
+      $led.classList.remove("led-red");
+    }
+    if (filteredArray.length === 0) {
+      $containerCards.innerHTML = `<span class="traditionalClass">SORRY WE DON'T HAVE THAT!</span>`;
+      $led.classList.add("led-red");
+    } else {
+      printer(filteredArray, $containerCards, "name", "image");
+      imageModal();
+    }
 
     $searchBar.addEventListener("input", event => {
+      if (event.target.value === "") {
+        $led.classList.remove("led-red");
+      }
       $containerCards.innerHTML = "";
       event.target.value === ""
         ? printer(array, $containerCards, "name", "image")
@@ -197,10 +213,9 @@ const imageModal = () => {
 
   imagesCards.forEach(img => {
     img.addEventListener("click", event => {
+      uiSounds("/Dom/08_FRUITS/assets/sounds/ui-click.wav");
       const clickedImage = event.target;
       const fruitName = clickedImage.alt;
-
-      // Buscamos la descripción y origen de la fruta en arrayFruits
       const fruitData = arrayFruits.find(x => x.name === fruitName);
       if (fruitData) {
         const modal = document.createElement("div");
@@ -216,6 +231,7 @@ const imageModal = () => {
         $main.appendChild(modal);
 
         modal.addEventListener("click", x => {
+          uiSounds("/Dom/08_FRUITS/assets/sounds/ui-close.wav");
           $main.removeChild(modal);
         });
       }
