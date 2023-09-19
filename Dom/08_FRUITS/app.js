@@ -146,6 +146,7 @@ let userText = "";
 let isSomethingChecked = false;
 
 const printer = (array, container, nombre, imagen) => {
+  $led.classList.remove("led-red");
   const fragment = document.createDocumentFragment();
   array.forEach(elemento => {
     const cardDiv = document.createElement("div");
