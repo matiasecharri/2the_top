@@ -267,42 +267,6 @@ main {
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-@media (width > 670px) {
-  .phonesNotSupported {
-    display: none;
-  }
-}
-
-@media (width <= 670px) {
-  .phonesNotSupported {
-    position: absolute;
-    background-color: #1f2022;
-    height: 100vh;
-    width: 100vw;
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  main,
-  h1 {
-    display: none;
-  }
-
-  .phonesNotSupported h2 {
-    color: rgb(200, 196, 191);
-    text-align: center;
-    font-size: 1.5rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-      sans-serif;
-    font-weight: 100;
-  }
-  .phonesNotSupported span {
-    font-weight: 400;
-  }
-}
-
 .custom-checkbox {
   display: inline-block;
   position: relative;
@@ -459,5 +423,160 @@ main {
   }
   100% {
     opacity: 0.7;
+  }
+}
+
+@media (width > 360px) {
+  .phonesNotSupported {
+    display: none;
+  }
+}
+
+@media (width <= 670px) {
+  .userPanel {
+    width: 550px;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 25px;
+  }
+  #searchBar {
+    width: 83%;
+  }
+  #containerCards {
+    width: 550px;
+    gap: 30px;
+  }
+  h1 {
+    top: -35%;
+  }
+  #userPanelX {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+  }
+}
+
+@media (width <= 580px) {
+  .userPanel {
+    width: 460px;
+    flex-direction: column;
+    gap: 15px;
+  }
+  #searchBar {
+    width: 100%;
+  }
+  #containerCards {
+    width: 460px;
+    gap: 30px;
+  }
+  .led-blue {
+    position: absolute;
+    right: 9px;
+    top: 12%;
+  }
+}
+
+@media (width <= 490px) {
+  .userPanel {
+    width: 395px;
+    flex-direction: column;
+    gap: 22px;
+  }
+  #searchBar {
+    width: 97%;
+  }
+  #containerCards {
+    width: 395px;
+    gap: 30px;
+  }
+
+  #userPanelX {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+  }
+  .custom-checkbox {
+    font-size: 0.45rem;
+    width: 38px;
+  }
+
+  .cardFruits {
+    height: 150px;
+    width: 40%;
+  }
+}
+
+@media (width <= 420px) {
+  .userPanel {
+    width: 340px;
+    flex-direction: column;
+    gap: 22px;
+  }
+  #searchBar {
+    width: 100%;
+  }
+  #containerCards {
+    width: 340px;
+    gap: 30px;
+  }
+
+  #userPanelX {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+  }
+  .custom-checkbox {
+    font-size: 0.45rem;
+    width: 38px;
+  }
+
+  .cardFruits {
+    height: 150px;
+    width: 100%;
+  }
+  h1 {
+    top: -30%;
+  }
+
+  .led-blue {
+    position: absolute;
+    right: 9px;
+    top: 12%;
+  }
+}
+
+@media (width <= 360px) {
+  .phonesNotSupported {
+    position: absolute;
+    background-color: #1f2022;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  main,
+  h1 {
+    display: none;
+  }
+
+  .phonesNotSupported h2 {
+    color: rgb(200, 196, 191);
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-weight: 100;
+  }
+  .phonesNotSupported span {
+    font-weight: 400;
   }
 }
