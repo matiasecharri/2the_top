@@ -43,7 +43,7 @@ h1 {
   right: 0%;
 }
 h1 span {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--UIOrange);
 }
 
@@ -84,7 +84,7 @@ main {
 }
 
 .userPanel {
-  border: 1px solid rgba(255, 255, 255, 0.099);
+  border: 1px solid rgba(247, 246, 246, 0.099);
   width: 55%;
   display: flex;
   justify-content: flex-start;
@@ -98,6 +98,8 @@ main {
   padding: 20px;
   gap: 40px;
   position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.73) 0px 8px 16px -8px;
 }
 
 #userPanelX {
@@ -178,6 +180,8 @@ main {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  box-shadow: rgba(25, 25, 44, 0.171) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.37) 0px 8px 16px -8px;
 }
 
 .cardFruits img:hover {
@@ -191,6 +195,8 @@ main {
   -moz-transition: ease-in-out 0.3s;
   -ms-transition: ease-in-out 0.3s;
   -o-transition: ease-in-out 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.201) 0px 19px 38px,
+    rgba(0, 0, 0, 0.129) 0px 15px 12px;
 }
 
 .filter {
@@ -210,6 +216,8 @@ main {
   -moz-transition: ease-in-out 0.5s;
   -ms-transition: ease-in-out 0.5s;
   -o-transition: ease-in-out 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.096) 0px 19px 38px,
+    rgba(0, 0, 0, 0.378) 0px 15px 12px;
 }
 
 .cardFruits p {
@@ -331,7 +339,7 @@ main {
   top: 5px;
   width: 4px;
   height: 8px;
-  border: solid rgb(117, 193, 163);
+  border: solid #aae957b5;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -427,48 +435,101 @@ main {
 }
 
 .addToCart {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border: none;
   position: absolute;
-  right: -5%;
-  top: 0%;
+  right: -13%;
+  top: 35%;
   z-index: 2;
   border-radius: 360px;
   -webkit-border-radius: 360px;
   -moz-border-radius: 360px;
   -ms-border-radius: 360px;
   -o-border-radius: 360px;
-  background-color: rgba(46, 44, 44, 0.412);
+  background-color: #25252593;
+  box-shadow: inset 2px 5px 10px rgb(29, 28, 28);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: unset;
-  margin: unset;
   cursor: pointer;
   transition: ease-in-out 0.2s;
   -webkit-transition: ease-in-out 0.2s;
   -moz-transition: ease-in-out 0.2s;
   -ms-transition: ease-in-out 0.2s;
   -o-transition: ease-in-out 0.2s;
+  background-color: #aae957b5;
+  box-shadow: inset 2px 5px 10px #81cb58ad;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .addToCart path {
-  fill: rgba(228, 197, 173, 0.83);
+  fill: #2a4508b5;
+  transition: all ease-in-out 0.4s;
+  -webkit-transition: all ease-in-out 0.4s;
+  -moz-transition: all ease-in-out 0.4s;
+  -ms-transition: all ease-in-out 0.4s;
+  -o-transition: all ease-in-out 0.4s;
 }
-
 .addToCart:hover path {
   transition: all ease-in-out 0.4s;
   -webkit-transition: all ease-in-out 0.4s;
   -moz-transition: all ease-in-out 0.4s;
   -ms-transition: all ease-in-out 0.4s;
   -o-transition: all ease-in-out 0.4s;
-  fill: rgb(186, 233, 15);
+  fill: rgb(255, 255, 255);
 }
 
 .addToCart:hover {
-  background-color: rgba(26, 24, 24, 0.488);
-  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.349);
+  transform: scale(115%);
+  -webkit-transform: scale(115%);
+  -moz-transform: scale(115%);
+  -ms-transform: scale(115%);
+  -o-transform: scale(115%);
+}
+
+.deleteFromCart {
+  width: 15px;
+  height: 15px;
+  border: none;
+  position: absolute;
+  right: -11.65%;
+  top: 50%;
+  z-index: 2;
+  border-radius: 360px;
+  -webkit-border-radius: 360px;
+  -moz-border-radius: 360px;
+  -ms-border-radius: 360px;
+  -o-border-radius: 360px;
+  background-color: #2525256f;
+  box-shadow: inset 2px 5px 10px rgb(29, 28, 28);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -ms-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+  background-color: #d32d67cf;
+  box-shadow: inset 2px 5px 10px#d41d6479;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.deleteFromCart path {
+  fill: #780c32cf;
+  transition: all ease-in-out 0.4s;
+  -webkit-transition: all ease-in-out 0.4s;
+  -moz-transition: all ease-in-out 0.4s;
+  -ms-transition: all ease-in-out 0.4s;
+  -o-transition: all ease-in-out 0.4s;
+}
+.deleteFromCart:hover path {
+  fill: rgb(255, 255, 255);
+}
+
+.deleteFromCart:hover {
   transform: scale(115%);
   -webkit-transform: scale(115%);
   -moz-transform: scale(115%);
