@@ -17,16 +17,43 @@ const printer = (array, container, nombre, imagen) => {
   $led.classList.remove("led-red");
   const fragment = document.createDocumentFragment();
   array.forEach(elemento => {
-    const cardDiv = document.createElement("div");
-    cardDiv.classList.add("cardFruits");
+    const $cardDiv = document.createElement("div");
+    $cardDiv.classList.add("cardFruits");
 
-    const filterDiv = document.createElement("div");
-    filterDiv.classList.add("filter");
-    cardDiv.appendChild(filterDiv);
+    if (elemento.sales > 8) {
+      console.log(elemento);
+      const $mostSelled = document.createElement("button");
+      $mostSelled.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">         
+          <path d="M9.91 15.42c-.776.775-2.037.773-2.814-.004l-6.07-6.07c-.57-.57-.998-1.59-1.002-2.4L0 1.993C-.005.896.89-.005 1.992 0l4.956.024c.805.004 1.827.428 2.4 1l6.07 6.07c.772.773.78 2.04.003 2.815l-5.51 5.51zM5 7c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="#FFF" fill-rule="evenodd"/>
+        </svg>
+      `;
+      const $tooltip = document.createElement("span");
+      $tooltip.textContent = ` ${
+        elemento.name.charAt(0).toUpperCase() + elemento.name.slice(1)
+      } is a best seller ✨`;
+      $tooltip.classList.add("tooltip");
+      $mostSelled.appendChild($tooltip);
+      $mostSelled.classList.add("bestSeller");
 
-    const buttonCardPlus = document.createElement("button");
-    buttonCardPlus.classList.add("addToCart");
-    buttonCardPlus.innerHTML = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+      $mostSelled.addEventListener("mouseenter", () => {
+        $tooltip.style.setProperty("opacity", 1);
+      });
+
+      $mostSelled.addEventListener("mouseleave", () => {
+        $tooltip.style.setProperty("opacity", 0);
+      });
+
+      $cardDiv.appendChild($mostSelled);
+    }
+
+    const $filterDiv = document.createElement("div");
+    $filterDiv.classList.add("filter");
+    $cardDiv.appendChild($filterDiv);
+
+    const $buttonCardPlus = document.createElement("button");
+    $buttonCardPlus.classList.add("addToCart");
+    $buttonCardPlus.innerHTML = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
     width="40%"  viewBox="0 0 45.402 45.402"
     xml:space="preserve">
  <g>
@@ -36,11 +63,10 @@ const printer = (array, container, nombre, imagen) => {
      c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"/>
  </g>
  </svg>`;
-    const buttonCardMinus = document.createElement("button");
-    buttonCardMinus.classList.add("deleteFromCart");
-    buttonCardMinus.innerHTML = `<svg width=40%  viewBox="0 -12 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    const $buttonCardMinus = document.createElement("button");
+    $buttonCardMinus.classList.add("deleteFromCart");
+    $buttonCardMinus.innerHTML = `<svg width=40%  viewBox="0 -12 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     
-    <title>minus</title>
     <desc>Created with Sketch Beta.</desc>
     <defs>
 
@@ -53,19 +79,19 @@ const printer = (array, container, nombre, imagen) => {
         </g>
     </g>
 </svg>`;
-    cardDiv.appendChild(buttonCardPlus);
-    cardDiv.appendChild(buttonCardMinus);
+    $cardDiv.appendChild($buttonCardPlus);
+    $cardDiv.appendChild($buttonCardMinus);
 
     const pElement = document.createElement("p");
     pElement.textContent = elemento[nombre].toUpperCase();
-    cardDiv.appendChild(pElement);
+    $cardDiv.appendChild(pElement);
 
     const imgElement = document.createElement("img");
     imgElement.src = elemento[imagen];
     imgElement.alt = elemento[nombre];
-    cardDiv.appendChild(imgElement);
+    $cardDiv.appendChild(imgElement);
 
-    fragment.appendChild(cardDiv);
+    fragment.appendChild($cardDiv);
   });
 
   container.innerHTML = "";

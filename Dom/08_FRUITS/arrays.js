@@ -6,6 +6,9 @@ const arrayFruitsX = [
     origin: "Africa",
     description:
       "Watermelon is a refreshing and juicy fruit, perfect for summer. It is known for its high water content and sweet taste.",
+    stock: 15,
+    price: 2.5,
+    sales: 5,
   },
   {
     name: "strawberry",
@@ -14,6 +17,9 @@ const arrayFruitsX = [
     origin: "Europe",
     description:
       "Strawberries are small red fruits with a sweet and slightly tart flavor. They are widely used in desserts and salads.",
+    stock: 20,
+    price: 3.0,
+    sales: 8,
   },
   {
     name: "orange",
@@ -22,6 +28,9 @@ const arrayFruitsX = [
     origin: "Asia",
     description:
       "Oranges are citrus fruits known for their delicious juice and high vitamin C content.",
+    stock: 18,
+    price: 1.8,
+    sales: 6,
   },
   {
     name: "grape",
@@ -30,6 +39,9 @@ const arrayFruitsX = [
     origin: "Europe and Asia",
     description:
       "Grapes are small and juicy fruits used to make wine and raisins.",
+    stock: 25,
+    price: 4.2,
+    sales: 7,
   },
   {
     name: "banana",
@@ -38,6 +50,9 @@ const arrayFruitsX = [
     origin: "Southeast Asia",
     description:
       "Bananas are tropical fruits that grow in clusters. They are a source of potassium and energy.",
+    stock: 22,
+    price: 1.9,
+    sales: 9,
   },
   {
     name: "avocado",
@@ -46,6 +61,9 @@ const arrayFruitsX = [
     origin: "Mexico",
     description:
       "Avocado is a creamy fruit rich in healthy fats. It is used in various dishes, such as guacamole.",
+    stock: 12,
+    price: 2.7,
+    sales: 4,
   },
   {
     name: "cherry",
@@ -54,6 +72,9 @@ const arrayFruitsX = [
     origin: "Europe and Western Asia",
     description:
       "Cherries are small and sweet fruits that grow on trees. They are used in desserts and preserves.",
+    stock: 14,
+    price: 4.5,
+    sales: 3,
   },
   {
     name: "pearl",
@@ -62,6 +83,9 @@ const arrayFruitsX = [
     origin: "China",
     description:
       "Pears are juicy fruits that come in various varieties and are a good source of dietary fiber.",
+    stock: 16,
+    price: 2.3,
+    sales: 2,
   },
   {
     name: "mango",
@@ -70,6 +94,9 @@ const arrayFruitsX = [
     origin: "Southeast Asia",
     description:
       "Mango is a tropical fruit with juicy and sweet flesh. It is widely appreciated for its unique flavor.",
+    stock: 10,
+    price: 3.8,
+    sales: 6,
   },
   {
     name: "papaya",
@@ -78,6 +105,9 @@ const arrayFruitsX = [
     origin: "Central America",
     description:
       "Papaya is a tropical fruit that has orange flesh and a sweet flavor with a hint of acidity.",
+    stock: 20,
+    price: 2.2,
+    sales: 7,
   },
   {
     name: "tomato",
@@ -86,6 +116,9 @@ const arrayFruitsX = [
     origin: "South America",
     description:
       "Tomato is a fruit commonly used in savory dishes, although it is botanically a fruit. It is versatile in cooking.",
+    stock: 30,
+    price: 1.5,
+    sales: 10,
   },
   {
     name: "apple orange",
@@ -94,6 +127,9 @@ const arrayFruitsX = [
     origin: "Unknown",
     description:
       "The 'apple orange' is a hybrid fruit with an unknown exact origin. It combines the characteristics of an apple and an orange in taste and appearance.",
+    stock: 8,
+    price: 3.5,
+    sales: 2,
   },
   {
     name: "pineapple",
@@ -102,6 +138,9 @@ const arrayFruitsX = [
     origin: "South America",
     description:
       "Pineapple is a tropical fruit with juicy flesh and a sweet and refreshing flavor.",
+    stock: 15,
+    price: 2.8,
+    sales: 5,
   },
   {
     name: "blueberry",
@@ -110,6 +149,9 @@ const arrayFruitsX = [
     origin: "North America",
     description:
       "Blueberries are small blue fruits that grow on bushes. They are known for their flavor and health benefits.",
+    stock: 25,
+    price: 4.0,
+    sales: 8,
   },
   {
     name: "dragonfruit",
@@ -118,6 +160,9 @@ const arrayFruitsX = [
     origin: "Tropical America",
     description:
       "Dragon fruit, also known as pitahaya or pitaya, is a tropical fruit with a unique appearance and mild flavor.",
+    stock: 10,
+    price: 3.2,
+    sales: 12,
   },
   {
     name: "durian",
@@ -126,6 +171,9 @@ const arrayFruitsX = [
     origin: "Southeast Asia",
     description:
       "Durian is a tropical fruit known for its strong odor and distinctive flavor. It is considered a delicacy by some and unpleasant by others.",
+    stock: 5,
+    price: 5.0,
+    sales: 2,
   },
   {
     name: "lemon",
@@ -134,6 +182,9 @@ const arrayFruitsX = [
     origin: "Southeast Asia",
     description:
       "Lemon is a citrus fruit with a zesty and refreshing flavor. It is used in a wide variety of dishes and beverages.",
+    stock: 20,
+    price: 1.0,
+    sales: 12,
   },
   {
     name: "kiwi",
@@ -142,6 +193,9 @@ const arrayFruitsX = [
     origin: "China",
     description:
       "Kiwi is a small green fruit with vibrant flesh and a sweet-tart flavor. It is an excellent source of vitamin C.",
+    stock: 15,
+    price: 2.7,
+    sales: 7,
   },
   {
     name: "honeydew melon",
@@ -150,6 +204,9 @@ const arrayFruitsX = [
     origin: "Africa",
     description:
       "Honeydew melon is a sweet and juicy fruit that is a popular choice in fruit salads.",
+    stock: 12,
+    price: 3.5,
+    sales: 5,
   },
   {
     name: "tangerine",
@@ -158,6 +215,9 @@ const arrayFruitsX = [
     origin: "China",
     description:
       "Tangerine is a small and easy-to-peel citrus fruit known for its sweet flavor and fresh aroma.",
+    stock: 18,
+    price: 1.6,
+    sales: 7,
   },
   {
     name: "starfruit",
@@ -166,6 +226,9 @@ const arrayFruitsX = [
     origin: "Southeast Asia",
     description:
       "Starfruit, also known as carambola, is a tropical fruit with a star-like shape and a sweet-tart flavor.",
+    stock: 10,
+    price: 4.0,
+    sales: 9,
   },
   {
     name: "guava",
@@ -174,6 +237,9 @@ const arrayFruitsX = [
     origin: "Tropical America",
     description:
       "Guava is a tropical fruit with juicy flesh and a sweet, aromatic flavor.",
+    stock: 14,
+    price: 2.5,
+    sales: 6,
   },
   {
     name: "coconut",
@@ -182,6 +248,9 @@ const arrayFruitsX = [
     origin: "Southeast Asia",
     description:
       "Coconut is a versatile tropical fruit. Its water and flesh are used in a variety of dishes and products.",
+    stock: 8,
+    price: 3.2,
+    sales: 4,
   },
   {
     name: "peach",
@@ -190,6 +259,9 @@ const arrayFruitsX = [
     origin: "China",
     description:
       "Peach is a fruit with soft flesh and velvety skin. It is appreciated for its sweet flavor.",
+    stock: 10,
+    price: 2.8,
+    sales: 3,
   },
   {
     name: "pomegranate",
@@ -198,6 +270,9 @@ const arrayFruitsX = [
     origin: "Middle East",
     description:
       "Pomegranate is a fruit with numerous juicy seeds. It is a symbol of fertility and abundance.",
+    stock: 12,
+    price: 3.5,
+    sales: 4,
   },
   {
     name: "passionfruit",
@@ -206,6 +281,9 @@ const arrayFruitsX = [
     origin: "South America",
     description:
       "Passion fruit is a tropical fruit with fragrant, seed-filled pulp. It is known for its unique flavor.",
+    stock: 15,
+    price: 3.0,
+    sales: 5,
   },
   {
     name: "raspberry",
@@ -214,7 +292,12 @@ const arrayFruitsX = [
     origin: "Europe",
     description:
       "Raspberry is a small and aromatic fruit that grows on bushes. It is appreciated for its flavor and versatility.",
+    stock: 18,
+    price: 4.2,
+    sales: 6,
   },
 ];
 
 export { arrayFruitsX };
+
+console.log(arrayFruitsX.length);
