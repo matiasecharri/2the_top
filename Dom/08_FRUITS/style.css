@@ -647,6 +647,24 @@ main {
     height: 150px;
     width: 40%;
   }
+
+  .addToCart {
+    width: 21px;
+    height: 21px;
+    border: none;
+    position: absolute;
+    right: -15%;
+    top: 32%;
+  }
+
+  .deleteFromCart {
+    width: 18px;
+    height: 18px;
+    border: none;
+    position: absolute;
+    right: -14%;
+    top: 54%;
+  }
 }
 
 @media (width <= 420px) {
@@ -688,6 +706,24 @@ main {
     position: absolute;
     right: 9px;
     top: 12%;
+  }
+
+  .addToCart {
+    width: 26px;
+    height: 26px;
+    border: none;
+    position: absolute;
+    right: 0.8%;
+    top: 2%;
+  }
+
+  .deleteFromCart {
+    width: 22px;
+    height: 22px;
+    border: none;
+    position: absolute;
+    right: 1.2%;
+    top: 27%;
   }
 }
 
