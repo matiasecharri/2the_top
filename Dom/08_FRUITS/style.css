@@ -537,6 +537,57 @@ main {
   -o-transform: scale(115%);
 }
 
+.bestSeller {
+  position: absolute;
+  top: 63%;
+  right: -10.8%;
+  z-index: 5;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(168, 176, 176, 0);
+  border-radius: 360px;
+  -webkit-border-radius: 360px;
+  -moz-border-radius: 360px;
+  -ms-border-radius: 360px;
+  -o-border-radius: 360px;
+  cursor: pointer;
+  border: none;
+}
+
+.bestSeller path {
+  fill: rgb(103, 185, 167);
+  fill: rgb(189, 172, 188);
+}
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  right: -55px;
+  top: -150px;
+  transform: translateX(-50%);
+  color: rgba(200, 196, 191, 0.931);
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 10;
+  width: 152px;
+  font-size: 0.67rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  transition: opacity 0.3s ease-in-out; /* Cambiamos la duración de la transición */
+  background-color: #132627ee;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.73) 0px 8px 16px -8px;
+  font-weight: 400;
+  border: none;
+  font-style: italic;
+}
+
+.bestSeller:hover .tooltip {
+  opacity: 1;
+}
+
 /* ---------------------MEDIAQUERIES--------------------- */
 
 @media (width > 359px) {
@@ -615,9 +666,32 @@ main {
     right: 9px;
     top: 12%;
   }
+
+  .tooltip {
+    right: -32px;
+    top: -148px;
+    width: 130px;
+    font-size: 0.57rem;
+  }
+
+  .bestSeller {
+    top: 63%;
+    right: -11%;
+  }
 }
 
 @media (width <= 490px) {
+  .tooltip {
+    right: -43.5px;
+    top: -135px;
+    width: 130px;
+    font-size: 0.57rem;
+  }
+
+  .bestSeller {
+    top: 74%;
+    right: -12%;
+  }
   .userPanel {
     width: 395px;
     flex-direction: column;
@@ -646,6 +720,24 @@ main {
   .cardFruits {
     height: 150px;
     width: 40%;
+  }
+
+  .addToCart {
+    width: 21px;
+    height: 21px;
+    border: none;
+    position: absolute;
+    right: -15%;
+    top: 32%;
+  }
+
+  .deleteFromCart {
+    width: 18px;
+    height: 18px;
+    border: none;
+    position: absolute;
+    right: -14%;
+    top: 54%;
   }
 }
 
@@ -688,6 +780,31 @@ main {
     position: absolute;
     right: 9px;
     top: 12%;
+  }
+
+  .addToCart {
+    width: 26px;
+    height: 26px;
+    border: none;
+    position: absolute;
+    right: 0.8%;
+    top: 2%;
+  }
+
+  .deleteFromCart {
+    width: 22px;
+    height: 22px;
+    border: none;
+    position: absolute;
+    right: 1.2%;
+    top: 27%;
+  }
+  .tooltip {
+    display: none;
+  }
+
+  .bestSeller {
+    display: none;
   }
 }
 
