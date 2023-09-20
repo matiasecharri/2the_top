@@ -171,13 +171,13 @@ main {
   width: 90%;
   height: 90%;
   object-fit: cover;
+  transition: ease-in-out 0.4s;
+  cursor: pointer;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  transition: ease-in-out 0.4s;
-  cursor: pointer;
 }
 
 .cardFruits img:hover {
@@ -425,6 +425,58 @@ main {
     opacity: 0.7;
   }
 }
+
+.addToCart {
+  width: 30px;
+  height: 30px;
+  border: none;
+  position: absolute;
+  right: -5%;
+  top: 0%;
+  z-index: 2;
+  border-radius: 360px;
+  -webkit-border-radius: 360px;
+  -moz-border-radius: 360px;
+  -ms-border-radius: 360px;
+  -o-border-radius: 360px;
+  background-color: rgba(46, 44, 44, 0.412);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: unset;
+  margin: unset;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -ms-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+}
+
+.addToCart path {
+  fill: rgba(228, 197, 173, 0.83);
+}
+
+.addToCart:hover path {
+  transition: all ease-in-out 0.4s;
+  -webkit-transition: all ease-in-out 0.4s;
+  -moz-transition: all ease-in-out 0.4s;
+  -ms-transition: all ease-in-out 0.4s;
+  -o-transition: all ease-in-out 0.4s;
+  fill: rgb(186, 233, 15);
+}
+
+.addToCart:hover {
+  background-color: rgba(26, 24, 24, 0.488);
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.349);
+  transform: scale(115%);
+  -webkit-transform: scale(115%);
+  -moz-transform: scale(115%);
+  -ms-transform: scale(115%);
+  -o-transform: scale(115%);
+}
+
+/* ---------------------MEDIAQUERIES--------------------- */
 
 @media (width > 359px) {
   .phonesNotSupported {
