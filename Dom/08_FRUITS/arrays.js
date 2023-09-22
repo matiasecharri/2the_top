@@ -299,5 +299,3 @@ const arrayFruitsX = [
 ];
 
 export { arrayFruitsX };
-
-console.log(arrayFruitsX.length);

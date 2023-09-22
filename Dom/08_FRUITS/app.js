@@ -2,16 +2,21 @@
 //COMENTAR EL CODIGO, PENSAR EN AGREGAR TRANSICIONES, SEGURAMENTE ES ALGO COMO BEFORELOADING Y METER UN DIV
 //Event delegation
 import { arrayFruitsX } from "/Dom/08_FRUITS/arrays.js";
-
 const $main = document.querySelector("main");
 const $containerCards = document.getElementById("containerCards");
 const $searchBar = document.getElementById("searchBar");
 const $userPanel = document.getElementById("userPanelX");
 const $led = document.getElementById("ledLight");
-
+const $goToShoppButton = document.getElementById("goToCartButton");
 const arrayFruits = arrayFruitsX;
+const fruitsOnCart = [];
+let itemCounter = "";
 let userText = "";
 let isSomethingChecked = false;
+const $pShop = document.createElement("p");
+$pShop.classList.add("floatingText");
+$pShop.innerText = "000";
+$goToShoppButton.appendChild($pShop);
 
 const printer = (array, container, nombre, imagen) => {
   $led.classList.remove("led-red");
@@ -21,7 +26,6 @@ const printer = (array, container, nombre, imagen) => {
     $cardDiv.classList.add("cardFruits");
 
     if (elemento.sales > 8) {
-      console.log(elemento);
       const $mostSelled = document.createElement("button");
       $mostSelled.innerHTML = `
         <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">         
@@ -53,7 +57,8 @@ const printer = (array, container, nombre, imagen) => {
 
     const $buttonCardPlus = document.createElement("button");
     $buttonCardPlus.classList.add("addToCart");
-    $buttonCardPlus.innerHTML = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    $buttonCardPlus.id = elemento.name;
+    $buttonCardPlus.innerHTML = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
     width="40%"  viewBox="0 0 45.402 45.402"
     xml:space="preserve">
  <g>
@@ -65,6 +70,7 @@ const printer = (array, container, nombre, imagen) => {
  </svg>`;
     const $buttonCardMinus = document.createElement("button");
     $buttonCardMinus.classList.add("deleteFromCart");
+    $buttonCardMinus.id = elemento.name;
     $buttonCardMinus.innerHTML = `<svg width=40%  viewBox="0 -12 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     
     <desc>Created with Sketch Beta.</desc>
@@ -202,6 +208,8 @@ printer2(types, $userPanel);
 imageModal();
 
 const $checkboxes = document.querySelectorAll(".custom-checkbox");
+const $buttonsAdd = document.querySelectorAll(".addToCart");
+const $buttonsRemove = document.querySelectorAll(".deleteFromCart");
 const unrepeatedCategories = new Set();
 
 $checkboxes.forEach(checkbox => {
@@ -236,4 +244,55 @@ $checkboxes.forEach(checkbox => {
   });
 });
 
+const buttonAddAndRemove = () => {
+  $buttonsAdd.forEach(button => {
+    button.addEventListener("click", event => {
+      const arrayStock = arrayFruits.filter(fruit => {
+        if (fruit.stock === 0 && fruit.name === button.id) {
+          return;
+        }
+        if (button.id === fruit.name) {
+          fruit.stock--;
+          itemCounter++;
+          uiSounds("/Dom/08_FRUITS/assets/sounds/ui-click.wav");
+          $pShop.innerText = String(itemCounter).padStart(3, "0");
+          $goToShoppButton.appendChild($pShop);
+          fruitsOnCart.push(fruit);
+        }
+      });
+      return arrayStock;
+    });
+  });
+
+  $buttonsRemove.forEach(button => {
+    button.addEventListener("click", event => {
+      const fruitToRemove = fruitsOnCart.find(
+        fruit => fruit.name === button.id
+      );
+
+      if (!fruitToRemove) {
+        console.log("La fruta no está en el carrito.");
+        return;
+      }
+
+      const fruitInArray = arrayFruits.find(fruit => fruit.name === button.id);
+      if (fruitInArray && fruitInArray.stock >= 0) {
+        fruitInArray.stock++;
+        itemCounter--;
+        uiSounds("/Dom/08_FRUITS/assets/sounds/ui-close.wav");
+        $pShop.innerText = String(itemCounter).padStart(3, "0");
+        $goToShoppButton.appendChild($pShop);
+      }
+
+      const indexToRemove = fruitsOnCart.indexOf(fruitToRemove);
+      fruitsOnCart.splice(indexToRemove, 1);
+      console.log("Fruta eliminada del carrito:", fruitToRemove);
+    });
+  });
+};
+buttonAddAndRemove();
 searching(arrayFruits);
+
+//Queremos que funcionen los botones
+// -> boton verde: deberia agregar al carrito, solo si el stock es de mas de 0
+// -> boton rojo: deberia remover del carrito siempre que sea != de 0, y deberia devolver las frutas al stock, al devolver no deberia pasarse del stock original
