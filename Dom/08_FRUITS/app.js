@@ -1,7 +1,6 @@
-///-------------------------FRAGMENT VERSION RENDER SPEED INCREASED-----------------------///
-//COMENTAR EL CODIGO, PENSAR EN AGREGAR TRANSICIONES, SEGURAMENTE ES ALGO COMO BEFORELOADING Y METER UN DIV
-//Event delegation
+// Event delegation
 import { arrayFruitsX } from "/Dom/08_FRUITS/arrays.js";
+
 const $main = document.querySelector("main");
 const $containerCards = document.getElementById("containerCards");
 const $searchBar = document.getElementById("searchBar");
@@ -21,6 +20,10 @@ $goToShoppButton.appendChild($pShop);
 const printer = (array, container, nombre, imagen) => {
   $led.classList.remove("led-red");
   const fragment = document.createDocumentFragment();
+
+  // Eliminar los botones anteriores
+  container.innerHTML = "";
+
   array.forEach(elemento => {
     const $cardDiv = document.createElement("div");
     $cardDiv.classList.add("cardFruits");
@@ -55,7 +58,7 @@ const printer = (array, container, nombre, imagen) => {
     $filterDiv.classList.add("filter");
     $cardDiv.appendChild($filterDiv);
 
-    const $buttonCardPlus = document.createElement("button");
+    let $buttonCardPlus = document.createElement("button");
     $buttonCardPlus.classList.add("addToCart");
     $buttonCardPlus.id = elemento.name;
     $buttonCardPlus.innerHTML = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -68,7 +71,8 @@ const printer = (array, container, nombre, imagen) => {
      c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"/>
  </g>
  </svg>`;
-    const $buttonCardMinus = document.createElement("button");
+
+    let $buttonCardMinus = document.createElement("button");
     $buttonCardMinus.classList.add("deleteFromCart");
     $buttonCardMinus.id = elemento.name;
     $buttonCardMinus.innerHTML = `<svg width=40%  viewBox="0 -12 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -100,7 +104,6 @@ const printer = (array, container, nombre, imagen) => {
     fragment.appendChild($cardDiv);
   });
 
-  container.innerHTML = "";
   container.appendChild(fragment);
 };
 
@@ -113,6 +116,8 @@ const searching = array => {
   $searchBar.addEventListener("keyup", event => {
     $containerCards.innerHTML = "";
     userText = event.target.value.toLowerCase();
+    updateButtons();
+    console.log($buttonsAdd);
     const filteredArray = array.filter(element => {
       return element.name.toLowerCase().includes(userText);
     });
@@ -126,6 +131,8 @@ const searching = array => {
     } else {
       printer(filteredArray, $containerCards, "name", "image");
       imageModal();
+      updateButtons();
+      console.log($buttonsAdd);
     }
 
     $searchBar.addEventListener("input", event => {
@@ -137,6 +144,8 @@ const searching = array => {
         ? printer(array, $containerCards, "name", "image")
         : null;
       imageModal();
+      updateButtons();
+      console.log($buttonsAdd);
     });
   });
 };
@@ -208,8 +217,8 @@ printer2(types, $userPanel);
 imageModal();
 
 const $checkboxes = document.querySelectorAll(".custom-checkbox");
-const $buttonsAdd = document.querySelectorAll(".addToCart");
-const $buttonsRemove = document.querySelectorAll(".deleteFromCart");
+let $buttonsAdd = document.querySelectorAll(".addToCart");
+let $buttonsRemove = document.querySelectorAll(".deleteFromCart");
 const unrepeatedCategories = new Set();
 
 $checkboxes.forEach(checkbox => {
@@ -227,6 +236,8 @@ $checkboxes.forEach(checkbox => {
       printer(filterByCheck, $containerCards, "name", "image");
       searching(filterByCheck);
       imageModal();
+      updateButtons();
+      console.log($buttonsAdd);
       isSomethingChecked = true;
     } else {
       $searchBar.value = "";
@@ -234,6 +245,8 @@ $checkboxes.forEach(checkbox => {
       searching(arrayFruits);
       printer(arrayFruits, $containerCards, "name", "image");
       imageModal();
+      updateButtons();
+      console.log($buttonsAdd);
       isSomethingChecked = false;
     }
     $searchBar.addEventListener("input", x => {
@@ -244,7 +257,7 @@ $checkboxes.forEach(checkbox => {
   });
 });
 
-const buttonAddAndRemove = () => {
+function buttonEventer() {
   $buttonsAdd.forEach(button => {
     button.addEventListener("click", event => {
       const arrayStock = arrayFruits.filter(fruit => {
@@ -289,10 +302,16 @@ const buttonAddAndRemove = () => {
       console.log("Fruta eliminada del carrito:", fruitToRemove);
     });
   });
-};
-buttonAddAndRemove();
+}
+buttonEventer();
 searching(arrayFruits);
 
-//Queremos que funcionen los botones
-// -> boton verde: deberia agregar al carrito, solo si el stock es de mas de 0
-// -> boton rojo: deberia remover del carrito siempre que sea != de 0, y deberia devolver las frutas al stock, al devolver no deberia pasarse del stock original
+function updateButtons() {
+  $buttonsAdd = document.querySelectorAll(".addToCart");
+  $buttonsRemove = document.querySelectorAll(".deleteFromCart");
+  buttonEventer();
+}
+
+setTimeout(() => {
+  console.log(fruitsOnCart);
+}, 6000);
