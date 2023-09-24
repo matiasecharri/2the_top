@@ -603,33 +603,47 @@ main {
   opacity: 1;
 }
 
+.containerGeneral {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  position: relative;
+}
+.uiButtons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  gap: 15px;
+  right: 16%;
+  z-index: 999;
+}
+
 #goToCartButton {
   background-color: #18161700;
   border: none;
-  /* border: 1px solid rgba(255, 255, 255, 0.099); */
-  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.099);
   cursor: pointer;
   z-index: 5;
-  right: -12%;
-  top: 0%;
   width: 60px;
-  height: 60px;
+  height: 90%;
   padding: 10px;
-  border-radius: 80px;
-  display: flex;
-  justify-content: center;
-  align-content: flex-start;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  -ms-border-radius: 80px;
-  -o-border-radius: 80px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   transition: 0.5s all ease;
   -webkit-transition: 0.5s all ease;
   -moz-transition: 0.5s all ease;
   -ms-transition: 0.5s all ease;
   -o-transition: 0.5s all ease;
-  flex-direction: column;
-  align-items: center;
+  background-color: rgba(31, 15, 15, 0.236);
+  position: relative;
 }
 
 #goToCartButton path {
@@ -637,6 +651,73 @@ main {
 }
 
 #goToCartButton:hover {
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+}
+
+#muteButton {
+  background-color: #18161700;
+  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.099);
+  cursor: pointer;
+  z-index: 5;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  background-color: rgba(31, 15, 15, 0.236);
+}
+
+#muteButton:hover {
+  border: none;
+  transform: scale(115%);
+  -webkit-transform: scale(115%);
+  -moz-transform: scale(115%);
+  -ms-transform: scale(115%);
+  -o-transform: scale(115%);
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+}
+
+#darkModeButton {
+  background-color: #18161700;
+  background-color: rgba(31, 15, 15, 0.236);
+  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.099);
+  cursor: pointer;
+  z-index: 5;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+}
+
+#darkModeButton:hover {
+  border: none;
   transform: scale(115%);
   -webkit-transform: scale(115%);
   -moz-transform: scale(115%);
@@ -650,7 +731,10 @@ main {
 }
 
 .floatingText {
-  bottom: -17px;
+  top: 51%;
+  margin-top: 3px;
+  left: 0%;
+  right: 0%;
   position: absolute;
   font-size: 1.2rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
