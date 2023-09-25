@@ -631,7 +631,6 @@ main {
 
 #goToCartButton {
   background-color: #18161700;
-  border: none;
   border: 1px solid rgba(255, 255, 255, 0.099);
   cursor: pointer;
   z-index: 5;
@@ -666,7 +665,6 @@ main {
 
 #muteButton {
   background-color: #18161700;
-  border: none;
   border: 1px solid rgba(255, 255, 255, 0.099);
   cursor: pointer;
   z-index: 5;
@@ -687,7 +685,6 @@ main {
 }
 
 #muteButton:hover {
-  border: none;
   transform: scale(115%);
   -webkit-transform: scale(115%);
   -moz-transform: scale(115%);
@@ -703,7 +700,6 @@ main {
 #darkModeButton {
   background-color: #18161700;
   background-color: rgba(31, 15, 15, 0.236);
-  border: none;
   border: 1px solid rgba(255, 255, 255, 0.099);
   cursor: pointer;
   z-index: 5;
@@ -723,7 +719,6 @@ main {
 }
 
 #darkModeButton:hover {
-  border: none;
   transform: scale(115%);
   -webkit-transform: scale(115%);
   -moz-transform: scale(115%);
@@ -734,6 +729,10 @@ main {
   -moz-transition: 0.5s all ease;
   -ms-transition: 0.5s all ease;
   -o-transition: 0.5s all ease;
+}
+
+.darkModeOn {
+  border: 1px solid rgba(255, 255, 255, 0.099) !important;
 }
 
 .floatingText {
