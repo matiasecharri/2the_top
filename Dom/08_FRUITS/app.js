@@ -7,15 +7,62 @@ const $searchBar = document.getElementById("searchBar");
 const $userPanel = document.getElementById("userPanelX");
 const $led = document.getElementById("ledLight");
 const $goToShoppButton = document.getElementById("goToCartButton");
+const $muteSoundButton = document.getElementById("muteButton");
+const $darkModeButton = document.getElementById("darkModeButton");
+const $filterLayer = document.getElementById("backdropProviderID");
+const $h1Title = document.querySelector("h1 span");
+
 const arrayFruits = arrayFruitsX;
 const fruitsOnCart = [];
 let itemCounter = "";
 let userText = "";
+let isMuted = false;
+let isDarkMode = false;
 let isSomethingChecked = false;
 const $pShop = document.createElement("p");
 $pShop.classList.add("floatingText");
 $pShop.innerText = "000";
 $goToShoppButton.appendChild($pShop);
+
+$darkModeButton.addEventListener("click", event => {
+  isDarkMode === false
+    ? ($filterLayer.classList.add("backdropProviderDark"),
+      $h1Title.classList.add("backdropProviderDarkH1"),
+      (isDarkMode = true))
+    : $filterLayer.classList.remove(
+        "backdropProviderDark",
+        $h1Title.classList.remove("backdropProviderDarkH1"),
+        (isDarkMode = false)
+      );
+});
+
+$muteSoundButton.addEventListener("click", event => {
+  isMuted === false
+    ? (uiSounds("/Dom/08_FRUITS/assets/sounds/mute-app.wav"),
+      (isMuted = true),
+      ($muteSoundButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell-off" width="75%" height="75%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#d7d9d4eb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M9.346 5.353c.21 -.129 .428 -.246 .654 -.353a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3m-1 3h-13a4 4 0 0 0 2 -3v-3a6.996 6.996 0 0 1 1.273 -3.707" />
+    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+    <path d="M3 3l18 18" />
+  </svg>  
+  `))
+    : ((isMuted = false),
+      uiSounds("/Dom/08_FRUITS/assets/sounds/mute-app.wav")(
+        ($muteSoundButton.innerHTML = `  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell-filled" width="70%"
+      height="70%" viewBox="0 0 24 24" stroke-width="1.5" stroke="#1C274C" fill="#1C274C"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path
+          d="M14.235 19c.865 0 1.322 1.024 .745 1.668a3.992 3.992 0 0 1 -2.98 1.332a3.992 3.992 0 0 1 -2.98 -1.332c-.552 -.616 -.158 -1.579 .634 -1.661l.11 -.006h4.471z"
+          stroke-width="0" fill="#d7d9d4eb" />
+      <path
+          d="M12 2c1.358 0 2.506 .903 2.875 2.141l.046 .171l.008 .043a8.013 8.013 0 0 1 4.024 6.069l.028 .287l.019 .289v2.931l.021 .136a3 3 0 0 0 1.143 1.847l.167 .117l.162 .099c.86 .487 .56 1.766 -.377 1.864l-.116 .006h-16c-1.028 0 -1.387 -1.364 -.493 -1.87a3 3 0 0 0 1.472 -2.063l.021 -.143l.001 -2.97a8 8 0 0 1 3.821 -6.454l.248 -.146l.01 -.043a3.003 3.003 0 0 1 2.562 -2.29l.182 -.017l.176 -.004z"
+          stroke-width="0" fill="#d7d9d4eb" />
+  </svg>
+  `)
+      ));
+});
 
 const printer = (array, container, nombre, imagen) => {
   $led.classList.remove("led-red");
@@ -108,6 +155,9 @@ const printer = (array, container, nombre, imagen) => {
 };
 
 const uiSounds = file => {
+  if (isMuted === true) {
+    return;
+  }
   let uiSound = new Audio(file);
   uiSound.play();
 };
@@ -215,6 +265,7 @@ const printer2 = (array, container) => {
 printer(arrayFruits, $containerCards, "name", "image");
 printer2(types, $userPanel);
 imageModal();
+uiSounds("/Dom/08_FRUITS/assets/sounds/interface-is-open.mp3");
 
 const $checkboxes = document.querySelectorAll(".custom-checkbox");
 let $buttonsAdd = document.querySelectorAll(".addToCart");
@@ -267,6 +318,7 @@ function buttonEventer() {
         if (button.id === fruit.name) {
           fruit.stock--;
           itemCounter++;
+          $goToShoppButton.classList.toggle("scaler");
           uiSounds("/Dom/08_FRUITS/assets/sounds/ui-click.wav");
           $pShop.innerText = String(itemCounter).padStart(3, "0");
           $goToShoppButton.appendChild($pShop);
@@ -315,3 +367,7 @@ function updateButtons() {
 setTimeout(() => {
   console.log(fruitsOnCart);
 }, 6000);
+
+// https://www.youtube.com/watch?v=RiB4mV3VnRY
+// local Storage
+//boton mute-boton shop boton light dark transicion al ir a shop
