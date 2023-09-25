@@ -12,6 +12,16 @@ const $muteSoundButton = document.getElementById("muteButton");
 const $darkModeButton = document.getElementById("darkModeButton");
 const $filterLayer = document.getElementById("backdropProviderID");
 const $h1Title = document.querySelector("h1 span");
+const $intro = document.getElementById("initialize");
+
+$intro.classList.add("initializeBlured");
+$intro.addEventListener("click", event => {
+  uiSounds("/Dom/08_FRUITS/assets/sounds/interface-is-open.mp3");
+  $intro.classList.add("initializeOut");
+  setTimeout(() => {
+    $intro.style.setProperty("display", "none");
+  }, 1000);
+});
 
 //🌏Declaration of global elements and states:
 const arrayFruits = arrayFruitsX;
@@ -339,7 +349,6 @@ const muteButton = () => {
 printer(arrayFruits, $containerCards, "name", "image");
 printer2(types, $userPanel);
 imageModal();
-uiSounds("/Dom/08_FRUITS/assets/sounds/interface-is-open.mp3");
 darkMode();
 muteButton();
 
