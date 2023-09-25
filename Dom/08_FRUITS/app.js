@@ -8,6 +8,9 @@ const $userPanel = document.getElementById("userPanelX");
 const $led = document.getElementById("ledLight");
 const $goToShoppButton = document.getElementById("goToCartButton");
 const $muteSoundButton = document.getElementById("muteButton");
+const $darkModeButton = document.getElementById("darkModeButton");
+const $filterLayer = document.getElementById("backdropProviderID");
+const $h1Title = document.querySelector("h1 span");
 
 const arrayFruits = arrayFruitsX;
 const fruitsOnCart = [];
@@ -20,6 +23,18 @@ const $pShop = document.createElement("p");
 $pShop.classList.add("floatingText");
 $pShop.innerText = "000";
 $goToShoppButton.appendChild($pShop);
+
+$darkModeButton.addEventListener("click", event => {
+  isDarkMode === false
+    ? ($filterLayer.classList.add("backdropProviderDark"),
+      $h1Title.classList.add("backdropProviderDarkH1"),
+      (isDarkMode = true))
+    : $filterLayer.classList.remove(
+        "backdropProviderDark",
+        $h1Title.classList.remove("backdropProviderDarkH1"),
+        (isDarkMode = false)
+      );
+});
 
 $muteSoundButton.addEventListener("click", event => {
   isMuted === false
