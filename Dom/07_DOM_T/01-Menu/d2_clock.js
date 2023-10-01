@@ -1,3 +1,4 @@
+//---------CLOCK--------------------------//
 export function digitalClock(clockTemplate) {
   if (!(clockTemplate instanceof HTMLElement)) {
     console.error("🧧Clocktemplate needs to be an HTMLElement");
@@ -41,9 +42,6 @@ export function digitalClock(clockTemplate) {
     $stopButton.addEventListener("click", clockNotWorking);
     $startButton.removeEventListener("click", clockWorking);
   };
-  const stopClock = () => {
-    clearInterval(clockStart);
-  };
 
   const clockNotWorking = () => {
     clearInterval(clockStart);
@@ -58,9 +56,8 @@ export function digitalClock(clockTemplate) {
 
   $startButton.addEventListener("click", clockWorking);
 }
-
+//---------ALARM--------------------------//
 export function digitalAlarm() {
-  let isAlarmPlaying = false;
   let alarmSound;
 
   const playAlarmSound = file => {
@@ -70,7 +67,6 @@ export function digitalAlarm() {
       alarmSound = new Audio(file);
       alarmSound.loop = true;
       alarmSound.play();
-      isAlarmPlaying = true;
     }
   };
 

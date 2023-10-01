@@ -25,17 +25,28 @@ $intro.addEventListener("click", event => {
 
 //🌏Declaration of global elements and states:
 const arrayFruits = arrayFruitsX;
-const fruitsOnCart = [];
-let itemCounter = "";
+let fruitsOnCart = [];
+const storageCart = localStorage.getItem("itemsOnCart");
+if (storageCart !== null) {
+  fruitsOnCart = JSON.parse(storageCart);
+}
+let itemCounter = 0;
 let userText = "";
 let isMuted = false;
 let isDarkMode = false;
 let isSomethingChecked = false;
 const $pShop = document.createElement("p");
 $pShop.classList.add("floatingText");
-$pShop.innerText = "000";
+if (storageCart !== null) {
+  itemCounter = fruitsOnCart.length;
+}
+$pShop.innerText = String(itemCounter).padStart(3, "0");
 $goToShoppButton.appendChild($pShop);
 
+//🍥This function updates the counter base on local storage:
+const updateCartCounter = () => {
+  $pShop.innerText = String(itemCounter).padStart(3, "0");
+};
 //🍥This function prints the most part of the elements on the app:
 const printer = (array, container, nombre, imagen) => {
   $led.classList.remove("led-red");
@@ -406,11 +417,13 @@ const buttonEventer = () => {
         if (button.id === fruit.name) {
           fruit.stock--;
           itemCounter++;
+          updateCartCounter();
           $goToShoppButton.classList.toggle("scaler");
           uiSounds("/Dom/08_FRUITS/assets/sounds/ui-click.wav");
           $pShop.innerText = String(itemCounter).padStart(3, "0");
           $goToShoppButton.appendChild($pShop);
           fruitsOnCart.push(fruit);
+          localStorage.setItem("itemsOnCart", JSON.stringify(fruitsOnCart));
         }
       });
       return arrayStock;
@@ -432,6 +445,7 @@ const buttonEventer = () => {
       if (fruitInArray && fruitInArray.stock >= 0) {
         fruitInArray.stock++;
         itemCounter--;
+        updateCartCounter();
         uiSounds("/Dom/08_FRUITS/assets/sounds/ui-close.wav");
         $pShop.innerText = String(itemCounter).padStart(3, "0");
         $goToShoppButton.appendChild($pShop);
@@ -439,6 +453,7 @@ const buttonEventer = () => {
 
       const indexToRemove = fruitsOnCart.indexOf(fruitToRemove);
       fruitsOnCart.splice(indexToRemove, 1);
+      localStorage.setItem("itemsOnCart", JSON.stringify(fruitsOnCart));
       console.log("Fruta eliminada del carrito:", fruitToRemove);
     });
   });
@@ -453,10 +468,6 @@ const updateButtons = () => {
 //✨Functions invocation II:
 buttonEventer();
 searching(arrayFruits);
-
-setTimeout(() => {
-  console.log(fruitsOnCart);
-}, 6000);
 
 // https://www.youtube.com/watch?v=RiB4mV3VnRY
 // local Storage
