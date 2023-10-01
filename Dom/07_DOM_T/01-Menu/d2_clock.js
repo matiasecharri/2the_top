@@ -58,10 +58,10 @@ export function digitalClock(clockTemplate) {
 }
 //---------ALARM--------------------------//
 export function digitalAlarm() {
-  let alarmSound;
+  let alarmSound = null;
 
   const playAlarmSound = file => {
-    if (alarmSound && !alarmSound.paused) {
+    if (alarmSound !== null && !alarmSound.paused) {
       alarmSound.pause();
     } else {
       alarmSound = new Audio(file);
