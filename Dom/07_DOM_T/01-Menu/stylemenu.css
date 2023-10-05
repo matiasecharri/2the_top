@@ -1,6 +1,7 @@
 @import url("/Dom/07_DOM_T/01-Menu/hamburguer.css");
 @import url("/Dom/07_DOM_T/01-Menu/clock.css");
 @import url("/Dom/07_DOM_T/01-Menu/cryptoWrapper.css");
+@import url("/Dom/07_DOM_T/01-Menu/squareBall.css");
 
 :root {
   --font1: "Sawarabi Mincho", serif;
@@ -24,7 +25,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-body{
+body {
   background-color: #171817;
 }
 *::selection {
@@ -177,4 +178,3 @@ body{
   top: 50;
   width: 100% !important;
 }
-
