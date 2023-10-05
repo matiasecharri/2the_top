@@ -34,20 +34,21 @@ export default function circleMove() {
     }, 220);
   };
 
-  $movingZone.addEventListener("keypress", event => {
-    if (event.key === "w") {
+  $movingZone.addEventListener("keydown", event => {
+    event.preventDefault();
+    if (event.key === "w" || event.key === "ArrowUp") {
       positionY -= 35;
       updatePosition();
     }
-    if (event.key === "s") {
+    if (event.key === "s" || event.key === "ArrowDown") {
       positionY += 35;
       updatePosition();
     }
-    if (event.key === "a") {
+    if (event.key === "a" || event.key === "ArrowLeft") {
       positionX -= 35;
       updatePosition();
     }
-    if (event.key === "d") {
+    if (event.key === "d" || event.key === "ArrowRight") {
       positionX += 35;
       updatePosition();
     }
