@@ -36,19 +36,19 @@ export default function circleMove() {
 
   $movingZone.addEventListener("keydown", event => {
     event.preventDefault();
-    if (event.key === "w" || event.key === "ArrowUp") {
+    if (event.key.toLowerCase() === "w" || event.key === "ArrowUp") {
       positionY -= 35;
       updatePosition();
     }
-    if (event.key === "s" || event.key === "ArrowDown") {
+    if (event.key.toLowerCase() === "s" || event.key === "ArrowDown") {
       positionY += 35;
       updatePosition();
     }
-    if (event.key === "a" || event.key === "ArrowLeft") {
+    if (event.key.toLowerCase() === "a" || event.key === "ArrowLeft") {
       positionX -= 35;
       updatePosition();
     }
-    if (event.key === "d" || event.key === "ArrowRight") {
+    if (event.key.toLowerCase() === "d" || event.key === "ArrowRight") {
       positionX += 35;
       updatePosition();
     }
