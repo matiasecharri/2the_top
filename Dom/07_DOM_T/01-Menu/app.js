@@ -14,5 +14,3 @@ document.addEventListener("DOMContentLoaded", () => {
   apiCrypto();
   circleMove();
 });
-
-//Agregar que el usuario pueda establecer el target

@@ -19,7 +19,7 @@ export default function apiCrypto() {
 
   wsBtc.onmessage = event => {
     let stockObject = JSON.parse(event.data);
-    console.log(stockObject.p);
+    // console.log(stockObject.p);
     $btcContainer.innerText = `BTC ${parseFloat(stockObject.p).toFixed(2)}`;
     document.title = `BTC/USDT ${parseFloat(stockObject.p).toFixed(2)}`;
     if (targetReached === true) {
@@ -36,12 +36,12 @@ export default function apiCrypto() {
 
   wsEth.onmessage = event => {
     let stockObject = JSON.parse(event.data);
-    console.log(stockObject.p);
+    // console.log(stockObject.p);
     $ethContainer.innerText = `ETH ${parseFloat(stockObject.p).toFixed(2)}`;
   };
   wsBnb.onmessage = event => {
     let stockObject = JSON.parse(event.data);
-    console.log(stockObject.p);
+    // console.log(stockObject.p);
     $bnbContainer.innerText = `BNB ${parseFloat(stockObject.p).toFixed(2)}`;
   };
 }
