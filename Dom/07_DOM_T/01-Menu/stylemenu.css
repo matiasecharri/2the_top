@@ -2,6 +2,7 @@
 @import url("/Dom/07_DOM_T/01-Menu/clock.css");
 @import url("/Dom/07_DOM_T/01-Menu/cryptoWrapper.css");
 @import url("/Dom/07_DOM_T/01-Menu/squareBall.css");
+@import url("/Dom/07_DOM_T/01-Menu/countDown.css");
 
 :root {
   --font1: "Sawarabi Mincho", serif;
@@ -51,7 +52,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 200vh;
   position: relative;
   z-index: 1;
   display: flex;
