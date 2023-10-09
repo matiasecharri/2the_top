@@ -22,9 +22,6 @@
   color: #8bd450;
   background-color: #1d1a2f43;
   border: 1px solid #0000002f;
-  width: min(80%, 1080px);
-  height: 700px;
-  display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -35,6 +32,6 @@
 
 #countDownContainer h4 {
   font-family: "DS-DIGI" !important;
-  font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  font-weight: 100 !important;
 }
