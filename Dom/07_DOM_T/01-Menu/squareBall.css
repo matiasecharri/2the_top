@@ -30,6 +30,15 @@
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+.container2-movingZone:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.274);
+  transition: ease-in 0.5s;
+  -webkit-transition: ease-in 0.5s;
+  -moz-transition: ease-in 0.5s;
+  -ms-transition: ease-in 0.5s;
+  -o-transition: ease-in 0.5s;
 }
 
 .container2-movingZone__theBall {

@@ -2,6 +2,7 @@ import hamburguerMenu from "/Dom/07_DOM_T/01-Menu/d1_hmenu.js";
 import { digitalClock, digitalAlarm } from "/Dom/07_DOM_T/01-Menu/d2_clock.js";
 import apiCrypto from "/Dom/07_DOM_T/01-Menu/apiCrypto.js";
 import circleMove from "/Dom/07_DOM_T/01-Menu/d3_ball.js";
+import countDown from "/Dom/07_DOM_T/01-Menu/d4_countdown.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const $hamburguerIcon = document.getElementById("hamburguerIcon");
@@ -13,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
   digitalAlarm();
   apiCrypto();
   circleMove();
+  countDown(
+    "Mon Nov 17 2023",
+    "Dibella's Birthday 🎂",
+    "Happy Birthday Dibella 🎉"
+  );
 });
-
-//Agregar que el usuario pueda establecer el target
