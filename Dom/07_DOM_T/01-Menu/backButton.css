@@ -1,0 +1,81 @@
+.backToTop {
+  height: 20px;
+  width: 20px;
+  background-color: #cdc8c924;
+  border-radius: 360px;
+  -webkit-border-radius: 360px;
+  -moz-border-radius: 360px;
+  -ms-border-radius: 360px;
+  -o-border-radius: 360px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  position: fixed;
+  z-index: 105;
+  margin-left: 40px;
+  bottom: 6%;
+  border: 1px solid #cdc8c99e;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -ms-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+  opacity: 0;
+}
+
+.backToTop:hover {
+  background-color: #cdc8c9;
+  transition: ease-in-out 0.2s;
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -ms-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+}
+
+.opacityOn {
+  opacity: 1;
+  transition: ease-in-out 0.5s;
+  -webkit-transition: ease-in-out 0.5s;
+  -moz-transition: ease-in-out 0.5s;
+  -ms-transition: ease-in-out 0.5s;
+  -o-transition: ease-in-out 0.5s;
+}
+
+.goBigger {
+  transform: scale(150%);
+  -webkit-transform: scale(150%);
+  -moz-transform: scale(150%);
+  -ms-transform: scale(150%);
+  -o-transform: scale(150%);
+  transition: ease-in-out 0.5s;
+  -webkit-transition: ease-in-out 0.5s;
+  -moz-transition: ease-in-out 0.5s;
+  -ms-transition: ease-in-out 0.5s;
+  -o-transition: ease-in-out 0.5s;
+  background-color: #8bd450;
+  border: 1px solid rgba(255, 0, 0, 0);
+}
+
+.theSmallBall3 {
+  background-color: rgba(21, 24, 25, 0);
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  border-radius: 360px;
+  left: -20%;
+  top: 0%;
+  transform-origin: center center;
+  animation: orbit 2s linear infinite;
+  -webkit-animation: orbit 2s linear infinite;
+  border: 1px solid rgba(0, 0, 0, 0.455);
+  box-shadow: rgba(0, 0, 0, 0.154) 0px 5px 15px;
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(50px)
+      rotate(-360deg);
+  }
+}

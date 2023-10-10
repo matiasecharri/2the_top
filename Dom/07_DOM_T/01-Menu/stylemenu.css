@@ -3,6 +3,7 @@
 @import url("/Dom/07_DOM_T/01-Menu/cryptoWrapper.css");
 @import url("/Dom/07_DOM_T/01-Menu/squareBall.css");
 @import url("/Dom/07_DOM_T/01-Menu/countDown.css");
+@import url("/Dom/07_DOM_T/01-Menu/backButton.css");
 
 :root {
   --font1: "Sawarabi Mincho", serif;
