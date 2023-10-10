@@ -8,4 +8,8 @@ export default function backTopButton() {
           : $backButton.classList.remove("goBigger"))
       : $backButton.classList.remove("opacityOn");
   });
+
+  $backButton.addEventListener("click", event => {
+    window.scrollTo(0, 0);
+  });
 }
