@@ -3,6 +3,7 @@ import { digitalClock, digitalAlarm } from "/Dom/07_DOM_T/01-Menu/d2_clock.js";
 import apiCrypto from "/Dom/07_DOM_T/01-Menu/apiCrypto.js";
 import circleMove from "/Dom/07_DOM_T/01-Menu/d3_ball.js";
 import countDown from "/Dom/07_DOM_T/01-Menu/d4_countdown.js";
+import backTopButton from "/Dom/07_DOM_T/01-Menu/d5_backTop.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const $hamburguerIcon = document.getElementById("hamburguerIcon");
@@ -19,4 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
     "Dibella's Birthday 🎂",
     "Happy Birthday Dibella 🎉"
   );
+  backTopButton();
 });
