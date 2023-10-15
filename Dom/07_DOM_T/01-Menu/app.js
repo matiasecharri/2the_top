@@ -4,6 +4,7 @@ import apiCrypto from "/Dom/07_DOM_T/01-Menu/apiCrypto.js";
 import circleMove from "/Dom/07_DOM_T/01-Menu/d3_ball.js";
 import countDown from "/Dom/07_DOM_T/01-Menu/d4_countdown.js";
 import backTopButton from "/Dom/07_DOM_T/01-Menu/d5_backTop.js";
+import darkModeButtonStorage from "/Dom/07_DOM_T/01-Menu/d6_darkTheme.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const $hamburguerIcon = document.getElementById("hamburguerIcon");
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Happy Birthday Dibella 🎉"
   );
   backTopButton();
+  darkModeButtonStorage()
 });
 
 const agents = [
