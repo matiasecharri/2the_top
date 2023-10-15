@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "Dibella's Birthday 🎂",
     "Happy Birthday Dibella 🎉"
   );
+  darkModeButtonStorage();
   backTopButton();
-  darkModeButtonStorage()
 });
 
 const agents = [
