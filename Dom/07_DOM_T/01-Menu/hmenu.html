@@ -33,7 +33,9 @@
   <!-- //Back top button -->
 
 
-
+  <div class="backToTop">
+    <div class="theSmallBall3" id="smallBall3"></div>
+  </div>
   <div class="backToTop">
     <div class="theSmallBall3" id="smallBall3"></div>
   </div>
@@ -43,40 +45,42 @@
   <!-- //SliderMenu -->
   <div class="sliderMenu" id="sliderMenu">
     <div class="wrapper">
-      <a href="#space1">FUNCTIONAL CLOCK</a>
-      <a href="#space2">MOVEMENT AREA</a>
-      <a href="#space3">COUNTDOWN</a>
-      <a href="/Dom/01_DOM/dom.html">MACHINE TESTER</a>
-      <a href="/Dom/02_DOM/dom.html">CONTROL PANEL</a>
-      <a href="/Dom/03_DOM/dom.html">TEXT TEST</a>
-      <a href="/Dom/04_DOM/dom.html">TEMP + FRAG</a>
-      <a href="/Dom/05_DOM/dom.html">EVENTS</a>
-      <a href="/Dom/06_DOM/dom.html">EVENTS-02</a>
-      <a href="/00NoJS/divs.html">DIVS</a>
+      <a href="#space1" class="data-dark">FUNCTIONAL CLOCK</a>
+      <a href="#space2" class="data-dark">MOVEMENT AREA</a>
+      <a href="#space3" class="data-dark">COUNTDOWN</a>
+      <a href="/Dom/01_DOM/dom.html" class="data-dark">MACHINE TESTER</a>
+      <a href="/Dom/02_DOM/dom.html" class="data-dark">CONTROL PANEL</a>
+      <a href="/Dom/03_DOM/dom.html" class="data-dark">TEXT TEST</a>
+      <a href="/Dom/04_DOM/dom.html" class="data-dark">TEMP + FRAG</a>
+      <a href="/Dom/05_DOM/dom.html" class="data-dark">EVENTS</a>
+      <a href="/Dom/06_DOM/dom.html" class="data-dark">EVENTS-02</a>
+      <a href="/00NoJS/divs.html" class="data-dark">DIVS</a>
 
     </div>
   </div>
   <header class="headerHM">
+    <button class="darkModeButton"></button>
+
     <!-- //CRYPTO SLIDER -->
     <div class="livecoinwatch-widget-5" lcw-base="USD" lcw-color-tx="#b1b1b184;" lcw-marquee-1="coins"
       lcw-marquee-2="movers" lcw-marquee-items="10"></div>
     </div>
 
-    <div class="backdropProvider"></div>
+    <div class="backdropProvider data-dark"></div>
     <section class="container1" id="space1">
       <div class="contClock">
 
-        <div class="clockTemplate">
+        <div class="clockTemplate" class="data-dark">
         </div>
-        <button id="startClockButton">START CLOCK</button>
-        <button id="stopClockButton">STOP CLOCK</button>
-        <button id="startAlarmButton">START ALARM</button>
-        <button id="stopAlarmButton">STOP ALARM</button>
+        <button id="startClockButton" >START CLOCK</button>
+        <button id="stopClockButton" >STOP CLOCK</button>
+        <button id="startAlarmButton" >START ALARM</button>
+        <button id="stopAlarmButton" >STOP ALARM</button>
 
     </section>
     <section class="container2" id="space2">
       <div class="container2-movingZone" id="isMovingZone" tabindex="0">
-        <h2>CLICK HERE, USE KEYBOARD ARROWS or WASD</h2>
+        <h2 class="data-dark">CLICK HERE, USE KEYBOARD ARROWS or WASD</h2>
 
         <div class="container2-movingZone__theBall" id="isBall">
           <div class="theSmallBall" id="smallBall1"></div>
@@ -95,7 +99,7 @@
   </header>
   <script defer src="https://www.livecoinwatch.com/static/lcw-widget.js"></script>
   <script type="module" src="/Dom/07_DOM_T/01-Menu/app.js"></script>
-  <script type="module" src="/Dom/07_DOM_T/01-Menu/d3_ball.js"></script>
+
 
 </body>
 

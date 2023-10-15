@@ -5,6 +5,8 @@
 @import url("/Dom/07_DOM_T/01-Menu/countDown.css");
 @import url("/Dom/07_DOM_T/01-Menu/backButton.css");
 
+
+
 :root {
   --font1: "Sawarabi Mincho", serif;
   --font2: monospace;
@@ -68,6 +70,7 @@ body {
   height: 100%;
   position: absolute;
   z-index: -1;
+
 }
 
 .headerHM h1 {
@@ -179,3 +182,57 @@ body {
   top: 50;
   width: 100% !important;
 }
+
+
+.darkOn{
+  background-color: #180b30db;
+  color: rgba(204, 193, 187, 0.774) !important;
+  font-weight: 100 !important;
+}
+
+
+.darkModeButton{
+  position: fixed;
+  right: 2%;
+  bottom: 50%;
+  height: 20px;
+  width: 20px;
+  background-color: #cdc8c924;
+  border-radius: 360px;
+  -webkit-border-radius: 360px;
+  -moz-border-radius: 360px;
+  -ms-border-radius: 360px;
+  -o-border-radius: 360px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  position: fixed;
+  z-index: 105;
+  border: 1px solid #cdc8c99e;
+  transition: ease-in-out 0.2s;
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -ms-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.hiddenIs{
+  opacity: 0;
+  transition: ease-in-out 0.2s;
+  cursor: auto;
+  z-index: -1;
+}
+
+
+.darkModeButton:hover{
+  transform: scale(120%);
+  background-color: #cdc8c9;
+  transition: ease-in-out 0.2s;
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -ms-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+}
+
+
+
