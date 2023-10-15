@@ -20,6 +20,7 @@ export function digitalClock(clockTemplate) {
 
   $stopButton.classList.add("disabled");
 
+  let isTheClockRunning = false;
   let clockStart;
   const clockWorking = () => {
     playAudioMessage("/Dom/07_DOM_T/01-Menu/effect1.mp3");

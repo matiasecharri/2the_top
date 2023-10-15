@@ -22,3 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   backTopButton();
 });
+
+const agents = [
+  { name: "sova", age: 25, alive: true },
+  { name: "reyna", age: 35, alive: true },
+  { name: "killjoy", age: 19, alive: true },
+  { name: "gekko", age: 19, alive: true },
+  { name: "sova", age: null, alive: true },
+];
+
+const uniqueAgents = agents.filter((agent, index) => {
+  return (
+    index ===
+    agents.findIndex(a => a.name === agent.name && a.age === agent.age)
+  );
+});
+
+console.log(uniqueAgents);

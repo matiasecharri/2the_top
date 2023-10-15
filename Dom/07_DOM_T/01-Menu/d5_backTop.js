@@ -10,6 +10,8 @@ export default function backTopButton() {
   });
 
   $backButton.addEventListener("click", event => {
-    window.scrollTo(0, 0);
+    if (window.scrollY > 250) {
+      window.scrollTo(0, 0);
+    }
   });
 }

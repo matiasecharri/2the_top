@@ -13,7 +13,6 @@
   margin-left: 40px;
   bottom: 6%;
   border: 1px solid #cdc8c99e;
-  cursor: pointer;
   transition: ease-in-out 0.2s;
   -webkit-transition: ease-in-out 0.2s;
   -moz-transition: ease-in-out 0.2s;
@@ -33,6 +32,8 @@
 
 .opacityOn {
   opacity: 1;
+  cursor: pointer;
+
   transition: ease-in-out 0.5s;
   -webkit-transition: ease-in-out 0.5s;
   -moz-transition: ease-in-out 0.5s;
@@ -66,13 +67,22 @@
   transform-origin: center center;
   animation: orbit 2s linear infinite;
   -webkit-animation: orbit 2s linear infinite;
-  border: 1px solid rgba(0, 0, 0, 0.455);
+  border: 1px solid #cdc8c99e;
+
   box-shadow: rgba(0, 0, 0, 0.154) 0px 5px 15px;
 }
 
 @keyframes orbit {
   0% {
     transform: translate(-50%, -50%) rotate(0deg) translateX(50px) rotate(0deg);
+    -webkit-transform: translate(-50%, -50%) rotate(0deg) translateX(50px)
+      rotate(0deg);
+    -moz-transform: translate(-50%, -50%) rotate(0deg) translateX(50px)
+      rotate(0deg);
+    -ms-transform: translate(-50%, -50%) rotate(0deg) translateX(50px)
+      rotate(0deg);
+    -o-transform: translate(-50%, -50%) rotate(0deg) translateX(50px)
+      rotate(0deg);
   }
   100% {
     transform: translate(-50%, -50%) rotate(360deg) translateX(50px)
