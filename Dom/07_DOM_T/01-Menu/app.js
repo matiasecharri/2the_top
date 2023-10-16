@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   backTopButton();
 });
 
+// window.onload = function () {
+//   let shadowRoot = document.querySelector("spline-viewer").shadowRoot;
+//   shadowRoot.querySelector("#logo").remove();
+// };
+
 const agents = [
   { name: "sova", age: 25, alive: true },
   { name: "reyna", age: 35, alive: true },
