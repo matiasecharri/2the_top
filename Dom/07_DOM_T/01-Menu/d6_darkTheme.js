@@ -2,7 +2,6 @@ export default function darkModeButtonStorage() {
   const $elements = document.querySelectorAll(".data-dark");
   const $buttonOnOff = document.querySelector(".darkModeButton");
   let mode = JSON.parse(localStorage.getItem("darkMode"));
-  console.log(mode);
 
   const isDarkMode = () => {
     if (mode === true) {
