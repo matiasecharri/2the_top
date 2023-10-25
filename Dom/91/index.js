@@ -1,7 +1,6 @@
 const $form = document.getElementById("responsive-tester");
 const $openButton = document.getElementById("openButton");
 const $closeButton = document.getElementById("closeButton");
-
 let tester;
 
 const formOpener = () => {
