@@ -1,6 +1,3 @@
-const $searchBar = document.getElementById("searchBar");
-const $container = document.getElementById("container");
-
 const frutas = [
   { nombre: "Manzana", imagen: "🍎" },
   { nombre: "Plátano", imagen: "🍌" },
