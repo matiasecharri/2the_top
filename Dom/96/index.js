@@ -29,7 +29,7 @@ const searchBar = (array, container, input) => {
     });
     filteredArray.length !== 0
       ? printer(filteredArray, $cointainer)
-      : (container.innerHTML = `<p style="color:black">Item not Found</p>`);
+      : (container.innerHTML = `<p>Item not Found</p>`);
   });
 
   input.addEventListener("input", event => {
