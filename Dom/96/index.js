@@ -9,7 +9,7 @@ const printer = array => {
 <img src="${element.photo}" alt="${element.name}">
 <div class="container-card_description">
     <h2>${element.name}</h2>
-    <p>Price per 5 units: ${element.pricex5} USD.-</p>
+    <p>Price per 5 unit: ${element.pricex5} USD.-</p>
     <p>${element.description}</p>
 </div>
 </div>`;
