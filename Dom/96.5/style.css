@@ -60,14 +60,16 @@ h1 {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  min-height: 80px; /* Establece una altura mínima */
+  height: 80px; /* Establece una altura mínima */
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 10px;
   font-style: italic;
+  font-size: 0.9rem;
   color: rgb(40, 40, 37);
   border-left: 5px solid #444436;
+  overflow-y: auto;
 }
 
 .container-interface {
@@ -100,6 +102,10 @@ h1 {
   display: none;
 }
 
+.item::-webkit-scrollbar {
+  width: 5px;
+  display: none;
+}
 #textField {
   padding: 10px;
   padding-left: 15px;
