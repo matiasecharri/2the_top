@@ -39,12 +39,16 @@ const searchBar = (array, container, input) => {
 
 //API Fetching and function invocation.
 const app = async () => {
-  const getData = await fetch(
-    "https://my-json-server.typicode.com/matiasecharri/nippon-bites/products"
-  );
-  const data = await getData.json();
+  try {
+    const getData = await fetch(
+      "https://my-json-server.typicode.com/matiasecharri/nippon-bites/products"
+    );
+    const data = await getData.json();
 
-  searchBar(data, $cointainer, $searchBar);
-  printer(data, $cointainer);
+    searchBar(data, $cointainer, $searchBar);
+    printer(data, $cointainer);
+  } catch (error) {
+    console.warn("Something is not working..." + error);
+  }
 };
 app();
