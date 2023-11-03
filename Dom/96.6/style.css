@@ -1,3 +1,9 @@
+/* Total god mode:
+filter: saturate(120%) blur(20px) hue-rotate(200deg);
+-webkit-filter: saturate(120%) blur(20px) hue-rotate(200deg); 
+  background-image: linear-gradient(62deg, rgb(22, 21, 20) 0%, #3a303a 100%);
+*/
+
 * {
   padding: 0px;
   margin: 0px;
@@ -5,9 +11,7 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-*::selection {
-  background-color: #f3f36d;
-}
+
 main {
   background-color: #8ec5fc;
   background-image: linear-gradient(62deg, rgb(225, 217, 210) 0%, #f5e6f5 100%);
@@ -216,6 +220,10 @@ h1 {
   -webkit-filter: saturate(120%) blur(20px);
 }
 
+.decoration2 {
+  user-select: none;
+}
+
 .point {
   background-color: rgb(251, 248, 247);
   height: 10px;
@@ -274,12 +282,12 @@ h1 {
   -moz-transition: 0.3s ease-in;
   -ms-transition: 0.3s ease-in;
   -o-transition: 0.3s ease-in;
-  cursor: pointer;
 }
 
 .card-to-do-list:hover {
   transform: scale(105%);
   transition: 0.3s ease-in;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   -webkit-transform: scale(105%);
   -moz-transform: scale(105%);
   -ms-transform: scale(105%);
@@ -292,6 +300,7 @@ h1 {
 
 .card-to-do-list:hover p {
   font-size: 1rem;
+
   transition: 0.3s ease-in;
   -webkit-transition: 0.3s ease-in;
   -moz-transition: 0.3s ease-in;
