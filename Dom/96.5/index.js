@@ -20,11 +20,10 @@ const inputText = (text = "") => {
 const printer = array => {
   $containerList.innerHTML = "";
   array.forEach(element => {
-    $containerList.innerHTML += `
-    <div class="container-item">
+    $containerList.innerHTML += `  <div class="container-item">
     <div class="item" id="${element.id}">
-    <p>"${element.content}"</p>
-</div>
+        <p>${element.content} </p>
+    </div>
 </div>`;
   });
 };

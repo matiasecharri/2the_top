@@ -81,8 +81,12 @@ h1 {
   font-size: 0.9rem;
   color: rgb(40, 40, 37);
   overflow-y: scroll;
+  word-wrap: break-word;
 }
 
+.item p {
+  word-wrap: break-word !important;
+}
 .container-interface {
   width: 85%;
   height: 70px;
