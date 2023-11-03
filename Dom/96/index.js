@@ -73,6 +73,20 @@ const input = (input, array, container) => {
   });
 };
 
+//This is the loader
+const loader = () => {
+  $cointainer.innerHTML = `<div class="dot-spinner">
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+</div>`;
+};
+
 //API Fetching and function invocation.
 const app = async () => {
   try {
@@ -88,4 +102,5 @@ const app = async () => {
     console.warn("Something is not working..." + error);
   }
 };
+loader();
 app();
