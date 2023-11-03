@@ -1,64 +1,48 @@
-//Transformar estoen una interfaz de utilidades, con calculadora, reloj, precio del bitcxoin, etc, a su vez con un menu desplegable que pemita a los usuarios volver a poner las cosas y a su vez que el circulo ROJO las borre, ademas que ssea drag and drop, a su vezz que pregunte el nombre y tenga saludo
 const $inputText = document.getElementById("textField");
 const $buttonSend = document.getElementById("send");
-const $containerList = document.getElementById("containerToDo");
-const $whiteButton = document.getElementById("whitePoint");
-const $containerrAll = document.querySelector(".container");
+const $containerToDos = document.getElementById("scroll-content");
 
-const toDoArray = [];
-
-const inputText = (text = "") => {
-  if (text === "") {
-    return;
-  }
-  toDoArray.push({
-    content: text,
-    id: new Date().getTime(),
-  });
-};
+const arrayToDos = [];
 
 const printer = array => {
-  $containerList.innerHTML = "";
+  $containerToDos.innerHTML = "";
   array.forEach(element => {
-    $containerList.innerHTML += `  <div class="container-item">
-    <div class="item" id="${element.id}">
+    $containerToDos.innerHTML += `
+    <div class="card-to-do-list" id=${element.id}>
+    <div class="internal-container">
         <p>${element.content} </p>
     </div>
-</div>`;
+    </div>`;
   });
 };
 
-const toDoCreator = () => {
+const toDoObjectCreation = () => {
+  arrayToDos.push({ content: $inputText.value, id: new Date().getTime() });
+};
+
+const toDoRender = () => {
   $buttonSend.addEventListener("click", event => {
     if ($inputText.value === "") {
       return;
     }
-    const userInput = $inputText.value;
-    inputText(userInput);
+    toDoObjectCreation();
+    printer(arrayToDos);
     $inputText.value = "";
-    console.log(toDoArray);
-    printer(toDoArray);
   });
 };
 
-const toDoCreatorKey = () => {
+const toDoRenderKey = () => {
   $inputText.addEventListener("keypress", event => {
+    if ($inputText.value === "") {
+      return;
+    }
     if (event.key === "Enter") {
-      const userInput = $inputText.value;
-      inputText(userInput);
+      toDoObjectCreation();
+      printer(arrayToDos);
       $inputText.value = "";
-      console.log(toDoArray);
-      printer(toDoArray);
     }
   });
 };
 
-const widthChanger = () => {
-  $whiteButton.addEventListener("click", event => {
-    $containerrAll.classList.toggle("expanded");
-  });
-};
-
-toDoCreatorKey();
-toDoCreator();
-widthChanger();
+toDoRenderKey();
+toDoRender();
