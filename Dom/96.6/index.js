@@ -2,11 +2,13 @@ const $inputText = document.getElementById("textField");
 const $buttonSend = document.getElementById("send");
 const $containerToDos = document.getElementById("scroll-content");
 const $whiteButton = document.getElementById("whitePoint");
+const $pinkButton = document.getElementById("pinkPoint");
 const $whiteModal = document.getElementById("whiteModal");
 const $darkLightButton = document.getElementById("themeChanger");
 const $main = document.getElementById("main");
 const $bgImage = document.getElementById("bgImage");
-
+const $mainContainer = document.getElementById("mainContainer");
+const $autoThemeButton = document.getElementById("themeAuto");
 let isDarkMode = false;
 const arrayToDos = [];
 
@@ -56,6 +58,13 @@ const appearWhiteModal = () => {
   });
 };
 
+const fullWidthWindow = () => {
+  $pinkButton.addEventListener("click", event => {
+    $mainContainer.classList.toggle("full-width");
+    $buttonSend.classList.toggle("increase-width");
+  });
+};
+
 const themeChecker = () => {
   isDarkMode === false
     ? ($main.classList.add("darkMain"),
@@ -80,7 +89,6 @@ const storageChecker = () => {
   let theme;
   if (localStorage.getItem("theme") !== null) {
     theme = JSON.parse(localStorage.getItem("theme"));
-    console.log(theme);
     if (theme === true) {
       isDarkMode = false;
       themeChecker();
@@ -98,4 +106,5 @@ storageChecker();
 toDoRenderKey();
 toDoRender();
 appearWhiteModal();
+fullWidthWindow();
 buttonDarkLight();
