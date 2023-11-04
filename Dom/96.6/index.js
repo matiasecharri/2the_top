@@ -60,10 +60,12 @@ const themeChecker = () => {
   isDarkMode === false
     ? ($main.classList.add("darkMain"),
       $bgImage.classList.add("darkImage"),
-      (isDarkMode = true))
+      (isDarkMode = true),
+      localStorage.setItem("theme", true))
     : ($main.classList.remove("darkMain"),
       $bgImage.classList.remove("darkImage"),
-      (isDarkMode = false));
+      (isDarkMode = false),
+      localStorage.setItem("theme", false));
 };
 
 const buttonDarkLight = () => {
@@ -72,6 +74,25 @@ const buttonDarkLight = () => {
   });
 };
 
+const storageChecker = () => {
+  let theme;
+  if (localStorage.getItem("theme") !== null) {
+    theme = JSON.parse(localStorage.getItem("theme"));
+    console.log(theme);
+    if (theme === true) {
+      isDarkMode = false;
+      themeChecker();
+      return;
+    }
+    if (theme === false) {
+      isDarkMode = true;
+      themeChecker();
+      return;
+    }
+  }
+};
+
+storageChecker();
 toDoRenderKey();
 toDoRender();
 appearWhiteModal();
