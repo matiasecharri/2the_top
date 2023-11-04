@@ -60,10 +60,12 @@ const themeChecker = () => {
   isDarkMode === false
     ? ($main.classList.add("darkMain"),
       $bgImage.classList.add("darkImage"),
+      ($darkLightButton.innerText = "Light Mode"),
       (isDarkMode = true),
       localStorage.setItem("theme", true))
     : ($main.classList.remove("darkMain"),
       $bgImage.classList.remove("darkImage"),
+      ($darkLightButton.innerText = "Dark Mode"),
       (isDarkMode = false),
       localStorage.setItem("theme", false));
 };
