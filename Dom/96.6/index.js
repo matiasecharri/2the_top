@@ -1,7 +1,13 @@
 const $inputText = document.getElementById("textField");
 const $buttonSend = document.getElementById("send");
 const $containerToDos = document.getElementById("scroll-content");
+const $whiteButton = document.getElementById("whitePoint");
+const $whiteModal = document.getElementById("whiteModal");
+const $darkLightButton = document.getElementById("themeChanger");
+const $main = document.getElementById("main");
+const $bgImage = document.getElementById("bgImage");
 
+let isDarkMode = false;
 const arrayToDos = [];
 
 const printer = array => {
@@ -44,5 +50,50 @@ const toDoRenderKey = () => {
   });
 };
 
+const appearWhiteModal = () => {
+  $whiteButton.addEventListener("click", event => {
+    $whiteModal.classList.toggle("modalAppear");
+  });
+};
+
+const themeChecker = () => {
+  isDarkMode === false
+    ? ($main.classList.add("darkMain"),
+      $bgImage.classList.add("darkImage"),
+      (isDarkMode = true),
+      localStorage.setItem("theme", true))
+    : ($main.classList.remove("darkMain"),
+      $bgImage.classList.remove("darkImage"),
+      (isDarkMode = false),
+      localStorage.setItem("theme", false));
+};
+
+const buttonDarkLight = () => {
+  $darkLightButton.addEventListener("click", event => {
+    themeChecker();
+  });
+};
+
+const storageChecker = () => {
+  let theme;
+  if (localStorage.getItem("theme") !== null) {
+    theme = JSON.parse(localStorage.getItem("theme"));
+    console.log(theme);
+    if (theme === true) {
+      isDarkMode = false;
+      themeChecker();
+      return;
+    }
+    if (theme === false) {
+      isDarkMode = true;
+      themeChecker();
+      return;
+    }
+  }
+};
+
+storageChecker();
 toDoRenderKey();
 toDoRender();
+appearWhiteModal();
+buttonDarkLight();
