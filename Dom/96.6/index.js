@@ -12,6 +12,13 @@ const $autoThemeButton = document.getElementById("themeAuto");
 let isDarkMode = false;
 const arrayToDos = [];
 
+//Object APP good practice for dom elements and global states.
+// const app = {
+//   $inputText,
+//   $buttonSend,
+//   $containerToDos,
+// };
+
 //🍥This function is used to print objects as cards from an array.
 const printer = array => {
   $containerToDos.innerHTML = "";
