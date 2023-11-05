@@ -2,14 +2,17 @@ const $inputText = document.getElementById("textField");
 const $buttonSend = document.getElementById("send");
 const $containerToDos = document.getElementById("scroll-content");
 const $whiteButton = document.getElementById("whitePoint");
+const $pinkButton = document.getElementById("pinkPoint");
 const $whiteModal = document.getElementById("whiteModal");
 const $darkLightButton = document.getElementById("themeChanger");
 const $main = document.getElementById("main");
 const $bgImage = document.getElementById("bgImage");
-
+const $mainContainer = document.getElementById("mainContainer");
+const $autoThemeButton = document.getElementById("themeAuto");
 let isDarkMode = false;
 const arrayToDos = [];
 
+//🍥This function is used to print objects as cards from an array.
 const printer = array => {
   $containerToDos.innerHTML = "";
   array.forEach(element => {
@@ -22,26 +25,36 @@ const printer = array => {
   });
 };
 
+//🍥This function is used to create an object with 2 properties and after that is going to push the object to arrayToDo.
 const toDoObjectCreation = () => {
+  const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
+  if (regex.test($inputText.value) === false) {
+    $inputText.classList.add("bounce");
+    setTimeout(() => {
+      $inputText.classList.remove("bounce");
+    }, 1000);
+    $inputText.value = "";
+    return;
+  }
   arrayToDos.push({ content: $inputText.value, id: new Date().getTime() });
 };
 
+//🍥 This function is used to call toDoObjectCreation() and then printing arrayToDos()
 const toDoRender = () => {
   $buttonSend.addEventListener("click", event => {
-    if ($inputText.value === "") {
-      return;
-    }
     toDoObjectCreation();
     printer(arrayToDos);
     $inputText.value = "";
   });
 };
 
+//🍥 This function is the same as toDoRender but with the ENTER KEY.
 const toDoRenderKey = () => {
   $inputText.addEventListener("keypress", event => {
     if ($inputText.value === "") {
       return;
     }
+
     if (event.key === "Enter") {
       toDoObjectCreation();
       printer(arrayToDos);
@@ -53,6 +66,13 @@ const toDoRenderKey = () => {
 const appearWhiteModal = () => {
   $whiteButton.addEventListener("click", event => {
     $whiteModal.classList.toggle("modalAppear");
+  });
+};
+
+const fullWidthWindow = () => {
+  $pinkButton.addEventListener("click", event => {
+    $mainContainer.classList.toggle("full-width");
+    $buttonSend.classList.toggle("increase-width");
   });
 };
 
@@ -80,7 +100,6 @@ const storageChecker = () => {
   let theme;
   if (localStorage.getItem("theme") !== null) {
     theme = JSON.parse(localStorage.getItem("theme"));
-    console.log(theme);
     if (theme === true) {
       isDarkMode = false;
       themeChecker();
@@ -98,4 +117,5 @@ storageChecker();
 toDoRenderKey();
 toDoRender();
 appearWhiteModal();
+fullWidthWindow();
 buttonDarkLight();
