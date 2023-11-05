@@ -12,6 +12,7 @@ const $autoThemeButton = document.getElementById("themeAuto");
 let isDarkMode = false;
 const arrayToDos = [];
 
+//🍥This function is used to print objects as cards from an array.
 const printer = array => {
   $containerToDos.innerHTML = "";
   array.forEach(element => {
@@ -24,10 +25,12 @@ const printer = array => {
   });
 };
 
+//🍥This function is used to create an object with 2 properties and after that is going to push the object to arrayToDo.
 const toDoObjectCreation = () => {
   arrayToDos.push({ content: $inputText.value, id: new Date().getTime() });
 };
 
+//🍥 This function is used to call toDoObjectCreation() and then printing arrayToDos()
 const toDoRender = () => {
   $buttonSend.addEventListener("click", event => {
     if ($inputText.value === "") {
@@ -39,11 +42,13 @@ const toDoRender = () => {
   });
 };
 
+//🍥 This function is the same as toDoRender but with the ENTER KEY.
 const toDoRenderKey = () => {
   $inputText.addEventListener("keypress", event => {
     if ($inputText.value === "") {
       return;
     }
+
     if (event.key === "Enter") {
       toDoObjectCreation();
       printer(arrayToDos);
