@@ -32,8 +32,14 @@ const toDoObjectCreation = () => {
 
 //🍥 This function is used to call toDoObjectCreation() and then printing arrayToDos()
 const toDoRender = () => {
+  const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
   $buttonSend.addEventListener("click", event => {
-    if ($inputText.value === "") {
+    if (regex.test($inputText.value) === false) {
+      $inputText.classList.add("bounce");
+      setTimeout(() => {
+        $inputText.classList.remove("bounce");
+      }, 1000);
+      $inputText.value = "";
       return;
     }
     toDoObjectCreation();
