@@ -1,3 +1,10 @@
+//Object APP good practice for dom elements and global states.
+// const app = {
+//   $inputText,
+//   $buttonSend,
+//   $containerToDos,
+// };
+
 const $inputText = document.getElementById("textField");
 const $buttonSend = document.getElementById("send");
 const $containerToDos = document.getElementById("scroll-content");
@@ -10,14 +17,8 @@ const $bgImage = document.getElementById("bgImage");
 const $mainContainer = document.getElementById("mainContainer");
 const $autoThemeButton = document.getElementById("themeAuto");
 let isDarkMode = false;
+const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
 const arrayToDos = [];
-
-//Object APP good practice for dom elements and global states.
-// const app = {
-//   $inputText,
-//   $buttonSend,
-//   $containerToDos,
-// };
 
 //🍥This function is used to print objects as cards from an array.
 const printer = array => {
@@ -32,15 +33,23 @@ const printer = array => {
   });
 };
 
-//🍥This function is used to create an object with 2 properties and after that is going to push the object to arrayToDo.
-const toDoObjectCreation = () => {
-  arrayToDos.push({ content: $inputText.value, id: new Date().getTime() });
+//🍥Creates toDoObjects with 3 properties, the content (equal to $inputText.value), completed always false at the start and an id.
+const toDoObjectCreator = content => {
+  return {
+    content: content,
+    completed: false,
+    id: new Date().getTime(),
+  };
 };
 
-//🍥 This function is used to call toDoObjectCreation() and then printing arrayToDos()
-const toDoRender = () => {
+//🍥Push objects to an array.
+const taskPusher = (array, toDoObject) => {
+  array.push(toDoObject);
+};
+
+//🍥 All the actions realized by clicking the sendButton.
+const sendButtonActions = () => {
   $buttonSend.addEventListener("click", event => {
-    const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
     if (regex.test($inputText.value) === false) {
       $inputText.classList.add("bounce");
       setTimeout(() => {
@@ -49,37 +58,39 @@ const toDoRender = () => {
       $inputText.value = "";
       return;
     }
-    toDoObjectCreation();
+    taskPusher(arrayToDos, toDoObjectCreator($inputText.value));
     printer(arrayToDos);
     $inputText.value = "";
   });
 };
-//🍥 This function is the same as toDoRender but with the ENTER KEY.
-const toDoRenderKey = () => {
-  const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
+
+//🍥 Same as sendButtonActions but with the ENTER KEY.
+const enterKeyActions = () => {
   $inputText.addEventListener("keypress", event => {
     if (event.key === "Enter") {
       if (regex.test($inputText.value) === false) {
         $inputText.classList.add("bounce");
         setTimeout(() => {
           $inputText.classList.remove("bounce");
-        }, 500);
+        }, 1000);
         $inputText.value = "";
         return;
       }
-      toDoObjectCreation();
+      taskPusher(arrayToDos, toDoObjectCreator($inputText.value));
       printer(arrayToDos);
       $inputText.value = "";
     }
   });
 };
 
+//🍥 Appear and dissapears the modal (linked to the whitebutton)
 const appearWhiteModal = () => {
   $whiteButton.addEventListener("click", event => {
     $whiteModal.classList.toggle("modalAppear");
   });
 };
 
+//🍥 Extends the width of the toDoWindow (linked to the pínkbutton)
 const fullWidthWindow = () => {
   $pinkButton.addEventListener("click", event => {
     $mainContainer.classList.toggle("full-width");
@@ -87,6 +98,7 @@ const fullWidthWindow = () => {
   });
 };
 
+//🍥 Checker and setter of the theme.
 const themeChecker = () => {
   isDarkMode === false
     ? ($main.classList.add("darkMain"),
@@ -101,12 +113,14 @@ const themeChecker = () => {
       localStorage.setItem("theme", false));
 };
 
-const buttonDarkLight = () => {
+//🍥 All the actions realized by clicking the themeButton.
+const buttonThemeActions = () => {
   $darkLightButton.addEventListener("click", event => {
     themeChecker();
   });
 };
 
+//🍥 If the localstorage is not empty, sets the theme saved by the user.
 const storageChecker = () => {
   let theme;
   if (localStorage.getItem("theme") !== null) {
@@ -124,9 +138,18 @@ const storageChecker = () => {
   }
 };
 
-storageChecker();
-toDoRenderKey();
-toDoRender();
-appearWhiteModal();
-fullWidthWindow();
-buttonDarkLight();
+//🍥 Execution of every functionalitie.
+const execution = () => {
+  try {
+    storageChecker();
+    sendButtonActions();
+    enterKeyActions();
+    appearWhiteModal();
+    fullWidthWindow();
+    buttonThemeActions();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+execution();

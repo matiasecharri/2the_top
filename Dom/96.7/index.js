@@ -66,7 +66,6 @@ const sendButtonActions = () => {
   });
 };
 
-//Ejecucion del codigo
 const execution = () => {
   try {
     sendButtonActions();
