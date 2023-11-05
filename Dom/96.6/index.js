@@ -27,35 +27,39 @@ const printer = array => {
 
 //🍥This function is used to create an object with 2 properties and after that is going to push the object to arrayToDo.
 const toDoObjectCreation = () => {
-  const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
-  if (regex.test($inputText.value) === false) {
-    $inputText.classList.add("bounce");
-    setTimeout(() => {
-      $inputText.classList.remove("bounce");
-    }, 1000);
-    $inputText.value = "";
-    return;
-  }
   arrayToDos.push({ content: $inputText.value, id: new Date().getTime() });
 };
 
 //🍥 This function is used to call toDoObjectCreation() and then printing arrayToDos()
 const toDoRender = () => {
   $buttonSend.addEventListener("click", event => {
+    const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
+    if (regex.test($inputText.value) === false) {
+      $inputText.classList.add("bounce");
+      setTimeout(() => {
+        $inputText.classList.remove("bounce");
+      }, 1000);
+      $inputText.value = "";
+      return;
+    }
     toDoObjectCreation();
     printer(arrayToDos);
     $inputText.value = "";
   });
 };
-
 //🍥 This function is the same as toDoRender but with the ENTER KEY.
 const toDoRenderKey = () => {
+  const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
   $inputText.addEventListener("keypress", event => {
-    if ($inputText.value === "") {
-      return;
-    }
-
     if (event.key === "Enter") {
+      if (regex.test($inputText.value) === false) {
+        $inputText.classList.add("bounce");
+        setTimeout(() => {
+          $inputText.classList.remove("bounce");
+        }, 500);
+        $inputText.value = "";
+        return;
+      }
       toDoObjectCreation();
       printer(arrayToDos);
       $inputText.value = "";
