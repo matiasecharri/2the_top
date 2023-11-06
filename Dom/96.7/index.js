@@ -42,9 +42,14 @@ const renderToDos = array => {
     editButton.classList.add("edit");
     editButton.textContent = "EDIT!";
 
+    const link = document.createElement("a");
+    link.textContent = "GO";
+    link.setAttribute("href", `/Dom/96.7/details.html?todo=${toDoObject.id}`);
+
     cardDiv.appendChild(contentPara);
     cardDiv.appendChild(deleteButton);
     cardDiv.appendChild(editButton);
+    cardDiv.appendChild(link);
 
     fragment.appendChild(cardDiv); // Agrega el elemento al fragmento
   });
