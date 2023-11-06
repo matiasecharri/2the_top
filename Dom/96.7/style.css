@@ -43,12 +43,14 @@ main {
 .container-todo-cards {
   flex-direction: column;
   display: flex;
-  gap: 20px;
+  gap: 0px;
   height: 70vh;
   width: 100%;
   align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
   padding: 20px;
-  background-color: rgb(184, 154, 110);
+  background-color: rgb(129, 184, 110);
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
