@@ -17,7 +17,8 @@ const $bgImage = document.getElementById("bgImage");
 const $mainContainer = document.getElementById("mainContainer");
 const $autoThemeButton = document.getElementById("themeAuto");
 let isDarkMode = false;
-const regex = /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/;
+const regex =
+  /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZあ-んア-ン]/;
 const arrayToDos = [];
 
 //🍥This function is used to print objects as cards from an array.
