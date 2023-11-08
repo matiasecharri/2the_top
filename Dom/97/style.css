@@ -11,3 +11,7 @@ main {
   height: 100vh;
   background-color: bisque;
 }
+
+p {
+  font-size: 10px;
+}

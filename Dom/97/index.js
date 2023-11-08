@@ -15,3 +15,13 @@ const renderWinner = () => {
 };
 
 $sendButton.addEventListener("click", renderWinner);
+
+document.addEventListener("DOMContentLoaded", event => {
+  const $paragraphs = document.querySelectorAll("p");
+
+  $paragraphs.forEach(element => {
+    if (window.innerWidth <= 767) {
+      element.style.setProperty("font-size", "20px");
+    }
+  });
+});
