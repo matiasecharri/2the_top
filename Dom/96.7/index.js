@@ -33,18 +33,6 @@ const deleteToDo = event => {
   }
 };
 
-const editToDo = event => {
-  const button = event.target;
-  toDoArray.forEach(toDo => {
-    if (button.classList.contains(toDo.id)) {
-      app.$inputTexto.value = toDo.content;
-      let hola = prompt("xD");
-      toDo.content = hola;
-      renderToDos(toDoArray);
-    }
-  });
-};
-
 //Impresion de los objetos en el HTML
 const renderToDos = array => {
   const fragment = document.createDocumentFragment(); // Crea un fragmento de documento
@@ -67,7 +55,6 @@ const renderToDos = array => {
     editButton.classList.add("edit");
     editButton.classList.add(toDoObject.id);
     editButton.textContent = "EDIT!";
-    editButton.addEventListener("click", editToDo);
 
     const link = document.createElement("a");
     link.textContent = "GO";
