@@ -302,7 +302,7 @@ const noToDosCase = () => {
 //🍥 Used this if there are not to-dos pending
 const soundPlayer = file => {
   let uiSound = new Audio(file);
-  uiSound.volume = 0.4;
+  uiSound.volume = 0.1;
   uiSound.play();
 };
 
