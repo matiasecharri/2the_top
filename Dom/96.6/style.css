@@ -720,3 +720,47 @@ h1 {
 
 /* 
 //delete */
+
+.fillEmptySpace {
+  width: 95%;
+  background-color: #fcfaf8;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 1px solid rgba(226, 220, 220, 0.335);
+  padding: 30px 10px;
+  display: flex;
+  height: 45px;
+  justify-content: flex-start;
+  align-items: center;
+
+  box-shadow: rgba(0, 0, 0, 0.034) 0px 3px 6px, rgba(0, 0, 0, 0.039) 0px 3px 6px;
+  transition: 0.4s ease-in-out;
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -ms-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(105%);
+  -webkit-transform: scale(105%);
+  -moz-transform: scale(105%);
+  -ms-transform: scale(105%);
+  -o-transform: scale(105%);
+}
+
+.show {
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -ms-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transform: scale(100%);
+  -webkit-transform: scale(100%);
+  -moz-transform: scale(100%);
+  -ms-transform: scale(100%);
+  -o-transform: scale(100%);
+}
