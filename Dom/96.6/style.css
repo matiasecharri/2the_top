@@ -765,3 +765,9 @@ h1 {
   -ms-transform: scale(100%);
   -o-transform: scale(100%);
 }
+
+@media (width <520px) {
+  .fillEmptySpace {
+    font-size: 0.72rem;
+  }
+}
