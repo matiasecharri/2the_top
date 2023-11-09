@@ -1,10 +1,3 @@
-//Object APP good practice for dom elements and global states.
-// const app = {
-//   $inputText,
-//   $buttonSend,
-//   $containerToDos,
-// };
-
 const $inputText = document.getElementById("textField");
 const $buttonSend = document.getElementById("send");
 const $containerToDos = document.getElementById("scroll-content");
@@ -19,45 +12,125 @@ const $autoThemeButton = document.getElementById("themeAuto");
 let isDarkMode = false;
 const regex =
   /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZあ-んア-ン]/;
-const arrayToDos = [];
+let arrayToDos = JSON.parse(localStorage.getItem("toDos")) || [];
+let $buttonsDelete = document.querySelectorAll(".buttonD");
 
-//🍥This function is used to print objects as cards from an array.
+// 🍥 This function is used to print objects as cards from an array.
 const printer = array => {
-  $containerToDos.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+
   array.forEach(element => {
-    $containerToDos.innerHTML += `
-    <div class="card-to-do-list">
-                        <div class="container-action-buttons">
-                            <label class="contx">
-                                <input type="checkbox">
-                                <div class="checkmark"></div>
-                                <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="celebrate">
-                                    <polygon points="0,0 10,10"></polygon>
-                                    <polygon points="0,25 10,25"></polygon>
-                                    <polygon points="0,50 10,40"></polygon>
-                                    <polygon points="50,0 40,10"></polygon>
-                                    <polygon points="50,25 40,25"></polygon>
-                                    <polygon points="50,50 40,40"></polygon>
-                                </svg>
-                            </label>
-                        </div>
+    const cardContainer = document.createElement("div");
+    cardContainer.classList.add("card-to-do-list");
 
-                        <div class="internal-container">
-                            <p>${element.content}
-                            </p>
-                        </div>
+    const actionButtonsContainer = document.createElement("div");
+    actionButtonsContainer.classList.add("container-action-buttons");
 
-                        <button class="buttonD">
-                            <svg viewBox="0 0 448 512" class="svgIcon">
-                                <path
-                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z">
-                                </path>
-                            </svg>
-                        </button>
+    const checkboxLabel = document.createElement("label");
+    checkboxLabel.classList.add("contx");
 
+    const checkboxInput = document.createElement("input");
+    checkboxInput.setAttribute("type", "checkbox");
 
-                    </div>`;
+    const checkmarkDiv = document.createElement("div");
+    checkmarkDiv.classList.add("checkmark");
+
+    const celebrateSvg = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "svg"
+    );
+    celebrateSvg.setAttribute("width", "50");
+    celebrateSvg.setAttribute("height", "50");
+    celebrateSvg.classList.add("celebrate");
+
+    const polygon1 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "polygon"
+    );
+    polygon1.setAttribute("points", "0,0 10,10");
+
+    const polygon2 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "polygon"
+    );
+    polygon2.setAttribute("points", "0,25 10,25");
+
+    const polygon3 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "polygon"
+    );
+    polygon3.setAttribute("points", "0,50 10,40");
+
+    const polygon4 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "polygon"
+    );
+    polygon4.setAttribute("points", "50,0 40,10");
+
+    const polygon5 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "polygon"
+    );
+    polygon5.setAttribute("points", "50,25 40,25");
+
+    const polygon6 = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "polygon"
+    );
+    polygon6.setAttribute("points", "50,50 40,40");
+
+    celebrateSvg.appendChild(polygon1);
+    celebrateSvg.appendChild(polygon2);
+    celebrateSvg.appendChild(polygon3);
+    celebrateSvg.appendChild(polygon4);
+    celebrateSvg.appendChild(polygon5);
+    celebrateSvg.appendChild(polygon6);
+
+    checkboxLabel.appendChild(checkboxInput);
+    checkboxLabel.appendChild(checkmarkDiv);
+    checkboxLabel.appendChild(celebrateSvg);
+
+    actionButtonsContainer.appendChild(checkboxLabel);
+
+    const internalContainer = document.createElement("div");
+    internalContainer.classList.add("internal-container");
+
+    const contentParagraph = document.createElement("p");
+    contentParagraph.textContent = element.content;
+
+    internalContainer.appendChild(contentParagraph);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("buttonD", element.id);
+
+    const deleteSvg = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "svg"
+    );
+    deleteSvg.setAttribute("viewBox", "0 0 448 512");
+    deleteSvg.classList.add("svgIcon");
+
+    const deletePath = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "path"
+    );
+    deletePath.setAttribute(
+      "d",
+      "M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+    );
+
+    deleteSvg.appendChild(deletePath);
+    deleteButton.appendChild(deleteSvg);
+
+    cardContainer.appendChild(actionButtonsContainer);
+    cardContainer.appendChild(internalContainer);
+    cardContainer.appendChild(deleteButton);
+
+    fragment.appendChild(cardContainer);
   });
+
+  $containerToDos.innerHTML = "";
+  $containerToDos.appendChild(fragment);
 };
 
 //🍥Creates toDoObjects with 3 properties, the content (equal to $inputText.value), completed always false at the start and an id.
@@ -74,6 +147,23 @@ const taskPusher = (array, toDoObject) => {
   array.push(toDoObject);
 };
 
+//🍥Searchs the delete buttons and adds the addEventListener to delete.
+const deleteActions = () => {
+  $buttonsDelete.forEach(boton => {
+    boton.addEventListener("click", event => {
+      const filterArray = arrayToDos.filter(toDo => {
+        if (!boton.classList.contains(toDo.id)) {
+          return toDo;
+        }
+      });
+      arrayToDos = filterArray;
+      localStorage.setItem("toDos", JSON.stringify(arrayToDos));
+      printer(arrayToDos);
+      updateButtons();
+    });
+  });
+};
+
 //🍥 All the actions realized by clicking the sendButton.
 const sendButtonActions = () => {
   $buttonSend.addEventListener("click", event => {
@@ -87,6 +177,8 @@ const sendButtonActions = () => {
     }
     taskPusher(arrayToDos, toDoObjectCreator($inputText.value));
     printer(arrayToDos);
+    localStorage.setItem("toDos", JSON.stringify(arrayToDos));
+    updateButtons();
     $inputText.value = "";
   });
 };
@@ -104,7 +196,10 @@ const enterKeyActions = () => {
         return;
       }
       taskPusher(arrayToDos, toDoObjectCreator($inputText.value));
+      localStorage.setItem("toDos", JSON.stringify(arrayToDos));
       printer(arrayToDos);
+      updateButtons();
+
       $inputText.value = "";
     }
   });
@@ -163,6 +258,17 @@ const storageChecker = () => {
       return;
     }
   }
+
+  if (localStorage.getItem("toDos") !== null) {
+    arrayToDos = JSON.parse(localStorage.getItem("toDos"));
+  }
+};
+
+//🍥 Updates buttons in the DOM.
+const updateButtons = () => {
+  $buttonsDelete = document.querySelectorAll(".buttonD");
+  console.log("Buttons updated, actions updated");
+  deleteActions();
 };
 
 //🍥 Execution of every functionalitie.
@@ -174,6 +280,8 @@ const execution = () => {
     appearWhiteModal();
     fullWidthWindow();
     buttonThemeActions();
+    printer(arrayToDos);
+    updateButtons();
   } catch (error) {
     console.error(error);
   }
