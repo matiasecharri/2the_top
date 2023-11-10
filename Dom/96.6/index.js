@@ -101,6 +101,9 @@ const printer = array => {
     internalContainer.appendChild(contentParagraph);
 
     const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("aria-label", "Delete to-do card");
+    deleteButton.setAttribute("role", "button");
+    deleteButton.setAttribute("tabindex", "0");
     deleteButton.classList.add("buttonD", element.id);
 
     const deleteSvg = document.createElementNS(
@@ -221,8 +224,19 @@ const appearWhiteModal = () => {
 //🍥 Extends the width of the toDoWindow (linked to the pínkbutton)
 const fullWidthWindow = () => {
   $pinkButton.addEventListener("click", event => {
-    $mainContainer.classList.toggle("full-width");
-    $buttonSend.classList.toggle("increase-width");
+    if (window.innerWidth > 540) {
+      $mainContainer.classList.toggle("full-width");
+      $buttonSend.classList.toggle("increase-width");
+    }
+  });
+};
+
+const windowCheck = () => {
+  window.addEventListener("resize", event => {
+    window.innerWidth < 540
+      ? ($mainContainer.classList.remove("full-width"),
+        $buttonSend.classList.remove("increase-width"))
+      : null;
   });
 };
 
@@ -314,6 +328,7 @@ const execution = () => {
     enterKeyActions();
     appearWhiteModal();
     fullWidthWindow();
+    windowCheck();
     buttonThemeActions();
     if (arrayToDos.length === 0) {
       noToDosCase();
