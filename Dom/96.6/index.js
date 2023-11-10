@@ -101,6 +101,9 @@ const printer = array => {
     internalContainer.appendChild(contentParagraph);
 
     const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("aria-label", "Delete to-do card");
+    deleteButton.setAttribute("role", "button");
+    deleteButton.setAttribute("tabindex", "0");
     deleteButton.classList.add("buttonD", element.id);
 
     const deleteSvg = document.createElementNS(
@@ -159,7 +162,9 @@ const deleteActions = () => {
       arrayToDos = filterArray;
       localStorage.setItem("toDos", JSON.stringify(arrayToDos));
       printer(arrayToDos);
+      soundPlayer("/Dom/96.6/ui1.wav");
       updateButtons();
+      noToDosCase();
     });
   });
 };
@@ -173,10 +178,12 @@ const sendButtonActions = () => {
         $inputText.classList.remove("bounce");
       }, 1000);
       $inputText.value = "";
+      soundPlayer("/Dom/96.6/ui3.wav");
       return;
     }
     taskPusher(arrayToDos, toDoObjectCreator($inputText.value));
     printer(arrayToDos);
+    soundPlayer("/Dom/96.6/ui2.wav");
     localStorage.setItem("toDos", JSON.stringify(arrayToDos));
     updateButtons();
     $inputText.value = "";
@@ -193,13 +200,15 @@ const enterKeyActions = () => {
           $inputText.classList.remove("bounce");
         }, 1000);
         $inputText.value = "";
+        soundPlayer("/Dom/96.6/ui3.wav");
+
         return;
       }
       taskPusher(arrayToDos, toDoObjectCreator($inputText.value));
       localStorage.setItem("toDos", JSON.stringify(arrayToDos));
       printer(arrayToDos);
+      soundPlayer("/Dom/96.6/ui2.wav");
       updateButtons();
-
       $inputText.value = "";
     }
   });
@@ -215,8 +224,19 @@ const appearWhiteModal = () => {
 //🍥 Extends the width of the toDoWindow (linked to the pínkbutton)
 const fullWidthWindow = () => {
   $pinkButton.addEventListener("click", event => {
-    $mainContainer.classList.toggle("full-width");
-    $buttonSend.classList.toggle("increase-width");
+    if (window.innerWidth > 540) {
+      $mainContainer.classList.toggle("full-width");
+      $buttonSend.classList.toggle("increase-width");
+    }
+  });
+};
+
+const windowCheck = () => {
+  window.addEventListener("resize", event => {
+    window.innerWidth < 540
+      ? ($mainContainer.classList.remove("full-width"),
+        $buttonSend.classList.remove("increase-width"))
+      : null;
   });
 };
 
@@ -271,6 +291,35 @@ const updateButtons = () => {
   deleteActions();
 };
 
+//🍥 Used this if there are not to-dos pending
+const noToDosCase = () => {
+  if (arrayToDos.length !== 0) {
+    return;
+  }
+  $containerToDos.innerHTML = `<div class="fillEmptySpace message1">
+  <p>It seems that there are no pending to-dos! <br>
+       <span style="background-color: #f3f36d;">Use <span
+         style="font-weight: 500; ">Create!</span> or press <span
+         style="font-weight: 500;">Enter</span> to
+        appoint a new to-do...</span>
+     </p>
+  </div>
+  
+  `;
+  const $message1 = document.querySelector(".message1");
+
+  setTimeout(() => {
+    $message1.classList.add("show");
+  }, 100);
+};
+
+//🍥 Used this if there are not to-dos pending
+const soundPlayer = file => {
+  let uiSound = new Audio(file);
+  uiSound.volume = 0.1;
+  uiSound.play();
+};
+
 //🍥 Execution of every functionalitie.
 const execution = () => {
   try {
@@ -279,9 +328,14 @@ const execution = () => {
     enterKeyActions();
     appearWhiteModal();
     fullWidthWindow();
+    windowCheck();
     buttonThemeActions();
-    printer(arrayToDos);
-    updateButtons();
+    if (arrayToDos.length === 0) {
+      noToDosCase();
+    } else {
+      printer(arrayToDos);
+      updateButtons();
+    }
   } catch (error) {
     console.error(error);
   }
