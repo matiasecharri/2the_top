@@ -31,6 +31,9 @@ const printer = array => {
 
     const checkboxInput = document.createElement("input");
     checkboxInput.setAttribute("type", "checkbox");
+    checkboxInput.setAttribute("role", "checkbox");
+    checkboxInput.setAttribute("tabindex", "0");
+    checkboxInput.setAttribute("aria-label", "check and uncheck to-do");
 
     const checkmarkDiv = document.createElement("div");
     checkmarkDiv.classList.add("checkmark");
