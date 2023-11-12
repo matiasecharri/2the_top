@@ -217,13 +217,13 @@ h1 {
   width: 600px;
   height: 600px;
   z-index: 1;
-  filter: saturate(120%) blur(20px);
-  -webkit-filter: saturate(120%) blur(20px);
-  transition: 0.5s ease-in;
-  -webkit-transition: 0.5s ease-in;
-  -moz-transition: 0.5s ease-in;
-  -ms-transition: 0.5s ease-in;
-  -o-transition: 0.5s ease-in;
+  filter: saturate(180%) blur(50px);
+  -webkit-filter: saturate(180%) blur(50px);
+  transition: 1.5s ease-in;
+  -webkit-transition: 1.5s ease-in;
+  -moz-transition: 1.5s ease-in;
+  -ms-transition: 1.5s ease-in;
+  -o-transition: 1.5s ease-in;
   /*Animación*/
   animation: moveImage 20s ease-in-out infinite;
   -webkit-animation: moveImage 20s ease-in-out infinite;
@@ -319,6 +319,10 @@ h1 {
   font-size: 15px;
   color: #222222;
   font-family: "Inter", sans-serif;
+}
+
+.lineT {
+  text-decoration: line-through;
 }
 
 .card-to-do-list:hover {
@@ -471,13 +475,13 @@ h1 {
 
 /* //200 OLD */
 .darkImage {
-  filter: saturate(150%) blur(20px) hue-rotate(-700deg) !important;
-  -webkit-filter: saturate(150%) blur(20px) hue-rotate(-700deg) !important;
-  transition: 0.8s ease-in;
-  -webkit-transition: 0.8s ease-in;
-  -moz-transition: 0.8s ease-in;
-  -ms-transition: 0.8s ease-in;
-  -o-transition: 0.8s ease-in;
+  filter: saturate(180%) blur(50px) hue-rotate(-700deg) !important;
+  -webkit-filter: saturate(180%) blur(50px) hue-rotate(-700deg) !important;
+  transition: 1.5s;
+  -webkit-transition: 1.5s;
+  -moz-transition: 1.5s;
+  -ms-transition: 1.5s;
+  -o-transition: 1.5s;
 }
 
 .darkMain {
