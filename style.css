@@ -15,14 +15,15 @@ main {
   backdrop-filter: blur(10px);
 }
 
+/* //BLUR A TODO */
 .capa-blur {
   z-index: 0;
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: rgba(25, 23, 23, 0);
-  backdrop-filter: saturate(180%) blur(60px) hue-rotate(-10deg);
-  background: linear-gradient(to bottom, #ff66006e, #3333cc6e);
+  background-color: rgba(25, 23, 23, 0.36);
+  backdrop-filter: saturate(180%) blur(8px) hue-rotate(-10deg);
+  background: linear-gradient(to bottom, #0f0d0b9e, #3333cc87);
   z-index: -1;
 }
 
@@ -47,9 +48,8 @@ button:hover {
 .decoration2 img {
   width: 600px;
   height: 600px;
-  z-index: 1;
-  filter: saturate(180%) blur(5px) hue-rotate(100deg);
-  -webkit-filter: saturate(180%) blur(5px) hue-rotate(100deg);
+  filter: saturate(180%) blur(45px) hue-rotate(40deg);
+  -webkit-filter: saturate(180%) blur(45px) hue-rotate(40deg);
   transition: 1.5s ease-in;
   -webkit-transition: 1.5s ease-in;
   -moz-transition: 1.5s ease-in;
@@ -62,7 +62,8 @@ button:hover {
 
 @keyframes moveImage {
   0% {
-    transform: translateX(0); /* Empieza sin movimiento */
+    transform: translateX(0);
+    /*Empiezasinmovimiento*/
   }
   50% {
     transform: translateX(15%) translateY(-20%) scale(80%);

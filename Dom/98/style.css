@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eae4e4;
+}
+.container {
+  height: 100vh;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-container {
+  width: 70%;
+  height: 400px;
+  position: relative;
+  background-image: url(/dddepth-341.jpg);
+  background-size: cover;
+}
+
+#nextB {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+#prevB {
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
