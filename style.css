@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/dddepth-341.jpg);
+  backdrop-filter: blur(10px);
+}
+
+/* //BLUR A TODO */
+.capa-blur {
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(25, 23, 23, 0.36);
+  backdrop-filter: saturate(180%) blur(8px) hue-rotate(-10deg);
+  background: linear-gradient(to bottom, #0f0d0b9e, #3333cc87);
+  z-index: -1;
+}
+
+button:hover {
+  background-color: red;
+}
+
+.decoration2 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  z-index: -1;
+  top: 20%;
+  left: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  background-size: cover;
+}
+
+.decoration2 img {
+  width: 600px;
+  height: 600px;
+  filter: saturate(180%) blur(45px) hue-rotate(40deg);
+  -webkit-filter: saturate(180%) blur(45px) hue-rotate(40deg);
+  transition: 1.5s ease-in;
+  -webkit-transition: 1.5s ease-in;
+  -moz-transition: 1.5s ease-in;
+  -ms-transition: 1.5s ease-in;
+  -o-transition: 1.5s ease-in;
+  /*Animación*/
+  animation: moveImage 10s ease-in-out infinite;
+  -webkit-animation: moveImage 10s ease-in-out infinite;
+}
+
+@keyframes moveImage {
+  0% {
+    transform: translateX(0);
+    /*Empiezasinmovimiento*/
+  }
+  50% {
+    transform: translateX(15%) translateY(-20%) scale(80%);
+    -webkit-transform: translateX(15%) translateY(-20%) scale(80%);
+    -moz-transform: translateX(15%) translateY(-20%) scale(80%);
+    -ms-transform: translateX(15%) translateY(-20%) scale(80%);
+    -o-transform: translateX(15%) translateY(-20%) scale(80%);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    -webkit-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    -o-transform: translateX(0) translateY(0);
+  }
+}
+
+.decoration2 {
+  user-select: none;
+}

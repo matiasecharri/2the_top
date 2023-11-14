@@ -1,3 +1,10 @@
+// MVC
+// Modelo -> Se actualiza lo que pasa internamente en la aplicacion
+// Vista -> Se actualiza lo que ve la persona
+// Controlador -> El intermediario, ejemplo un boton
+
+// https://chat.openai.com/c/ccd5813f-4080-4803-8961-617b755706b4
+
 const $inputText = document.getElementById("textField");
 const $buttonSend = document.getElementById("send");
 const $containerToDos = document.getElementById("scroll-content");
@@ -9,11 +16,12 @@ const $main = document.getElementById("main");
 const $bgImage = document.getElementById("bgImage");
 const $mainContainer = document.getElementById("mainContainer");
 const $autoThemeButton = document.getElementById("themeAuto");
+let $buttonsDelete = document.querySelectorAll(".buttonD");
+
 let isDarkMode = false;
 const regex =
   /[aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZあ-んア-ン]/;
 let arrayToDos = JSON.parse(localStorage.getItem("toDos")) || [];
-let $buttonsDelete = document.querySelectorAll(".buttonD");
 
 // 🍥 This function is used to print objects as cards from an array.
 const printer = array => {
@@ -31,6 +39,11 @@ const printer = array => {
 
     const checkboxInput = document.createElement("input");
     checkboxInput.setAttribute("type", "checkbox");
+    checkboxInput.setAttribute("role", "checkbox");
+    checkboxInput.setAttribute("tabindex", "0");
+    checkboxInput.setAttribute("aria-label", "check and uncheck to-do");
+    checkboxInput.id = element.id;
+    checkboxLabel.addEventListener("change", checkboxActions);
 
     const checkmarkDiv = document.createElement("div");
     checkmarkDiv.classList.add("checkmark");
@@ -97,7 +110,14 @@ const printer = array => {
 
     const contentParagraph = document.createElement("p");
     contentParagraph.textContent = element.content;
-
+    if (element.completed === false) {
+      checkboxInput.checked = false;
+      contentParagraph.classList.remove("lineT");
+    }
+    if (element.completed === true) {
+      checkboxInput.checked = true;
+      contentParagraph.classList.add("lineT");
+    }
     internalContainer.appendChild(contentParagraph);
 
     const deleteButton = document.createElement("button");
@@ -154,6 +174,7 @@ const taskPusher = (array, toDoObject) => {
 const deleteActions = () => {
   $buttonsDelete.forEach(boton => {
     boton.addEventListener("click", event => {
+      console.log(boton);
       const filterArray = arrayToDos.filter(toDo => {
         if (!boton.classList.contains(toDo.id)) {
           return toDo;
@@ -166,6 +187,28 @@ const deleteActions = () => {
       updateButtons();
       noToDosCase();
     });
+  });
+};
+
+//🍥Searchs the delete buttons and adds the addEventListener to checkbox.
+const checkboxActions = event => {
+  const checkbox = event.target;
+  arrayToDos.forEach(toDo => {
+    if (Number(checkbox.id) === toDo.id && checkbox.checked === false) {
+      toDo.completed = false;
+      localStorage.setItem("toDos", JSON.stringify(arrayToDos));
+      printer(arrayToDos);
+      updateButtons();
+      return;
+    }
+
+    if (Number(checkbox.id) === toDo.id && checkbox.checked === true) {
+      toDo.completed = true;
+      localStorage.setItem("toDos", JSON.stringify(arrayToDos));
+      printer(arrayToDos);
+      updateButtons();
+      return;
+    }
   });
 };
 
