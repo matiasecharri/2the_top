@@ -1,5 +1,6 @@
 const $targetElement = document.getElementById("theBall");
 const $targetElement2 = document.getElementById("title2");
+//Callback is just a function used as argument
 
 const opciones = {
   root: null,

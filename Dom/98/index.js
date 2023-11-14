@@ -1,41 +1,46 @@
 const slides = [
   { image: "/Dom/98/dddepth-048.jpg" },
-  { image: "/Dom/98/dddepth-341.jpg" },
   { image: "/Dom/98/dddepth-049.jpg" },
   { image: "/Dom/98/dddepth-134.jpg" },
   { image: "/Dom/98/dddepth-353.jpg" },
+  { image: "/Dom/98/dddepth-353.jpg" },
+  { image: "/Dom/98/dddepth-134.jpg" },
 ];
 
 const $prevButton = document.getElementById("prevB");
 const $nextButton = document.getElementById("nextB");
 const $containerSlides = document.querySelector(".slider-container");
-let slideI = 0;
+let contador = 0;
 
-const nextLogic = () => {
-  if (slideI < slides.length - 1) {
-    console.log(slideI);
-    slideI++;
+const botonAdelante = () => {
+  if (contador === slides.length - 1) {
+    console.log(contador);
+    return;
   }
+  contador++;
+  console.log(contador);
   $containerSlides.style.setProperty(
     "background-image",
-    `url(${slides[slideI].image})`
+    `url(${slides[contador].image})`
   );
 };
 
-const prevLogic = () => {
-  if (slideI > 0) {
-    slideI--;
+const botonAtras = () => {
+  if (!contador > 0) {
+    return;
   }
+  contador--;
+  console.log(contador);
   $containerSlides.style.setProperty(
     "background-image",
-    `url(${slides[slideI].image})`
+    `url(${slides[contador].image})`
   );
 };
 
 $nextButton.addEventListener("click", event => {
-  nextLogic();
+  botonAdelante();
 });
 
 $prevButton.addEventListener("click", event => {
-  prevLogic();
+  botonAtras();
 });
