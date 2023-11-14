@@ -14,10 +14,6 @@ const opciones2 = {
   threshold: 0.8,
 };
 
-const observer = new IntersectionObserver(miCallback, opciones);
-observer.observe($targetElement);
-// observer.observe($targetElement2);
-
 function miCallback(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -30,8 +26,9 @@ function miCallback(entries, observer) {
   });
 }
 
-const observer2 = new IntersectionObserver(miCallback2, opciones2);
-observer2.observe($targetElement2);
+const observer = new IntersectionObserver(miCallback, opciones);
+observer.observe($targetElement);
+// observer.observe($targetElement2);
 
 function miCallback2(entries, observer) {
   entries.forEach(entry => {
@@ -44,6 +41,9 @@ function miCallback2(entries, observer) {
     }
   });
 }
+
+const observer2 = new IntersectionObserver(miCallback2, opciones2);
+observer2.observe($targetElement2);
 
 //Resume, we need the object options for an extra setup:
 const options3 = {
