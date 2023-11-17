@@ -30,7 +30,7 @@ const devolverLlamada = entrada => {
   });
 };
 
-const observer = new IntersectionObserver(devolverLlamada, { threshold: 0.5 });
+const observer = new IntersectionObserver(devolverLlamada, { threshold: 0.9 });
 $videos.forEach(e => observer.observe(e));
 
 /*No esta mal, el tema es que a eraVisible si era visible era true reproduce a todos, ya que no compara el video que se estaba viendo con el que va a reproducir
