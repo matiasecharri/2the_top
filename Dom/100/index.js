@@ -38,4 +38,5 @@ $videos.forEach(e => observer.observe(e));
 
 //Posibles soluciones:
 1) No usar a era visible, que simplemente pause todo y que la persona tenga que reproducir por su cuenta (solucion actual)
-2) Mejor solucion seria crear videos Objeto y que cada uno tenga una propiedad era visible, o sino que era visible sea = a "true + una clase especifica que tenga el video" y luego compararia eso*/
+2) Mejor solucion seria crear videos Objeto y que cada uno tenga una propiedad era visible, o sino que era visible sea = a "true + una clase especifica que tenga el video" y luego compararia eso
+Se necesita algun tipo de identificador*/
