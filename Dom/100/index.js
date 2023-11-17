@@ -2,7 +2,7 @@ const $videos = document.querySelectorAll(".videoxd");
 let eraVisible;
 
 $videos.forEach(video => {
-  video.vol = 0.1;
+  video.volume = 0.1;
 });
 
 const devolverLlamada = entrada => {
@@ -20,8 +20,9 @@ const devolverLlamada = entrada => {
 
   window.addEventListener("visibilitychange", e => {
     entrada.forEach(e => {
-      if (document.visibilityState === "visible" && eraVisible === true) {
-        e.target.play();
+      if (document.visibilityState === "visible" /*&& eraVisible === true*/) {
+        /*  e.target.play();*/
+        return;
       } else {
         e.target.pause();
       }
@@ -32,4 +33,8 @@ const devolverLlamada = entrada => {
 const observer = new IntersectionObserver(devolverLlamada, { threshold: 0.5 });
 $videos.forEach(e => observer.observe(e));
 
-//No esta mal, el tema es que a eraVisible si era visible era true reproduce a todos, ya que no compara el video que se estaba viendo con el que va a reproducir
+/*No esta mal, el tema es que a eraVisible si era visible era true reproduce a todos, ya que no compara el video que se estaba viendo con el que va a reproducir
+
+//Posibles soluciones:
+1) No usar a era visible, que simplemente pause todo y que la persona tenga que reproducir por su cuenta (solucion actual)
+2) Mejor solucion seria crear videos Objeto y que cada uno tenga una propiedad era visible, o sino que era visible sea = a "true + una clase especifica que tenga el video" y luego compararia eso*/
