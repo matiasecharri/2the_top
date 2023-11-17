@@ -2,6 +2,7 @@
 // Modelo -> Se actualiza lo que pasa internamente en la aplicacion
 // Vista -> Se actualiza lo que ve la persona
 // Controlador -> El intermediario, ejemplo un boton
+//EVENT DELEGATION
 
 // https://chat.openai.com/c/ccd5813f-4080-4803-8961-617b755706b4
 
