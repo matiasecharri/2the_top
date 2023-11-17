@@ -14,6 +14,7 @@ const devolverLlamada = entrada => {
     } else {
       e.target.pause();
       eraVisible = false;
+      console.log(e.target);
       console.log(eraVisible);
     }
   });
