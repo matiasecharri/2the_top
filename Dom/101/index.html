@@ -9,27 +9,9 @@
 </head>
 
 <body>
-    <main>
-        <h1>FORM</h1>
-        <form action="#" method="post" class="contact-form">
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required
-                title="El email necesita tener un @ y un formato correcto." pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
-                ">
-
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required
-                title="El nombre es obligatorio hola hola cuidado con la ola" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
-
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required title="El apellido es obligatorio"
-                pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
-
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-
-            <button type="submit">Enviar Mensaje</button>
-        </form>
+    <main id="main">
+        <input type="text" style="width:300px;" id="searchInput">
+        <div id="containerProfile"></div>
 
     </main>
     <script src="/Dom/101/index.js"></script>
