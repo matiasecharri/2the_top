@@ -2,7 +2,8 @@ const $videos = document.querySelectorAll(".videoxd");
 let eraVisible;
 
 $videos.forEach(video => {
-  video.volume = 0.1;
+  video.volume = 0;
+  video.autoplay = true;
 });
 
 const devolverLlamada = entrada => {
