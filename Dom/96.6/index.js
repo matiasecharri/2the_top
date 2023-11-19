@@ -181,6 +181,7 @@ const deleteActions = () => {
           return toDo;
         }
       });
+
       arrayToDos = filterArray;
       localStorage.setItem("toDos", JSON.stringify(arrayToDos));
       printer(arrayToDos);
