@@ -29,13 +29,7 @@ try {
         const getUser = await fetch(`https://api.github.com/users/${userName}`);
 
         if (getUser.status === 403) {
-          throw new Error(
-            `Forbidden: You don't have permission to access this resource.`
-          );
-        }
-
-        if (!getUser.ok) {
-          throw new Error(`Error: ${getUser.status} - ${getUser.statusText}`);
+          throw new Error(`😵‍💫Forbidden: Excedeed, too much requests.`);
         }
 
         const data = await getUser.json();
