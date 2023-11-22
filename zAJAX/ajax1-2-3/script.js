@@ -83,3 +83,35 @@ const gettingData = async () => {
 };
 
 gettingData();
+
+Notification.requestPermission();
+
+//AXIOS//
+
+const gettingDataAxios = () => {
+  axios
+    .get("https://jsonplaceholder.typicode.com/users")
+    .then(res => {
+      const data = res.data;
+      const $title = document.createElement("h2");
+      $title.innerText = "AJAX4: AXIOS 🚬";
+      $fragment.appendChild($title);
+      data.forEach(profile => {
+        const $text = document.createElement("p");
+        $text.style.setProperty("color", "salmon");
+        $text.innerText = `✨Name: ${profile.name} 👨🏻‍💻Username: ${profile.username} 📧Email: ${profile.email} 📱Phone: ${profile.phone}`;
+        $fragment.appendChild($text);
+      });
+      $body.appendChild($fragment);
+    })
+    .catch(err => {
+      console.log(
+        err.response.statusText ||
+          `Something wenth wrong! ERROR:${err.response.status}`
+      );
+    });
+};
+
+setTimeout(() => {
+  gettingDataAxios();
+}, 0);
