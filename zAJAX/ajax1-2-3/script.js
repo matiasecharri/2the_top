@@ -116,7 +116,9 @@ Notification.requestPermission();
 
 //OMG IS A THEN CHAIN
 // const executin = () => {
-//   gettingData().then(gettingDataAxios()).then(gettingData());
+//   gettingData()
+//     .then(() => gettingDataAxios())
+//     .then(() => gettingData());
 // };
 
 // executin();
