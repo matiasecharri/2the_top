@@ -84,9 +84,7 @@ const gettingData = async () => {
 
 gettingData();
 
-Notification.requestPermission();
-
-//AXIOS//
+//AXIOS + THEN//
 
 const gettingDataAxios = () => {
   axios
@@ -94,7 +92,7 @@ const gettingDataAxios = () => {
     .then(res => {
       const data = res.data;
       const $title = document.createElement("h2");
-      $title.innerText = "AJAX4: AXIOS 🚬";
+      $title.innerText = "AJAX4: AXIOS + THEN 🚬";
       $fragment.appendChild($title);
       data.forEach(profile => {
         const $text = document.createElement("p");
@@ -112,6 +110,13 @@ const gettingDataAxios = () => {
     });
 };
 
-setTimeout(() => {
-  gettingDataAxios();
-}, 0);
+gettingDataAxios();
+
+Notification.requestPermission();
+
+//OMG IS A THEN CHAIN
+// const executin = () => {
+//   gettingData().then(gettingDataAxios()).then(gettingData());
+// };
+
+// executin();
