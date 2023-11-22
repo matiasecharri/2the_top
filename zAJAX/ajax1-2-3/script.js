@@ -1,8 +1,10 @@
 const $body = document.querySelector("body");
 const $fragment = document.createDocumentFragment();
-const request = new XMLHttpRequest();
 
+//XMLHTTP OBJECT/
 (() => {
+  const request = new XMLHttpRequest();
+
   request.addEventListener("readystatechange", event => {
     if (request.readyState !== 4) return;
 
@@ -28,6 +30,7 @@ const request = new XMLHttpRequest();
   request.send();
 })();
 
+//API FETCH//
 (() => {
   fetch("https://jsonplaceholder.typicode.com/users")
     .then(res => (res.ok ? res.json() : Promise.reject(res)))
@@ -48,3 +51,35 @@ const request = new XMLHttpRequest();
       console.log(`🦇Something went wrong... ${err.status}`);
     });
 })();
+
+//ASYNC AWAIT//
+const gettingData = async () => {
+  try {
+    const pedirApi = await fetch("https://jsonplaceholder.typicode.com/users");
+    const jsonRespuesta = await pedirApi.json();
+
+    if (!pedirApi.ok)
+      throw {
+        status: pedirApi.status,
+        statusText:
+          pedirApi.statusText ||
+          "Tenes un problema y la API no puso mensaje custom jeje 🚬",
+      };
+    const $title = document.createElement("h2");
+
+    $title.innerText = "AJAX3: ASYNC - AWAIT 🚬";
+    $fragment.appendChild($title);
+
+    jsonRespuesta.forEach(profile => {
+      const $parrafo = document.createElement("p");
+      $parrafo.style.setProperty("color", "yellow");
+      $parrafo.innerText = `✨Name: ${profile.name} 👨🏻‍💻Username: ${profile.username} 📧Email: ${profile.email} 📱Phone: ${profile.phone}`;
+      $fragment.appendChild($parrafo);
+    });
+    $body.appendChild($fragment);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+gettingData();
