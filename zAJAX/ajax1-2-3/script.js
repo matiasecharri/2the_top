@@ -112,6 +112,34 @@ const gettingDataAxios = () => {
 
 gettingDataAxios();
 
+//AXIOS ASYNC AWAIT//
+const axiosAsync = async () => {
+  try {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    const data = response.data;
+
+    const $title = document.createElement("h2");
+    $title.innerText = "AJAX5: AXIOS + ASYNC-AWAIT 🚬🚬";
+    $fragment.appendChild($title);
+    data.forEach(profile => {
+      const $text = document.createElement("p");
+      $text.style.setProperty("color", "lightgreen");
+      $text.innerText = `✨Name: ${profile.name} 👨🏻‍💻Username: ${profile.username} 📧Email: ${profile.email} 📱Phone: ${profile.phone}`;
+      $fragment.appendChild($text);
+    });
+    $body.appendChild($fragment);
+  } catch (error) {
+    console.log(
+      `ERROR: ${error.response.status} ${
+        error.response.statusText ||
+        "error has not custom message, it was cine 🚬"
+      } `
+    );
+  }
+};
+axiosAsync();
 Notification.requestPermission();
 
 //OMG IS A THEN CHAIN
