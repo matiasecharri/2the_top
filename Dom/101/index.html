@@ -11,7 +11,19 @@
 <body>
     <main id="main">
         <input type="text" style="width:300px;" id="searchInput">
-        <div id="containerProfile"></div>
+        <div id="containerProfile">
+            <div class="card">
+                <img src="/Dom/101/placeholder.jpg" alt="Imagen de ejemplo">
+                <div class="card-content">
+                    <h2 class="card-title">Search a GitHub user...</h2>
+                    <p class="card-description">@${object.login || "???"}</p>
+                    <p class="card-description">${
+                        object.bio || "The user has no bio."
+                        }</p>
+                </div>
+            </div>
+
+        </div>
 
     </main>
     <script src="/Dom/101/index.js"></script>
