@@ -30,7 +30,7 @@ const $fragment = document.createDocumentFragment();
   request.send();
 })();
 
-//API FETCH//
+//AWAIT FETCH//
 (() => {
   fetch("https://jsonplaceholder.typicode.com/users")
     .then(res => (res.ok ? res.json() : Promise.reject(res)))
