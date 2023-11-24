@@ -1,0 +1,83 @@
+{
+  "cyberpunk-characters": [
+    {
+      "id": 11,
+      "name": "V",
+      "genre": null,
+      "quote": "V. Just V. Only people who know me real well can use my real name.",
+      "isAlive": null,
+      "hasCromo": null,
+      "rol": null,
+      "afiliated": null,
+      "photo": "https://assetsio.reedpopcdn.com/cyberpunk-2077-new-v-crop.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
+    },
+    {
+      "id": 12,
+      "name": "Johnny Silverhand",
+      "genre": "Male",
+      "quote": "They call me Johnny Silverhand. Maybe you've heard of me.",
+      "isAlive": false,
+      "hasCromo": true,
+      "rol": "Former rebel and rock legend turned digital ghost in the world of Cyberpunk 2077.",
+      "afiliated": "Formerly affiliated with the band Samurai and leader of the resistance against mega-corporations.",
+      "photo": "https://i.blogs.es/04e987/cyberpunk_2077_keanu_reeves_1920.0_0/1366_2000.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Panam Palmer",
+      "genre": "Female",
+      "quote": "I know it's a damn cliche, but sometimes you just gotta close your eyes and gun it.",
+      "isAlive": true,
+      "hasCromo": false,
+      "rol": "Nomad and skilled mechanic known for her daring spirit and expertise with vehicles.",
+      "afiliated": "Part of the Aldecaldos clan, a group of nomads roaming the Badlands.",
+      "photo": "https://i.pinimg.com/736x/e7/11/03/e711036475ea16fd166ed09322fef5cb.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Judy Alvarez",
+      "genre": "Female",
+      "quote": "In Night City, you can be anyone. Anything. And everything's possible.",
+      "isAlive": true,
+      "hasCromo": true,
+      "rol": "Braindance technician and empathetic soul with a deep connection to Night City's underbelly.",
+      "afiliated": "Works at Lizzie's Bar and occasionally assists the Voodoo Boys gang.",
+      "photo": "https://i.pinimg.com/1200x/cd/9b/62/cd9b628ba38bb9ae69fa028e73fabe2b.jpg"
+    }
+  ],
+  "cyberpunk-villiains": [
+    {
+      "id": 21,
+      "name": "Adam Smasher",
+      "genre": "Male",
+      "quote": "In the end, we all serve the corporation.",
+      "isAlive": null,
+      "hasCromo": true,
+      "rol": "Cyber-enhanced enforcer and ruthless loyalist to the mega-corporations.",
+      "afiliated": "Serves as a prime agent for Arasaka Corporation's interests.",
+      "photo": "https://cdn.discordapp.com/attachments/763661782555426817/1177449912141611118/cyberpunk-2077-adam-smasher.png?ex=65728caf&is=656017af&hm=71be2f01a6a09fbbaa1d5adb166da4b04b30ce098f71c3f80899e55c5b0a3e18&"
+    },
+    {
+      "id": 22,
+      "name": "Royce",
+      "genre": "Male",
+      "quote": "Rules are for suckers. We make our own rules in this city.",
+      "isAlive": null,
+      "hasCromo": true,
+      "rol": "Gang leader and black-market kingpin with a penchant for chaos.",
+      "afiliated": "Leads the Maelstrom gang, notorious for cyber-implant thefts and violence.",
+      "photo": "https://cdn.discordapp.com/attachments/763661782555426817/1177450070380118036/cyberpunk-2077-royce-uhdpaper.png?ex=65728cd4&is=656017d4&hm=7010fca594f72640e124c6b12cb73f9a0da16414cd0bbe628e2957653a93d828&"
+    },
+    {
+      "id": 23,
+      "name": "Saburo Arasaka",
+      "genre": "Male",
+      "quote": "Power is not given. It is taken.",
+      "isAlive": true,
+      "hasCromo": true,
+      "rol": "Elderly yet cunning CEO of Arasaka Corporation, wielding immense influence.",
+      "afiliated": "Head of the Arasaka dynasty, a megacorporation with a ruthless reputation.",
+      "photo": "https://cdn.discordapp.com/attachments/763661782555426817/1177449838397362176/mRYWC8X2dhj2IbkWHaDFSQ.png?ex=65728c9d&is=6560179d&hm=1db729fd52859b9a094fc303471dc6770f5fef02a7b1da245e8d2cb8bceb13ee&"
+    }
+  ]
+}
