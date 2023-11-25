@@ -150,3 +150,29 @@ Notification.requestPermission();
 // };
 
 // executin();
+
+// const getAxiosApi = async () => {
+//   try {
+//     const response = await axios.get("https://valorant-api.com/v1/agents");
+//     const arrayValorant = response.data.data;
+
+//     const indexAEliminar = arrayValorant.findIndex(
+//       agent => agent.displayName === "Sova"
+//     );
+//     arrayValorant.splice(indexAEliminar, 1);
+
+//     arrayValorant.forEach(character => {
+//       const $image = document.createElement("img");
+//       $image.style.setProperty("height", "290px");
+//       $image.style.setProperty("width", "250px");
+//       $image.style.setProperty("object-fit", "cover");
+//       $image.setAttribute("src", character.fullPortrait);
+//       $fragment.appendChild($image);
+//     });
+//     $body.appendChild($fragment);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// getAxiosApi();
