@@ -129,6 +129,7 @@ h2 {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  position: relative;
 }
 
 .card img {
@@ -169,4 +170,85 @@ h2 {
 .card-info p {
   font-weight: 100;
   font-size: 0.8rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(43, 42, 41, 0);
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(226, 222, 223, 0);
+}
+
+.card-buttons {
+  width: 100%;
+  background-color: red;
+  position: absolute;
+  bottom: -14px;
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  -webkit-border-radius: 0px 0px 10px 10px;
+  -moz-border-radius: 0px 0px 10px 10px;
+  -ms-border-radius: 0px 0px 10px 10px;
+  -o-border-radius: 0px 0px 10px 10px;
+}
+
+.card-buttons button:first-child {
+  width: 50%;
+  background-color: rgb(224, 234, 223);
+  border-radius: 0px 0px 0px 10px;
+  -webkit-border-radius: 0px 0px 0px 10px;
+  -moz-border-radius: 0px 0px 0px 10px;
+  -ms-border-radius: 0px 0px 0px 10px;
+  -o-border-radius: 0px 0px 0px 10px;
+  border: none;
+  padding: 3px;
+  background-color: rgb(57, 218, 243);
+  font-size: 0.7rem;
+  color: white;
+  font-weight: 800;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  cursor: pointer;
+}
+
+.card-buttons button:last-child {
+  width: 50%;
+  background-color: #f81e96;
+  border-radius: 0px 0px 10px 0px;
+  -webkit-border-radius: 0px 0px 10px 0px;
+  -moz-border-radius: 0px 0px 10px 0px;
+  -ms-border-radius: 0px 0px 10px 0px;
+  -o-border-radius: 0px 0px 10px 0px;
+  border: none;
+  font-size: 0.7rem;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  padding: 3px;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.card-buttons button:last-child:hover {
+  background-color: rgb(233, 21, 74);
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+}
+
+.card-buttons button:first-child:hover {
+  background-color: rgb(35, 144, 198);
+  transition: 0.3s ease-in-out;
 }

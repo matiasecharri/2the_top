@@ -14,18 +14,7 @@
             <h1>CRUD API REST AJAX</h1>
             <h2>OUR CHARACTERS</h2>
             <article class="content-characters">
-                <div class="card">
-                    <img src="https://i.pinimg.com/1200x/4f/6a/b0/4f6ab0e4d44d2c80fc37716faa08680c.jpg" alt=""
-                        srcset="">
-                    <div class="card-info">
-                        <h2>David Martinez</h2>
-                        <p>Cromo: Yes - Is Alive: No</p>
-                        <p>David Martinez, often referred to as just David, is a battle-hardened mercenary with a
-                            no-nonsense attitude. He has spent his entire life navigating the dangerous streets of Night
-                            City and is affiliated with both the Valentinos and Arasaka corporations.</p>
-                    </div>
-                </div>
-
+                <!-- PERSONAJES DINAMICOS -->
 
 
             </article>
@@ -43,11 +32,31 @@
                     <input type="text" name="photo" placeholder="URL Photo." required
                         pattern="^(https?|ftp)://[^\s/$.?#].[^\s]*$">
                     <input type="submit" value="SEND" id="send">
+                    <input type="hidden" name="action">
                 </form>
             </article>
 
         </section>
     </main>
+    <template id="crud-template">
+        <div class="card">
+            <img src="https://media.discordapp.net/attachments/763661782555426817/1178104444005658706/maxresdefault.png?ex=6574ee43&is=65627943&hm=a7ab4a22bd06ec852ec831bc88160da34c1ad11d274c89d9e1896b97100249e2&=&format=webp&width=1193&height=671"
+                alt="" srcset="">
+            <div class="card-info">
+                <h2>David Martinez</h2>
+                <p>Cromo: Yes - Is Alive: No</p>
+                <p>David Martinez, often referred to as just David, is a battle-hardened mercenary with a
+                    no-nonsense attitude. He has spent his entire life navigating the dangerous streets of Night
+                    City and is affiliated with both the Valentinos and Arasaka corporations.</p>
+            </div>
+            <div class="card-buttons">
+                <button class="edit">EDIT</button>
+                <button class="delete">DELETE</button>
+            </div>
+        </div>
+
+    </template>
+    <script src="/zCRUDAJAX/script.js"></script>
 </body>
 
 </html>
