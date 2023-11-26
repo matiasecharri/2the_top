@@ -71,6 +71,14 @@ const getData = async () => {
 };
 
 loading($table);
+
 setTimeout(() => {
-  getData();
-}, 700);
+  getData().then(() => {
+    setTimeout(() => {
+      const $cards = document.querySelectorAll(".card");
+      $cards.forEach(card => {
+        card.classList.add("card-auxiliar");
+      });
+    }, 100);
+  });
+}, 600);
