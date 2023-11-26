@@ -20,8 +20,8 @@
       "id": 3,
       "name": "Rebecca",
       "info": "Rebecca is a resilient rogue with a history of surviving dangerous situations. She's a formidable member of Maine's Crew and shouldn't be underestimated.",
-      "isAlive": true,
-      "hasCromo": false,
+      "isAlive": false,
+      "hasCromo": true,
       "photo": "https://cdn.discordapp.com/attachments/763661782555426817/1178058353784672389/latest.png?ex=6574c356&is=65624e56&hm=bcd9b7d76b1ef617ac292dc3778d416f3de7bc27aa00b9841aed7563b8c1811f&"
     },
     {
