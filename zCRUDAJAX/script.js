@@ -29,6 +29,10 @@ const loading = htmlElement => {
 
 //🚬 This function prints an array, needs an array as an argument.
 const printing = array => {
+  if (array.length === 0) {
+    loading($table);
+    return;
+  }
   array.forEach(character => {
     const $card = d.createElement("div");
     $card.classList.add("card");
@@ -63,6 +67,8 @@ const printing = array => {
     const $buttonDelete = d.createElement("button");
     $buttonEdit.innerText = "EDIT";
     $buttonDelete.innerText = "DELETE";
+    $buttonDelete.classList.add(character.id);
+    $buttonDelete.classList.add("delete");
 
     $card.appendChild($image);
     $card.appendChild($overlay);
@@ -95,7 +101,7 @@ const captureForm = dynamicID => {
 };
 
 //🚬 This function realizes a POST request to create a new character.
-const createNewCharacter = async () => {
+const POST_NewCharacter = async () => {
   const response = await fetch("http://localhost:5000/cyberpunk-characters");
   const data = await response.json();
   const ids = data.map(character => {
@@ -120,6 +126,29 @@ const createNewCharacter = async () => {
       console.log(respuestaJson); // Hacer algo con la respuesta del servidor
     } else {
       throw new Error("Error en la solicitud POST");
+    }
+  } catch (error) {
+    console.error(error); // Manejar errores
+  }
+};
+
+//🚬 This function realizes a POST request to create a new character.
+const DELETE_CharacterById = async id => {
+  const characterIdToDelete = id; // El ID del personaje que deseas eliminar
+  const url = `http://localhost:5000/cyberpunk-characters/${characterIdToDelete}`;
+
+  try {
+    const respuesta = await fetch(url, {
+      method: "DELETE",
+    });
+
+    if (respuesta.ok) {
+      // La solicitud se completó con éxito
+      console.log(
+        `Personaje con ID ${characterIdToDelete} eliminado con éxito`
+      );
+    } else {
+      throw new Error("Error en la solicitud DELETE");
     }
   } catch (error) {
     console.error(error); // Manejar errores
@@ -166,7 +195,17 @@ const sendButtonActions = () => {
     } else {
       $form[4].classList.remove("denegated");
     }
-    createNewCharacter();
+    POST_NewCharacter();
+  });
+};
+
+//🚬 Delegate Delete actions
+const deleteActions = () => {
+  $table.addEventListener("click", event => {
+    if (event.target.classList.contains("delete")) {
+      const targetedId = event.target.classList[0];
+      DELETE_CharacterById(targetedId);
+    }
   });
 };
 
@@ -178,6 +217,7 @@ const getData = async () => {
 };
 
 loading($table);
+deleteActions();
 sendButtonActions();
 
 setTimeout(() => {
