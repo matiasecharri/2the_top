@@ -131,25 +131,40 @@ const sendButtonActions = () => {
   $sendButton.addEventListener("click", event => {
     event.preventDefault();
     if (!regex.regexname.test($form[0].value)) {
+      $form[0].classList.add("denegated");
       $form[0].placeholder =
         "⚠️Character name is required and needs to be valid.";
       return;
+    } else {
+      $form[0].classList.remove("denegated");
     }
     if (!regex.regexname.test($form[1].value)) {
+      $form[1].classList.add("denegated");
       $form[1].placeholder =
         "⚠️Character info is required and needs to be valid.";
       return;
+    } else {
+      $form[1].classList.remove("denegated");
     }
     if ($form[2].value === "") {
+      $form[2].classList.add("denegated");
       return;
+    } else {
+      $form[2].classList.remove("denegated");
     }
     if ($form[3].value === "") {
+      $form[3].classList.add("denegated");
       return;
+    } else {
+      $form[3].classList.remove("denegated");
     }
     if (!regex.regexurl.test($form[4].value)) {
+      $form[4].classList.add("denegated");
       $form[4].value = "";
       $form[4].placeholder = "⚠️Photo URL is required and needs to be valid.";
       return;
+    } else {
+      $form[4].classList.remove("denegated");
     }
     createNewCharacter();
   });

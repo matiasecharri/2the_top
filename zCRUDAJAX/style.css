@@ -57,6 +57,15 @@ h2 {
   -o-border-radius: 8px;
 }
 
+.denegated {
+  border: 1px solid rgb(21, 20, 20) !important;
+  background-color: #4e1b1b6e;
+}
+
+.denegated::placeholder {
+  color: white;
+}
+
 .crud-form select {
   padding: 10px;
   border: none;
@@ -217,6 +226,7 @@ h2 {
   -moz-border-radius: 0px 0px 0px 0px;
   -ms-border-radius: 0px 0px 0px 0px;
   -o-border-radius: 0px 0px 0px 0px;
+  overflow-y: auto;
 }
 
 .card-info h2 {
