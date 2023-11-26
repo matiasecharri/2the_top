@@ -24,6 +24,9 @@ const printing = array => {
     const $card = d.createElement("div");
     $card.classList.add("card");
 
+    const $overlay = d.createElement("div");
+    $overlay.classList.add("overlay");
+
     const $image = d.createElement("img");
     $image.setAttribute("src", character.photo);
 
@@ -50,6 +53,7 @@ const printing = array => {
     $buttonDelete.innerText = "DELETE";
 
     $card.appendChild($image);
+    $card.appendChild($overlay);
     $cardInfo.appendChild($characterTitle);
     $cardInfo.appendChild($p1);
     $cardInfo.appendChild($p2);
@@ -71,6 +75,18 @@ const getData = async () => {
 };
 
 loading($table);
+
 setTimeout(() => {
-  getData();
-}, 700);
+  getData().then(() => {
+    setTimeout(() => {
+      const $cards = document.querySelectorAll(".card");
+      $cards.forEach(card => {
+        card.classList.add("card-auxiliar");
+      });
+      const $overlay = document.querySelectorAll(".overlay");
+      $overlay.forEach(overlay => {
+        overlay.classList.add("overout");
+      });
+    }, 100);
+  });
+}, 300);
