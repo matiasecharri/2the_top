@@ -1,48 +1,36 @@
 {
   "cyberpunk-characters": [
     {
-      "id": 11,
-      "name": "V",
-      "genre": null,
-      "quote": "V. Just V. Only people who know me real well can use my real name.",
-      "isAlive": null,
-      "hasCromo": null,
-      "rol": null,
-      "afiliated": null,
-      "photo": "https://assetsio.reedpopcdn.com/cyberpunk-2077-new-v-crop.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
-    },
-    {
-      "id": 12,
-      "name": "Johnny Silverhand",
-      "genre": "Male",
-      "quote": "They call me Johnny Silverhand. Maybe you've heard of me.",
+      "id": 1,
+      "name": "David Martinez",
+      "info": "David Martinez, often referred to as just David, is a battle-hardened mercenary with a no-nonsense attitude. He has spent his entire life navigating the dangerous streets of Night City and is affiliated with both the Valentinos and Arasaka corporations.",
       "isAlive": false,
       "hasCromo": true,
-      "rol": "Former rebel and rock legend turned digital ghost in the world of Cyberpunk 2077.",
-      "afiliated": "Formerly affiliated with the band Samurai and leader of the resistance against mega-corporations.",
-      "photo": "https://i.blogs.es/04e987/cyberpunk_2077_keanu_reeves_1920.0_0/1366_2000.jpg"
+      "photo": "https://media.discordapp.net/attachments/763661782555426817/1178104444005658706/maxresdefault.png?ex=6574ee43&is=65627943&hm=a7ab4a22bd06ec852ec831bc88160da34c1ad11d274c89d9e1896b97100249e2&=&format=webp&width=1193&height=671"
     },
     {
-      "id": 13,
-      "name": "Panam Palmer",
-      "genre": "Female",
-      "quote": "I know it's a damn cliche, but sometimes you just gotta close your eyes and gun it.",
-      "isAlive": true,
-      "hasCromo": false,
-      "rol": "Nomad and skilled mechanic known for her daring spirit and expertise with vehicles.",
-      "afiliated": "Part of the Aldecaldos clan, a group of nomads roaming the Badlands.",
-      "photo": "https://i.pinimg.com/736x/e7/11/03/e711036475ea16fd166ed09322fef5cb.jpg"
-    },
-    {
-      "id": 14,
-      "name": "Judy Alvarez",
-      "genre": "Female",
-      "quote": "In Night City, you can be anyone. Anything. And everything's possible.",
+      "id": 2,
+      "name": "Lucyna Kushinada",
+      "info": "Lucyna Kushinada, more commonly known as just Lucy, is a netrunner and the deuteragonist of Cyberpunk: Edgerunners.",
       "isAlive": true,
       "hasCromo": true,
-      "rol": "Braindance technician and empathetic soul with a deep connection to Night City's underbelly.",
-      "afiliated": "Works at Lizzie's Bar and occasionally assists the Voodoo Boys gang.",
-      "photo": "https://i.pinimg.com/1200x/cd/9b/62/cd9b628ba38bb9ae69fa028e73fabe2b.jpg"
+      "photo": "https://i.blogs.es/8f5cd5/lucy-edgerunners-cyberpunk-2077/1366_2000.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Rebecca",
+      "info": "Rebecca is a resilient rogue with a history of surviving dangerous situations. She's a formidable member of Maine's Crew and shouldn't be underestimated.",
+      "isAlive": false,
+      "hasCromo": true,
+      "photo": "https://cdn.discordapp.com/attachments/763661782555426817/1178058353784672389/latest.png?ex=6574c356&is=65624e56&hm=bcd9b7d76b1ef617ac292dc3778d416f3de7bc27aa00b9841aed7563b8c1811f&"
+    },
+    {
+      "id": 4,
+      "name": "Maine",
+      "info": "Maine is a veteran edgerunner who allows David to join his crew. Maine is a hulk of a man, with explosive raw power that is backed up with multiple cybernetic enhancements. His most-used cyberware is the Projectile Launch System, another forearm implant that fires projectiles at an alarming rate.",
+      "isAlive": false,
+      "hasCromo": true,
+      "photo": "https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABZ5apaxONZsKnZQsG0Y4cACD5r6khuKxM8MP4bcdG0KeEKUOz7nu6g2P1-Jj1HAOzS1fkd6UOFV8nBpg4Ph-sOtOvXIJs9RPNho80pNCUyjbijXeA2rouejM.jpg?r=c71"
     }
   ],
   "cyberpunk-villiains": [
