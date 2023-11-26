@@ -31,6 +31,22 @@
       "isAlive": false,
       "hasCromo": true,
       "photo": "https://twinfinite.net/wp-content/uploads/2022/09/Cyberpunk-Edgerunners-Maine-Screenshot.jpg?fit=1200%2C675"
+    },
+    {
+      "id": 5,
+      "name": "Adam Smasher",
+      "info": "Adam Smasher Was a Punk Turned Army Soldier. Short on options, Smasher decided to join the Army. There, he managed to make himself useful for a time, but his superiors eventually discharged him due to a stunning number of conduct violations.",
+      "isAlive": "null",
+      "hasCromo": "true",
+      "photo": "https://www.destructoid.com/wp-content/uploads/2023/09/cyberpunk-edgerunners-episode-010-adam-smasher.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Faraday",
+      "info": "Faraday, was a corporate fixer and the main adversary of the protagonists in the story of Cyberpunk Edgerunners. He is also slated to appear in the Cyberpunk 2077: Gangs of Night City board game. Faraday worked for Militech and can be described as a vicious and unmerciful fixer.",
+      "isAlive": "false",
+      "hasCromo": "true",
+      "photo": "https://images-ext-2.discordapp.net/external/m6xul0DhtHvXAwjIV3HGs5Xq7YPfsmMXy3snGDhVk8M/%3Fcb%3D20230324073600%26path-prefix%3Des/https/static.wikia.nocookie.net/cyberpunk/images/a/ad/CPEDGE_Faraday_1.jpg/revision/latest?format=webp&width=866&height=487"
     }
   ],
   "cyberpunk-villiains": [
