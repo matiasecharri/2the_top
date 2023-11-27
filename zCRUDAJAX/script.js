@@ -7,6 +7,7 @@ const $sendButton = d.getElementById("send");
 
 const regex = {
   regexname: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
+  regexinfo: /^(?![\s\d]+$).+$/,
   regexurl:
     /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/,
 };
@@ -101,15 +102,15 @@ const captureForm = dynamicID => {
 };
 
 //🚬 This function realizes a POST request to create a new character.
-const POST_NewCharacter = async () => {
-  const response = await fetch("http://localhost:5000/cyberpunk-characters");
+const POST_NewCharacter = async link => {
+  const response = await fetch(link);
   const data = await response.json();
   const ids = data.map(character => {
     return character.id;
   });
   const newId = Math.max(...ids) + 1;
   const datosFormulario = captureForm(newId);
-  const url = "http://localhost:5000/cyberpunk-characters"; // Reemplaza con la URL correcta del servidor
+  const url = link; // Reemplaza con la URL correcta del servidor
 
   try {
     const respuesta = await fetch(url, {
@@ -133,9 +134,9 @@ const POST_NewCharacter = async () => {
 };
 
 //🚬 This function realizes a POST request to create a new character.
-const DELETE_CharacterById = async id => {
+const DELETE_CharacterById = async (id, link) => {
   const characterIdToDelete = id; // El ID del personaje que deseas eliminar
-  const url = `http://localhost:5000/cyberpunk-characters/${characterIdToDelete}`;
+  const url = `${link}${characterIdToDelete}`;
 
   try {
     const respuesta = await fetch(url, {
@@ -167,7 +168,7 @@ const sendButtonActions = () => {
     } else {
       $form[0].classList.remove("denegated");
     }
-    if (!regex.regexname.test($form[1].value)) {
+    if (!regex.regexinfo.test($form[1].value)) {
       $form[1].classList.add("denegated");
       $form[1].placeholder =
         "⚠️Character info is required and needs to be valid.";
@@ -195,7 +196,7 @@ const sendButtonActions = () => {
     } else {
       $form[4].classList.remove("denegated");
     }
-    POST_NewCharacter();
+    POST_NewCharacter("http://localhost:5000/cyberpunk-characters");
   });
 };
 
@@ -204,7 +205,10 @@ const deleteActions = () => {
   $table.addEventListener("click", event => {
     if (event.target.classList.contains("delete")) {
       const targetedId = event.target.classList[0];
-      DELETE_CharacterById(targetedId);
+      DELETE_CharacterById(
+        targetedId,
+        "http://localhost:5000/cyberpunk-characters/"
+      );
     }
   });
 };
