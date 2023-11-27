@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/zCRUDAJAX/icon.png" type="image/x-icon">
     <title>CRUD API REST AJAX</title>
 </head>
 
 <body>
     <main>
         <div class="container-characters-base">
-            <h1>CRUD API REST AJAX</h1>
+            <h1>EDGERUNNERS CRUD API REST AJAX</h1>
             <h2>OUR CHARACTERS</h2>
             <article class="content-characters">
                 <!-- PERSONAJES DINAMICOS -->
@@ -23,14 +24,20 @@
             <h2 class="crud-title">ADD CHARACTER</h2>
             <article>
                 <form class="crud-form">
-                    <input type="text" name="name" placeholder="Name..." required>
-                    <input type="text" name="info" placeholder="Info..." required>
-                    <input type="text" name="isAlive" placeholder="Is alive? true/false." required
-                        pattern="/^(?i)(true|false)$/">
-                    <input type="text" name="hasCromo" placeholder="Has cromo? true/false." required
-                        pattern="/^(?i)(true|false)$/">
-                    <input type="text" name="photo" placeholder="URL Photo." required
-                        pattern="^(https?|ftp)://[^\s/$.?#].[^\s]*$">
+                    <input type="text" name="name" placeholder="Name..." required autocomplete="off">
+                    <input type="text" name="info" placeholder="Info..." required autocomplete="off">
+                    <select name="isAlive" id="isAlive" required>
+                        <option value="" disabled selected>Is Alive?</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                        <option value="null">It is not known...</option>
+                    </select>
+                    <select name="hasCromo" required>
+                        <option value="" disabled selected>Has cromo?</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                    <input type="text" name="photo" placeholder="URL Photo." required autocomplete="off">
                     <input type="submit" value="SEND" id="send">
                     <input type="hidden" name="action">
                 </form>
