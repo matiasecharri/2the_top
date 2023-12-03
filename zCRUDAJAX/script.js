@@ -43,7 +43,13 @@ const printing = array => {
 
     const $image = d.createElement("img");
     $image.setAttribute("src", character.photo);
-
+    $image.setAttribute("alt", `A photo of ${character.name}.`);
+    $image.onerror = () => {
+      console.warn(
+        `${character.name} photo has a problem and is loading the default picture.`
+      );
+      $image.setAttribute("src", "/zCRUDAJAX/failedToLoad.jpg");
+    };
     const $cardInfo = d.createElement("div");
     $cardInfo.classList.add("card-info");
 
@@ -91,13 +97,11 @@ const printing = array => {
 const captureForm = dynamicID => {
   return {
     id: dynamicID,
-    name: $form[0].value || "Unknown",
-    info: $form[1].value || "Maybe he was V?",
-    isAlive: $form[2].value || "We don't know...",
-    hasCromo: $form[3].value || "We don't know...",
-    photo:
-      $form[4].value ||
-      "https://www.destructoid.com/wp-content/uploads/2023/09/cyberpunk-edgerunners-episode-010-adam-smasher.jpg",
+    name: $form[0].value,
+    info: $form[1].value,
+    isAlive: $form[2].value,
+    hasCromo: $form[3].value,
+    photo: $form[4].value,
   };
 };
 
@@ -109,8 +113,8 @@ const POST_NewCharacter = async link => {
     return character.id;
   });
   const newId = Math.max(...ids) + 1;
-  const datosFormulario = captureForm(newId);
-  const url = link; // Reemplaza con la URL correcta del servidor
+
+  const url = link;
 
   try {
     const respuesta = await fetch(url, {
@@ -118,7 +122,7 @@ const POST_NewCharacter = async link => {
       headers: {
         "Content-Type": "application/json", // Establece el tipo de contenido a JSON
       },
-      body: JSON.stringify(datosFormulario), // Convierte los datos en una cadena JSON y envíalos en el cuerpo de la solicitud
+      body: JSON.stringify(captureForm(newId)), // Convierte los datos en una cadena JSON y envíalos en el cuerpo de la solicitud
     });
 
     if (respuesta.ok) {
@@ -133,7 +137,7 @@ const POST_NewCharacter = async link => {
   }
 };
 
-//🚬 This function realizes a POST request to create a new character.
+//🚬 This function realizes a DELETE request to create a new character.
 const DELETE_CharacterById = async (id, link) => {
   const characterIdToDelete = id; // El ID del personaje que deseas eliminar
   const url = `${link}${characterIdToDelete}`;
@@ -205,6 +209,7 @@ const deleteActions = () => {
   $table.addEventListener("click", event => {
     if (event.target.classList.contains("delete")) {
       const targetedId = event.target.classList[0];
+      console.log(event.target.classList);
       DELETE_CharacterById(
         targetedId,
         "http://localhost:5000/cyberpunk-characters/"
@@ -223,7 +228,7 @@ const getData = async () => {
 loading($table);
 deleteActions();
 sendButtonActions();
-
+getData();
 setTimeout(() => {
   getData().then(() => {
     setTimeout(() => {
