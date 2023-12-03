@@ -3,6 +3,8 @@ const $table = d.querySelector(".content-characters");
 const $form = d.querySelector(".crud-form");
 const $title = d.querySelector(".crud-title");
 const $sendButton = d.getElementById("send");
+const $h1 = d.querySelector("h1");
+$h1.innerText = "EDGERUNNERS CRUD API REST AJAX XMLHTTP";
 const $fragment = d.createDocumentFragment();
 
 const printing = array => {
@@ -47,9 +49,16 @@ const printing = array => {
     const $buttonEdit = d.createElement("button");
     const $buttonDelete = d.createElement("button");
     $buttonEdit.innerText = "EDIT";
+    $buttonEdit.classList.add("edit");
+    $buttonEdit.dataset.id = character.id;
+    $buttonEdit.dataset.name = character.name;
+    $buttonEdit.dataset.info = character.info;
+    $buttonEdit.dataset.isAlive = character.isAlive;
+    $buttonEdit.dataset.hasCromo = character.hasCromo;
+    $buttonEdit.dataset.photo = character.photo;
     $buttonDelete.innerText = "DELETE";
-    $buttonDelete.classList.add(character.id);
     $buttonDelete.classList.add("delete");
+    $buttonDelete.dataset.id = character.id;
 
     $card.appendChild($image);
     $card.appendChild($overlay);
@@ -91,9 +100,9 @@ const getAllCharacters = () => {
   ajax({
     url: "http://localhost:5000/cyberpunk-characters",
     method: "GET", //If the user doesnt specifies a method is going to apply GET as default (line 24)
-    success: res => {
-      console.log(res);
-      const characters = res;
+    success: json => {
+      console.log(json);
+      const characters = json;
       printing(characters);
     },
     error: err => {
