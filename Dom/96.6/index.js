@@ -200,7 +200,7 @@ const checkboxActions = event => {
       toDo.completed = false;
       localStorage.setItem("toDos", JSON.stringify(arrayToDos));
       printer(arrayToDos);
-      updateButtons();
+      // updateButtons();
       return;
     }
 
@@ -208,7 +208,7 @@ const checkboxActions = event => {
       toDo.completed = true;
       localStorage.setItem("toDos", JSON.stringify(arrayToDos));
       printer(arrayToDos);
-      updateButtons();
+      // updateButtons();
       return;
     }
   });
