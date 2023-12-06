@@ -25,7 +25,20 @@ const printer = array => {
 
     const $p1 = d.createElement("p");
     const $p2 = d.createElement("p");
-    $p1.innerText = `Cromo: ${character.cromo} - Is Alive: ${character.isAlive}`;
+    let alive;
+    let cromo;
+    if (character.isAlive === "true") {
+      alive = "Yes";
+    }
+    if (character.isAlive === "false") {
+      alive = "No";
+    }
+    if (character.isAlive === "null") {
+      alive = "We don't know";
+    }
+    character.hasCromo === "true" ? (cromo = "Yes") : (cromo = "No");
+
+    $p1.innerText = `Cromo: ${cromo} - Is Alive: ${alive}`;
     $p2.innerText = character.info;
 
     const $buttonContainer = d.createElement("div");
@@ -62,11 +75,15 @@ const printer = array => {
 //CRUD - DELETE
 const characterDELETE = async id => {
   try {
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
     const response = await fetch(
-      `http://localhost:5000/cyberpunk-character/${id}`,
-      {
-        method: "DELETE",
-      }
+      `http://localhost:5000/cyberpunk-characters/${id}`,
+      options
     );
     if (!response.ok) {
       throw {
