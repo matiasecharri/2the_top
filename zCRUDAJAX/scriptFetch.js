@@ -6,16 +6,19 @@ const $title = d.querySelector(".crud-title");
 const $fragment = d.createDocumentFragment();
 const $sendButton = d.getElementById("send");
 const $cancelEditButton = d.getElementById("cancelEdit");
+//USEFUL regex expressions.
 const regex = {
   regexname: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
   regexinfo: /^(?![\s\d]+$).+$/,
   regexurl:
     /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/,
 };
-let externalData;
-let isEditing = false;
-let isEditingId;
-
+//GLOBAL variables declaration.
+const globals = {
+  externalData: null,
+  isEditing: false,
+  isEditingId: null,
+};
 //Printer funtionality, is going to print the cards based on the array.
 const printer = array => {
   array.forEach(character => {
@@ -177,7 +180,7 @@ const deleteCharacter = async id => {
 //Button that will trigger the CRUD POST
 const createButtonActions = () => {
   $sendButton.addEventListener("click", event => {
-    if (isEditing === true) {
+    if (globals.isEditing === true) {
       return;
     }
     event.preventDefault();
@@ -196,7 +199,7 @@ const createButtonActions = () => {
     if (!regex.regexurl.test($form[4].value)) {
       return;
     }
-    const arrayIds = externalData.map(character => {
+    const arrayIds = globals.externalData.map(character => {
       return character.id;
     });
     const newId = Math.max(...arrayIds) + 1;
@@ -208,7 +211,7 @@ const createButtonActions = () => {
 const editButtonActions = () => {
   $table.addEventListener("click", event => {
     if (event.target.classList.contains("edit")) {
-      if (isEditing === false) {
+      if (globals.isEditing === false) {
         const $editButtons = document.querySelectorAll(".edit");
         $editButtons.forEach(button => {
           button.classList.add("button-disabled");
@@ -216,13 +219,13 @@ const editButtonActions = () => {
         $cancelEditButton.classList.add("showing");
         $title.innerText =
           "EDITING: " + event.target.dataset.name.toUpperCase();
-        isEditingId = event.target.dataset.id;
+        globals.isEditingId = event.target.dataset.id;
         $form[0].value = event.target.dataset.name;
         $form[1].value = event.target.dataset.info;
         $form[2].value = event.target.dataset.isAlive;
         $form[3].value = event.target.dataset.hasCromo;
         $form[4].value = event.target.dataset.photo;
-        isEditing = true;
+        globals.isEditing = true;
         return;
       }
     }
@@ -232,14 +235,14 @@ const editButtonActions = () => {
 const cancelEditButton = () => {
   $cancelEditButton.addEventListener("click", event => {
     event.preventDefault();
-    if (isEditing === true) {
+    if (globals.isEditing === true) {
       const $editButtons = document.querySelectorAll(".edit");
       $editButtons.forEach(button => {
         button.classList.remove("button-disabled");
       });
       $cancelEditButton.classList.remove("showing");
       $title.innerText = "ADD CHARACTER";
-      isEditing = false;
+      globals.isEditing = false;
       $form[0].value = "";
       $form[1].value = "";
       $form[2].value = "";
@@ -253,10 +256,10 @@ const cancelEditButton = () => {
 const sendEditButtonActions = () => {
   $sendButton.addEventListener("click", event => {
     event.preventDefault();
-    if (isEditing === false) {
+    if (globals.isEditing === false) {
       return;
     }
-    updateCharacter(isEditingId);
+    updateCharacter(globals.isEditingId);
   });
 };
 
@@ -275,7 +278,7 @@ const consumeApi = async () => {
   try {
     const response = await fetch("http://localhost:5000/cyberpunk-characters");
     const data = await response.json();
-    externalData = data;
+    globals.externalData = data;
     /*Handling errors*/
     if (!response.ok) {
       throw {
@@ -295,7 +298,3 @@ const consumeApi = async () => {
   }
 };
 consumeApi();
-
-setInterval(() => {
-  console.log(isEditing);
-}, 1200);
