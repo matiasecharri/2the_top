@@ -219,6 +219,7 @@ const editButtonActions = () => {
         $cancelEditButton.classList.add("showing");
         $title.innerText =
           "EDITING: " + event.target.dataset.name.toUpperCase();
+        $sendButton.value = "CONFIRM CHANGES";
         globals.isEditingId = event.target.dataset.id;
         $form[0].value = event.target.dataset.name;
         $form[1].value = event.target.dataset.info;
@@ -242,6 +243,7 @@ const cancelEditButton = () => {
       });
       $cancelEditButton.classList.remove("showing");
       $title.innerText = "ADD CHARACTER";
+      $sendButton.value = "SEND";
       globals.isEditing = false;
       $form[0].value = "";
       $form[1].value = "";
