@@ -219,6 +219,7 @@ const userActivateEditModeActions = () => {
       if (globalStates.userIsEditing === false) {
         globalStates.userIsEditing = true;
         globalStates.editId = event.target.dataset.id;
+        $sendButton.value = "CONFIRM CHANGES";
         $title.innerText = `EDITING: ${event.target.dataset.name.toUpperCase()}`;
         $characterPortrait.setAttribute("src", event.target.dataset.photo);
         $form[0].value = event.target.dataset.name;
@@ -233,6 +234,7 @@ const userActivateEditModeActions = () => {
       } else {
         globalStates.userIsEditing = false;
         globalStates.editId = null;
+        $sendButton.value = "SEND";
         $title.innerText = "ADD CHARACTER";
         $characterPortrait.setAttribute("src", "/zCRUDAJAX/icon.png");
         $form[0].value = "";
