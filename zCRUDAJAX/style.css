@@ -889,3 +889,15 @@ h2 {
   font-size: 0.7rem !important;
   color: rgba(255, 255, 255, 0.522) !important;
 }
+
+.button-disabled2 {
+  background-color: rgba(243, 57, 57, 0.881) !important;
+  font-size: 0.7rem !important;
+  color: rgba(255, 255, 255, 0.947) !important;
+}
+
+.button-disabled2:hover {
+  background-color: rgb(243, 57, 57) !important;
+  font-size: 0.7rem !important;
+  color: rgba(255, 255, 255, 0.947) !important;
+}
