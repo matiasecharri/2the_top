@@ -5,6 +5,7 @@ const $form = d.querySelector(".crud-form");
 const $title = d.querySelector(".crud-title");
 const $fragment = d.createDocumentFragment();
 const $sendButton = d.getElementById("send");
+const $characterPortrait = d.getElementById("characterCircle");
 
 const regex = {
   regexname: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
@@ -219,6 +220,7 @@ const userActivateEditModeActions = () => {
         globalStates.userIsEditing = true;
         globalStates.editId = event.target.dataset.id;
         $title.innerText = `EDITING: ${event.target.dataset.name.toUpperCase()}`;
+        $characterPortrait.setAttribute("src", event.target.dataset.photo);
         $form[0].value = event.target.dataset.name;
         $form[1].value = event.target.dataset.info;
         $form[2].value = event.target.dataset.isAlive;
@@ -232,6 +234,7 @@ const userActivateEditModeActions = () => {
         globalStates.userIsEditing = false;
         globalStates.editId = null;
         $title.innerText = "ADD CHARACTER";
+        $characterPortrait.setAttribute("src", "/zCRUDAJAX/icon.png");
         $form[0].value = "";
         $form[1].value = "";
         $form[2].value = "";
