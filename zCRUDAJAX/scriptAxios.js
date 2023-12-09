@@ -286,3 +286,5 @@ const getApiData = async () => {
 };
 
 getApiData();
+
+//Possible improve, separate logic from listeners
