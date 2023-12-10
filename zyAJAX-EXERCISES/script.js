@@ -55,11 +55,8 @@ const renderHome = () => {
   d.addEventListener("DOMContentLoaded", async event => {
     try {
       const homeURL = "/zyAJAX-EXERCISES/AJAX1/assets/home.html";
-      // const navURL = "/zyAJAX-EXERCISES/AJAX1/assets/nav.html";
       const htmlHOME = await recyclableGET(homeURL);
-      // const nav = await recyclableGET(navURL);
       $main.innerHTML = htmlHOME;
-      $header.innerHTML = nav;
     } catch (error) {
       console.warn(error);
     }
