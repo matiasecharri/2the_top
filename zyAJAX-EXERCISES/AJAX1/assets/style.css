@@ -17,7 +17,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px dashed black;
+  border-bottom: 1px solid black;
+  background-color: #231f2e;
 }
 nav {
   display: flex;
@@ -27,8 +28,24 @@ nav {
 
 nav a {
   color: #ffa500;
-  font-weight: 800;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: -2.5px;
   text-decoration: none;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+nav a:hover {
+  transition: 0.3s;
+  color: rgb(16, 171, 192);
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
 }
 
 main {
@@ -43,19 +60,21 @@ main {
 }
 
 main p {
-  width: 40%;
+  width: 480px;
   color: var(--color2);
   font-size: 0.8rem;
+  height: 80px;
 }
 
 main h1 {
-  font-size: 1.5rem;
+  letter-spacing: 10px;
+  font-size: 0.6rem;
   font-weight: 100;
   color: var(--color2);
 }
 
 main img {
-  width: 40%;
+  width: 480px;
   height: 70%;
   object-fit: cover;
   border-radius: 10px;
@@ -66,11 +85,14 @@ main img {
 }
 
 footer {
-  border-top: 1px dashed black;
+  border-top: 1px solid rgb(15, 14, 14);
   height: 10vh;
+  font-size: 0.5rem;
   background-color: var(--color1);
   font-weight: 100;
   display: flex;
+  color: var(--color2);
+  letter-spacing: 10px;
   justify-content: center;
   align-items: center;
 }

@@ -1,10 +1,11 @@
 const d = document;
 const $main = d.querySelector("main");
 const $header = d.querySelector("header");
+const $footer = d.querySelector("footer");
 
-//⚠️Be careful with the e.preventDefault() with <a>
+//⚠️Be careful with the e.preventDefault() with <a>, SPA
 
-//---------------------OPTION 1----------------------//
+//----------------------OPTION 1----------------------//
 // const getHTMLX = options => {
 //   let { url, success, error } = options;
 //   const xhr = new XMLHttpRequest();
@@ -33,7 +34,36 @@ const $header = d.querySelector("header");
 //   });
 // });
 
-//----------------------OPTION 2 ---------------------//
+// ---------------------OPTION 2----------------------//
+
+// const getHTML = async url => {
+//   try {
+//     const response = await fetch(url);
+//     if (!response.ok) {
+//       throw {
+//         status: response.status,
+//         message: response.statusText || "Whoops something went wrong!",
+//       };
+//     }
+//     const data = await response.text();
+//     $main.innerHTML = data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+// d.addEventListener("DOMContentLoaded", e => {
+//   d.addEventListener("click", e => {
+//     e.preventDefault();
+//     if (e.target.matches("a")) {
+//       getHTML(e.target.href);
+//     }
+//   });
+// });
+
+// getHTML("/zyAJAX-EXERCISES/AJAX1/assets/home.html");
+
+//----------------------OPTION 3---------------------//
 
 const recyclableGET = async url => {
   try {
@@ -75,10 +105,18 @@ const renderNav = () => {
   });
 };
 
+const renderFooter = () => {
+  d.addEventListener("DOMContentLoaded", async event => {
+    const URLfooter = "/zyAJAX-EXERCISES/AJAX1/assets/footer.html";
+    const HTMLfooter = await recyclableGET(URLfooter);
+    $footer.innerHTML = HTMLfooter;
+  });
+};
+
 const renderAnyOtherPage = () => {
   d.addEventListener("click", async event => {
-    event.preventDefault();
     if (event.target.matches("a")) {
+      event.preventDefault();
       const newPAGE = await recyclableGET(event.target.href);
       $main.innerHTML = newPAGE;
     }
@@ -87,32 +125,5 @@ const renderAnyOtherPage = () => {
 
 renderNav();
 renderHome();
+renderFooter();
 renderAnyOtherPage();
-// ---------------------OPTION 3----------------------//
-
-// const getHTML = async url => {
-//   try {
-//     const response = await fetch(url);
-//     if (!response.ok) {
-//       throw {
-//         status: response.status,
-//         message: response.statusText || "Whoops something went wrong!",
-//       };
-//     }
-//     const data = await response.text();
-//     $main.innerHTML = data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// d.addEventListener("DOMContentLoaded", e => {
-//   d.addEventListener("click", e => {
-//     e.preventDefault();
-//     if (e.target.matches("a")) {
-//       getHTML(e.target.href);
-//     }
-//   });
-// });
-
-// getHTML("/zyAJAX-EXERCISES/AJAX1/assets/home.html");
