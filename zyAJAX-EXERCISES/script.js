@@ -2,6 +2,7 @@ const d = document;
 const $main = d.querySelector("main");
 const $header = d.querySelector("header");
 const $footer = d.querySelector("footer");
+let isPlaying = false;
 
 //⚠️Be careful with the e.preventDefault() with <a>, SPA
 
@@ -65,6 +66,15 @@ const $footer = d.querySelector("footer");
 
 //----------------------OPTION 3---------------------//
 
+const player = file => {
+  if (isPlaying === true) {
+    return;
+  }
+  const audio = new Audio(file);
+  audio.play();
+  isPlaying = true;
+};
+
 const recyclableGET = async url => {
   try {
     const response = await fetch(url);
@@ -119,6 +129,7 @@ const renderAnyOtherPage = () => {
       event.preventDefault();
       const newPAGE = await recyclableGET(event.target.href);
       $main.innerHTML = newPAGE;
+      player("/zyAJAX-EXERCISES/AJAX1/assets/song.mp3");
     }
   });
 };
