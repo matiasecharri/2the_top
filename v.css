@@ -43,17 +43,25 @@ main {
   -o-border-radius: 10px;
 }
 
-#checkboxes {
+#checkbox-container {
   padding: 10px;
   height: 34px;
-  width: 450px;
+  width: 600px;
   border: none;
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: flex-start;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   background-color: white;
+}
+
+#checkbox-container input {
+  width: 30px;
 }
 
 .main-card-container {
@@ -70,11 +78,10 @@ main {
   padding-bottom: 25px;
   flex-wrap: wrap;
   overflow-y: scroll;
-  gap: 30px;
+  gap: 40px;
 }
 
 .card {
-  background-color: rgb(37, 37, 36);
   border-radius: 10px;
   width: 22%;
   transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -83,7 +90,9 @@ main {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .card-img {
@@ -120,4 +129,8 @@ main {
   display: flex;
   flex-direction: column;
   padding: 15px;
+}
+
+.fix-style {
+  margin-top: -5px;
 }
