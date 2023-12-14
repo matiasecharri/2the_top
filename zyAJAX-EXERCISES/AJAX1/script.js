@@ -71,6 +71,7 @@ const player = file => {
     return;
   }
   const audio = new Audio(file);
+  audio.volume = 0.2;
   audio.play();
   isPlaying = true;
 };

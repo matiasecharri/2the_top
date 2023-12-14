@@ -4,6 +4,7 @@ const $containerCheckboxes = document.getElementById("checkbox-container");
 const $fragment = document.createDocumentFragment();
 const activeCategories = [];
 let checkeds = [];
+let userText; //Hacer que checkbox tengan en cuenta el userText al tocar, es decir que si tenia escrito "REY" y chequeo duelist deberia mostrarme SOLO a reyna.
 
 const discardErrors = array => {
   const filtered = array.filter(character => character.role !== null);
@@ -91,7 +92,6 @@ const checkboxActions = array => {
 };
 
 const searchBarActions = array => {
-  let userText;
   $searchBar.addEventListener("input", event => {
     userText = event.target.value.toLowerCase();
     if (activeCategories.length !== 0) {
