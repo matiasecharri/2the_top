@@ -1,9 +1,11 @@
+/* 🌎 HTML Variables declaration, regex, globalStates */
 const d = document;
 const $table = d.querySelector(".content-characters");
 const $form = d.querySelector(".crud-form");
 const $title = d.querySelector(".crud-title");
 const $fragment = d.createDocumentFragment();
 const $sendButton = d.getElementById("send");
+const $characterPortrait = d.getElementById("characterCircle");
 
 const regex = {
   regexname: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
@@ -16,6 +18,7 @@ const globalStates = {
   editId: null,
 };
 
+/* ♻️ Printer function to generate the cards */
 const printer = array => {
   array.forEach(character => {
     const $card = d.createElement("div");
@@ -98,6 +101,7 @@ const printer = array => {
   $table.appendChild($fragment);
 };
 
+/* ♻️ Validator function is used to validate form fields and avoid repeated code */
 const validator = () => {
   if (!regex.regexname.test($form[0].value)) {
     return false;
@@ -120,6 +124,7 @@ const validator = () => {
 
 const POST_character = async () => {
   try {
+    //Generating a new id, for a new character, based on the higher ID on the array.
     const getCharacters = await axios.get(
       "http://localhost:5000/cyberpunk-characters"
     );
@@ -187,6 +192,8 @@ const DELETE_character = async id => {
 };
 
 //----------------------------CRUD-------------------------------///
+
+/* 🕹️ With this function the USER is going to REALIZE a POST, it has 2 validations, userIsEditing to check if the user is on edit mode or not and validator() to check if the form fields are correct */
 const userPostActions = () => {
   $sendButton.addEventListener("click", event => {
     event.preventDefault();
@@ -203,6 +210,7 @@ const userPostActions = () => {
   });
 };
 
+/* 🕹️ With this function we are going to manage the isEditing state, turning it "TRUE" or "FALSE" triggered by the edit-btn on the cards, Im using event delegation to avoid bubbles. */
 const userActivateEditModeActions = () => {
   $table.addEventListener("click", event => {
     event.preventDefault();
@@ -211,7 +219,9 @@ const userActivateEditModeActions = () => {
       if (globalStates.userIsEditing === false) {
         globalStates.userIsEditing = true;
         globalStates.editId = event.target.dataset.id;
+        $sendButton.value = "CONFIRM CHANGES";
         $title.innerText = `EDITING: ${event.target.dataset.name.toUpperCase()}`;
+        $characterPortrait.setAttribute("src", event.target.dataset.photo);
         $form[0].value = event.target.dataset.name;
         $form[1].value = event.target.dataset.info;
         $form[2].value = event.target.dataset.isAlive;
@@ -224,7 +234,9 @@ const userActivateEditModeActions = () => {
       } else {
         globalStates.userIsEditing = false;
         globalStates.editId = null;
+        $sendButton.value = "SEND";
         $title.innerText = "ADD CHARACTER";
+        $characterPortrait.setAttribute("src", "/zCRUDAJAX/icon.png");
         $form[0].value = "";
         $form[1].value = "";
         $form[2].value = "";
@@ -239,6 +251,7 @@ const userActivateEditModeActions = () => {
   });
 };
 
+/* 🕹️ With this function the USER is going to REALIZE a PUT, it has 2 validations, userIsEditing to check if the user is on edit mode or not and validator() to check if the form fields are correct, it gets the ID from the button dataset. */
 const userPutActions = () => {
   $sendButton.addEventListener("click", event => {
     event.preventDefault();
@@ -255,6 +268,7 @@ const userPutActions = () => {
   });
 };
 
+/* 🕹️ With this function the USER is going to REALIZE a DELETE, it gets the ID from the button dataset.*/
 const userDeleteActions = () => {
   $table.addEventListener("click", event => {
     event.preventDefault();
@@ -264,6 +278,7 @@ const userDeleteActions = () => {
   });
 };
 
+/* ✅ GET petition and all the executions.*/
 const getApiData = async () => {
   try {
     const response = await axios.get(

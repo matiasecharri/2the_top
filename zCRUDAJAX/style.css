@@ -10,7 +10,7 @@
 
 main {
   height: 100vh;
-  background-color: #fcee0a;
+  background-color: #fcf500;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-evenly;
@@ -901,3 +901,29 @@ h2 {
   font-size: 0.7rem !important;
   color: rgba(255, 255, 255, 0.947) !important;
 }
+
+.editing-character {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 0, 0, 0.08);
+  position: absolute;
+  top: 70px;
+  border-radius: 360px;
+  -webkit-border-radius: 360px;
+  -moz-border-radius: 360px;
+  -ms-border-radius: 360px;
+  -o-border-radius: 360px;
+}
+
+.editing-character img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 360px;
+  -webkit-border-radius: 360px;
+  -moz-border-radius: 360px;
+  -ms-border-radius: 360px;
+  -o-border-radius: 360px;
+}
+
+/* 🚬Last push on this */
