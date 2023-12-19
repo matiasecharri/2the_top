@@ -1983,3 +1983,80 @@ const ordenPersonalizado = (array, prop, booleano) => {
 
 const ordenarCervezas = ordenPersonalizado(beers, "name", false);
 console.log(ordenarCervezas);
+
+const animales = [
+  "perro",
+  "gato",
+  "elefante",
+  "leon",
+  "jirafa",
+  "tigre",
+  "cebra",
+  "pingüino",
+  "delfín",
+  "murciélago",
+  "gato",
+  "jirafa",
+  "gato",
+  "gato",
+];
+
+const countRepeated = () => {
+  const emptyArray = [];
+  animales.filter(animal => {
+    if (!emptyArray.includes(animal)) {
+      emptyArray.push({ name: animal, repeated: 0 });
+    }
+  });
+
+  animales.forEach(animal => {
+    emptyArray.forEach(objetoAnimal => {
+      if (objetoAnimal.name === animal) {
+        objetoAnimal.repeated++;
+      }
+    });
+  });
+  console.log(emptyArray);
+};
+
+countRepeated();
+
+const animales2 = [
+  "perro",
+  "gato",
+  "elefante",
+  "leon",
+  "jirafa",
+  "tigre",
+  "cebra",
+  "pingüino",
+  "delfín",
+  "murciélago",
+  "gato",
+  "jirafa",
+  "gato",
+  "gato",
+];
+
+const resultados = contarRepeticiones(animales2);
+console.log(resultados);
+
+// Crear un objeto para realizar un seguimiento de las ocurrencias
+const ocurrencias = {};
+
+// Iterar a través del array de animales2
+animales2.forEach(animal => {
+  // Si el animal ya está en el objeto, aumenta el contador en 1
+  if (ocurrencias[animal] === true) {
+    ocurrencias[animal]++;
+  }
+  // Si el animal no está en el objeto, inicializa su contador en 1
+  else {
+    ocurrencias[animal] = 1;
+  }
+});
+
+// Imprimir el resultado
+for (const animal in ocurrencias) {
+  console.log(`${animal}: ${ocurrencias[animal]} veces`);
+}
