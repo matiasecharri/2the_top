@@ -23,8 +23,11 @@ $main.addEventListener("drop", event => {
   event.preventDefault();
   event.stopPropagation();
   $main.classList.remove("active-drag");
-  $h1.innerText = "DRAG AND DROP ZONE";
+  $h1.innerText = "🚀SUCCESSFULLY UPLOADED!";
   $h1.classList.remove("active-drag-txt");
+  setTimeout(() => {
+    $h1.innerText = "DRAG AND DROP ZONE";
+  }, 2000);
   const files = Array.from(event.dataTransfer.files);
   console.log(event.dataTransfer);
   files.forEach(element => {

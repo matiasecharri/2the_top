@@ -11,6 +11,17 @@ const discardErrors = array => {
   return filtered;
 };
 
+const loading = () => {
+  $containerCards.innerHTML = `<div class="loader">
+  <div class="justify-content-center jimu-primary-loading"></div>
+</div>`;
+  $containerCheckboxes.innerHTML = "....";
+};
+
+const noResults = () => {
+  $containerCards.innerHTML = "<h2>Character not found! </h2>";
+};
+
 const generateCategories = array => {
   const repeatedCategories = array.map(character => character.role.displayName);
   const unrepeatedCategories = [...new Set(repeatedCategories)];
@@ -19,6 +30,9 @@ const generateCategories = array => {
 
 const renderCharacters = array => {
   $containerCards.innerHTML = "";
+  if (array.length === 0) {
+    noResults();
+  }
   array.forEach(agent => {
     const $card = document.createElement("div");
     $card.classList.add("card");
@@ -49,6 +63,7 @@ const renderCharacters = array => {
 };
 
 const renderCheckbox = array => {
+  $containerCheckboxes.innerHTML = "";
   array.forEach(category => {
     const $label = document.createElement("label");
     $label.innerText = category;
@@ -75,12 +90,12 @@ const checkboxActions = array => {
         );
         activeCategories.splice(categoryToDelete, 1);
       }
-      const arrayCheckeds = array.filter(character => {
-        if (activeCategories.includes(character.role.displayName)) {
-          return character;
-        }
-      });
       if (activeCategories.length !== 0) {
+        const arrayCheckeds = array.filter(character => {
+          if (activeCategories.includes(character.role.displayName)) {
+            return character;
+          }
+        });
         checkeds = arrayCheckeds;
         renderCharacters(arrayCheckeds);
       } else {
@@ -130,4 +145,10 @@ const consumeApi = async () => {
   }
 };
 
-consumeApi();
+loading();
+setTimeout(() => {
+  consumeApi();
+}, 2000);
+
+// SOLID:
+// https://chat.openai.com/c/04debff0-5a47-4583-8162-9612111e944b
