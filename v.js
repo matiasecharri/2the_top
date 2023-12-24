@@ -60,6 +60,7 @@ const renderCharacters = array => {
     $fragment.appendChild($card);
   });
   $containerCards.appendChild($fragment);
+  $fragment.innerHTML = "";
 };
 
 const renderCheckbox = array => {
@@ -74,6 +75,7 @@ const renderCheckbox = array => {
     $fragment.appendChild($label);
   });
   $containerCheckboxes.appendChild($fragment);
+  $fragment.innerHTML = "";
 };
 
 const checkboxActions = array => {
@@ -100,7 +102,7 @@ const checkboxActions = array => {
         renderCharacters(arrayCheckeds);
       } else {
         renderCharacters(array);
-        checkeds = arrayCheckeds;
+        checkeds = [];
       }
     }
   });
@@ -148,7 +150,7 @@ const consumeApi = async () => {
 loading();
 setTimeout(() => {
   consumeApi();
-}, 2000);
+}, 500);
 
 // SOLID:
 // https://chat.openai.com/c/04debff0-5a47-4583-8162-9612111e944b
