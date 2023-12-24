@@ -108,3 +108,5 @@ const numberMessage: Message<number, string> = {
   content: 123456789,
   optional: "Hello",
 };
+
+//TIP: Use next.js to automate the transpilation.
