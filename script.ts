@@ -90,7 +90,7 @@ const colorX: ColorCarX = "Black";
 
 console.log(typeof colorX);
 
-//Custom parameter types depending of what is needed.
+//Custom parameter types depending of what is needed GENERIC ARGUMENTS.
 type Message<T, X> = {
   name: string;
   content: T;
