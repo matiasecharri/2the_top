@@ -1982,7 +1982,10 @@ const ordenPersonalizado = (array, prop, booleano) => {
 };
 
 const ordenarCervezas = ordenPersonalizado(beers, "name", false);
+const ordenarCervezas2 = ordenPersonalizado(beers, "abv", false);
+
 console.log(ordenarCervezas);
+console.log(ordenarCervezas2);
 
 const animales = [
   "perro",
