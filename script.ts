@@ -87,3 +87,24 @@ const color = ColorCar.Black;
 //Less code, less Javascript transpilation, 🚀
 type ColorCarX = "Black" | "White" | "Red";
 const colorX: ColorCarX = "Black";
+
+console.log(typeof colorX);
+
+//Custom types depending of what is needed.
+type Message<T, X> = {
+  name: string;
+  content: T;
+  optional?: X;
+};
+
+const textMessage: Message<string, number> = {
+  //Specify the type of the values when declaring
+  name: "Message to Michael",
+  content: "Hello there this is a message!",
+};
+
+const numberMessage: Message<number, string> = {
+  name: "Message in ",
+  content: 123456789,
+  optional: "Hello",
+};

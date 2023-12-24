@@ -1,4 +1,6 @@
 "use strict";
+// tsc --target es2015 script.ts
+// tsc --target es2017 script.ts
 //TYPES
 const text = "Hello!";
 const num1 = 2;
@@ -42,3 +44,13 @@ const myMovie = {
     },
 };
 console.log(myMovie.info());
+//Enums, not bad, but to much code, a bettter way below
+var ColorCar;
+(function (ColorCar) {
+    ColorCar[ColorCar["Black"] = 0] = "Black";
+    ColorCar[ColorCar["White"] = 1] = "White";
+    ColorCar[ColorCar["Red"] = 2] = "Red";
+})(ColorCar || (ColorCar = {}));
+const color = ColorCar.Black;
+const colorX = "Black";
+console.log(typeof myMovie);
