@@ -1,6 +1,9 @@
 const $searchBar = document.querySelector("input");
 const $cardContainer = document.querySelector(".card-container");
 const $fragment = document.createDocumentFragment();
+const regex = {
+  noWhiteSpace: /^\s*\S.*$/,
+};
 
 const getCity = async city => {
   try {
@@ -33,7 +36,7 @@ const renderInfo = obj => {
   $description.classList.add("card__info");
 
   const $p1 = document.createElement("p");
-  $p1.innerText = `Temperature: ${obj.main.temp}`;
+  $p1.innerText = `Temperature: ${obj.main.temp}°C`;
   const $p2 = document.createElement("p");
   $p2.innerText = `Sensation: ${obj.main.feels_like}`;
   const $p3 = document.createElement("p");
@@ -60,10 +63,14 @@ const renderInfo = obj => {
 const searchBarActions = () => {
   $searchBar.addEventListener("keyup", async event => {
     if (event.key === "Enter") {
+      if (!regex.noWhiteSpace.test(event.target.value)) {
+        return;
+      }
       const cityToGet = event.target.value;
       const newCity = await getCity(cityToGet);
       if (newCity) {
         renderInfo(newCity);
+        console.log(newCity);
       } else {
         console.warn(`${cityToGet} doesn´t exist!`);
       }
@@ -72,3 +79,7 @@ const searchBarActions = () => {
 };
 
 searchBarActions();
+
+//Adittions: Farenheit + C
+//Favorites, icons
+//Separate modules: https://github.com/michalosman/weather-app
