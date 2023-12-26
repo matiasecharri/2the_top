@@ -27,7 +27,11 @@ const renderInfo = obj => {
   const $card = document.createElement("div");
   $card.classList.add("card");
 
+  const $imgContainer = document.createElement("div");
+  $imgContainer.classList.add("card__icon-container");
+
   const $img = document.createElement("img");
+  $img.src = "weather-1.png";
 
   const $title = document.createElement("h2");
   $title.innerText = obj.name;
@@ -53,7 +57,8 @@ const renderInfo = obj => {
   $description.appendChild($p4);
   $description.appendChild($p5);
 
-  $card.appendChild($img);
+  $imgContainer.appendChild($img);
+  $card.appendChild($imgContainer);
   $card.appendChild($description);
   $fragment.appendChild($card);
   $cardContainer.appendChild($fragment);
@@ -83,3 +88,4 @@ searchBarActions();
 //Adittions: Farenheit + C
 //Favorites, icons
 //Separate modules: https://github.com/michalosman/weather-app
+//https://www.figma.com/file/xBOq9zsAT4CHXUUFEA1KAq/Frosted-Glass-Weather-Icons-Figma?type=design&node-id=0-1&mode=design
