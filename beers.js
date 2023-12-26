@@ -1956,36 +1956,36 @@ const cervezasMenosAmargas = array => {
 const menosAmargas = cervezasMenosAmargas(beers);
 
 //EJ 4
-const ordenPersonalizado = (array, prop, booleano) => {
-  if (typeof prop === "number") {
-    if (booleano === true) {
-      const arrayOrdenandoMayor = [...array];
-      arrayOrdenandoMayor.sort((a, b) => b[prop] - a[prop]);
-      return arrayOrdenandoMayor;
-    } else {
-      const arrayOrdenandoMenor = [...array];
-      arrayOrdenandoMenor.sort((a, b) => a[prop] - b[prop]);
-      return arrayOrdenandoMenor;
-    }
-  }
-  if (typeof prop === "string") {
-    if (booleano === true) {
-      const arrayOrdenandoMayor = [...array];
-      arrayOrdenandoMayor.sort((a, b) => b[prop].localeCompare(a[prop]));
-      return arrayOrdenandoMayor;
-    } else {
-      const arrayOrdenandoMenor = [...array];
-      arrayOrdenandoMenor.sort((a, b) => a[prop].localeCompare(b[prop]));
-      return arrayOrdenandoMenor;
-    }
-  }
-};
+// const ordenPersonalizado = (array, prop, booleano) => {
+//   if (typeof prop === "number") {
+//     if (booleano === true) {
+//       const arrayOrdenandoMayor = [...array];
+//       arrayOrdenandoMayor.sort((a, b) => b[prop] - a[prop]);
+//       return arrayOrdenandoMayor;
+//     } else {
+//       const arrayOrdenandoMenor = [...array];
+//       arrayOrdenandoMenor.sort((a, b) => a[prop] - b[prop]);
+//       return arrayOrdenandoMenor;
+//     }
+//   }
+//   if (typeof prop === "string") {
+//     if (booleano === true) {
+//       const arrayOrdenandoMayor = [...array];
+//       arrayOrdenandoMayor.sort((a, b) => b[prop].localeCompare(a[prop]));
+//       return arrayOrdenandoMayor;
+//     } else {
+//       const arrayOrdenandoMenor = [...array];
+//       arrayOrdenandoMenor.sort((a, b) => a[prop].localeCompare(b[prop]));
+//       return arrayOrdenandoMenor;
+//     }
+//   }
+// };
 
-const ordenarCervezas = ordenPersonalizado(beers, "name", false);
-const ordenarCervezas2 = ordenPersonalizado(beers, "abv", false);
+// const ordenarCervezas = ordenPersonalizado(beers, "name", false);
+// const ordenarCervezas2 = ordenPersonalizado(beers, "abv", false);
 
-console.log(ordenarCervezas);
-console.log(ordenarCervezas2);
+// console.log(ordenarCervezas);
+// console.log(ordenarCervezas2);
 
 const animales = [
   "perro",
@@ -2041,8 +2041,8 @@ const animales2 = [
   "gato",
 ];
 
-const resultados = contarRepeticiones(animales2);
-console.log(resultados);
+// // const resultados = contarRepeticiones(animales2);
+// console.log(resultados);
 
 // Crear un objeto para realizar un seguimiento de las ocurrencias
 const ocurrencias = {};
@@ -2080,4 +2080,4 @@ const fizzBuzz = number => {
   }
 };
 
-fizzBuzz(200);
+fizzBuzz(20);
