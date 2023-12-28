@@ -152,5 +152,4 @@ setTimeout(() => {
   consumeApi();
 }, 500);
 
-// SOLID:
-// https://chat.openai.com/c/04debff0-5a47-4583-8162-9612111e944b
+//Swap to next repo for 5 days.
