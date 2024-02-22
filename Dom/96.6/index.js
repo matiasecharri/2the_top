@@ -159,11 +159,24 @@ const printer = array => {
 
 //🍥Creates toDoObjects with 3 properties, the content (equal to $inputText.value), completed always false at the start and an id.
 const toDoObjectCreator = content => {
-  return {
-    content: content,
-    completed: false,
-    id: new Date().getTime(),
-  };
+  if (
+    content.toLowerCase() === "send a task" ||
+    content.toLowerCase() === "enviar una tarea" ||
+    content.toLowerCase() === "watch the monitor" ||
+    content.toLowerCase() === "mirar el monitor"
+  ) {
+    return {
+      content: content,
+      completed: true,
+      id: new Date().getTime(),
+    };
+  } else {
+    return {
+      content: content,
+      completed: false,
+      id: new Date().getTime(),
+    };
+  }
 };
 
 //🍥Push objects to an array.
