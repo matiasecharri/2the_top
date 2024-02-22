@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   apiCrypto();
   circleMove();
   countDown(
-    "Mon Nov 17 2023",
+    "Mon Nov 17 2024",
     "Dibella's Birthday 🎂",
     "Happy Birthday Dibella 🎉"
   );
