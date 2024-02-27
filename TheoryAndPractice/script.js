@@ -1070,7 +1070,6 @@ let cumpleañosDiana = new Date(2000, 10, 17);
 let cumpleañosCarlos = new Date(1998, 10, 14);
 console.log(cumpleañosDiana);
 console.log(cumpleañosCarlos);
-
 let interruptor = false;
 let $rosaButton = document.getElementById("rosie");
 let $main = document.getElementById("main1");
