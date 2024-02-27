@@ -48,3 +48,22 @@ function Persona2(nombre) {
 //Entonces lo solucionamos con una arrow function la cual no va a crear un nuevo scope y directamente va a recibir el this de su entorno.
 let jimHalpertArrow = new Persona2("🤖Object Context: Jim Halpert Arrow");
 jimHalpertArrow();
+
+this.mundo = "Mundo 1 🪐";
+
+const objetoConFuncionNormal = {
+  mundo: "Mundo 2 🌎",
+  imprimir() {
+    console.log(this.mundo);
+  },
+};
+
+objetoConFuncionNormal.imprimir();
+
+const objetoConFuncionFlecha = {
+  mundo: "Mundo 3 🌕",
+  imprimir: () => {
+    console.log(this.mundo);
+  },
+};
+objetoConFuncionFlecha.imprimir();
