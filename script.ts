@@ -47,13 +47,16 @@ class CarCreator {
     this.model = model;
     this.year = year;
   }
-
+  modify(param: string) {
+    this.model = param;
+  }
   info() {
     return { brand: this.brand, model: this.model, year: this.year };
   }
 }
 
 const ferrari = new CarCreator("Ferrari", "Purosangue", 2023);
+ferrari.modify("Pene");
 console.log(ferrari.info());
 
 //INTERFACES
