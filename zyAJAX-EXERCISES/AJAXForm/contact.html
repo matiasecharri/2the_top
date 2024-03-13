@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleform.css">
+    <title>Form Fetch</title>
+</head>
+
+<body>
+    <main>
+        <form action="submit" autocomplete="new-password">
+            <legend>Send your comments</legend>
+            <input type="text" name="name" placeholder="Your Name Here..." title="Only letters and white spaces"
+                required autocomplete="off">
+            <input type="email" name="email" placeholder="Your Email Here..." required autocomplete="new-password">
+            <input type="text" name="subject" placeholder="What do you want to know?" required autocomplete="off">
+            <textarea name="comments" placeholder="Any extra comment?" autocomplete="off"></textarea>
+            <input type="submit" value="SEND" class="button-submit">
+        </form>
+    </main>
+</body>
+
+
+</html>
