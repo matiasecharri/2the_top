@@ -37,6 +37,7 @@ form input {
   -moz-transition: 0.4s ease-in-out;
   -ms-transition: 0.4s ease-in-out;
   -o-transition: 0.4s ease-in-out;
+  border: none;
 }
 
 form input::placeholder {

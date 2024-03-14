@@ -15,9 +15,9 @@ const validatorName = (field, regex) => {
   if (!regex.test(field.value) && field.value.length !== 0) {
     field.style.background = "rgb(237, 155, 172)";
   }
-  if (regex.test(field.value)) {
-    field.style.background = "#e8f0fe";
-  }
+  //   if (regex.test(field.value)) {
+  //     field.style.background = "yellow";
+  //   }
 };
 
 const preSendTest = () => {
