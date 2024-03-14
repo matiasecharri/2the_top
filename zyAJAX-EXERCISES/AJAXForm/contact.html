@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleform.css">
+    <title>Form Fetch</title>
+</head>
+
+<body>
+    <main>
+        <h2>
+            See you soon</h2>
+        <form action="submit" autocomplete="off" class="contact-form1">
+            <legend>Send your comments</legend>
+            <input type="text" name="user-name" placeholder="Your First Name Here..."
+                title="Only letters and white spaces" required autocomplete="off">
+            <input type="email" name="user-email" placeholder="Your Email Here..." required autocomplete="off">
+            <input type="text" name="user-subject" placeholder="What do you want to know?" required autocomplete="off">
+            <textarea name="comments" placeholder="Any extra comment?" autocomplete="off"></textarea>
+            <input type="submit" value="SEND" class="button-submit" id="submit-button">
+            <div class="container-loader none">
+                <div class="dot-spinner">
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                </div>
+            </div>
+            <div class="container-success none">
+                <p>Thank you!</p>
+            </div>
+        </form>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="./script-form.js" type="module"></script>
+</body>
+
+
+</html>
