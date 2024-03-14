@@ -1,6 +1,7 @@
 const $form = document.querySelector(".contact-form1");
 const $loader = document.querySelector(".container-loader");
 const $message = document.querySelector(".container-success");
+const $submitButton = document.getElementById("submit-button");
 
 const regex = {
   name: /^[a-zA-Z\s]{3,}$/,
@@ -31,6 +32,15 @@ const preSendTest = () => {
   }
 };
 
+const resetForm = form => {
+  const $formFields = form.querySelectorAll(
+    `input[type='text'], input[type='email'], textarea`
+  );
+  $formFields.forEach(field => {
+    field.value = "";
+  });
+};
+
 $form.addEventListener("input", event => {
   if (
     event.target.matches("input[name=user-name]") ||
@@ -48,10 +58,16 @@ document.addEventListener("submit", event => {
   event.preventDefault();
   if (preSendTest()) {
     $loader.classList.remove("none");
-    alert("ENVIANDO");
+    $submitButton.classList.add("denegated");
     setTimeout(() => {
       $loader.classList.add("none");
       $message.classList.remove("none");
-    }, 2000);
+      resetForm($form);
+      setTimeout(() => {
+        $message.classList.add("none");
+        $submitButton.classList.remove("denegated");
+        // window.location.reload();
+      }, 1500);
+    }, 1500);
   }
 });

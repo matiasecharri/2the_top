@@ -229,3 +229,8 @@ form textarea:focus {
   pointer-events: none;
   position: absolute;
 }
+
+.denegated {
+  pointer-events: none;
+  background-color: rgba(128, 128, 128, 0.265);
+}
