@@ -44,7 +44,7 @@ const resetForm = form => {
 
 gsap.to($form, {
   opacity: 1,
-  duration: 1,
+  duration: 0.6,
   y: 80,
 });
 
