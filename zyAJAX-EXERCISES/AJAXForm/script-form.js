@@ -1,8 +1,9 @@
+const $title = document.querySelector("h2");
 const $form = document.querySelector(".contact-form1");
+const $legend = document.querySelector(".contact-form1 legend");
 const $loader = document.querySelector(".container-loader");
 const $message = document.querySelector(".container-success");
 const $submitButton = document.getElementById("submit-button");
-
 const regex = {
   name: /^[a-zA-Z\s]{3,}$/,
   email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
@@ -41,6 +42,12 @@ const resetForm = form => {
   });
 };
 
+gsap.to($form, {
+  opacity: 1,
+  duration: 1,
+  y: 80,
+});
+
 $form.addEventListener("input", event => {
   if (
     event.target.matches("input[name=user-name]") ||
@@ -67,7 +74,54 @@ document.addEventListener("submit", event => {
         $message.classList.add("none");
         $submitButton.classList.remove("denegated");
         // window.location.reload();
-      }, 1500);
+        gsap.to($form[4], {
+          x: 180,
+          opacity: 0,
+          duration: 0.5,
+        });
+        gsap.to($form[0], {
+          x: -180,
+          opacity: 0,
+          duration: 0.5,
+        });
+        gsap.to($form[1], {
+          x: -280,
+          opacity: 0,
+          duration: 0.5,
+        });
+        gsap.to($form[2], {
+          x: 380,
+          opacity: 0,
+          duration: 0.5,
+        });
+        gsap.to($form[3], {
+          x: 180,
+          opacity: 0,
+          duration: 0.5,
+        });
+        gsap.to($legend, {
+          opacity: 0,
+          x: 50,
+          duration: 0.8,
+        });
+        gsap.to($title, {
+          delay: 0.7,
+          opacity: 1,
+          duration: 1.6,
+          y: -20,
+        });
+        $title.style.zIndex = 99;
+        $title.addEventListener("click", event => {
+          gsap.to($title, {
+            opacity: 0,
+            duration: 1.5,
+            y: -100,
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+        });
+      }, 800);
     }, 1500);
   }
 });

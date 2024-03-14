@@ -4,6 +4,10 @@
   margin: 0px;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 main {
   background-color: rgb(26, 26, 26);
   height: 100vh;
@@ -23,6 +27,8 @@ form {
   gap: 10px;
   font-size: 2rem;
   position: relative;
+  opacity: 0;
+  margin-bottom: 180px;
 }
 
 form input {
@@ -234,4 +240,13 @@ form textarea:focus {
 .denegated {
   pointer-events: none;
   background-color: rgba(128, 128, 128, 0.265);
+}
+
+h2 {
+  color: white;
+  font-weight: 100;
+  font-size: 5rem;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
