@@ -41,7 +41,7 @@ form input {
 }
 
 form input::placeholder {
-  color: rgb(0, 0, 0);
+  color: rgb(150, 150, 150);
 }
 
 form input:focus {
