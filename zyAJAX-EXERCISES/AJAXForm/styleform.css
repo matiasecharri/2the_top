@@ -94,8 +94,7 @@ form textarea:focus {
 }
 
 .button-submit:hover {
-  background-color: rgb(200, 247, 105);
-  color: black;
+  background-color: rgb(181, 225, 93);
 }
 
 .dot-spinner {
