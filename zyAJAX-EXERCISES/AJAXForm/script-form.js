@@ -33,11 +33,11 @@ const preSendTest = () => {
   }
 };
 
-const resetForm = form => {
+const resetForm = (form) => {
   const $formFields = form.querySelectorAll(
     `input[type='text'], input[type='email'], textarea`
   );
-  $formFields.forEach(field => {
+  $formFields.forEach((field) => {
     field.value = "";
   });
 };
@@ -48,7 +48,7 @@ gsap.to($form, {
   y: 80,
 });
 
-$form.addEventListener("input", event => {
+$form.addEventListener("input", (event) => {
   if (
     event.target.matches("input[name=user-name]") ||
     event.target.matches("input[name=user-subject]")
@@ -61,67 +61,87 @@ $form.addEventListener("input", event => {
   }
 });
 
-document.addEventListener("submit", event => {
+document.addEventListener("submit", (event) => {
   event.preventDefault();
   if (preSendTest()) {
-    $loader.classList.remove("none");
-    $submitButton.classList.add("denegated");
-    setTimeout(() => {
-      $loader.classList.add("none");
-      $message.classList.remove("none");
-      resetForm($form);
-      setTimeout(() => {
-        $message.classList.add("none");
-        $submitButton.classList.remove("denegated");
-        // window.location.reload();
-        gsap.to($form[4], {
-          x: 180,
-          opacity: 0,
-          duration: 0.5,
-        });
-        gsap.to($form[0], {
-          x: -180,
-          opacity: 0,
-          duration: 0.5,
-        });
-        gsap.to($form[1], {
-          x: -280,
-          opacity: 0,
-          duration: 0.5,
-        });
-        gsap.to($form[2], {
-          x: 380,
-          opacity: 0,
-          duration: 0.5,
-        });
-        gsap.to($form[3], {
-          x: 180,
-          opacity: 0,
-          duration: 0.5,
-        });
-        gsap.to($legend, {
-          opacity: 0,
-          x: 50,
-          duration: 0.8,
-        });
-        gsap.to($title, {
-          delay: 0.7,
-          opacity: 1,
-          duration: 1.6,
-          y: -20,
-        });
-        $title.style.zIndex = 99;
-        $title.addEventListener("click", event => {
-          gsap.to($title, {
+    fetch(
+      `https://formsubmit.co/ajax/matiasecharri@hotmail.com`,
+      {
+        method: "POST",
+        body: new FormData(event.target),
+      },
+      $loader.classList.remove("none"),
+      $submitButton.classList.add("denegated"),
+      $form.style.pointerEvents = "none"
+    )
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((json) => {
+        console.log(json);
+        if(JSON.parse(json.success) === false){
+        $loader.classList.add("none");
+        $message.innerText = json.message
+        $message.classList.remove("none");
+        }
+        $loader.classList.add("none");
+        $message.classList.remove("none");
+        resetForm($form);
+        setTimeout(() => {
+          $message.classList.add("none");
+          $submitButton.classList.remove("denegated");
+          gsap.to($form[4], {
+            x: 180,
             opacity: 0,
-            duration: 1.5,
-            y: -100,
+            duration: 0.5,
           });
-          setTimeout(() => {
-            window.location.reload();
-          }, 1500);
-        });
-      }, 800);
-    }, 1500);
+          gsap.to($form[0], {
+            x: -180,
+            opacity: 0,
+            duration: 0.5,
+          });
+          gsap.to($form[1], {
+            x: -280,
+            opacity: 0,
+            duration: 0.5,
+          });
+          gsap.to($form[2], {
+            x: 380,
+            opacity: 0,
+            duration: 0.5,
+          });
+          gsap.to($form[3], {
+            x: 180,
+            opacity: 0,
+            duration: 0.5,
+          });
+          gsap.to($legend, {
+            opacity: 0,
+            x: 50,
+            duration: 0.8,
+          });
+          gsap.to($title, {
+            delay: 0.7,
+            opacity: 1,
+            duration: 1.6,
+            y: -20,
+          });
+          $title.style.zIndex = 99;
+          $title.addEventListener("click", (event) => {
+            gsap.to($title, {
+              opacity: 0,
+              duration: 1.5,
+              y: -100,
+            });
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
+          });
+        }, 800);
+      })
+      .catch((err) => {
+        console.error(err);
+        $loader.classList.add("none");
+        $message.innerText = err.statusText || "Try again";
+        $message.classList.remove("none");
+      });
   }
 });
