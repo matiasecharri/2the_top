@@ -87,6 +87,10 @@ form textarea:focus {
   color: black;
 }
 
+.button-submit:focus{
+  background-color: none;
+}
+
 .dot-spinner {
   --uib-size: 2.8rem;
   --uib-speed: 0.8s;
@@ -193,6 +197,7 @@ form textarea:focus {
 
 .container-success p {
   color: white;
+  font-size: 2rem;
 }
 .container-success {
   display: flex;
@@ -213,6 +218,7 @@ form textarea:focus {
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   width: 100%;
+  height: fit-content;
 }
 
 .container-loader {
