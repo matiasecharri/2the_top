@@ -100,55 +100,55 @@ $form.addEventListener("input", event => {
   }
 });
 
-document.addEventListener("submit", event => {
-  event.preventDefault();
-  if (preSendTest()) {
-    fetch(
-      `https://formsubmit.co/ajax/matiasecharri@hotmail.com`,
-      {
-        method: "POST",
-        body: new FormData(event.target),
-      },
-      $loader.classList.remove("none"),
-      $submitButton.classList.add("denegated"),
-      ($form.style.pointerEvents = "none")
-    )
-      .then(res => (res.ok ? res.json() : Promise.reject()))
-      .then(json => {
-        console.log(json);
-        if (JSON.parse(json.success) === false) {
-          $loader.classList.add("none");
-          $message.innerText = json.message;
-          $message.classList.remove("none");
-        }
-        $loader.classList.add("none");
-        $message.classList.remove("none");
-        resetForm($form);
-        setTimeout(() => {
-          $message.classList.add("none");
-          $submitButton.classList.remove("denegated");
-          gsapAnimationsForm();
-          $title.style.zIndex = 99;
-          $title.addEventListener("click", event => {
-            gsap.to($title, {
-              opacity: 0,
-              duration: 1.5,
-              y: -100,
-            });
-            setTimeout(() => {
-              window.location.reload();
-            }, 1500);
-          });
-        }, 800);
-      })
-      .catch(err => {
-        console.error(err);
-        $loader.classList.add("none");
-        $message.innerText = err.statusText || "Try again";
-        $message.classList.remove("none");
-      });
-  }
-});
+// document.addEventListener("submit", event => {
+//   event.preventDefault();
+//   if (preSendTest()) {
+//     fetch(
+//       `https://formsubmit.co/ajax/matiasecharri@hotmail.com`,
+//       {
+//         method: "POST",
+//         body: new FormData(event.target),
+//       },
+//       $loader.classList.remove("none"),
+//       $submitButton.classList.add("denegated"),
+//       ($form.style.pointerEvents = "none")
+//     )
+//       .then(res => (res.ok ? res.json() : Promise.reject()))
+//       .then(json => {
+//         console.log(json);
+//         if (JSON.parse(json.success) === false) {
+//           $loader.classList.add("none");
+//           $message.innerText = json.message;
+//           $message.classList.remove("none");
+//         }
+//         $loader.classList.add("none");
+//         $message.classList.remove("none");
+//         resetForm($form);
+//         setTimeout(() => {
+//           $message.classList.add("none");
+//           $submitButton.classList.remove("denegated");
+//           gsapAnimationsForm();
+//           $title.style.zIndex = 99;
+//           $title.addEventListener("click", event => {
+//             gsap.to($title, {
+//               opacity: 0,
+//               duration: 1.5,
+//               y: -100,
+//             });
+//             setTimeout(() => {
+//               window.location.reload();
+//             }, 1500);
+//           });
+//         }, 800);
+//       })
+//       .catch(err => {
+//         console.error(err);
+//         $loader.classList.add("none");
+//         $message.innerText = err.statusText || "Try again";
+//         $message.classList.remove("none");
+//       });
+//   }
+// });
 
 // Different way:
 // const formData = new FormData();
@@ -156,3 +156,63 @@ document.addEventListener("submit", event => {
 // formData.append('email', $form[1].value);
 // formData.append('message', $form[2].value);
 // formData.append('comment', $form[3].value || "no extra comment");
+
+document.addEventListener("submit", async event => {
+  event.preventDefault();
+  if (preSendTest()) {
+    try {
+      $loader.classList.remove("none");
+
+      const options = {
+        method: "POST",
+        body: new FormData(event.target),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const response = await fetch(
+        "https://formsubmit.co/ajax/matiasecharri@hotmail.com",
+        options
+      );
+
+      if (!response.ok) {
+        const errorResponse = await response.json();
+        throw new Error(errorResponse.message || "Something went wrong");
+      }
+
+      const json = await response.json();
+      console.log(json);
+
+      if (!JSON.parse(json.success) === true) {
+        $loader.classList.add("none");
+        $message.innerText = "Whoops";
+        $message.classList.remove("none");
+        throw new Error(json.message || "Verification needed");
+      }
+
+      $loader.classList.add("none");
+      $message.classList.remove("none");
+      setTimeout(() => {
+        $message.classList.add("none");
+        gsapAnimationsForm();
+        $title.style.zIndex = 99;
+        $title.addEventListener("click", event => {
+          gsap.to($title, {
+            opacity: 0,
+            duration: 1.5,
+            y: -100,
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+        });
+      }, 600);
+    } catch (error) {
+      console.error(error);
+      $loader.classList.add("none");
+      $message.innerText = "Something went wrong";
+      $message.classList.remove("none");
+    }
+  }
+});
