@@ -177,8 +177,7 @@ document.addEventListener("submit", async event => {
       );
 
       if (!response.ok) {
-        const errorResponse = await response.json();
-        throw new Error(errorResponse.message || "Something went wrong");
+        throw new Error("Something went wrong");
       }
 
       const json = await response.json();
