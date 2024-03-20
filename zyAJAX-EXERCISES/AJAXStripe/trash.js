@@ -15,7 +15,7 @@ export default function () {
     song.play();
     setInterval(() => {
       $btmImg.classList.toggle("saturate");
-    }, 7000);
+    }, 5000);
     console.log(song);
   };
 

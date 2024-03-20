@@ -6,7 +6,7 @@ const $foodContainer = d.querySelector("main");
 const $template = d.querySelector(".template-food").content;
 const $fragment = d.createDocumentFragment();
 
-const options = {
+const optionsSec = {
   headers: {
     Authorization: `Bearer ${KEYS.secret}`,
   },
@@ -28,11 +28,13 @@ const errorHandler = (res, res2) => {
   }
 };
 
+const renderProducts = array => {};
+
 const getData = async () => {
   try {
     const [res, res2] = await Promise.all([
-      fetch("https://api.stripe.com/v1/products", options),
-      fetch("https://api.stripe.com/v1/prices", options),
+      fetch("https://api.stripe.com/v1/products", optionsSec),
+      fetch("https://api.stripe.com/v1/prices", optionsSec),
     ]);
 
     errorHandler(res, res2);
