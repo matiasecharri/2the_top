@@ -8,6 +8,9 @@
 main {
   background-color: rgb(20, 21, 25);
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main img {
