@@ -4,47 +4,191 @@
   box-sizing: border-box;
 }
 
-main {
-  background-color: rgb(20, 21, 25);
-  height: 100vh;
+.err-message {
+  color: white;
+  width: 380px;
+  text-wrap: wrap;
 }
 
-main img {
-  position: absolute;
-  top: 11%;
-  right: -2.5%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
+main {
+  background-color: #181a20;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 80px;
+  padding: 40px;
+}
+
+.card-food img {
+  height: 250px;
+  width: 230px;
+  object-fit: cover;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  filter: saturate(0);
-  -webkit-filter: saturate(0);
-  width: 140px;
-  transition: 2s;
-  -webkit-transition: 2s;
-  -moz-transition: 2s;
-  -ms-transition: 2s;
-  -o-transition: 2s;
+  z-index: 9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  mask-image: linear-gradient(175deg, #2d3238 80%, transparent);
 }
 
-.saturate {
-  filter: saturate(1);
-  -webkit-filter: saturate(1);
-  transition: 2s;
-  -webkit-transition: 2s;
-  -moz-transition: 2s;
-  -ms-transition: 2s;
-  -o-transition: 2s;
-  transform: translate(-50%, -50%) scale(0.9);
-  -webkit-transform: translate(-50%, -50%) scale(0.9);
-  -moz-transform: translate(-50%, -50%) scale(0.9);
-  -ms-transform: translate(-50%, -50%) scale(0.9);
-  -o-transform: translate(-50%, -50%) scale(0.9);
+.card-food {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 20px 20px;
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+  position: relative;
+}
+
+.card-food-decoration {
+  width: 85%;
+  height: 50%;
+  background-color: #2d3238;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card-food_title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: -1px;
+  font-size: 1rem;
+  color: #e0e2e5;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.card-food_text-description {
+  color: #e0e2e5;
+  height: 90px;
+  overflow-y: auto;
+  width: 280px;
+  font-weight: 100;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: -0.5px;
+  text-wrap: balance;
+}
+
+figcaption {
+  z-index: 20;
+}
+
+.card-food_text-price {
+  color: #e0e2e5;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: -0.5px;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+/*LOADER*/
+.loader {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+}
+
+.loader div {
+  width: 8%;
+  height: 24%;
+  background: rgb(128, 128, 128);
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  animation: fade458 1s linear infinite;
+}
+
+@keyframes fade458 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}
+
+.loader .bar1 {
+  transform: rotate(0deg) translate(0, -130%);
+  animation-delay: 0s;
+}
+
+.loader .bar2 {
+  transform: rotate(30deg) translate(0, -130%);
+  animation-delay: -1.1s;
+}
+
+.loader .bar3 {
+  transform: rotate(60deg) translate(0, -130%);
+  animation-delay: -1s;
+}
+
+.loader .bar4 {
+  transform: rotate(90deg) translate(0, -130%);
+  animation-delay: -0.9s;
+}
+
+.loader .bar5 {
+  transform: rotate(120deg) translate(0, -130%);
+  animation-delay: -0.8s;
+}
+
+.loader .bar6 {
+  transform: rotate(150deg) translate(0, -130%);
+  animation-delay: -0.7s;
+}
+
+.loader .bar7 {
+  transform: rotate(180deg) translate(0, -130%);
+  animation-delay: -0.6s;
+}
+
+.loader .bar8 {
+  transform: rotate(210deg) translate(0, -130%);
+  animation-delay: -0.5s;
+}
+
+.loader .bar9 {
+  transform: rotate(240deg) translate(0, -130%);
+  animation-delay: -0.4s;
+}
+
+.loader .bar10 {
+  transform: rotate(270deg) translate(0, -130%);
+  animation-delay: -0.3s;
+}
+
+.loader .bar11 {
+  transform: rotate(300deg) translate(0, -130%);
+  animation-delay: -0.2s;
+}
+
+.loader .bar12 {
+  transform: rotate(330deg) translate(0, -130%);
+  animation-delay: -0.1s;
 }

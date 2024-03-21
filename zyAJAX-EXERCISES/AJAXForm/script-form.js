@@ -166,9 +166,9 @@ document.addEventListener("submit", async event => {
       const options = {
         method: "POST",
         body: new FormData(event.target),
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
+        headers: {
+          "Content-Type": "application/json",
+        },
       };
 
       const response = await fetch(
