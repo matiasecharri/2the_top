@@ -30,7 +30,7 @@ const moneyFormat = string => {
   return `$${string.slice(0, -2)}.${string.slice(-2)}`;
 };
 
-const productRendering = (arrayPrices, arrayProducts) => {
+const cardRender = (arrayPrices, arrayProducts) => {
   arrayPrices.forEach(price => {
     const productData = arrayProducts.filter(
       product => product.id === price.product
@@ -71,7 +71,7 @@ const getData = async () => {
     const prices = jsonPrices.data;
     const products = jsonProducts.data;
 
-    productRendering(prices, products);
+    cardRender(prices, products);
   } catch (err) {
     console.error(err);
     $main.innerHTML = `<p class="err-message"> ${err} </p>`;
