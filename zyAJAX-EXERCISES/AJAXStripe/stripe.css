@@ -10,6 +10,10 @@
   text-wrap: wrap;
 }
 
+body {
+  display: flex;
+}
+
 main {
   background-image: linear-gradient(to right, #969db0 10%, #7e87a3 80%);
   min-height: 100vh;
@@ -18,7 +22,8 @@ main {
   align-items: center;
   flex-wrap: wrap;
   gap: 80px;
-  padding: 40px;
+  padding: 80px;
+  width: 90%;
 }
 
 .card-food img {
@@ -164,6 +169,10 @@ figcaption {
 .loader .bar1 {
   transform: rotate(0deg) translate(0, -130%);
   animation-delay: 0s;
+  -webkit-transform: rotate(0deg) translate(0, -130%);
+  -moz-transform: rotate(0deg) translate(0, -130%);
+  -ms-transform: rotate(0deg) translate(0, -130%);
+  -o-transform: rotate(0deg) translate(0, -130%);
 }
 
 .loader .bar2 {
@@ -219,4 +228,30 @@ figcaption {
 .loader .bar12 {
   transform: rotate(330deg) translate(0, -130%);
   animation-delay: -0.1s;
+  -webkit-transform: rotate(330deg) translate(0, -130%);
+  -moz-transform: rotate(330deg) translate(0, -130%);
+  -ms-transform: rotate(330deg) translate(0, -130%);
+  -o-transform: rotate(330deg) translate(0, -130%);
+}
+
+aside {
+  width: 10%;
+  height: 100%;
+  right: 0;
+  background-color: #2d3238;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+h1 {
+  font-size: 5rem;
+  color: #1f2227;
+  font-weight: 900;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: vertical-lr;
 }
