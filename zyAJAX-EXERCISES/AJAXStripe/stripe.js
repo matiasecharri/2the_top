@@ -1,8 +1,7 @@
 import KEYS from "./stripekeys.js";
-import BATMAN from "./trash.js";
 
 const d = document;
-const $foodContainer = d.querySelector("main");
+const $main = d.querySelector("main");
 const $template = d.querySelector(".template-food").content;
 const $fragment = d.createDocumentFragment();
 
@@ -15,8 +14,8 @@ const optionsSec = {
 const errorHandler = (res, res2) => {
   if (!res.ok) {
     throw new Error(
-      `🚬 Something went wrong with the 🛍️PRODUCTS, ERROR: ${res.status} 
-           👉 More info: https://developer.mozilla.org/es/docs/Web/HTTP/Status`
+      `🚬 Something went wrong with the 🛍️PRODUCTS, ERROR: ${res.status}
+       👉 More info: https://developer.mozilla.org/es/docs/Web/HTTP/Status`
     );
   }
 
@@ -28,7 +27,9 @@ const errorHandler = (res, res2) => {
   }
 };
 
-const renderProducts = array => {};
+const moneyFormat = string => {
+  return `$${string.slice(0, -2)}.${string.slice(-2)}`;
+};
 
 const getData = async () => {
   try {
@@ -46,13 +47,31 @@ const getData = async () => {
 
     const products = dataProducts.data;
     const prices = dataPrices.data;
+    prices.forEach(price => {
+      const productData = products.filter(
+        product => product.id === price.product
+      );
+      console.log(productData);
+      $template.querySelector("img").src = productData[0].images[0];
+      $template.querySelector("img").alt = productData[0].name;
+      $template.querySelector("h3").innerText = productData[0].name;
+      $template.querySelector(".card-food_text-description").innerText =
+        productData[0].description;
+      $template.querySelector(
+        ".card-food_text-price"
+      ).innerText = `Price: ${moneyFormat(
+        price.unit_amount_decimal
+      )} ${price.currency.toUpperCase()}`;
 
-    console.log(products);
-    console.log(prices);
+      const $clone = d.importNode($template, true);
+      $fragment.appendChild($clone);
+    });
+
+    $main.appendChild($fragment);
   } catch (err) {
     console.error(err);
+    $main.innerHTML = `<p class="err-message"> ${err} </p>`;
   }
 };
 
 getData();
-BATMAN();

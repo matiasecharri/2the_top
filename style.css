@@ -60,6 +60,14 @@ button:hover {
   -webkit-animation: moveImage 10s ease-in-out infinite;
 }
 
+#oSpan {
+  transform: translateX(20px);
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  -o-transform: translateX(20px);
+}
+
 @keyframes moveImage {
   0% {
     transform: translateX(0);
