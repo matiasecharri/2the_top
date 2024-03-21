@@ -30,12 +30,13 @@ const moneyFormat = string => {
   return `$${string.slice(0, -2)}.${string.slice(-2)}`;
 };
 
-const cardRender = (arrayPrices, arrayProducts) => {
+const cardRender = (arrayPrices, arrayProducts, container) => {
   arrayPrices.forEach(price => {
     const productData = arrayProducts.filter(
       product => product.id === price.product
     );
     console.log(productData);
+
     $template.querySelector(".card-food").setAttribute("data-price", price.id);
     $template.querySelector("img").src = productData[0].images[0];
     $template.querySelector("img").alt = productData[0].name;
@@ -51,7 +52,8 @@ const cardRender = (arrayPrices, arrayProducts) => {
     const $clone = d.importNode($template, true);
     $fragment.appendChild($clone);
   });
-  $main.appendChild($fragment);
+  container.innerHTML = "";
+  container.appendChild($fragment);
 };
 
 const getData = async () => {
@@ -71,7 +73,7 @@ const getData = async () => {
     const prices = jsonPrices.data;
     const products = jsonProducts.data;
 
-    cardRender(prices, products);
+    cardRender(prices, products, $main);
   } catch (err) {
     console.error(err);
     $main.innerHTML = `<p class="err-message"> ${err} </p>`;
@@ -79,3 +81,23 @@ const getData = async () => {
 };
 
 getData();
+
+/*Easy to understand, low performance (10000+ items)
+
+prices.forEach(price => {
+  products.forEach(product => {
+    if (product.id === price.product) {
+      $template
+        .querySelector(".card-food")
+        .setAttribute("data-price", price.id);
+      $template.querySelector("img").src = product.images[0];
+      $template.querySelector("h3").innerText = product.name;
+      $template.querySelector(".card-food_text-description").innerText =
+        product.description;
+      let $clone = d.importNode($template, true);
+      $fragment.appendChild($clone);
+    }
+  });
+});
+
+$main.appendChild($fragment);*/
