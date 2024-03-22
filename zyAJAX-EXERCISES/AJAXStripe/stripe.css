@@ -255,3 +255,15 @@ h1 {
   -webkit-writing-mode: vertical-lr;
   -ms-writing-mode: vertical-lr;
 }
+
+
+.card-food_button{
+  border: none;
+  margin-top: 15px;
+  padding: 8px 20px;
+  background-color: rgb(33, 10, 10);
+  font-weight: bold;
+  color: rgb(217, 215, 215);
+  border-radius: 5px;
+  cursor: pointer;
+}
