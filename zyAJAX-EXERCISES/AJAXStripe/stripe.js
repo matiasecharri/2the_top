@@ -37,7 +37,7 @@ const cardRender = (arrayPrices, arrayProducts, container) => {
     );
     console.log(productData);
 
-    $template.querySelector(".card-food").setAttribute("data-price", price.id);
+    $template.querySelector(".card-food_button").setAttribute("data-price", price.id)
     $template.querySelector("img").src = productData[0].images[0];
     $template.querySelector("img").alt = productData[0].name;
     $template.querySelector("h3").innerText = productData[0].name;
@@ -55,6 +55,25 @@ const cardRender = (arrayPrices, arrayProducts, container) => {
   container.innerHTML = "";
   container.appendChild($fragment);
 };
+
+const paymentWithStripe = async (ref) => {
+  try {
+    const priceId = ref.target.getAttribute("data-price");
+    console.log(priceId);
+    const res = await Stripe(KEYS.public).redirectToCheckout({
+      lineItems: [{ price: priceId, quantity: 1 }],
+      mode: "subscription",
+      successUrl: "https://github.com/matiasecharri",
+      cancelUrl: "https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2017/10/03/bladerunner-2-trailer-watch-8bd914b0-744f-43fe-9904-2564e9d7e15c.jpg"
+    });
+    if (res.error) {
+      $main.insertAdjacentHTML("afterend", res.error.message);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 
 const getData = async () => {
   try {
@@ -74,6 +93,13 @@ const getData = async () => {
     const products = jsonProducts.data;
 
     cardRender(prices, products, $main);
+
+    d.addEventListener("click", event => {
+      if(event.target.classList.contains("card-food_button")){
+        paymentWithStripe(event)
+      }
+    })
+
   } catch (err) {
     console.error(err);
     $main.innerHTML = `<p class="err-message"> ${err} </p>`;
