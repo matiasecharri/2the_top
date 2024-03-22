@@ -101,11 +101,3 @@ prices.forEach(price => {
 });
 
 $main.appendChild($fragment);*/
-
-const numericos = [0, 2, 6, 8, 11, 8, 9, 15, 13];
-const numericos2 = [0, 7, 45, 15, 13, 9];
-
-numericos.forEach(numero => {
-  const numberArr = numericos2.filter(numero2 => numero2 === numero);
-  console.log(numberArr[0]);
-});
