@@ -8,6 +8,28 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-wrap: wrap;
+    min-height: 100vh;
     background-color: darkslategrey;
+    gap: 40px;
+    padding: 30px;
+}
+
+.card{
+    width: 200px;
+    border: 1px solid rgb(214, 214, 204);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_img{
+    width: 200px;
+    object-fit: contain;
+}
+
+.buttons {
+    position: absolute;
 }
