@@ -7,10 +7,11 @@ const $prevButton = document.getElementById("prev");
 
 let offset = 0;
 let limit;
-const offsetIncrease = 20;
+const pokemonsPerPage = 9;
+const offsetIncrease = 9;
 
 const renderCards = (array, container) => {
-  array.forEach((pokemon) => {
+  array.forEach(pokemon => {
     const $img = $templateCard.querySelector(".card_img");
     const $title = $templateCard.querySelector(".card_title");
     $img.src = pokemon.sprites.front_default;
@@ -29,7 +30,7 @@ const renderCards = (array, container) => {
 };
 
 const renderSkeletons = () => {
-  const skeletons = new Array(offsetIncrease).fill(undefined);
+  const skeletons = new Array(offsetIncrease).fill(null);
   const $skeletonsHTML = skeletons.map(
     () => `
   <div class="skeleton">
@@ -43,7 +44,7 @@ const renderSkeletons = () => {
   </div>
 `
   );
-  $main.innerHTML = $skeletonsHTML
+  $main.innerHTML = $skeletonsHTML;
 };
 
 const renderLoader = () => {
@@ -53,7 +54,7 @@ const renderLoader = () => {
 const getData = async () => {
   try {
     const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${offset}`
+      `https://pokeapi.co/api/v2/pokemon/?limit=${pokemonsPerPage}&offset=${offset}`
     );
     if (!res.ok) {
       throw new Error(`${res.status} First fetch failed 🚬`);
@@ -64,7 +65,7 @@ const getData = async () => {
     const pokemons = data.results;
     /*🚀 General fetch finished 🚀*/
 
-    const individualURL = pokemons.map(async (pokemon) => {
+    const individualURL = pokemons.map(async pokemon => {
       try {
         const url = await fetch(pokemon.url);
         if (!url.ok) {
@@ -86,7 +87,7 @@ const getData = async () => {
 
 getData();
 
-$nextButton.addEventListener("click", (event) => {
+$nextButton.addEventListener("click", event => {
   if (offset >= limit - offsetIncrease) {
     return;
   }
@@ -95,7 +96,7 @@ $nextButton.addEventListener("click", (event) => {
   getData();
 });
 
-$prevButton.addEventListener("click", (event) => {
+$prevButton.addEventListener("click", event => {
   if (offset === 0) {
     return;
   }
