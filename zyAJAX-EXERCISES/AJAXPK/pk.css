@@ -173,15 +173,21 @@ table {
 
 .bg-dark {
   background-color: #17191f;
-  border: 1px solid #17191f;
-  color: #d2ff01;
+  color: #5eff83;
   font-weight: 900;
 }
 
 .bg-green {
-  background-color: #d2ff01;
-  border: 1px solid #d2ff01;
-  color: #17191f;
+  background-color: #a8a5a5;
+  color: #ffffff;
+}
+
+.bg-light-grey {
+  background-color: #f6f3f3;
+}
+
+.bg-white {
+  background-color: #ffffff;
 }
 
 .align-left {
@@ -194,14 +200,16 @@ table {
 
 .no-border {
   border: none;
+  border: none;
 }
 
 th {
   border: none;
+  border: none;
 }
 
 .th1 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 900;
   line-height: 1.4rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -210,13 +218,16 @@ th {
 
 .th2 {
   font-size: 1.1rem;
-  line-height: 1.4rem;
+  line-height: 1.2rem;
+  padding: 8px;
 }
 
 td {
   font-size: 0.9rem;
   width: 900px;
-  height: 80px;
+  height: 10px;
+  border: none;
+  padding: 5px;
 }
 
 .small-size {
@@ -231,32 +242,37 @@ td {
   font-weight: 800;
 }
 
+.title-table {
+  color: white;
+  font-size: 1.5rem;
+}
+
 @media (width <= 665px) {
   .th1 {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 900;
-    line-height: 1.4rem;
+    line-height: 0.9rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
       sans-serif;
   }
 
   .th2 {
-    font-size: 0.62rem;
-    line-height: 1.4rem;
+    font-size: 0.52rem;
+    line-height: 0.8rem;
   }
 
   td {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     width: 900px;
     height: 60px;
   }
 
   .small-size {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
   }
 
   .price {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
