@@ -5,15 +5,19 @@ const $main = d.querySelector("main");
 const $nextButton = document.getElementById("next");
 const $prevButton = document.getElementById("prev");
 
+/* Is also possible and easier to use previous and next from the response*/
 let offset = 0;
 let limit;
-const pokemonsPerPage = 9;
-const offsetIncrease = 9;
+const pokemonsPerPage = 12;
+const offsetIncrease = 12;
 
 const renderCards = (array, container) => {
   array.forEach(pokemon => {
     const $img = $templateCard.querySelector(".card_img");
     const $title = $templateCard.querySelector(".card_title");
+    const $anchor = $templateCard.querySelector(".card_anchor");
+
+    $anchor.href = `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`;
     $img.src = pokemon.sprites.front_default;
     $img.alt = pokemon.name;
     $title.innerText = `${
@@ -59,9 +63,9 @@ const getData = async () => {
     if (!res.ok) {
       throw new Error(`${res.status} First fetch failed 🚬`);
     }
-
     const data = await res.json();
     limit = data.count;
+
     const pokemons = data.results;
     /*🚀 General fetch finished 🚀*/
 
@@ -85,8 +89,6 @@ const getData = async () => {
   }
 };
 
-getData();
-
 $nextButton.addEventListener("click", event => {
   if (offset >= limit - offsetIncrease) {
     return;
@@ -104,3 +106,5 @@ $prevButton.addEventListener("click", event => {
   offset -= offsetIncrease;
   getData();
 });
+
+getData();
