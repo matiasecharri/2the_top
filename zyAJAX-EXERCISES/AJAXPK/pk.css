@@ -286,3 +286,27 @@ td {
     font-size: 0.6rem !important;
   }
 }
+
+.main-2 {
+  height: 100vh;
+  width: 100%;
+  background-color: #d50d3f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.back-anchor {
+  margin-bottom: 20px;
+  background-color: #17191f;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: white;
+  font-weight: 800;
+}
