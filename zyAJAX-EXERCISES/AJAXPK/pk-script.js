@@ -16,8 +16,8 @@ const renderCards = (array, container) => {
     const $img = $templateCard.querySelector(".card_img");
     const $title = $templateCard.querySelector(".card_title");
     const $anchor = $templateCard.querySelector(".card_anchor");
+    $anchor.href = `/zyAJAX-EXERCISES/AJAXPK/details.html?pokemon=${pokemon.name}`;
 
-    $anchor.href = `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`;
     $img.src = pokemon.sprites.front_default;
     $img.alt = pokemon.name;
     $title.innerText = `${
