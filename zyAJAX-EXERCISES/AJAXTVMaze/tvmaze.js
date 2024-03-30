@@ -26,16 +26,18 @@ const printer = (array, container) => {
     renderNoResults();
     return;
   }
+
   array.forEach(show => {
     const $img = $templateCard.querySelector(".card_img");
     const $title = $templateCard.querySelector(".card_title");
     const $anchor = $templateCard.querySelector(".card_anchor");
-    $anchor.href = show.show.url;
+
     $title.innerText = show.show.name;
     $img.src = show.show.image
       ? show.show.image.medium
       : "https://manybackgrounds.com/images/hd/starry-night-sky-dark-aesthetic-ro6a8cda8gg0zoil.jpg";
     $img.alt = show.show.name;
+    $anchor.href = show.show.url ? show.show.url : "#";
     console.log(show.show);
 
     const $clone = d.importNode($templateCard, true);
