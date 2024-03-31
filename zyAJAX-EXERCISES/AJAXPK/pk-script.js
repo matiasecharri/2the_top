@@ -5,14 +5,19 @@ const $main = d.querySelector("main");
 const $nextButton = document.getElementById("next");
 const $prevButton = document.getElementById("prev");
 
+/* Is also possible and easier to use previous and next from the response*/
 let offset = 0;
 let limit;
-const offsetIncrease = 20;
+const pokemonsPerPage = 12;
+const offsetIncrease = 12;
 
 const renderCards = (array, container) => {
-  array.forEach((pokemon) => {
+  array.forEach(pokemon => {
     const $img = $templateCard.querySelector(".card_img");
     const $title = $templateCard.querySelector(".card_title");
+    const $anchor = $templateCard.querySelector(".card_anchor");
+    $anchor.href = `/zyAJAX-EXERCISES/AJAXPK/details.html?pokemon=${pokemon.name}`;
+
     $img.src = pokemon.sprites.front_default;
     $img.alt = pokemon.name;
     $title.innerText = `${
@@ -29,7 +34,7 @@ const renderCards = (array, container) => {
 };
 
 const renderSkeletons = () => {
-  const skeletons = new Array(offsetIncrease).fill(undefined);
+  const skeletons = new Array(offsetIncrease).fill(null);
   const $skeletonsHTML = skeletons.map(
     () => `
   <div class="skeleton">
@@ -43,7 +48,7 @@ const renderSkeletons = () => {
   </div>
 `
   );
-  $main.innerHTML = $skeletonsHTML
+  $main.innerHTML = $skeletonsHTML;
 };
 
 const renderLoader = () => {
@@ -53,18 +58,18 @@ const renderLoader = () => {
 const getData = async () => {
   try {
     const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${offset}`
+      `https://pokeapi.co/api/v2/pokemon/?limit=${pokemonsPerPage}&offset=${offset}`
     );
     if (!res.ok) {
       throw new Error(`${res.status} First fetch failed 🚬`);
     }
-
     const data = await res.json();
     limit = data.count;
+
     const pokemons = data.results;
     /*🚀 General fetch finished 🚀*/
 
-    const individualURL = pokemons.map(async (pokemon) => {
+    const individualURL = pokemons.map(async pokemon => {
       try {
         const url = await fetch(pokemon.url);
         if (!url.ok) {
@@ -84,9 +89,7 @@ const getData = async () => {
   }
 };
 
-getData();
-
-$nextButton.addEventListener("click", (event) => {
+$nextButton.addEventListener("click", event => {
   if (offset >= limit - offsetIncrease) {
     return;
   }
@@ -95,7 +98,7 @@ $nextButton.addEventListener("click", (event) => {
   getData();
 });
 
-$prevButton.addEventListener("click", (event) => {
+$prevButton.addEventListener("click", event => {
   if (offset === 0) {
     return;
   }
@@ -103,3 +106,5 @@ $prevButton.addEventListener("click", (event) => {
   offset -= offsetIncrease;
   getData();
 });
+
+getData();

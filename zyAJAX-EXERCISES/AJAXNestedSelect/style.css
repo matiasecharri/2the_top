@@ -1,0 +1,39 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+main {
+  background-color: rgb(223, 202, 181);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+main select {
+  width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 8px;
+  appearance: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cont-select {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+svg {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  pointer-events: none;
+}
