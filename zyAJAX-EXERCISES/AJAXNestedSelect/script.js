@@ -28,7 +28,7 @@ const getProvinces = async () => {
       }
       try {
         const responseTown = await fetch(
-          `https://apis.datos.gob.ar/georef/api/municipios?provincia=${provinceId}&campos=id,nombre&max=100`
+          `https://apis.datos.gob.ar/georef/api/municipios?provincia=${provinceId}&campos=id,nombre&max=1000`
         );
 
         if (!responseTown.ok) {
