@@ -1,5 +1,5 @@
-const NAME = `coolado`,
-  DOMAIN = `https://${NAME}.com`,
+const NAME = `onpurposemedia`,
+  DOMAIN = `https://${NAME}.ca`,
   SITE = `${DOMAIN}/wp-json`,
   API_WP = `${SITE}/wp/v2`,
   POSTS = `${API_WP}/posts?_embed&?per_page=100`,
@@ -24,11 +24,44 @@ const renderSiteInfo = data => {
 
 const renderSitePosts = data => {
   data.forEach(element => {
+    let categories = "";
+    let tags = "";
+
+    element._embedded["wp:term"][0].forEach(
+      element => (categories += `<li>${element.name}</li>`)
+    );
+    element._embedded["wp:term"][1].forEach(
+      element => (tags += `<li>${element.name}</li>`)
+    );
+
+    console.log(element);
     $template.querySelector(".post-title").innerHTML = element.title.rendered;
     $template.querySelector(".post-image").alt = element.title.rendered;
     $template.querySelector(".post-image").src =
       element._embedded["wp:featuredmedia"][0].source_url;
     $template.querySelector(".post-link").href = element.link;
+
+    $template.querySelector(
+      ".post-author"
+    ).innerHTML = `<img style="width: 30px; height: 30px; object-fit: contain" src="${
+      element._embedded.author[0].avatar_urls
+        ? element._embedded.author[0].avatar_urls[48]
+        : "https://pbs.twimg.com/profile_images/1012362101510160384/EjayQ10E_400x400.jpg"
+    }"><br> Blog author: ${element._embedded.author[0].name || "Mr. X"}
+    `;
+    $template.querySelector(".post-date").innerHTML = new Date(
+      element.date
+    ).toLocaleDateString();
+    $template.querySelector(".post-excerpt").innerHTML =
+      element.excerpt.rendered.replace("[&hellip;]", "...");
+    $template.querySelector(
+      ".post-categories"
+    ).innerHTML = `<p>Categories:</p> <ul>${categories}</ul>`;
+    $template.querySelector(".post-tags").innerHTML = `<p>Tags:</p> <ul>${
+      tags || "No-tag"
+    }</ul>`;
+    $template.querySelector(".post-content article").innerHTML =
+      element.content.rendered;
 
     const $clone = d.importNode($template, true);
     $fragment.appendChild($clone);
@@ -63,7 +96,6 @@ const getPosts = async () => {
 
     const data = await res.json();
     renderSitePosts(data);
-
     console.log(data);
   } catch (error) {
     console.warn(error);
