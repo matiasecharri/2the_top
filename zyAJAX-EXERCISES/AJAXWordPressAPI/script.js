@@ -22,6 +22,21 @@ const renderSiteInfo = data => {
     <p>Timezone: ${data.timezone_string || "Unknow"}</p>`;
 };
 
+const renderSitePosts = data => {
+  data.forEach(element => {
+    $template.querySelector(".post-title").innerHTML = element.title.rendered;
+    $template.querySelector(".post-image").alt = element.title.rendered;
+    $template.querySelector(".post-image").src =
+      element._embedded["wp:featuredmedia"][0].source_url;
+    $template.querySelector(".post-link").href = element.link;
+
+    const $clone = d.importNode($template, true);
+    $fragment.appendChild($clone);
+  });
+  $posts.appendChild($fragment);
+  $loader.style.display = "none";
+};
+
 const getSiteData = async () => {
   try {
     const res = await fetch(SITE);
@@ -47,18 +62,8 @@ const getPosts = async () => {
     }
 
     const data = await res.json();
-    data.forEach(element => {
-      $template.querySelector(".post-title").innerHTML = element.title.rendered;
-      $template.querySelector(".post-image").alt = element.title.rendered;
-      $template.querySelector(".post-image").src =
-        element._embedded["wp:featuredmedia"][0].source_url;
-      $template.querySelector(".post-link").href = element.link;
+    renderSitePosts(data);
 
-      const $clone = d.importNode($template, true);
-      $fragment.appendChild($clone);
-    });
-    $posts.appendChild($fragment);
-    $loader.style.display = "none";
     console.log(data);
   } catch (error) {
     console.warn(error);
