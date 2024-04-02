@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <article id="site" class="site"></article>
+        <section id="posts" class="post"></section>
+        <div id="loader-x">
+            <div class="loader">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="bar4"></div>
+                <div class="bar5"></div>
+                <div class="bar6"></div>
+                <div class="bar7"></div>
+                <div class="bar8"></div>
+                <div class="bar9"></div>
+                <div class="bar10"></div>
+                <div class="bar11"></div>
+                <div class="bar12"></div>
+            </div>
+        </div>
+        <template id="post-template">
+            <article class="post">
+                <img class="post-image">
+                <aside>
+                    <h2 class="post-title"></h2>
+                    <figure class="post-author"></figure>
+                    <small class="post-date"></small>
+                    <a class="post-link" target="_blank">Original Post</a>
+                    <p class="post-excerpt"></p>
+                    <div class="post-categories"></div>
+                    <div class="post-tags"></div>
+                    <details class="post-content">
+                        <summary>View full content</summary>
+                        <article></article>
+                    </details>
+                </aside>
+
+            </article>
+        </template>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
