@@ -23,6 +23,7 @@ main {
   flex-direction: column;
   gap: 20px;
   padding: 40px;
+  position: relative;
 }
 
 .post {
@@ -137,4 +138,28 @@ main {
   -moz-transform: rotate(330deg) translate(0, -130%);
   -ms-transform: rotate(330deg) translate(0, -130%);
   -o-transform: rotate(330deg) translate(0, -130%);
+}
+
+.loader-z {
+  display: none;
+  bottom: 5%;
+  left: 50%;
+  z-index: 999;
+  position: fixed;
+}
+
+.no-more-post {
+  text-align: center;
+  display: none;
+  bottom: 0.2%;
+  left: 50%;
+  z-index: 999;
+  position: absolute;
+  font-size: 1rem;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }

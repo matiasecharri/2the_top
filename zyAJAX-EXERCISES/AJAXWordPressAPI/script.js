@@ -1,17 +1,25 @@
-const NAME = `coolado`,
-  DOMAIN = `https://${NAME}.com`,
+const NAME = `gabevaldivia.com`,
+  DOMAIN = `https://${NAME}`,
   SITE = `${DOMAIN}/wp-json`,
   API_WP = `${SITE}/wp/v2`,
-  POSTS = `${API_WP}/posts?_embed&?per_page=100`,
-  PAGES = `${API_WP}/pages?_embed&?per_page=100`,
+  POSTS = `${API_WP}/posts?_embed`,
+  PAGES = `${API_WP}/pages?_embed`,
   CATEGORIES = `${API_WP}/categories`;
 
 const d = document,
+  w = window,
   $site = d.getElementById("site"),
   $posts = d.getElementById("posts"),
   $loader = d.getElementById("loader-x"),
+  $loader2 = d.getElementById("loader-z"),
+  $messageNoMorePost = d.querySelector(".no-more-post"),
   $template = d.getElementById("post-template").content,
-  $fragment = d.createDocumentFragment();
+  $fragment = d.createDocumentFragment(),
+  $main = d.querySelector("main");
+
+let currentPostPage = 1;
+let perPage = 3;
+let totalPosts = null;
 
 const renderSiteInfo = data => {
   $site.innerHTML = `<h1>Site: ${data.name}</h1>
@@ -88,10 +96,18 @@ const getSiteData = async () => {
 
 const getPosts = async () => {
   try {
-    const res = await fetch(POSTS);
+    const res = await fetch(
+      `${POSTS}&page=${currentPostPage}&per_page=${perPage}`
+    );
 
     if (!res.ok) {
       throw new Error(res.status);
+    }
+
+    if (totalPosts === null) {
+      const resTotalPosts = res.headers.get("X-WP-total");
+      totalPosts = resTotalPosts;
+      console.log(totalPosts);
     }
 
     const data = await res.json();
@@ -104,7 +120,27 @@ const getPosts = async () => {
   }
 };
 
+const infiniteScroll = () => {
+  w.addEventListener("scroll", async event => {
+    const { scrollTop, clientHeight, scrollHeight } = d.documentElement;
+    $loader2.style.display = "none";
+
+    if (currentPostPage * perPage >= totalPosts) {
+      $messageNoMorePost.style.display = "block";
+      return;
+    }
+
+    if (scrollTop + clientHeight >= scrollHeight) {
+      $loader2.style.display = "block";
+      console.log(currentPostPage * perPage);
+      currentPostPage++;
+      await getPosts();
+    }
+  });
+};
+
 d.addEventListener("DOMContentLoaded", event => {
   getSiteData();
   getPosts();
+  infiniteScroll();
 });
