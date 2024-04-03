@@ -1,4 +1,4 @@
-const NAME = `gabevaldivia.com`,
+const NAME = `greenthinkinc.com`,
   DOMAIN = `https://${NAME}`,
   SITE = `${DOMAIN}/wp-json`,
   API_WP = `${SITE}/wp/v2`,
