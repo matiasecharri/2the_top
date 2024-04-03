@@ -1,4 +1,4 @@
-const NAME = `greenthinkinc.com`,
+const NAME = `css-tricks.com`,
   DOMAIN = `https://${NAME}`,
   SITE = `${DOMAIN}/wp-json`,
   API_WP = `${SITE}/wp/v2`,
@@ -18,16 +18,15 @@ const d = document,
   $main = d.querySelector("main");
 
 let currentPostPage = 1;
-let perPage = 3;
+let perPage = 5;
 let totalPosts = null;
 
 const renderSiteInfo = data => {
-  $site.innerHTML = `<h1>Site: ${data.name}</h1>
-    <h2>
-    <a href="${data.home}" target="_blank">Original Site</a>
-    </h2>
-    <p>Description: ${data.description}</p>
-    <p>Timezone: ${data.timezone_string || "Unknow"}</p>`;
+  $site.innerHTML = `<h1>Site: ${data.name}</h1> 
+    <p style="width: 300px">Description: ${data.description}</p>
+    <p>Timezone: ${data.timezone_string || "Unknow"}</p>
+    <a href="${data.home}" target="_blank">Original Site</a>    
+    `;
 };
 
 const renderSitePosts = data => {
@@ -55,7 +54,7 @@ const renderSitePosts = data => {
       element._embedded.author[0].avatar_urls
         ? element._embedded.author[0].avatar_urls[48]
         : "https://pbs.twimg.com/profile_images/1012362101510160384/EjayQ10E_400x400.jpg"
-    }"><br> Blog author: ${element._embedded.author[0].name || "Mr. X"}
+    }"><br> Blog Author: ${element._embedded.author[0].name || "Mr. X"}
     `;
     $template.querySelector(".post-date").innerHTML = new Date(
       element.date
@@ -140,7 +139,7 @@ const infiniteScroll = () => {
 };
 
 d.addEventListener("DOMContentLoaded", event => {
-  getSiteData();
   getPosts();
+  getSiteData();
   infiniteScroll();
 });
