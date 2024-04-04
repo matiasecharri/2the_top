@@ -1,0 +1,85 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --color1: #0e100f;
+  --color2: rgb(99, 254, 3);
+  --color3: #fffce1;
+  --color4: #7c7c6f;
+  --color5: #ff8709;
+}
+
+::selection {
+  background-color: rgba(62, 62, 62, 0.281);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color1);
+}
+
+a {
+  color: var(--color2);
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+a:hover {
+  color: va;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  color: var(--color5);
+}
+
+h1 {
+  text-align: center;
+  color: var(--color3);
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-top: 20px;
+  font-size: 2rem;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+
+.gone {
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transform: translateX(-80px);
+  -webkit-transform: translateX(-80px);
+  -moz-transform: translateX(-80px);
+  -ms-transform: translateX(-80px);
+  -o-transform: translateX(-80px);
+  opacity: 0;
+}
+
+span {
+  font-weight: 800;
+  color: var(--color2);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  color: var(--color4);
+}

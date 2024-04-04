@@ -2,33 +2,76 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --font-geist: "Geist Sans", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  width: 10px;
+  background-color: #21202099;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(36, 36, 36);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: black;
 }
 
 body {
-  background-color: rgb(9, 6, 36);
+  font-family: var(--font-geist);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(19, 18, 18);
+  font-weight: 600;
+}
+
+a:hover {
+  color: rgb(6, 163, 181);
 }
 
 .site {
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left;
+  position: fixed;
+  left: 50px;
 }
 
 main {
   min-height: 100vh;
-  background-color: aliceblue;
+  background-color: rgb(255, 252, 238);
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 20px;
   padding: 40px;
+  position: relative;
+  color: rgb(55, 55, 55);
 }
 
 .post {
   width: 800px;
   margin-bottom: 80px;
+  padding: 10px;
 }
+
+h1 {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+  margin-bottom: 10px;
+  color: black;
+}
+
 .post img {
   width: 100%;
   height: 400px;
@@ -38,6 +81,15 @@ main {
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.post-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -1.8px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 /*LOADER*/
@@ -137,4 +189,45 @@ main {
   -moz-transform: rotate(330deg) translate(0, -130%);
   -ms-transform: rotate(330deg) translate(0, -130%);
   -o-transform: rotate(330deg) translate(0, -130%);
+}
+
+.loader-z {
+  display: none;
+  bottom: 5%;
+  left: 50%;
+  z-index: 999;
+  position: fixed;
+}
+
+.no-more-post {
+  text-align: center;
+  display: none;
+  bottom: 0.2%;
+  left: 50%;
+  z-index: 999;
+  position: absolute;
+  font-size: 1rem;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  font-family: monospace;
+}
+
+aside {
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.post-author {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: black;
+}
+
+h2 {
+  color: black;
 }
