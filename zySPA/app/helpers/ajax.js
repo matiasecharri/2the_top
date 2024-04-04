@@ -1,6 +1,6 @@
 export const ajax = async props => {
-  const { url, success } = props;
   try {
+    const { url, success } = props;
     const res = await fetch(url);
     if (!res.ok) {
       throw new Error(
