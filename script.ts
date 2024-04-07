@@ -56,7 +56,7 @@ class CarCreator {
 }
 
 const ferrari = new CarCreator("Ferrari", "Purosangue", 2023);
-ferrari.modify("Pene");
+ferrari.modify("Penna");
 console.log(ferrari.info());
 
 //INTERFACES
