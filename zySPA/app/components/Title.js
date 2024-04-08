@@ -1,10 +1,6 @@
 export const Title = props => {
-  const { url, siteName } = props;
-  const $title = document.createElement("h1");
-  if (url) {
-    $title.innerHTML = `<a href="${url}" class="title">HELLO <span>${siteName.toUpperCase()}!</span></a>`;
-  } else {
-    $title.innerHTML = `SEARCH <span>DOMAIN!</span>`;
-  }
-  return $title;
+  const { container, url, siteName } = props;
+  url
+    ? (container.innerHTML = `<a href="${url}" class="title" target="_blank" rel="noopener">HELLO <span>${siteName.toUpperCase()}!</span></a>`)
+    : (container.innerHTML = `SEARCH <span>DOMAIN!</span>`);
 };
