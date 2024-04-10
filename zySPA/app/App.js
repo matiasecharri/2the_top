@@ -25,8 +25,9 @@ export const App = async idContainer => {
       }
 
       $searchBar.value = "";
-      if(document.getElementById("search1")){
-        document.getElementById("search1").placeholder = "search in: loading..."
+      if (document.getElementById("search1")) {
+        document.getElementById("search1").placeholder =
+          "search in: loading...";
       }
 
       setTimeout(() => {
@@ -45,7 +46,11 @@ export const App = async idContainer => {
               $container.appendChild(Menu(dataSite.home));
             } else {
               document.querySelector(".menu").classList.remove("hidden");
-              document.getElementById("search1").placeholder = `search in: ${dataSite.home.toLowerCase().slice(8)}`
+              document.getElementById(
+                "search1"
+              ).placeholder = `search in: ${dataSite.home
+                .toLowerCase()
+                .slice(8)}`;
             }
             setTimeout(() => {
               document.querySelector(".menu").classList.remove("hidden");
@@ -74,3 +79,9 @@ export const App = async idContainer => {
   //   });
   // }, 1200);
 };
+
+
+
+
+
+

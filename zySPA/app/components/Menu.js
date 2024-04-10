@@ -1,4 +1,4 @@
-export const Menu = (props) => {
+export const Menu = (siteName) => {
     const $menu = document.createElement("section")
     $menu.classList.add("menu")
     $menu.classList.add("hidden")
