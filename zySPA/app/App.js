@@ -3,6 +3,8 @@ import { ajax } from "./helpers/ajax.js";
 import { Title } from "./components/Title.js";
 import { Loader } from "./components/loader.js";
 import { Menu } from "./components/Menu.js";
+import { Posts } from "./components/Posts.js";
+import { PostCard } from "./components/PostCard.js";
 let webUrl = "";
 const $searchBar = document.querySelector(".searchbar");
 
@@ -30,6 +32,8 @@ export const App = async idContainer => {
           "search in: loading...";
       }
 
+      $container.appendChild(Posts());
+
       setTimeout(() => {
         ajax({
           url: api(webUrl).SITE,
@@ -56,32 +60,21 @@ export const App = async idContainer => {
               document.querySelector(".menu").classList.remove("hidden");
               document.querySelector(".menu").classList.add("up");
             }, 500);
+
+            const $searchBarSite = document.getElementById("search1");
+            console.log($searchBarSite);
+            ajax({
+              url: api(webUrl).POSTS,
+              success: async dataPosts => {
+                console.log(dataPosts);
+                let html = "";
+                dataPosts.forEach(post => (html += PostCard(post)));
+                document.getElementById("posts").innerHTML = html;
+              },
+            });
           },
         });
       }, 1200);
     }
   });
-
-  // setTimeout(() => {
-  //   ajax({
-  //     url: api(webUrl).SITE,
-  //     success: async dataSite => {
-  //       $container.innerHTML = `<h1>HELLO <span>${dataSite.name.toUpperCase()}!</span></h1>`;
-  //       console.log(dataSite);
-  //     },
-  //   });
-
-  //   ajax({
-  //     url: api(webUrl).POSTS,
-  //     success: async dataPosts => {
-  //       console.log(dataPosts);
-  //     },
-  //   });
-  // }, 1200);
 };
-
-
-
-
-
-
