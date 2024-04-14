@@ -8,6 +8,8 @@ import { PostCard } from "./components/PostCard.js";
 let webUrl = "";
 const $searchBar = document.querySelector(".searchbar");
 
+
+
 export const App = async idContainer => {
   const $container = document.getElementById(idContainer);
   const $h1 = document.createElement("h1");
@@ -78,3 +80,5 @@ export const App = async idContainer => {
     }
   });
 };
+
+
