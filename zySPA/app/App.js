@@ -29,8 +29,12 @@ export const App = async idContainer => {
           "search in: loading...";
       }
 
+      const $postsElement = $container.querySelector(".post-section") || null
+      if ($postsElement) {
+        $container.removeChild($postsElement);
+      }
       $container.appendChild(Posts());
-
+     
       setTimeout(() => {
         Router({ webUrl, $h1, $container });
       }, 1200);
