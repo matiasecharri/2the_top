@@ -1,8 +1,9 @@
 import { api } from "../helpers/wp_api.js";
 import { ajax } from "../helpers/ajax.js";
 import { PostCard } from "./PostCard.js";
-import { Title } from "../components/Title.js";
-import { Menu } from "../components/Menu.js";
+import { Title } from "./Title.js";
+import { Menu } from "./Menu.js";
+import { Post } from "./Post.js";
 
 export const Router = props => {
   const { webUrl, $h1, $container } = props;
@@ -46,7 +47,7 @@ export const Router = props => {
     },
   });
 
-  window.addEventListener("hashchange", event => {
+  window.addEventListener("hashchange", async event => {
     const newHash = location.hash;
     console.log(newHash);
     if (!newHash || newHash === "#/") {
@@ -54,7 +55,15 @@ export const Router = props => {
     } else if (newHash.includes("#/search")) {
       $h1.innerHTML = "Search Now";
     } else {
-      document.getElementById("posts").innerHTML = "post content"
+      const postId = localStorage.getItem("wpPostId");
+      console.log(postId);
+      ajax({
+        url: `${api(webUrl).POST}/${postId}`,
+        success: async postInfo => {
+          console.log(postInfo);
+          document.getElementById("posts").innerHTML = Post(postInfo)
+        },
+      });
     }
   });
 };
