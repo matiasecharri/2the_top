@@ -11,7 +11,16 @@ export const ajax = async props => {
     const json = await res.json();
     success(json);
   } catch (error) {
-    document.querySelector("h1").innerHTML = error.message.toUpperCase();
-    console.warn(error);
+    document.querySelector(".loader-svg").classList.add("hidden");
+    document.querySelector(
+      "h1"
+    ).innerHTML = `${error.message.toUpperCase()} <span>TRY AGAIN!</span>`;
+    setTimeout(() => {
+    document.querySelector(".menu").classList.add("hidden")
+    },250)
+    document.querySelector(".domain-not-found").classList.add("visible");
+    setTimeout(() => {
+      document.querySelector(".domain-not-found").classList.remove("visible");
+    }, 3500);
   }
 };
