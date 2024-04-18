@@ -13,20 +13,23 @@
       <h2>Task List</h2>
       <ul id="todo-list"></ul>
     </form>
-    <script>        
+    <script>
       const d = document;
       /*Global state*/
       const state = {
         todoList: [],
       };
-    
+
       /*UI Template*/
       const template = () => {
         if (state.todoList.length < 1) {
           return `<p><em>List is empty!</em></p>`;
         }
 
-        const toDos = state.todoList.reverse().map(toDo => `<li>${toDo}</li>`).join("");
+        const toDos = state.todoList
+          .reverse()
+          .map(toDo => `<li>${toDo}</li>`)
+          .join("");
         return toDos;
       };
 
