@@ -1,5 +1,5 @@
 import { Title } from "./components/Title.js";
-import { Loader } from "./components/loader.js";
+import { Loader } from "../app/components/Loader.js";
 import { Posts } from "./components/Posts.js";
 import { Router } from "./components/Router.js";
 let webUrl = "";
@@ -29,12 +29,12 @@ export const App = async idContainer => {
           "search in: loading...";
       }
 
-      const $postsElement = $container.querySelector(".post-section") || null
+      const $postsElement = $container.querySelector(".post-section") || null;
       if ($postsElement) {
         $container.removeChild($postsElement);
       }
       $container.appendChild(Posts());
-     
+
       setTimeout(() => {
         Router({ webUrl, $h1, $container });
       }, 1200);
