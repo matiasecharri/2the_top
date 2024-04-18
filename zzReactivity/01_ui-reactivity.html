@@ -13,10 +13,50 @@
       <h2>Task List</h2>
       <ul id="todo-list"></ul>
     </form>
-    <script>
+    <script>        
+      const d = document;
+      /*Global state*/
       const state = {
         todoList: [],
       };
+    
+      /*UI Template*/
+      const template = () => {
+        if (state.todoList.length < 1) {
+          return `<p><em>List is empty!</em></p>`;
+        }
+
+        const toDos = state.todoList.reverse().map(toDo => `<li>${toDo}</li>`).join("");
+        return toDos;
+      };
+
+      /*UI Renderer*/
+      const render = () => {
+        const $list = d.getElementById("todo-list");
+        if (!$list) return;
+
+        console.log(state);
+        $list.innerHTML = template();
+      };
+
+      /*Actions*/
+      d.addEventListener("submit", e => {
+        if (!e.target.matches("#todo-form")) return false;
+        e.preventDefault();
+
+        const $item = d.getElementById("todo-item");
+        if ($item.value === "") return;
+
+        state.todoList.push($item.value);
+
+        render();
+
+        $item.value = "";
+        $item.focus();
+      });
+
+      /*First print*/
+      d.addEventListener("DOMContentLoaded", render);
     </script>
   </body>
 </html>
