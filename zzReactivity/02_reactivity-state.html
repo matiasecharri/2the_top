@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reactive State</title>
+  </head>
+  <body>
+    <h1>State UI</h1>
+    <form id="todo-form">
+      <input type="text" id="todo-item" placeholder="New task..." />
+      <input type="submit" value="ADD" />
+      <h2>Task List</h2>
+      <ul id="todo-list"></ul>
+    </form>
+    <script>
+      const d = document;
+      /*Global state*/
+      const state = {
+        todoList: [],
+        name: "Unknow",
+      };
+     
+      /*UI Template*/
+      const template = () => {
+        if (state.todoList.length < 1) {
+          return `<p><em>List is empty!</em></p>`;
+        }
+
+        const toDos = state.todoList.map(toDo => `<li>${toDo}</li>`).join("");
+        return toDos;
+      };
+
+      /*UI Renderer*/
+      const render = () => {
+        const $list = d.getElementById("todo-list");
+        if (!$list) return;
+
+        console.log(state);
+        $list.innerHTML = template();
+      };
+
+      /*Reactive state update*/
+      const setState = obj => {
+        for (let key in obj) {
+          if (state.hasOwnProperty(key)) {
+            state[key] = obj[key];
+          }
+        }
+
+        render();
+      };
+
+      /*First print*/
+      d.addEventListener("DOMContentLoaded", render);
+
+      /*Actions*/
+      d.addEventListener("submit", e => {
+        if (!e.target.matches("#todo-form")) return false;
+        e.preventDefault();
+
+        const $item = d.getElementById("todo-item");
+        if ($item.value === "") return;
+
+        state.todoList.push($item.value);
+
+        render();
+
+        $item.value = "";
+        $item.focus();
+      });
+
+      setState({ todoList: ["Task from set state", "Hello"], name: "Matias" });
+
+      /*The state is MUTABLE*/
+      const mutateObjectFail = [state.todoList]
+      mutateObjectFail.push("Mutation")
+      console.warn(state)
+    
+    </script>
+  </body>
+</html>
