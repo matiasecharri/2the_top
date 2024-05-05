@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reactive State</title>
+    <title>Immutable State</title>
   </head>
   <body>
-    <h1>State UI</h1>
+    <h1>Immutable State</h1>
     <form id="todo-form">
       <input type="text" id="todo-item" placeholder="New task..." />
       <input type="submit" value="ADD" />
@@ -65,15 +65,18 @@
         const $item = d.getElementById("todo-item");
         if ($item.value === "") return;
 
-        const data = getState();
-        data.todoList.push($item.value);
-        setState({ todoList: data.todoList });
+        const previousState = getState();
+        previousState.todoList.push($item.value);
+        setState({ todoList: previousState.todoList });
 
         $item.value = "";
         $item.focus();
       });
 
-      setState({ todoList: ["Task from set state", "Hello"], name: "Matias" });
+      setState({
+        todoList: ["Task from set state", "Hello", "This is immutable"],
+        name: "Matias",
+      });
 
       const items = getState();
       console.log(items);

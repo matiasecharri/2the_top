@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reactive State</title>
+    <title>State UI</title>
   </head>
   <body>
     <h1>State UI</h1>
@@ -20,7 +20,7 @@
         todoList: [],
         name: "Unknow",
       };
-     
+
       /*UI Template*/
       const template = () => {
         if (state.todoList.length < 1) {
@@ -73,10 +73,9 @@
       setState({ todoList: ["Task from set state", "Hello"], name: "Matias" });
 
       /*The state is MUTABLE*/
-      const mutateObjectFail = [state.todoList]
-      mutateObjectFail.push("Mutation")
-      console.warn(state)
-    
+      const mutateObjectFail = [state.todoList];
+      mutateObjectFail.push("Mutation");
+      console.warn(state);
     </script>
   </body>
 </html>
