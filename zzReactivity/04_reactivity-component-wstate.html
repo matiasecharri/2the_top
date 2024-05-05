@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Immutable State</title>
+    <title>Immutable State + Independent Component</title>
   </head>
   <body>
-    <h1>Immutable State</h1>
+    <h1>Immutable State + Independent Component</h1>
     <form id="todo-form">
       <input type="text" id="todo-item" placeholder="New task..." />
       <input type="submit" value="ADD" />
@@ -23,28 +23,36 @@
 
       /*UI Template*/
       const template = () => {
-        if (state.todoList.length < 1) {
+        if (template.localState.todoList.length < 1) {
           return `<p><em>List is empty!</em></p>`;
         }
 
-        const toDos = state.todoList.map(toDo => `<li>${toDo}</li>`).join("");
+        const toDos = template.localState.todoList
+          .map(toDo => `<li>${toDo}</li>`)
+          .join("");
         return toDos;
       };
+      /*Add state to the template which generates the component UI*/
+      template.localState = {
+        todoList: [],
+      };
+      console.dir(template);
 
       /*UI Renderer*/
       const render = () => {
+        console.log("Global State", state);
+        console.warn("Local State Form", template.localState);
         const $list = d.getElementById("todo-list");
         if (!$list) return;
 
-        console.log(state);
         $list.innerHTML = template();
       };
 
       /*Reactive state update*/
       const setState = obj => {
         for (let key in obj) {
-          if (state.hasOwnProperty(key)) {
-            state[key] = obj[key];
+          if (template.localState.hasOwnProperty(key)) {
+            template.localState[key] = obj[key];
           }
         }
 
@@ -52,7 +60,7 @@
       };
 
       /*New Photo of the State*/
-      const getState = () => JSON.parse(JSON.stringify(state));
+      const getState = () => JSON.parse(JSON.stringify(template.localState));
 
       /*First print*/
       d.addEventListener("DOMContentLoaded", render);
@@ -75,11 +83,8 @@
 
       setState({
         todoList: ["Task from set state", "Hello", "This is immutable"],
-        name: "Matias",
       });
 
-      const items = getState();
-      console.log(items);
       /*Immutable state fix*/
     </script>
   </body>

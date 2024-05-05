@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Components with State</title>
+  </head>
+  <body>
+    <h1>Library Components with State</h1>
+    <form id="todo-form">
+      <input type="text" id="todo-item" placeholder="New task..." />
+      <input type="submit" value="ADD" />
+      <h2>Task List</h2>
+      <ul id="todo-list"></ul>
+    </form>
+    <script src="./Component.js"></script>
+    <script>
+      const d = document;
+      const app = new Component({
+        el: "#todo-list",
+        data: {
+          todoList: [],
+        },
+        template: function (props) {
+          if (props.todoList.length < 1) {
+            return `<p><em>List is empty!</em></p>`;
+          }
+
+          const toDos = props.todoList.map(toDo => `<li>${toDo}</li>`).join("");
+          return toDos;
+        },
+      });
+
+      /*First print*/
+      d.addEventListener("DOMContentLoaded", app.render);
+
+      /*Actions*/
+      d.addEventListener("submit", e => {
+        if (!e.target.matches("#todo-form")) return false;
+        e.preventDefault();
+
+        const $item = d.getElementById("todo-item");
+        if ($item.value === "") return;
+
+        const lastState = app.getState();
+        lastState.todoList.push($item.value);
+        app.setState({ todoList: lastState.todoList });
+
+        $item.value = "";
+        $item.focus();
+      });
+
+      app.setState({
+        todoList: ["Task from set state", "Hello", "This is immutable"],
+      });
+    </script>
+  </body>
+</html>
