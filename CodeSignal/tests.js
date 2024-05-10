@@ -1,3 +1,5 @@
+import { mouseEffects } from "./mouse.js";
+
 /* The Journey Begins */
 const solution = (param1, param2) => param1 + param2;
 
@@ -10,14 +12,15 @@ const solution3 = string =>
 
 /* Edge of the Ocean */
 
-const $mouseFollower = document.querySelector(".mouse-follower");
+const solution4 = (inputArray) => {
+    let result = inputArray[0] * inputArray[1];
 
-document.addEventListener("mousemove", event => {
-    $mouseFollower.style.setProperty(
-        "transform",
-        `translate(${event.clientX}px, ${event.clientY}px)`
-    );
-    event.target.matches("a")
-        ? (($mouseFollower.style.fontSize = "2rem"), (($mouseFollower.textContent = "🔥")))
-        : (($mouseFollower.textContent === "🔥") ? (($mouseFollower.style.fontSize = "1rem"), (($mouseFollower.textContent = "⚫"))) : null)
-});
+    for (let i = 0; i < inputArray.length; i++) {
+        const product = inputArray[i] * inputArray[i + 1];
+        if (product > result) {
+            result = product;
+        }
+    }
+
+    return result;
+}
